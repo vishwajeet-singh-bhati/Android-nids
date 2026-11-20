@@ -10,6 +10,7 @@ An Android research prototype that monitors connection statistics and recent con
 
 | Goal | Guide |
 |---|---|
+| Read the complete beginner report / Overleaf source | [Project report](docs/project_report/README.md) |
 | Build and install on an owned test phone | [Android setup](docs/ANDROID_SETUP.md) |
 | Reproduce the paper and context experiments | [Reproducing results](docs/REPRODUCING_RESULTS.md) |
 | Obtain the required datasets yourself | [Dataset layout and provenance](docs/DATASETS.md) |

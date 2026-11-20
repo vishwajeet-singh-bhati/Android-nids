@@ -12,3 +12,7 @@ models/current/extractor/** -text
 *.pte -text
 *.pt -text
 *.jar -text
+
+# Keep the report source and validation hashes stable across platforms.
+*.tex text eol=lf
+docs/project_report/*.json text eol=lf

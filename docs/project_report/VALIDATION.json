@@ -1,0 +1,18 @@
+{
+  "validated_at_utc": "2026-11-20T22:50:17.709044+00:00",
+  "compiler": "Tectonic 0.17.0 (XeTeX-based; local validation)",
+  "compiler_exit_code": 0,
+  "pages": 63,
+  "main_file": "Android_NIDS_Project_Report.tex",
+  "source_sha256": "a8e8a06f024bbccdd811fd39b6ac4579dd3d2507d99f8ed90933f38f3306d015",
+  "evidence_sha256": "62f3b145d7b32cf23d3998bb4a388bd6b492f14c0e6bdf5a576bfdd371d290f1",
+  "self_contained": true,
+  "external_images_or_bibliography_required": false,
+  "overfull_boxes": 0,
+  "undefined_references_or_commands": false,
+  "layout_visually_reviewed": true,
+  "numerical_count_checks_passed": true,
+  "new_phone_heldout_predictions_opened_by_report": false,
+  "zip_created": false,
+  "overleaf_execution": "Not accessed; user compiles the provided portable LaTeX source on Overleaf."
+}
