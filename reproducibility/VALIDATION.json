@@ -58,5 +58,20 @@
     "No new phone deployment or live traffic was run for this repository preparation.",
     "Optional large Llama weights are not bundled; pinned upstream metadata and hashes were checked.",
     "Updated-data campaign is still training separately; its candidate performance is not claimed here."
-  ]
+  ],
+  "hosted_ci": {
+    "initial_run": 44820408638,
+    "initial_results": {
+      "dependency_install": "passed",
+      "model_label_contracts": "passed",
+      "paper_smoke": "passed",
+      "context_smoke": "failed: missing numba dependency",
+      "android_setup": "failed in SDK replacement action"
+    },
+    "corrections": [
+      "Pin measured numba 0.68.1 and llvmlite 0.50.0",
+      "Pin Ubuntu 24.04 and check its preinstalled API 34/build-tools 34 instead of replacing SDK tools"
+    ],
+    "follow_up_status": "pending"
+  }
 }

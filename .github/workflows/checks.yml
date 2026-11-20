@@ -4,7 +4,7 @@ permissions:
   contents: read
 jobs:
   python-contracts:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -17,7 +17,7 @@ jobs:
       - run: python reproduce.py paper --smoke
       - run: python reproduce.py context --smoke
   android-build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -27,6 +27,9 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
-      - uses: android-actions/setup-android@v3
-      - run: sdkmanager 'platforms;android-34' 'build-tools;34.0.0'
+      # Ubuntu 24.04 includes API 34/build-tools 34; avoid replacing its SDK tools.
+      - name: Check preinstalled Android SDK
+        run: |
+          test -f "$ANDROID_HOME/platforms/android-34/android.jar"
+          test -x "$ANDROID_HOME/build-tools/34.0.0/aapt2"
       - run: python reproduce.py build-android --sdk "$ANDROID_HOME"
