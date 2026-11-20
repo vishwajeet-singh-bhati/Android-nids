@@ -4,6 +4,7 @@ App 0.12.2-aligned-v2-test/code 36; selected preserved v2 `gate_s0` + `diagnosis
 
 - Input: raw float32 flow `[1,32]`, context `[1,115]`; normalization embedded.
 - Output: binary gate logit, then seven diagnosis logits only for flagged traffic.
+- Diagnosis label order: Benign, Bot, Brute Force, DDoS, DoS, Port Scan, Web Attack. Unclassified is a policy fallback, not an eighth trained class.
 - Parameters: 18,913 gate; 173,721 diagnosis. PTE sizes 82,820 B and 949,788 B.
 - Gate cutoff 0.7858333333333334; diagnosis cutoff 0.6. Positive-but-untyped remains Unclassified.
 - The exact PTEs/manifests/self-checks are in `android/app/src/main/assets/aligned_v2_*`. CPU reference TorchScript modules here accept the same two raw inputs; use CPU because their traced LSTM state allocation is CPU-bound.

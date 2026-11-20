@@ -1,5 +1,5 @@
 {
-  "validated_at_utc": "2026-11-20T21:25:46.413633+00:00",
+  "validated_at_utc": "2026-11-20T21:35:12.773844+00:00",
   "scope": "Isolated curated current-source checkout. Technical software validation, not new detection accuracy.",
   "checks": {
     "python_contracts": {
@@ -51,10 +51,13 @@
       "passed": true,
       "datasets_and_raw_phone_captures_included": false,
       "zip_created": false
+    },
+    "clean_git_checkout": {
+      "passed": true,
+      "model_label_contract_tests": 4
     }
   },
   "limitations": [
-    "Build used an existing dependency cache; a clean network dependency installation and GitHub-hosted CI were not yet verified.",
     "No new phone deployment or live traffic was run for this repository preparation.",
     "Optional large Llama weights are not bundled; pinned upstream metadata and hashes were checked.",
     "Updated-data campaign is still training separately; its candidate performance is not claimed here."
@@ -72,6 +75,12 @@
       "Pin measured numba 0.68.1 and llvmlite 0.50.0",
       "Pin Ubuntu 24.04 and check its preinstalled API 34/build-tools 34 instead of replacing SDK tools"
     ],
-    "follow_up_status": "pending"
+    "follow_up_status": "success",
+    "validated_source_commit": "b165b9f5dde09dfcb58d2c6acbd0646257242218",
+    "follow_up_run": 44821013266,
+    "python_contracts_and_paper_context_smokes": "success",
+    "android_build": "success",
+    "url": "https://github.com/vishwajeet-singh-bhati/Android-nids/actions/runs/44821013266",
+    "environment": "Ubuntu 24.04; fresh Python dependency installation and Android Gradle build; preinstalled API 34 SDK"
   }
 }

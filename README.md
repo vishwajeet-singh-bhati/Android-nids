@@ -1,5 +1,7 @@
 # Android NIDS
 
+[![Reproducibility checks](https://github.com/vishwajeet-singh-bhati/Android-nids/actions/workflows/checks.yml/badge.svg)](https://github.com/vishwajeet-singh-bhati/Android-nids/actions/workflows/checks.yml)
+
 An Android research prototype that monitors connection statistics and recent connection history, flags suspicious activity with a small local model, assigns an estimated attack family with a larger model, and produces local guidance with Llama or an evidence-based fallback.
 
 **Current app:** `0.12.2-aligned-v2-test` / code 36. **Current detector:** preserved v2 gate + diagnosis, 147 inputs. The additional real-phone-data training run is separate; see [current status](STATUS.md). This repository contains one current source snapshot with the baseline experiments needed to reproduce its comparisons.
