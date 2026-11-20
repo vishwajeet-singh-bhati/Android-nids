@@ -1,0 +1,144 @@
+{
+  "rows": 2827829,
+  "train_rows": 1979480,
+  "test_rows": 848349,
+  "row_alignment": "exact selected metadata fields match frozen original 32-feature rows",
+  "timestamp_precision_counts": {
+    "1.0": 529481,
+    "60.0": 2298348
+  },
+  "negative_durations_clamped_for_context_timing": 115,
+  "unique_endpoint_keys": 19129,
+  "source_members": [
+    {
+      "member": "TrafficLabelling /Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+      "raw_rows_including_blanks": 225745
+    },
+    {
+      "member": "TrafficLabelling /Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+      "raw_rows_including_blanks": 286467
+    },
+    {
+      "member": "TrafficLabelling /Friday-WorkingHours-Morning.pcap_ISCX.csv",
+      "raw_rows_including_blanks": 191033
+    },
+    {
+      "member": "TrafficLabelling /Monday-WorkingHours.pcap_ISCX.csv",
+      "raw_rows_including_blanks": 529918
+    },
+    {
+      "member": "TrafficLabelling /Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+      "raw_rows_including_blanks": 288602
+    },
+    {
+      "member": "TrafficLabelling /Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+      "raw_rows_including_blanks": 458968
+    },
+    {
+      "member": "TrafficLabelling /Tuesday-WorkingHours.pcap_ISCX.csv",
+      "raw_rows_including_blanks": 445909
+    },
+    {
+      "member": "TrafficLabelling /Wednesday-workingHours.pcap_ISCX.csv",
+      "raw_rows_including_blanks": 692703
+    }
+  ],
+  "contract": {
+    "version": 1,
+    "features": [
+      "120s_source_flows",
+      "120s_source_out_packets",
+      "120s_source_in_packets",
+      "120s_source_out_bytes",
+      "120s_source_in_bytes",
+      "120s_source_distinct_peers",
+      "120s_source_distinct_remote_ports",
+      "120s_source_distinct_local_ports",
+      "120s_source_no_peer_packets_fraction",
+      "120s_source_rst_fraction",
+      "120s_source_syn_fraction",
+      "120s_source_tcp_fraction",
+      "120s_source_udp_fraction",
+      "120s_destination_flows",
+      "120s_destination_out_packets",
+      "120s_destination_in_packets",
+      "120s_destination_out_bytes",
+      "120s_destination_in_bytes",
+      "120s_destination_distinct_peers",
+      "120s_destination_distinct_remote_ports",
+      "120s_destination_distinct_local_ports",
+      "120s_destination_no_peer_packets_fraction",
+      "120s_destination_rst_fraction",
+      "120s_destination_syn_fraction",
+      "120s_destination_tcp_fraction",
+      "120s_destination_udp_fraction",
+      "300s_source_flows",
+      "300s_source_out_packets",
+      "300s_source_in_packets",
+      "300s_source_out_bytes",
+      "300s_source_in_bytes",
+      "300s_source_distinct_peers",
+      "300s_source_distinct_remote_ports",
+      "300s_source_distinct_local_ports",
+      "300s_source_no_peer_packets_fraction",
+      "300s_source_rst_fraction",
+      "300s_source_syn_fraction",
+      "300s_source_tcp_fraction",
+      "300s_source_udp_fraction",
+      "300s_destination_flows",
+      "300s_destination_out_packets",
+      "300s_destination_in_packets",
+      "300s_destination_out_bytes",
+      "300s_destination_in_bytes",
+      "300s_destination_distinct_peers",
+      "300s_destination_distinct_remote_ports",
+      "300s_destination_distinct_local_ports",
+      "300s_destination_no_peer_packets_fraction",
+      "300s_destination_rst_fraction",
+      "300s_destination_syn_fraction",
+      "300s_destination_tcp_fraction",
+      "300s_destination_udp_fraction",
+      "900s_source_flows",
+      "900s_source_out_packets",
+      "900s_source_in_packets",
+      "900s_source_out_bytes",
+      "900s_source_in_bytes",
+      "900s_source_distinct_peers",
+      "900s_source_distinct_remote_ports",
+      "900s_source_distinct_local_ports",
+      "900s_source_no_peer_packets_fraction",
+      "900s_source_rst_fraction",
+      "900s_source_syn_fraction",
+      "900s_source_tcp_fraction",
+      "900s_source_udp_fraction",
+      "900s_destination_flows",
+      "900s_destination_out_packets",
+      "900s_destination_in_packets",
+      "900s_destination_out_bytes",
+      "900s_destination_in_bytes",
+      "900s_destination_distinct_peers",
+      "900s_destination_distinct_remote_ports",
+      "900s_destination_distinct_local_ports",
+      "900s_destination_no_peer_packets_fraction",
+      "900s_destination_rst_fraction",
+      "900s_destination_syn_fraction",
+      "900s_destination_tcp_fraction",
+      "900s_destination_udp_fraction"
+    ],
+    "windows_seconds": [
+      120.0,
+      300.0,
+      900.0
+    ],
+    "bank": "training rows only, without labels; held-out rows never update state",
+    "timing": "whole bank completion interval within window before query lower completion bound",
+    "baseline_ready_sha256": "c430593820a90285ffaff2f80258e23b929487f18981bd18df7909557484039e",
+    "train_row_ids_sha256": "fd9b0b9f345e97c6d33cc6065bcfa9cd8cea4e7384549d3c2995d2c79e2a28dd",
+    "test_row_ids_sha256": "3dbd6c478d49f2fb4d9d6a8e3780f987f42bf0efa6f78f97826028d1695bacd3",
+    "extractor_sha256": "6c3de1670eb2a2d90170154159b34d9d540bfc4aba1f2df62735035243b7865b"
+  },
+  "context_dimension": 78,
+  "train_with_history": 1978910,
+  "test_with_history": 848114,
+  "normalization_sha256": "6452b5608c3e67c40eb8b35e2ec39db638edaf71f8becc476496cf66a03e63bc"
+}

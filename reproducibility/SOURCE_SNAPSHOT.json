@@ -1,0 +1,205 @@
+{
+  "created_at_ist": "2026-11-21T02:53:28.288036+05:30",
+  "source_commit": "f04d7c02bb1e1aa91429d355b01d1c6fc2384f3c",
+  "scope": "Current source snapshot starting from paper reconstruction; source portability changes only in this isolated copy.",
+  "dataset_files_included": false,
+  "private_phone_logs_included": false,
+  "zip_created": false,
+  "portability_transformations": [
+    {
+      "file": "experiments/__init__.py",
+      "source_sha256": "0eb973183993ead71d044584f50895bc176a98e2d4577eab766751638aa7e75d",
+      "portable_sha256": "ac2b72a473675bae771d140ac7263b5aaffdc1a69dc89018aba618ddfeb4974c"
+    },
+    {
+      "file": "experiments/phone_alignment_v2/capture_audit.py",
+      "source_sha256": "482dfc5153f6e898de7d56c10cfd5a43a199826afc044fa190982060b87cd29b",
+      "portable_sha256": "513a9c7e09c3e5d5b01bb68507db3554d0fd1e0c8aa92a577b2832af73b84b4c"
+    },
+    {
+      "file": "experiments/phone_alignment_v2/common.py",
+      "source_sha256": "0f9a9b9db32ead920a1cbcfa77193a111a06e65489c2da7fd2a5a24dd31b82b2",
+      "portable_sha256": "2a88c347f3d58ffea752b248c92d91fc6e5c11df4a14f4973f586b2b270536b2"
+    },
+    {
+      "file": "experiments/phone_alignment_v2/data.py",
+      "source_sha256": "ef052a6fae57fed466e6b2918aa257084d34568830e8b5373bbdc80d57a833aa",
+      "portable_sha256": "b329adeac604ae3b1da3ff4faf436333cec02f56bd48d6201a537ef51695a9bb"
+    },
+    {
+      "file": "experiments/phone_alignment_v2/evaluate.py",
+      "source_sha256": "aa6a1edc33104a300ab2fb77f14d665d3b2902234c89979a33258d368e50f4c0",
+      "portable_sha256": "e8430a25dd0743ea9872cccdfafb96cd1e2e195378a008a9e3d5eb71aee49892"
+    },
+    {
+      "file": "experiments/phone_alignment_v2/export_mobile.py",
+      "source_sha256": "30e9ec7017e5c99c0420e12643cc9e72125f07299254eda0f6e6dc4e11e6491d",
+      "portable_sha256": "f7d1e335204c76d003e8a0bea7707ee13525e45e295cacebc834aa4a0fb12aee"
+    },
+    {
+      "file": "experiments/phone_alignment_v2/models.py",
+      "source_sha256": "48b57be50ac0cb517141c29b696c193ddf8d42af09ea783f100161088c0da330",
+      "portable_sha256": "65eea703356532f6307341924aeed71c836b4c53db6e9620ca2f29f259f99f21"
+    },
+    {
+      "file": "experiments/phone_alignment_v2/preflight.py",
+      "source_sha256": "3b7243dfc4dc6fc2a1dbf90ab0db53ac8d38a27b64d23f968110ac77e757dc46",
+      "portable_sha256": "135ed4d0dc294a4cc21c6ac8074286f6090eb758d3ada0c0bf5c7317ff086844"
+    },
+    {
+      "file": "experiments/phone_alignment_v2/prepare.py",
+      "source_sha256": "09caf166f7ec0f9b5f0d8ade571c082034df351c72af3eff5201b9ecde39ca1f",
+      "portable_sha256": "47316b74cafdc04f4ee447c90fbe57f1594e950a68db07f27cd62c35c3f43817"
+    },
+    {
+      "file": "experiments/phone_alignment_v2/runner.py",
+      "source_sha256": "373dd1ec69f7c43ad4974051efed710bfd304a6bcd11bd9ecb871c03007665e5",
+      "portable_sha256": "44572d33f0343484f14c7b9c49127c5a4fc197105298b61b60b34112c686ed59"
+    },
+    {
+      "file": "experiments/phone_alignment_v2/train.py",
+      "source_sha256": "94f0a2d1e3412803c31fb271ab4ca1ffa2cffddcf95fc60694dcac25ce0d5fec",
+      "portable_sha256": "c57ccd0fafdbe20c68689d0c265ecfaf3515355a442792e991c2c53d90ce59c9"
+    },
+    {
+      "file": "experiments/phone_capture_v1/augment.py",
+      "source_sha256": "9c5ec46eebfb8cf4056ea549ccb888569a4765213d43c158a0f98094850a4daf",
+      "portable_sha256": "a545b2640d3d3a00d2b5a929ec8103a8aea2487dc2dd5dc1e253dbe6886001c6"
+    },
+    {
+      "file": "experiments/phone_capture_v1/campaign.py",
+      "source_sha256": "6018ddf8e3b5fe35ca2ed9b5c087148b0fdc377807421ad8c09d3f074a8c0867",
+      "portable_sha256": "d4a62227a18324bfda6430e59fdd00ce2c744efb5e41903ab59eadcb7231e98a"
+    },
+    {
+      "file": "experiments/phone_capture_v1/collect.py",
+      "source_sha256": "e900e792d54f44a227b0f23f0a0968f6c61708e563fb56beeaf2b59eb41ceaf9",
+      "portable_sha256": "d078c17dcb9c650565fc981dc70c1a1756ed1f19441b7c72fcc024bf56b213e1"
+    },
+    {
+      "file": "experiments/phone_capture_v1/evaluate_augmented.py",
+      "source_sha256": "e8042cb0fe38d58ff698e9678943acaa1abd44c47b62c91fe118c5d70db1bf14",
+      "portable_sha256": "e860f8864c3d4c26b38e0a1c1c9fd3935b6ebf89c2dd61f80fc89ffde03c7196"
+    },
+    {
+      "file": "experiments/phone_capture_v1/inventory.py",
+      "source_sha256": "a4dafcfe6d87ca7468ebbac0d61f7b09be7378e5db2eca18bcd9daeb64a1352f",
+      "portable_sha256": "49bc0e3f205f6465c1b12e822828ec6f0b4fd945b391e446250139b290c9953b"
+    },
+    {
+      "file": "experiments/phone_capture_v1/quality.py",
+      "source_sha256": "a6cd167a17c2160df6f09277ee6b5976ff518fec3ef0112f756b069ce0489d9a",
+      "portable_sha256": "1c070f66cef9ea2978bdf683612c6ad5b67edfa2cc3aeb216ca35dc2f8137ba5"
+    },
+    {
+      "file": "experiments/phone_capture_v1/smoke.py",
+      "source_sha256": "0880024c61ab65ea7209eda7fcae63034f5d00067d9495bd6f0cd3d1f185c6ef",
+      "portable_sha256": "2e0b275916eb0ee818c2d000fa938a01ffe4efdba02f3a829a05fa0747474736"
+    },
+    {
+      "file": "experiments/phone_capture_v1/train_augmented.py",
+      "source_sha256": "0f9a00ab055fcf808a251629e853268381e813298823bdf807eb15d5390ce61d",
+      "portable_sha256": "359922e2bc9896db9259647e2089180898bb71ab76241f6fdb8a5d3de764aa91"
+    },
+    {
+      "file": "experiments/phone_capture_v1/train_campaign.py",
+      "source_sha256": "fee1da5b84334e3e23835cf8fe4cf8b718f03cfad7fdfeb0a86cab4c4a93d407",
+      "portable_sha256": "952c495da633798dcd6f7dfa3c1920ee6b877503d9b9548595eb0a095d61c145"
+    },
+    {
+      "file": "experiments/phone_capture_v1/training_smoke.py",
+      "source_sha256": "b865a3624f60297743156cf548e95c5bd83b32e39c7523d58cf1d345ed112dc4",
+      "portable_sha256": "cebf575fd8cd2de0f945b8c5e16451175b12c7edcb436554ddd68e7e36fd174c"
+    },
+    {
+      "file": "experiments/tsanet_context/context_features.py",
+      "source_sha256": "6c3de1670eb2a2d90170154159b34d9d540bfc4aba1f2df62735035243b7865b",
+      "portable_sha256": "c9d8b58dddf4b03255ff517c899b3c575fc344523a83fa64dc85fb03c5c7eeda"
+    },
+    {
+      "file": "experiments/tsanet_context/context_model.py",
+      "source_sha256": "92022c41effc12840a05ac13fb829ed2c25598e1580b2d819e719db9c82003d7",
+      "portable_sha256": "ae4e3b8440500372547af42d1d3a626cc4f247a8c8aaf57e7292cf06a3d8f2d0"
+    },
+    {
+      "file": "experiments/tsanet_context/experiment.py",
+      "source_sha256": "38e1e82fd6f66a00ca6524b4b6424d74cddc320d7c7250db2f937028fc49337b",
+      "portable_sha256": "d70b22b17b07f70e60a7435ef1a25c85999c69f5900df174908d77f32f23172e"
+    },
+    {
+      "file": "experiments/tsanet_context/run.py",
+      "source_sha256": "b14b454e373f10701b916054af416b6fc94e643cb78000c33258edd82168e2a6",
+      "portable_sha256": "4b457d88af783cfdbaa4feeee5f6ae77be383a29a8f899537358c70ac82768e1"
+    },
+    {
+      "file": "experiments/tsanet_context/test_pipeline.py",
+      "source_sha256": "34ae619fdea7e626628c3d75303133a840882c8e68ec5703e083ef53744f042d",
+      "portable_sha256": "c85f5a026d641c83272a0a7eae4e8b19ab7a7250c21f02e11bdc97d6270943e4"
+    },
+    {
+      "file": "experiments/tsanet_paper/data.py",
+      "source_sha256": "6e00d94ff2acacf8e0d64c9f3f6ef726ebadee91de442e2289eb48f3f6eacc08",
+      "portable_sha256": "17f722a979441ff8c275aa47c2356d4884ba54c48c2563a2cf8f112b50508607"
+    },
+    {
+      "file": "experiments/tsanet_paper/experiment.py",
+      "source_sha256": "8468e4fe3115a5652738471c7174582690d0c9c1f1ac4e3a3c6dad03e6d1634d",
+      "portable_sha256": "c5fdfff34404e9fc255da109b17d60ea1bd526b1f2a93809f56ab355e995ae5e"
+    },
+    {
+      "file": "experiments/tsanet_paper/model.py",
+      "source_sha256": "0d26c01ad05f7048d77cb3437c73c8297eb66d36a0da586feb03166b75d02e79",
+      "portable_sha256": "b12f44aad699b1f652a83a7bf686323c866141097f8dd33b51f4727990097cd1"
+    },
+    {
+      "file": "experiments/tsanet_paper/run.py",
+      "source_sha256": "249fe582137ae3e464168174108142bcf41966b79bd7ddd9f406872dd8c64958",
+      "portable_sha256": "8fba71d4829db45feeb59530b49b53e523825d81742379b9e16f4f37f6a46c03"
+    },
+    {
+      "file": "experiments/tsanet_paper/test_pipeline.py",
+      "source_sha256": "9ee6469f11746860f6369c074b8f75c69e7f9d05be15c5ae740214e7a2d63f22",
+      "portable_sha256": "c3fb11a5fe25ed5b215eb807e8c925df567e8e1ab7ee33b0d1924c3a63217559"
+    },
+    {
+      "file": "reproducibility/packet_reader.py",
+      "source_sha256": "11c975ba2330ae7deb7aaef99627e7fcc411e360a1bae39eb0a61e8b6243fb67",
+      "portable_sha256": "6610cf53652020e895531c33172d590de9d6a162e84fffda350929823babb5ef"
+    },
+    {
+      "file": "tests/test_submission.py",
+      "source_sha256": "ecca35c19c7b9d00109227b96cbbf50d9dc97e6e18d85a4480daf38c3d7a5e43",
+      "portable_sha256": "ca1ce3d0eb0970cfa4a5bee0ad6d089670f5a4da805e78187c29c028fcdcd01c"
+    },
+    {
+      "file": "validation/__init__.py",
+      "source_sha256": "76735a3baba6f75b94b33c2ba251b75e710a6abd43c393d3240d7633781d22ce",
+      "portable_sha256": "89291b8224eb1a98ec6263a3e99c920b580f47e58eca97f81667a8f376120e34"
+    },
+    {
+      "file": "validation/audit_cicids_multiday_alignment.py",
+      "source_sha256": "9dea56732e14b253fd3995a2aebd37c696d33b58d3a6d0eb13b7819544e5ab00",
+      "portable_sha256": "79ba142e919407cad782ff8652115e407ce93e7330b0d2758886434ffb158ab9"
+    },
+    {
+      "file": "validation/controlled_phone_test.py",
+      "source_sha256": "717e5a119b864232fd2aaad42538de81079d4a36fe6ace490e925852c880d63e",
+      "portable_sha256": "df576fc43bc17907c73826b548572e3fb2e344a7b77426449a61014a93c99523"
+    },
+    {
+      "file": "validation/manual_test_correlation.py",
+      "source_sha256": "f50dccec9055286132d23e02fcf56af946eedba88ae722a2884aa9c5b2073c1c",
+      "portable_sha256": "2411e5f63189fd1092866f5afdd9e4a8ba433fceb70cd397f90b2dd62875c9d7"
+    },
+    {
+      "file": "validation/manual_test_log.py",
+      "source_sha256": "952335986fb041840a8e8c9f606596042b24e9855de7e6355429e2e8ae41a62e",
+      "portable_sha256": "19a04d485a06237fa721b0fd37730bf7829a5c1c24470f8ee8f97b20a572d0ab"
+    },
+    {
+      "file": "validation/run_v2_remaining_suite.py",
+      "source_sha256": "93e90cfdec8de67730a9e9e094eeaeea7784f320f52f8a3b47ce1a47f5172cc7",
+      "portable_sha256": "255cee146eab52fb1e8f3327435e5f279f3e6d2ca13bfa8cab9756f268dcf399"
+    }
+  ]
+}

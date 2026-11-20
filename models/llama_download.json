@@ -1,0 +1,17 @@
+{
+  "repository": "executorch-community/Llama-3.2-1B-Instruct-SpinQuant_INT4_EO8-ET",
+  "revision": "911221e0f49d3354cbd4697a9c09feee25cadec7",
+  "license": "Llama3.2 community license; see LLAMA_LICENSE.txt and LLAMA_USE_POLICY.md",
+  "files": [
+    {
+      "name": "Llama-3.2-1B-Instruct-SpinQuant_INT4_EO8.pte",
+      "bytes": 1135951488,
+      "sha256": "8715cdba9e91f6bede00cc5f2d6b12397b95225da5630c4972a8da03001cda3b"
+    },
+    {
+      "name": "tokenizer.model",
+      "bytes": 2183982,
+      "sha256": "82e9d31979e92ab929cd544440f129d9ecd797b69e327f80f17e1c50d5551b55"
+    }
+  ]
+}

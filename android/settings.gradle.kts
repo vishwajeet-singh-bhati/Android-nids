@@ -1,0 +1,12 @@
+pluginManagement {
+    repositories { google(); mavenCentral(); gradlePluginPortal() }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories { google(); mavenCentral() }
+}
+rootProject.name = "android-nids"
+include(":core", ":app")
+include(":trafficlab")
+include(":contractcheck")
+include(":datasetlab", ":datasettools")

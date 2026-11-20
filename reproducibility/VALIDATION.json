@@ -1,0 +1,62 @@
+{
+  "validated_at_utc": "2026-11-20T21:25:46.413633+00:00",
+  "scope": "Isolated curated current-source checkout. Technical software validation, not new detection accuracy.",
+  "checks": {
+    "python_contracts": {
+      "passed": true,
+      "tests": 4
+    },
+    "paper_cpu_smoke": {
+      "passed": true,
+      "fixture_only": true,
+      "fresh_run": true
+    },
+    "context_cpu_smoke": {
+      "passed": true,
+      "fixture_only": true,
+      "fresh_run": true
+    },
+    "aligned_training_evaluation_torchscript_executorch_smoke": {
+      "passed": true,
+      "fixture_only": true
+    },
+    "kotlin_aligned_contract": {
+      "passed": true
+    },
+    "kotlin_gate_policy": {
+      "passed": true
+    },
+    "kotlin_capture_delivery_clock": {
+      "passed": true
+    },
+    "android_assembly": {
+      "passed": true,
+      "modules": [
+        "app",
+        "app AndroidTest",
+        "trafficlab",
+        "datasetlab",
+        "datasettools",
+        "contractcheck"
+      ],
+      "offline_cached_dependencies": true
+    },
+    "windows_cli_doctor_and_no_traffic_previews": {
+      "passed": true
+    },
+    "direct_training_child_help": {
+      "passed": true
+    },
+    "source_and_file_audit": {
+      "passed": true,
+      "datasets_and_raw_phone_captures_included": false,
+      "zip_created": false
+    }
+  },
+  "limitations": [
+    "Build used an existing dependency cache; a clean network dependency installation and GitHub-hosted CI were not yet verified.",
+    "No new phone deployment or live traffic was run for this repository preparation.",
+    "Optional large Llama weights are not bundled; pinned upstream metadata and hashes were checked.",
+    "Updated-data campaign is still training separately; its candidate performance is not claimed here."
+  ]
+}

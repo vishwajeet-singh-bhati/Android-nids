@@ -1,0 +1,14 @@
+* text=auto whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.py text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
+*.yml text eol=lf
+*.bat text eol=crlf
+android/gradlew text eol=lf
+# Preserve attested model/contract/core bytes through Windows and Linux checkouts.
+android/app/src/main/assets/** -text
+android/core/src/main/kotlin/** -text
+models/current/extractor/** -text
+*.pte -text
+*.pt -text
+*.jar -text

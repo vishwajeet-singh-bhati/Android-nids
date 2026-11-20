@@ -1,0 +1,78 @@
+{
+  "gate": {
+    "schema": "phone-aligned-v2",
+    "kind": "gate",
+    "job": "gate_s0",
+    "checkpoint_sha256": "777c9a8a5ccd487089af20bb709a89a34e3d0e30e25a669208c28d7a552f7c27",
+    "model_sha256": "99e5f3b62b1f6940cd2fb40d05c2edb14b3a7fb83c3bc1f989e63879202ca529",
+    "parameters": 18913,
+    "bytes": 82820,
+    "input_shapes": [
+      [
+        1,
+        32
+      ],
+      [
+        1,
+        115
+      ]
+    ],
+    "feature_contract_sha256": "0a6f7c956c3fe8cc8329395c62098eefd735d9f49b82176ebcce42c7f609993c",
+    "normalization_embedded": true,
+    "parity_rows": 960,
+    "all_source_classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "maximum_portable_error": 0.0,
+    "maximum_pte_error": 0.0001220703125,
+    "decision_flips": 0,
+    "gate_threshold": 0.7858333333333334,
+    "type_score_cutoff": 0.6,
+    "diagnosis_never_vetoes_gate": true,
+    "device_native_verification_pending": true
+  },
+  "diagnosis": {
+    "schema": "phone-aligned-v2",
+    "kind": "diagnosis",
+    "job": "diagnosis64_s1",
+    "checkpoint_sha256": "6879b3ffc84e74b72b4603271d24d986e064288601137916488e43056bf61dc9",
+    "model_sha256": "585f43e8bf4299f755036e9ccbe55121fce14d8ff59a67fcfdcfb4ba8af951dd",
+    "parameters": 173721,
+    "bytes": 949788,
+    "input_shapes": [
+      [
+        1,
+        32
+      ],
+      [
+        1,
+        115
+      ]
+    ],
+    "feature_contract_sha256": "0a6f7c956c3fe8cc8329395c62098eefd735d9f49b82176ebcce42c7f609993c",
+    "normalization_embedded": true,
+    "parity_rows": 960,
+    "all_source_classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "maximum_portable_error": 0.00048828125,
+    "maximum_pte_error": 0.001953125,
+    "decision_flips": 0,
+    "gate_threshold": 0.7858333333333334,
+    "type_score_cutoff": 0.6,
+    "diagnosis_never_vetoes_gate": true,
+    "device_native_verification_pending": true
+  }
+}

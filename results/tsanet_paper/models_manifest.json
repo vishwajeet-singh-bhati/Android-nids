@@ -1,0 +1,115 @@
+{
+  "scope": "Frozen paper-based benchmark exports, not deployed phone models",
+  "input": {
+    "shape": [
+      "batch",
+      32
+    ],
+    "dtype": "float32",
+    "features": [
+      "Flow Duration",
+      "Total Fwd Packets",
+      "Total Backward Packets",
+      "Total Length of Fwd Packets",
+      "Total Length of Bwd Packets",
+      "Fwd Packet Length Max",
+      "Fwd Packet Length Min",
+      "Fwd Packet Length Mean",
+      "Fwd Packet Length Std",
+      "Bwd Packet Length Max",
+      "Bwd Packet Length Min",
+      "Bwd Packet Length Mean",
+      "Bwd Packet Length Std",
+      "Flow Bytes/s",
+      "Flow Packets/s",
+      "Flow IAT Mean",
+      "Flow IAT Std",
+      "Flow IAT Max",
+      "Flow IAT Min",
+      "Fwd IAT Total",
+      "Fwd IAT Mean",
+      "Fwd IAT Std",
+      "Fwd IAT Max",
+      "Fwd IAT Min",
+      "Bwd IAT Total",
+      "Bwd IAT Mean",
+      "Bwd IAT Std",
+      "Bwd IAT Max",
+      "Bwd IAT Min",
+      "SYN Flag Count",
+      "RST Flag Count",
+      "ACK Flag Count"
+    ],
+    "normalization_embedded": true,
+    "internal_network_shape": [
+      "batch",
+      32,
+      1
+    ]
+  },
+  "output": {
+    "shape": [
+      "batch",
+      7
+    ],
+    "kind": "raw multiclass logits",
+    "classes": [
+      "Benign",
+      "Bot",
+      "Brute Force",
+      "DDoS",
+      "DoS",
+      "Port Scan",
+      "Web Attack"
+    ],
+    "binary_decision": "argmax(logits) != 0; no calibrated binary threshold"
+  },
+  "models": {
+    "baseline": {
+      "file": "runs/tsanet_paper_70_30/baseline.pt",
+      "sha256": "525e3cffd23334c50fe5edc5682e217f3fad569d570a692884fea3a589cee8d1",
+      "parameters": 42761,
+      "precision": "FP32",
+      "sparsity": {
+        "epochs": 10,
+        "checkpoint_sha256": "171a87a35d4a1f148ab0b8c9e4474079c39baf9a1153797d8724fa6badf99947",
+        "parameter_count": 42761,
+        "zero_parameters": 0,
+        "masked_matrix_weights": 0,
+        "matrix_weights": 41696,
+        "best_training_loss_checkpoint_is_not_used_for_test": true
+      }
+    },
+    "pruned_30": {
+      "file": "runs/tsanet_paper_70_30/pruned_30.pt",
+      "sha256": "e33b966155d3aff7cfe22ab71144b69d72bb3d30699889e1bff0772c61ddd342",
+      "parameters": 42761,
+      "precision": "FP32",
+      "sparsity": {
+        "epochs": 5,
+        "checkpoint_sha256": "46782e3b6142f5548390f08384843171dae6ba130a084286bd66ed5464c51ac2",
+        "parameter_count": 42761,
+        "zero_parameters": 12508,
+        "masked_matrix_weights": 12508,
+        "matrix_weights": 41696,
+        "best_training_loss_checkpoint_is_not_used_for_test": true
+      }
+    },
+    "pruned_40": {
+      "file": "runs/tsanet_paper_70_30/pruned_40.pt",
+      "sha256": "75a0c87ec1b4ac13aab5d6a330291e4647301b7991999f397fe440da1495bbda",
+      "parameters": 42761,
+      "precision": "FP32",
+      "sparsity": {
+        "epochs": 5,
+        "checkpoint_sha256": "3d2cd4472c3b60653377b42473d4ccd03cabf73142949b10abefca353c02c079",
+        "parameter_count": 42761,
+        "zero_parameters": 16678,
+        "masked_matrix_weights": 16678,
+        "matrix_weights": 41696,
+        "best_training_loss_checkpoint_is_not_used_for_test": true
+      }
+    }
+  },
+  "production_ready": false
+}

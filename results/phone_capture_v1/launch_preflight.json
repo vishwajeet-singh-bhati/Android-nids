@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "pilot_requests": 56,
+  "pilot_compared_values": 8232,
+  "maximum_feature_error": 0,
+  "capture_smoke_passed": true,
+  "training_and_evaluation_smoke_passed": true,
+  "installed_dataset_apk_verified": true,
+  "fixed_v2_models_verified": true,
+  "partitions": {
+    "train": 14,
+    "validation": 3,
+    "test": 3
+  },
+  "expected_controlled_requests": 1216,
+  "new_accuracy_results_available": false,
+  "campaign_plan_sha256": "97d967c6f64a1c850f2191867af7b2f6c8aa5496925f12a35ab659731345d171"
+}

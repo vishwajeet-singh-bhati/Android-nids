@@ -1,0 +1,174 @@
+{
+  "campaign": "phone_real_v1",
+  "authorization": "User explicitly authorized updated real-phone data, correct labels, quality procedure and additional observable attack subtypes.",
+  "partitioning": "14/3/3 complete chronological sessions; held-out SQL/XSS forms and rate ranges; same-device pilot, not unseen-day/device evidence.",
+  "sources_sha256": {
+    "experiments\\phone_capture_v1\\augment.py": "9c5ec46eebfb8cf4056ea549ccb888569a4765213d43c158a0f98094850a4daf",
+    "experiments\\phone_capture_v1\\campaign.py": "6018ddf8e3b5fe35ca2ed9b5c087148b0fdc377807421ad8c09d3f074a8c0867",
+    "experiments\\phone_capture_v1\\collect.py": "e900e792d54f44a227b0f23f0a0968f6c61708e563fb56beeaf2b59eb41ceaf9",
+    "experiments\\phone_capture_v1\\evaluate_augmented.py": "e8042cb0fe38d58ff698e9678943acaa1abd44c47b62c91fe118c5d70db1bf14",
+    "experiments\\phone_capture_v1\\inventory.py": "a4dafcfe6d87ca7468ebbac0d61f7b09be7378e5db2eca18bcd9daeb64a1352f",
+    "experiments\\phone_capture_v1\\quality.py": "a6cd167a17c2160df6f09277ee6b5976ff518fec3ef0112f756b069ce0489d9a",
+    "experiments\\phone_capture_v1\\smoke.py": "0880024c61ab65ea7209eda7fcae63034f5d00067d9495bd6f0cd3d1f185c6ef",
+    "experiments\\phone_capture_v1\\training_smoke.py": "b865a3624f60297743156cf548e95c5bd83b32e39c7523d58cf1d345ed112dc4",
+    "experiments\\phone_capture_v1\\train_augmented.py": "0f9a00ab055fcf808a251629e853268381e813298823bdf807eb15d5390ce61d",
+    "experiments\\phone_capture_v1\\train_campaign.py": "fee1da5b84334e3e23835cf8fe4cf8b718f03cfad7fdfeb0a86cab4c4a93d407"
+  },
+  "target_apk_sha256": "6367856b525876cefdd5dec4802a36d7915b117971473c90be7ba7c2632a3859",
+  "frozen_extractor_sha256": "def153805229c0302ca23adce1f0e6d7de66c072db3a7017b3fbc2fd2b09c313",
+  "warmup_seconds": 340,
+  "sessions": [
+    {
+      "session": "phone_v1_train_01",
+      "partition": "train",
+      "mode": "mixed",
+      "seed": 23101,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_train_02",
+      "partition": "train",
+      "mode": "benign",
+      "seed": 23202,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_train_03",
+      "partition": "train",
+      "mode": "mixed",
+      "seed": 23303,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_train_04",
+      "partition": "train",
+      "mode": "mixed",
+      "seed": 23404,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_train_05",
+      "partition": "train",
+      "mode": "benign",
+      "seed": 23505,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_train_06",
+      "partition": "train",
+      "mode": "mixed",
+      "seed": 23606,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_train_07",
+      "partition": "train",
+      "mode": "mixed",
+      "seed": 23707,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_train_08",
+      "partition": "train",
+      "mode": "benign",
+      "seed": 23808,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_train_09",
+      "partition": "train",
+      "mode": "mixed",
+      "seed": 23909,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_train_10",
+      "partition": "train",
+      "mode": "mixed",
+      "seed": 24010,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_train_11",
+      "partition": "train",
+      "mode": "benign",
+      "seed": 24111,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_train_12",
+      "partition": "train",
+      "mode": "mixed",
+      "seed": 24212,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_train_13",
+      "partition": "train",
+      "mode": "mixed",
+      "seed": 24313,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_train_14",
+      "partition": "train",
+      "mode": "mixed",
+      "seed": 24414,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_validation_01",
+      "partition": "validation",
+      "mode": "mixed",
+      "seed": 24515,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_validation_02",
+      "partition": "validation",
+      "mode": "benign",
+      "seed": 24616,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_validation_03",
+      "partition": "validation",
+      "mode": "mixed",
+      "seed": 24717,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_test_01",
+      "partition": "test",
+      "mode": "mixed",
+      "seed": 24818,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_test_02",
+      "partition": "test",
+      "mode": "benign",
+      "seed": 24919,
+      "campaign": "phone_real_v1"
+    },
+    {
+      "session": "phone_v1_test_03",
+      "partition": "test",
+      "mode": "mixed",
+      "seed": 25020,
+      "campaign": "phone_real_v1"
+    }
+  ],
+  "normal_actions_per_mixed_session": 24,
+  "normal_actions_per_benign_session": 72,
+  "attack_actions_per_mixed_session": 32,
+  "fine_attack_subtypes": [
+    "http_password_guessing",
+    "http_password_spraying",
+    "sql_injection",
+    "xss"
+  ],
+  "additional_class_policy": "Password spraying is a Web-family subtype; no extra output family claimed. No Bot/DoS positive labels from unverified probes.",
+  "training_after_capture": "Only after all session quality gates and independent partition checks pass; all40epochs/everycheckpoint retained.",
+  "source_freeze_scope": "Final prelaunch source freeze; no formal campaign sessions captured yet."
+}

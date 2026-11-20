@@ -1,0 +1,1 @@
+Kotlin standard library. Copyright JetBrains and Kotlin contributors. Distributed under Apache License 2.0; see KOTLIN_LICENSE.txt.

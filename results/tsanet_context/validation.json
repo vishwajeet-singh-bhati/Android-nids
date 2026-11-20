@@ -1,0 +1,114 @@
+{
+  "state": "passed",
+  "date": "2026-11-18",
+  "checks": {
+    "control_baseline": {
+      "retained_epochs": 10,
+      "export_vs_saved_prediction_samples": 512,
+      "export_vs_saved_prediction_flips": 0,
+      "confusion_and_main_metrics_recomputed": true
+    },
+    "control_pruned_30": {
+      "retained_epochs": 5,
+      "export_vs_saved_prediction_samples": 512,
+      "export_vs_saved_prediction_flips": 0,
+      "confusion_and_main_metrics_recomputed": true
+    },
+    "context_baseline": {
+      "retained_epochs": 10,
+      "export_vs_saved_prediction_samples": 512,
+      "export_vs_saved_prediction_flips": 0,
+      "confusion_and_main_metrics_recomputed": true
+    },
+    "context_pruned_30": {
+      "retained_epochs": 5,
+      "export_vs_saved_prediction_samples": 512,
+      "export_vs_saved_prediction_flips": 0,
+      "confusion_and_main_metrics_recomputed": true
+    }
+  },
+  "all_30_epochs_retained": true,
+  "frozen_sources_checkpoints_exports_verified": true,
+  "original_paper_sources_unchanged": true,
+  "original_row_order_preserved": true,
+  "train_only_context_scaler_independently_verified": true,
+  "paired_time_block_bootstrap": {
+    "blocks": 170,
+    "block_seconds": 900,
+    "draws": 2000,
+    "scope": "Descriptive paired time-block resampling on the same opened random-row benchmark; not independent capture or population uncertainty",
+    "context_minus_control": {
+      "baseline": {
+        "accuracy": {
+          "lower_95_pp": 1.6283207116440979,
+          "upper_95_pp": 4.143247043888192
+        },
+        "macro_f1": {
+          "lower_95_pp": 19.308303566985085,
+          "upper_95_pp": 33.22600144240588
+        },
+        "binary_attack_recall": {
+          "lower_95_pp": 4.029261099930244,
+          "upper_95_pp": 13.028680411656898
+        },
+        "benign_false_positive_rate": {
+          "lower_95_pp": -2.292091324144686,
+          "upper_95_pp": -0.8687245682037396
+        }
+      },
+      "pruned_30": {
+        "accuracy": {
+          "lower_95_pp": 2.0726189427694655,
+          "upper_95_pp": 3.452949000444548
+        },
+        "macro_f1": {
+          "lower_95_pp": 20.70913976392708,
+          "upper_95_pp": 34.950111578645696
+        },
+        "binary_attack_recall": {
+          "lower_95_pp": 2.9932393809526094,
+          "upper_95_pp": 9.719840304611056
+        },
+        "benign_false_positive_rate": {
+          "lower_95_pp": -3.0233611546691477,
+          "upper_95_pp": -1.5586964178478775
+        }
+      }
+    }
+  },
+  "feature_ambiguity": {
+    "method": "Combined candidate hashes followed by direct equality of all 32+78 raw float32 values",
+    "interpretation": "Input distinction, not proof of classification improvement, label correctness or independent generalization",
+    "classes": {
+      "Benign": {
+        "flow_only_matches_benign_train": 209820,
+        "flow_and_context_matches_benign_train": 34949
+      },
+      "Bot": {
+        "flow_only_matches_benign_train": 207,
+        "flow_and_context_matches_benign_train": 0
+      },
+      "Brute Force": {
+        "flow_only_matches_benign_train": 902,
+        "flow_and_context_matches_benign_train": 0
+      },
+      "DDoS": {
+        "flow_only_matches_benign_train": 13,
+        "flow_and_context_matches_benign_train": 0
+      },
+      "DoS": {
+        "flow_only_matches_benign_train": 17032,
+        "flow_and_context_matches_benign_train": 0
+      },
+      "Port Scan": {
+        "flow_only_matches_benign_train": 22107,
+        "flow_and_context_matches_benign_train": 0
+      },
+      "Web Attack": {
+        "flow_only_matches_benign_train": 43,
+        "flow_and_context_matches_benign_train": 0
+      }
+    }
+  },
+  "no_model_data_split_or_threshold_changes": true
+}

@@ -1,0 +1,2828 @@
+{
+  "state": "ready",
+  "rows": {
+    "train": 4956674,
+    "validation": 1188724,
+    "test": 1098929
+  },
+  "class_counts": {
+    "train": [
+      4214044,
+      3130,
+      11334,
+      82746,
+      422234,
+      222584,
+      602
+    ],
+    "validation": [
+      1029548,
+      652,
+      2432,
+      17572,
+      90672,
+      47698,
+      150
+    ],
+    "test": [
+      940095,
+      640,
+      2442,
+      17840,
+      90084,
+      47688,
+      140
+    ]
+  },
+  "fine_counts": {
+    "train": {
+      "BENIGN": 4214044,
+      "Bot": 3130,
+      "FTP-Patator": 7196,
+      "SSH-Patator": 4138,
+      "DDoS": 82746,
+      "DoS GoldenEye": 13466,
+      "DoS Hulk": 377988,
+      "DoS Slowhttptest": 16260,
+      "DoS slowloris": 14520,
+      "PortScan": 222584,
+      "Web Attack Brute Force": 454,
+      "Web Attack XSS": 136,
+      "Web Attack Sql Injection": 12
+    },
+    "validation": {
+      "BENIGN": 1029548,
+      "Bot": 652,
+      "FTP-Patator": 1550,
+      "SSH-Patator": 882,
+      "DDoS": 17572,
+      "DoS GoldenEye": 2822,
+      "DoS Hulk": 81272,
+      "DoS Slowhttptest": 3516,
+      "DoS slowloris": 3062,
+      "PortScan": 47698,
+      "Web Attack Brute Force": 104,
+      "Web Attack XSS": 42,
+      "Web Attack Sql Injection": 4
+    },
+    "test": {
+      "BENIGN": 940095,
+      "Bot": 640,
+      "FTP-Patator": 1562,
+      "SSH-Patator": 880,
+      "DDoS": 17840,
+      "DoS GoldenEye": 2862,
+      "DoS Hulk": 80722,
+      "DoS Slowhttptest": 3484,
+      "DoS slowloris": 3016,
+      "PortScan": 47688,
+      "Web Attack Brute Force": 104,
+      "Web Attack XSS": 34,
+      "Web Attack Sql Injection": 2
+    }
+  },
+  "source_counts": {
+    "train": {
+      "Monday": 713820,
+      "Tuesday": 623354,
+      "Wednesday": 1049200,
+      "Thursday": 706312,
+      "Friday": 885196,
+      "PARROT": 406030,
+      "AAGM": 572762
+    },
+    "validation": {
+      "Monday": 153850,
+      "Tuesday": 132568,
+      "Wednesday": 226314,
+      "Thursday": 153084,
+      "Friday": 191972,
+      "PARROT": 242396,
+      "AAGM": 88540
+    },
+    "test": {
+      "Monday": 155724,
+      "Tuesday": 133200,
+      "Wednesday": 226438,
+      "Thursday": 150310,
+      "Friday": 193902,
+      "PARROT": 132945,
+      "AAGM": 106410
+    }
+  },
+  "classes": [
+    "Benign",
+    "Bot",
+    "Brute Force",
+    "DDoS",
+    "DoS",
+    "Port Scan",
+    "Web Attack"
+  ],
+  "feature_dimensions": [
+    32,
+    115
+  ],
+  "groups_disjoint": true,
+  "source_reports": [
+    {
+      "state": "complete",
+      "version": "phone-aligned-v2",
+      "source": "Monday",
+      "records": 11709971,
+      "rows": 1023394,
+      "class_counts": [
+        1023394,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "unknown_views_excluded": 28284,
+      "malformed": 0,
+      "parsed": 11655286,
+      "late": 0,
+      "forced_reorder": 0,
+      "flow_evictions": 0,
+      "history_evictions": 0,
+      "invalid_flows": 0,
+      "packet_limit": 0,
+      "seconds": 129.093,
+      "input_bytes": 10822507416,
+      "captures": 1,
+      "input_inventory": [
+        {
+          "path": "data/external/CICIDS2017/Monday-WorkingHours.pcap",
+          "bytes": 10822507416,
+          "mtime_ns": 1794576720632891000
+        }
+      ],
+      "extractor_sha256": "def153805229c0302ca23adce1f0e6d7de66c072db3a7017b3fbc2fd2b09c313"
+    },
+    {
+      "state": "complete",
+      "version": "phone-aligned-v2",
+      "source": "Tuesday",
+      "records": 11551954,
+      "rows": 889122,
+      "class_counts": [
+        872914,
+        0,
+        16208,
+        0,
+        0,
+        0,
+        0
+      ],
+      "unknown_views_excluded": 9126,
+      "malformed": 0,
+      "parsed": 11499022,
+      "late": 0,
+      "forced_reorder": 0,
+      "flow_evictions": 0,
+      "history_evictions": 0,
+      "invalid_flows": 0,
+      "packet_limit": 0,
+      "seconds": 124.503,
+      "input_bytes": 11048283608,
+      "captures": 1,
+      "input_inventory": [
+        {
+          "path": "data/external/CICIDS2017/Tuesday-WorkingHours.pcap",
+          "bytes": 11048283608,
+          "mtime_ns": 1794527834757634100
+        }
+      ],
+      "extractor_sha256": "def153805229c0302ca23adce1f0e6d7de66c072db3a7017b3fbc2fd2b09c313"
+    },
+    {
+      "state": "complete",
+      "version": "phone-aligned-v2",
+      "source": "Wednesday",
+      "records": 13788878,
+      "rows": 1501952,
+      "class_counts": [
+        898962,
+        0,
+        0,
+        0,
+        602990,
+        0,
+        0
+      ],
+      "unknown_views_excluded": 47602,
+      "malformed": 0,
+      "parsed": 13732219,
+      "late": 0,
+      "forced_reorder": 0,
+      "flow_evictions": 0,
+      "history_evictions": 241532,
+      "invalid_flows": 0,
+      "packet_limit": 0,
+      "seconds": 333.424,
+      "input_bytes": 13420789612,
+      "captures": 1,
+      "input_inventory": [
+        {
+          "path": "data/external/CICIDS2017/Wednesday-workingHours.pcap",
+          "bytes": 13420789612,
+          "mtime_ns": 1794530158453188000
+        }
+      ],
+      "extractor_sha256": "def153805229c0302ca23adce1f0e6d7de66c072db3a7017b3fbc2fd2b09c313"
+    },
+    {
+      "state": "complete",
+      "version": "phone-aligned-v2",
+      "source": "Thursday",
+      "records": 9322025,
+      "rows": 1009706,
+      "class_counts": [
+        1008814,
+        0,
+        0,
+        0,
+        0,
+        0,
+        892
+      ],
+      "unknown_views_excluded": 6156,
+      "malformed": 0,
+      "parsed": 9268659,
+      "late": 0,
+      "forced_reorder": 0,
+      "flow_evictions": 0,
+      "history_evictions": 0,
+      "invalid_flows": 0,
+      "packet_limit": 0,
+      "seconds": 73.424,
+      "input_bytes": 8302500180,
+      "captures": 1,
+      "input_inventory": [
+        {
+          "path": "data/external/CICIDS2017/Thursday-WorkingHours.pcap",
+          "bytes": 8302500180,
+          "mtime_ns": 1794577519390467500
+        }
+      ],
+      "extractor_sha256": "def153805229c0302ca23adce1f0e6d7de66c072db3a7017b3fbc2fd2b09c313"
+    },
+    {
+      "state": "complete",
+      "version": "phone-aligned-v2",
+      "source": "Friday",
+      "records": 9997874,
+      "rows": 1271070,
+      "class_counts": [
+        830520,
+        4422,
+        0,
+        118158,
+        0,
+        317970,
+        0
+      ],
+      "unknown_views_excluded": 65626,
+      "malformed": 0,
+      "parsed": 9943991,
+      "late": 0,
+      "forced_reorder": 0,
+      "flow_evictions": 0,
+      "history_evictions": 90543,
+      "invalid_flows": 0,
+      "packet_limit": 0,
+      "seconds": 82.811,
+      "input_bytes": 8839309056,
+      "captures": 1,
+      "input_inventory": [
+        {
+          "path": "data/external/CICIDS2017/Friday-WorkingHours.pcap",
+          "bytes": 8839309056,
+          "mtime_ns": 1794578313099828300
+        }
+      ],
+      "extractor_sha256": "def153805229c0302ca23adce1f0e6d7de66c072db3a7017b3fbc2fd2b09c313"
+    },
+    {
+      "state": "complete",
+      "version": "phone-aligned-v2",
+      "source": "PARROT",
+      "records": 5800941,
+      "rows": 781371,
+      "class_counts": [
+        781371,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "unknown_views_excluded": 0,
+      "malformed": 0,
+      "parsed": 5795961,
+      "late": 0,
+      "forced_reorder": 0,
+      "flow_evictions": 0,
+      "history_evictions": 0,
+      "invalid_flows": 0,
+      "packet_limit": 0,
+      "seconds": 7.119,
+      "input_bytes": 2841057545,
+      "captures": 319,
+      "input_inventory": [
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/app.sachnoi_2025-04-07-1714_401.pcap",
+          "bytes": 6693872,
+          "mtime_ns": 1794517915808208300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/app.sachnoi_2025-04-07-1722_284.pcap",
+          "bytes": 4562701,
+          "mtime_ns": 1794517923801780400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/app.sachnoi_2025-04-08-2348_527.pcap",
+          "bytes": 8934552,
+          "mtime_ns": 1794517923366399100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/app.sachnoi_2025-04-08-2358_321.pcap",
+          "bytes": 4724689,
+          "mtime_ns": 1794517922300118700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/bbc.mobile.news.ww_2025-05-27-1800_187.pcap",
+          "bytes": 2292845,
+          "mtime_ns": 1794517922580129400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/bbc.mobile.news.ww_2025-05-27-1804_98.pcap",
+          "bytes": 1926596,
+          "mtime_ns": 1794517922022386900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/bbc.mobile.news.ww_2025-05-27-2227_285.pcap",
+          "bytes": 4512510,
+          "mtime_ns": 1794517922473650400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/bbc.mobile.news.ww_2025-05-27-2246_138.pcap",
+          "bytes": 4062883,
+          "mtime_ns": 1794517920859571600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.azarlive.android_2025-05-27-1423_305.pcap",
+          "bytes": 22578476,
+          "mtime_ns": 1794517940143775000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.azarlive.android_2025-05-27-1429_164.pcap",
+          "bytes": 13449626,
+          "mtime_ns": 1794517917889894000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.azarlive.android_2025-05-27-1434_233.pcap",
+          "bytes": 16251780,
+          "mtime_ns": 1794517919659819600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.azarlive.android_2025-05-27-1510_144.pcap",
+          "bytes": 5543337,
+          "mtime_ns": 1794517922150522600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.bachtruyen_2025-04-30-1809_229.pcap",
+          "bytes": 5618789,
+          "mtime_ns": 1794517921948829700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.bachtruyen_2025-07-08-1218_406.pcap",
+          "bytes": 9694741,
+          "mtime_ns": 1794517970397327000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.bachtruyen_2025-07-08-1229_345.pcap",
+          "bytes": 2568036,
+          "mtime_ns": 1794517970436081600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.bachtruyen_2025-07-08-1235_341.pcap",
+          "bytes": 2842712,
+          "mtime_ns": 1794517970560049000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.baohay24h.app_2025-04-02-1542_504.pcap",
+          "bytes": 2785160,
+          "mtime_ns": 1794517921709496700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.baohay24h.app_2025-04-02-1551_308.pcap",
+          "bytes": 2285020,
+          "mtime_ns": 1794517922741342800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.baohay24h.app_2025-04-02-1556_346.pcap",
+          "bytes": 5216640,
+          "mtime_ns": 1794517920169969200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.baohay24h.app_2025-04-02-1610_365.pcap",
+          "bytes": 4421360,
+          "mtime_ns": 1794517921534188200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.chess_2025-04-02-1621_638.pcap",
+          "bytes": 7291295,
+          "mtime_ns": 1794517920420943900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.chess_2025-04-02-1634_395.pcap",
+          "bytes": 4317762,
+          "mtime_ns": 1794517919770930500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.chess_2025-04-02-1644_367.pcap",
+          "bytes": 2610273,
+          "mtime_ns": 1794517940288196500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.chess_2025-04-02-1652_451.pcap",
+          "bytes": 6806108,
+          "mtime_ns": 1794517939192873200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.chotot.vn_2025-04-04-1235_241.pcap",
+          "bytes": 8203146,
+          "mtime_ns": 1794517938833487100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.chotot.vn_2025-04-04-1239_319.pcap",
+          "bytes": 7265678,
+          "mtime_ns": 1794517938516337100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.chotot.vn_2025-04-04-1247_271.pcap",
+          "bytes": 4465942,
+          "mtime_ns": 1794517940253960100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.chotot.vn_2025-04-04-1404_537.pcap",
+          "bytes": 6491327,
+          "mtime_ns": 1794517937415758600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.cnn.mobile.android.phone_2025-05-27-2257_251.pcap",
+          "bytes": 3905181,
+          "mtime_ns": 1794517919934807500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.cnn.mobile.android.phone_2025-05-27-2306_247.pcap",
+          "bytes": 4377968,
+          "mtime_ns": 1794517940197173200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.cnn.mobile.android.phone_2025-05-27-2310_166.pcap",
+          "bytes": 4403515,
+          "mtime_ns": 1794517938944365900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.cnn.mobile.android.phone_2025-05-27-2314_221.pcap",
+          "bytes": 4953957,
+          "mtime_ns": 1794517936993821000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.craftbox.jwapp.android_2025-04-30-1745_220.pcap",
+          "bytes": 2643083,
+          "mtime_ns": 1794517935860811700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.craftbox.jwapp.android_2025-04-30-1749_144.pcap",
+          "bytes": 1388810,
+          "mtime_ns": 1794517921042825300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.craftbox.jwapp.android_2025-04-30-1757_236.pcap",
+          "bytes": 2933137,
+          "mtime_ns": 1794517935736907700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.craftbox.jwapp.android_2025-04-30-1801_322.pcap",
+          "bytes": 3503564,
+          "mtime_ns": 1794517939475535000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.dts.freefireth_2025-04-28-1130_361.pcap",
+          "bytes": 1539566,
+          "mtime_ns": 1794517939620390700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.dts.freefireth_2025-04-28-1140_312.pcap",
+          "bytes": 1680762,
+          "mtime_ns": 1794517938596950800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.dts.freefireth_2025-04-28-1146_146.pcap",
+          "bytes": 728917,
+          "mtime_ns": 1794517920963286100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.dts.freefireth_2025-04-28-1149_196.pcap",
+          "bytes": 1740758,
+          "mtime_ns": 1794517921288127400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.facebook.katana_2024-12-23-1841_166.pcap",
+          "bytes": 2125824,
+          "mtime_ns": 1794517921175315700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.facebook.katana_2024-12-23-1846_392.pcap",
+          "bytes": 14833132,
+          "mtime_ns": 1794517916328553300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.facebook.katana_2024-12-23-1855_391.pcap",
+          "bytes": 93057055,
+          "mtime_ns": 1794517935609722100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.facebook.katana_2024-12-23-1902_114.pcap",
+          "bytes": 17598379,
+          "mtime_ns": 1794517936582339200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.facebook.orca_2024-12-23-1905_65.pcap",
+          "bytes": 1081382,
+          "mtime_ns": 1794517920061587600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.facebook.orca_2024-12-23-1912_212.pcap",
+          "bytes": 4331821,
+          "mtime_ns": 1794517920032435900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.facebook.orca_2025-07-08-1245_218.pcap",
+          "bytes": 3603740,
+          "mtime_ns": 1794517967815109600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.facebook.orca_2025-07-08-1250_403.pcap",
+          "bytes": 3590203,
+          "mtime_ns": 1794517968525115400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.fplay.activity_2025-04-02-1703_497.pcap",
+          "bytes": 3510708,
+          "mtime_ns": 1794517919847289100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.fplay.activity_2025-04-03-0847_205.pcap",
+          "bytes": 2519587,
+          "mtime_ns": 1794517931214641600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.fplay.activity_2025-04-03-0851_212.pcap",
+          "bytes": 2644091,
+          "mtime_ns": 1794517930660288100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.fplay.activity_2025-04-03-0855_304.pcap",
+          "bytes": 4511546,
+          "mtime_ns": 1794517930992285900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.giaitri.tvviet_2025-04-04-1744_484.pcap",
+          "bytes": 3180629,
+          "mtime_ns": 1794517931161511400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.giaitri.tvviet_2025-04-04-1843_662.pcap",
+          "bytes": 3558609,
+          "mtime_ns": 1794517930169107400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.giaitri.tvviet_2025-04-04-1855_203.pcap",
+          "bytes": 1510718,
+          "mtime_ns": 1794517930354416800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.giaitri.tvviet_2025-04-04-1900_502.pcap",
+          "bytes": 3248557,
+          "mtime_ns": 1794517925416945900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.google.android.apps.meetings_2024-12-27-1409_325.pcap",
+          "bytes": 10862690,
+          "mtime_ns": 1794517929924826900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.google.android.apps.meetings_2024-12-27-1421_154.pcap",
+          "bytes": 7379736,
+          "mtime_ns": 1794517926422185000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.google.android.apps.meetings_2024-12-27-1431_315.pcap",
+          "bytes": 9839635,
+          "mtime_ns": 1794517929127732100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.google.android.apps.meetings_2024-12-27-1436_322.pcap",
+          "bytes": 18055820,
+          "mtime_ns": 1794517928234610300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.guardian_2025-05-27-2335_449.pcap",
+          "bytes": 3557304,
+          "mtime_ns": 1794517927041879300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.guardian_2025-05-28-0005_357.pcap",
+          "bytes": 3092764,
+          "mtime_ns": 1794517926163349500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.guardian_2025-05-28-0012_241.pcap",
+          "bytes": 1616208,
+          "mtime_ns": 1794517926754107200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.guardian_2025-05-28-0017_222.pcap",
+          "bytes": 2105453,
+          "mtime_ns": 1794517924746968200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.hahalolo.android.social_2025-04-07-1153_367.pcap",
+          "bytes": 3528469,
+          "mtime_ns": 1794517925963644300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.hahalolo.android.social_2025-04-07-1308_157.pcap",
+          "bytes": 2279640,
+          "mtime_ns": 1794517925637282800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.hahalolo.android.social_2025-04-07-1311_159.pcap",
+          "bytes": 2395427,
+          "mtime_ns": 1794517924364833800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.hahalolo.android.social_2025-04-07-1315_238.pcap",
+          "bytes": 2308167,
+          "mtime_ns": 1794517925114939000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.hihuc.cchess.online_2025-04-04-1427_299.pcap",
+          "bytes": 2506465,
+          "mtime_ns": 1794517924125928300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.hihuc.cchess.online_2025-04-04-1434_248.pcap",
+          "bytes": 3120402,
+          "mtime_ns": 1794517926568356900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.hihuc.cchess.online_2025-04-04-1440_202.pcap",
+          "bytes": 1819087,
+          "mtime_ns": 1794517926047125100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.hihuc.cchess.online_2025-07-09-1607_413.pcap",
+          "bytes": 4442206,
+          "mtime_ns": 1794517967594488100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.huya.nimo_2025-04-29-1641_73.pcap",
+          "bytes": 21238,
+          "mtime_ns": 1794517926168885000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.huya.nimo_2025-07-08-1705_263.pcap",
+          "bytes": 6234233,
+          "mtime_ns": 1794517967920685600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.huya.nimo_2025-07-08-1713_265.pcap",
+          "bytes": 1570094,
+          "mtime_ns": 1794517968546982300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.huya.nimo_2025-07-08-1718_281.pcap",
+          "bytes": 4964669,
+          "mtime_ns": 1794517968611009300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.imbb.oversea.android_2025-04-04-1415_142.pcap",
+          "bytes": 13843712,
+          "mtime_ns": 1794517943624137000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.imbb.oversea.android_2025-04-04-1420_346.pcap",
+          "bytes": 3328897,
+          "mtime_ns": 1794517924037049900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.imbb.oversea.android_2025-07-08-1744_330.pcap",
+          "bytes": 14095565,
+          "mtime_ns": 1794517968844354000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.imbb.oversea.android_2025-07-08-1750_187.pcap",
+          "bytes": 5199723,
+          "mtime_ns": 1794517970619406200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.innersloth.spacemafia_2025-04-22-1027_100.pcap",
+          "bytes": 994044,
+          "mtime_ns": 1794517923862926800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.innersloth.spacemafia_2025-07-08-1756_201.pcap",
+          "bytes": 1039983,
+          "mtime_ns": 1794517967760820500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.innersloth.spacemafia_2025-07-08-1800_284.pcap",
+          "bytes": 1508135,
+          "mtime_ns": 1794517967742463500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.innersloth.spacemafia_2025-07-08-1806_259.pcap",
+          "bytes": 1400045,
+          "mtime_ns": 1794517968866997700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.instagram.android_2024-12-23-1350_274.pcap",
+          "bytes": 47866828,
+          "mtime_ns": 1794517913407257200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.instagram.android_2024-12-23-1355_164.pcap",
+          "bytes": 26941577,
+          "mtime_ns": 1794517915354512000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.instagram.android_2025-07-09-1221_313.pcap",
+          "bytes": 4647731,
+          "mtime_ns": 1794517967406210000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.instagram.android_2025-07-09-1542_247.pcap",
+          "bytes": 37933019,
+          "mtime_ns": 1794517967130046800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.iqiyi.i18n_2025-04-03-1124_266.pcap",
+          "bytes": 18171070,
+          "mtime_ns": 1794517943834853200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.iqiyi.i18n_2025-04-03-1129_517.pcap",
+          "bytes": 38256540,
+          "mtime_ns": 1794517942259061200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.iqiyi.i18n_2025-04-03-1147_276.pcap",
+          "bytes": 17371454,
+          "mtime_ns": 1794517942980379900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.iqiyi.i18n_2025-04-03-1223_206.pcap",
+          "bytes": 11515898,
+          "mtime_ns": 1794517943264966000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.kaka.kakavideo_2025-04-30-1534_257.pcap",
+          "bytes": 3343046,
+          "mtime_ns": 1794517943028254800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.kaka.kakavideo_2025-04-30-1538_339.pcap",
+          "bytes": 2818289,
+          "mtime_ns": 1794517942431950600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.kaka.kakavideo_2025-04-30-1547_242.pcap",
+          "bytes": 2293003,
+          "mtime_ns": 1794517943868465300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.kaka.kakavideo_2025-04-30-1554_323.pcap",
+          "bytes": 3513191,
+          "mtime_ns": 1794517943311766100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.lazada.android_2024-12-27-1547_352.pcap",
+          "bytes": 8884937,
+          "mtime_ns": 1794517942755121800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.lazada.android_2024-12-27-1554_182.pcap",
+          "bytes": 5077422,
+          "mtime_ns": 1794517943467898700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.lazada.android_2025-07-08-1822_231.pcap",
+          "bytes": 8320373,
+          "mtime_ns": 1794517970729041000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.lazada.android_2025-07-09-1510_226.pcap",
+          "bytes": 2920266,
+          "mtime_ns": 1794517967344130500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.linkedin.android_2025-05-27-0858_259.pcap",
+          "bytes": 1967393,
+          "mtime_ns": 1794517943077168700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.linkedin.android_2025-05-27-1015_236.pcap",
+          "bytes": 1797549,
+          "mtime_ns": 1794517942644454800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.linkedin.android_2025-05-27-1026_94.pcap",
+          "bytes": 1014386,
+          "mtime_ns": 1794517943490872100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.linkedin.android_2025-05-27-1044_259.pcap",
+          "bytes": 3625520,
+          "mtime_ns": 1794517942484144500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.mobilemotion.dubsmash_2024-12-27-1253_376.pcap",
+          "bytes": 2095644,
+          "mtime_ns": 1794517943057642500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.mobilemotion.dubsmash_2024-12-27-1302_270.pcap",
+          "bytes": 1568238,
+          "mtime_ns": 1794517942348711200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.mobilemotion.dubsmash_2024-12-27-1309_270.pcap",
+          "bytes": 2499575,
+          "mtime_ns": 1794517942390185500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.mobilemotion.dubsmash_2024-12-27-1338_373.pcap",
+          "bytes": 1581151,
+          "mtime_ns": 1794517942619446300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.netflix.mediaclient_2025-05-16-1049_589.pcap",
+          "bytes": 4976262,
+          "mtime_ns": 1794517942327244800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.netflix.mediaclient_2025-05-19-1209_211.pcap",
+          "bytes": 2915636,
+          "mtime_ns": 1794517943120677100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.netflix.mediaclient_2025-05-19-1214_361.pcap",
+          "bytes": 4370045,
+          "mtime_ns": 1794517943408822700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.netflix.mediaclient_2025-05-19-1237_212.pcap",
+          "bytes": 8805518,
+          "mtime_ns": 1794517942597293900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.nono.android_2025-03-22-1059_351.pcap",
+          "bytes": 2792655,
+          "mtime_ns": 1794517943348314000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.nono.android_2025-03-22-1105_191.pcap",
+          "bytes": 2253174,
+          "mtime_ns": 1794517941797398800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.nono.android_2025-03-22-1109_104.pcap",
+          "bytes": 1960827,
+          "mtime_ns": 1794517941762961200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.nono.android_2025-03-22-1111_416.pcap",
+          "bytes": 2012213,
+          "mtime_ns": 1794517941826273000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.pinterest_2025-05-27-1157_178.pcap",
+          "bytes": 3931905,
+          "mtime_ns": 1794517941734649000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.pinterest_2025-05-27-1205_325.pcap",
+          "bytes": 7822653,
+          "mtime_ns": 1794517941677009400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.pinterest_2025-05-27-1240_132.pcap",
+          "bytes": 2791064,
+          "mtime_ns": 1794517941579899300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.pinterest_2025-05-27-1245_159.pcap",
+          "bytes": 4137327,
+          "mtime_ns": 1794517941394304600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.popsworldwide.popskids_2025-04-04-1731_283.pcap",
+          "bytes": 4075135,
+          "mtime_ns": 1794517941478865200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.popsworldwide.popskids_2025-07-08-1833_518.pcap",
+          "bytes": 9789184,
+          "mtime_ns": 1794517967717261300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.popsworldwide.popskids_2025-07-08-2002_235.pcap",
+          "bytes": 6763350,
+          "mtime_ns": 1794517968698678600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.popsworldwide.popskids_2025-07-08-2007_254.pcap",
+          "bytes": 5349949,
+          "mtime_ns": 1794517968934641500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.quora.android_2025-04-03-1615_517.pcap",
+          "bytes": 4643503,
+          "mtime_ns": 1794517941334001100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.quora.android_2025-04-03-1650_359.pcap",
+          "bytes": 3962022,
+          "mtime_ns": 1794517941270738000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.quora.android_2025-04-03-1656_415.pcap",
+          "bytes": 2301524,
+          "mtime_ns": 1794517941428017600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.quora.android_2025-04-03-1720_278.pcap",
+          "bytes": 4656337,
+          "mtime_ns": 1794517941542488000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.radio.fmradio_2025-07-18-1120_271.pcap",
+          "bytes": 3454982,
+          "mtime_ns": 1794517909342382900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.radio.fmradio_2025-07-18-1125_242.pcap",
+          "bytes": 3920263,
+          "mtime_ns": 1794517909213582400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.radio.fmradio_2025-07-18-1129_247.pcap",
+          "bytes": 2940490,
+          "mtime_ns": 1794517909578009100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.radio.fmradio_2025-07-18-1133_260.pcap",
+          "bytes": 2404633,
+          "mtime_ns": 1794517909767134500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.reddit.frontpage_2025-03-29-1025_429.pcap",
+          "bytes": 13885112,
+          "mtime_ns": 1794517940915309400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.reddit.frontpage_2025-03-29-1037_292.pcap",
+          "bytes": 8025847,
+          "mtime_ns": 1794517941215440600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.reddit.frontpage_2025-03-29-1042_520.pcap",
+          "bytes": 8788884,
+          "mtime_ns": 1794517941107143100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.reddit.frontpage_2025-03-29-1141_490.pcap",
+          "bytes": 14389003,
+          "mtime_ns": 1794517940589795800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.riotgames.league.wildriftvn_2025-04-04-1800_175.pcap",
+          "bytes": 2171079,
+          "mtime_ns": 1794517940956165100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.riotgames.league.wildriftvn_2025-07-09-0905_343.pcap",
+          "bytes": 1370685,
+          "mtime_ns": 1794517970460375000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.riotgames.league.wildriftvn_2025-07-09-0922_315.pcap",
+          "bytes": 1928127,
+          "mtime_ns": 1794517965024054400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.riotgames.league.wildriftvn_2025-07-09-0928_368.pcap",
+          "bytes": 3443375,
+          "mtime_ns": 1794517970511811200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.sendo_2025-04-04-0916_433.pcap",
+          "bytes": 11456463,
+          "mtime_ns": 1794517940721532500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.sendo_2025-04-04-0929_203.pcap",
+          "bytes": 2720461,
+          "mtime_ns": 1794517941001702800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.sendo_2025-04-04-0939_82.pcap",
+          "bytes": 3766891,
+          "mtime_ns": 1794517947589909500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.sendo_2025-07-09-0935_215.pcap",
+          "bytes": 3160022,
+          "mtime_ns": 1794517965075314600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.sgiggle.production_2025-04-22-1046_188.pcap",
+          "bytes": 32484016,
+          "mtime_ns": 1794517947327250300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.sgiggle.production_2025-07-09-1044_332.pcap",
+          "bytes": 54241267,
+          "mtime_ns": 1794517970273626900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.sgiggle.production_2025-07-09-1051_256.pcap",
+          "bytes": 52301649,
+          "mtime_ns": 1794517969598834500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.sgiggle.production_2025-07-09-1058_268.pcap",
+          "bytes": 45734601,
+          "mtime_ns": 1794517968474542200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.shopee.vn_2025-04-04-1118_333.pcap",
+          "bytes": 10206729,
+          "mtime_ns": 1794517940408865600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.shopee.vn_2025-04-04-1127_339.pcap",
+          "bytes": 13527002,
+          "mtime_ns": 1794517947538353000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.shopee.vn_2025-04-04-1133_79.pcap",
+          "bytes": 4139388,
+          "mtime_ns": 1794517945468274200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.shopee.vn_2025-04-04-1141_111.pcap",
+          "bytes": 3519971,
+          "mtime_ns": 1794517946945632400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.skype.raider_2024-12-24-1339_139.pcap",
+          "bytes": 995981,
+          "mtime_ns": 1794517946897958400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.skype.raider_2024-12-24-1344_287.pcap",
+          "bytes": 10697799,
+          "mtime_ns": 1794517946207983700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.skype.raider_2024-12-26-1500_341.pcap",
+          "bytes": 4298931,
+          "mtime_ns": 1794517946880853300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.skype.raider_2024-12-26-1506_772.pcap",
+          "bytes": 7638605,
+          "mtime_ns": 1794517946431090200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.snapchat.android_2025-05-19-1318_97.pcap",
+          "bytes": 1172397,
+          "mtime_ns": 1794517946068849900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.snapchat.android_2025-05-19-1320_234.pcap",
+          "bytes": 2289176,
+          "mtime_ns": 1794517946025156900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.snapchat.android_2025-05-19-1445_356.pcap",
+          "bytes": 1760381,
+          "mtime_ns": 1794517945986913200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.snapchat.android_2025-05-19-1455_456.pcap",
+          "bytes": 1480904,
+          "mtime_ns": 1794517946047311900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.soundcloud.android_2024-12-27-1651_232.pcap",
+          "bytes": 31255892,
+          "mtime_ns": 1794517945844799200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.soundcloud.android_2024-12-31-1342_268.pcap",
+          "bytes": 15772778,
+          "mtime_ns": 1794517945179211500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.soundcloud.android_2024-12-31-1352_226.pcap",
+          "bytes": 14886709,
+          "mtime_ns": 1794517946819548100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.soundcloud.android_2024-12-31-1404_169.pcap",
+          "bytes": 11903182,
+          "mtime_ns": 1794517946632484100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.spotify.music_2025-01-17-1604_151.pcap",
+          "bytes": 2328881,
+          "mtime_ns": 1794517945417124700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.spotify.music_2025-01-17-1614_412.pcap",
+          "bytes": 6513705,
+          "mtime_ns": 1794517945264252500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.spotify.music_2025-01-17-1643_368.pcap",
+          "bytes": 10128312,
+          "mtime_ns": 1794517946335023700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.spotify.music_2025-01-17-1649_672.pcap",
+          "bytes": 7334747,
+          "mtime_ns": 1794517944472763200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.ss.android.ugc.trill_2025-04-22-1050_91.pcap",
+          "bytes": 1609751,
+          "mtime_ns": 1794517946457158400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.ss.android.ugc.trill_2025-07-09-1104_161.pcap",
+          "bytes": 1630311,
+          "mtime_ns": 1794517964994219300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.ss.android.ugc.trill_2025-07-09-1107_319.pcap",
+          "bytes": 4986362,
+          "mtime_ns": 1794517965371669100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.ss.android.ugc.trill_2025-07-09-1114_319.pcap",
+          "bytes": 6259497,
+          "mtime_ns": 1794517965308038100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.starmakerinteractive.starmaker_2025-04-22-1040_250.pcap",
+          "bytes": 9005845,
+          "mtime_ns": 1794517944640386500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.starmakerinteractive.starmaker_2025-07-09-1120_284.pcap",
+          "bytes": 10905076,
+          "mtime_ns": 1794517965230218700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.starmakerinteractive.starmaker_2025-07-09-1126_220.pcap",
+          "bytes": 6635435,
+          "mtime_ns": 1794517965630475600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.starmakerinteractive.starmaker_2025-07-09-1130_273.pcap",
+          "bytes": 8585699,
+          "mtime_ns": 1794517965542840400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.ted.android_2025-04-04-0950_283.pcap",
+          "bytes": 4243693,
+          "mtime_ns": 1794517944701939200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.ted.android_2025-04-04-0956_198.pcap",
+          "bytes": 7430065,
+          "mtime_ns": 1794517944980374400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.ted.android_2025-04-04-1101_352.pcap",
+          "bytes": 8032943,
+          "mtime_ns": 1794517944889934200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.ted.android_2025-04-04-1108_332.pcap",
+          "bytes": 6442613,
+          "mtime_ns": 1794517944791058300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.tencent.qqlivei18n.tw_2025-04-07-1106_521.pcap",
+          "bytes": 17052787,
+          "mtime_ns": 1794517944264950100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.tencent.qqlivei18n.tw_2025-04-07-1115_242.pcap",
+          "bytes": 9543803,
+          "mtime_ns": 1794517944380666300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.tencent.qqlivei18n.tw_2025-04-07-1119_230.pcap",
+          "bytes": 9990416,
+          "mtime_ns": 1794517945387423100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.tencent.qqlivei18n.tw_2025-04-07-1124_427.pcap",
+          "bytes": 9576158,
+          "mtime_ns": 1794517945961053700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.tencent.wesing_2025-04-01-2217_285.pcap",
+          "bytes": 2205482,
+          "mtime_ns": 1794517944507176300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.tencent.wesing_2025-04-02-0918_373.pcap",
+          "bytes": 1160126,
+          "mtime_ns": 1794517944525231600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.tencent.wesing_2025-04-02-0925_204.pcap",
+          "bytes": 1586719,
+          "mtime_ns": 1794517944050230100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.tencent.wesing_2025-07-09-1135_240.pcap",
+          "bytes": 4031983,
+          "mtime_ns": 1794517965428704500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.tinder_2025-05-27-1528_96.pcap",
+          "bytes": 916753,
+          "mtime_ns": 1794517943957133400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.tinder_2025-05-27-1744_200.pcap",
+          "bytes": 2214898,
+          "mtime_ns": 1794517944034412200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.tinder_2025-05-27-1748_221.pcap",
+          "bytes": 2193045,
+          "mtime_ns": 1794517943996894800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.tinder_2025-05-27-1756_110.pcap",
+          "bytes": 2171817,
+          "mtime_ns": 1794517943951686400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.toast.comico.vn_2025-04-05-1222_279.pcap",
+          "bytes": 3846613,
+          "mtime_ns": 1794517950310345500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.toast.comico.vn_2025-04-07-1133_337.pcap",
+          "bytes": 6268461,
+          "mtime_ns": 1794517950261969200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.toast.comico.vn_2025-04-07-1139_394.pcap",
+          "bytes": 4096551,
+          "mtime_ns": 1794517943923638600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.toast.comico.vn_2025-04-07-1146_313.pcap",
+          "bytes": 5272300,
+          "mtime_ns": 1794517950149303800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.topcv_2025-04-30-1252_404.pcap",
+          "bytes": 2420805,
+          "mtime_ns": 1794517950176872900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.topcv_2025-04-30-1304_275.pcap",
+          "bytes": 2012904,
+          "mtime_ns": 1794517950029471300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.topcv_2025-04-30-1450_253.pcap",
+          "bytes": 2040725,
+          "mtime_ns": 1794517949440278400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.topcv_2025-04-30-1456_439.pcap",
+          "bytes": 2857495,
+          "mtime_ns": 1794517970815761700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.tvonline.tivi24h_2025-04-30-1227_265.pcap",
+          "bytes": 2099921,
+          "mtime_ns": 1794517949707215900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.tvonline.tivi24h_2025-04-30-1234_243.pcap",
+          "bytes": 1648901,
+          "mtime_ns": 1794517949252718200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.tvonline.tivi24h_2025-04-30-1238_213.pcap",
+          "bytes": 1587076,
+          "mtime_ns": 1794517950062176300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.tvonline.tivi24h_2025-04-30-1243_136.pcap",
+          "bytes": 1242902,
+          "mtime_ns": 1794517950083016200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.twitter.android_2025-05-23-1226_254.pcap",
+          "bytes": 5995611,
+          "mtime_ns": 1794517949509480000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.twitter.android_2025-05-27-1037_144.pcap",
+          "bytes": 2926607,
+          "mtime_ns": 1794517949833253900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.twitter.android_2025-05-27-1050_141.pcap",
+          "bytes": 5468993,
+          "mtime_ns": 1794517949780622500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.twitter.android_2025-05-27-1057_223.pcap",
+          "bytes": 9692607,
+          "mtime_ns": 1794517949622720900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.viettel.tv360_2025-04-07-1530_322.pcap",
+          "bytes": 969716,
+          "mtime_ns": 1794517949796856300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.viettel.tv360_2025-04-07-1537_264.pcap",
+          "bytes": 3190111,
+          "mtime_ns": 1794517949414973200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.viettel.tv360_2025-04-07-1547_141.pcap",
+          "bytes": 3187635,
+          "mtime_ns": 1794517949668452100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.viettel.tv360_2025-04-07-1552_150.pcap",
+          "bytes": 2863144,
+          "mtime_ns": 1794517949999646100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.vivavietnam.lotus_2025-04-07-1322_177.pcap",
+          "bytes": 4509434,
+          "mtime_ns": 1794517949959321400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.vivavietnam.lotus_2025-04-07-1325_243.pcap",
+          "bytes": 5744722,
+          "mtime_ns": 1794517949903739000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.vivavietnam.lotus_2025-04-07-1329_246.pcap",
+          "bytes": 5806639,
+          "mtime_ns": 1794517949229376800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.vivavietnam.lotus_2025-04-07-1334_404.pcap",
+          "bytes": 9751496,
+          "mtime_ns": 1794517949373335200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.yy.hiyo_2025-04-22-1035_213.pcap",
+          "bytes": 5469456,
+          "mtime_ns": 1794517949038351700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.yy.hiyo_2025-07-09-1141_197.pcap",
+          "bytes": 9025947,
+          "mtime_ns": 1794517965746889800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.yy.hiyo_2025-07-09-1144_216.pcap",
+          "bytes": 8368030,
+          "mtime_ns": 1794517965858896400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.yy.hiyo_2025-07-09-1149_279.pcap",
+          "bytes": 11581641,
+          "mtime_ns": 1794517966002675600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.zing.mp3_2025-04-02-1152_392.pcap",
+          "bytes": 7440078,
+          "mtime_ns": 1794517949156339100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.zing.mp3_2025-04-02-1200_195.pcap",
+          "bytes": 8218431,
+          "mtime_ns": 1794517948958088000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.zing.mp3_2025-04-02-1506_465.pcap",
+          "bytes": 10726622,
+          "mtime_ns": 1794517948600329600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.zing.mp3_2025-04-02-1522_390.pcap",
+          "bytes": 10716944,
+          "mtime_ns": 1794517948751469000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.zing.zalo_2025-01-17-1729_624.pcap",
+          "bytes": 8720314,
+          "mtime_ns": 1794517948858031900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.zing.zalo_2025-01-20-1046_158.pcap",
+          "bytes": 2285846,
+          "mtime_ns": 1794517948469117800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.zing.zalo_2025-01-20-1050_311.pcap",
+          "bytes": 2602121,
+          "mtime_ns": 1794517948436975500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/com.zing.zalo_2025-03-21-1336_225.pcap",
+          "bytes": 4125194,
+          "mtime_ns": 1794517948404165500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/fm.castbox.audiobook.radio.podcast_2025-04-03-1534_188.pcap",
+          "bytes": 4497344,
+          "mtime_ns": 1794517947947151000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/fm.castbox.audiobook.radio.podcast_2025-04-03-1544_224.pcap",
+          "bytes": 4253286,
+          "mtime_ns": 1794517948347502500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/fm.castbox.audiobook.radio.podcast_2025-04-03-1550_374.pcap",
+          "bytes": 4766959,
+          "mtime_ns": 1794517948010479700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/fm.castbox.audiobook.radio.podcast_2025-04-03-1557_596.pcap",
+          "bytes": 15488633,
+          "mtime_ns": 1794517948199511800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/fr.playsoft.vnexpress_2025-04-04-1953_104.pcap",
+          "bytes": 1406660,
+          "mtime_ns": 1794517970752333100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/fr.playsoft.vnexpress_2025-04-05-1215_30.pcap",
+          "bytes": 827943,
+          "mtime_ns": 1794517970772423100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/fr.playsoft.vnexpress_2025-07-09-1629_294.pcap",
+          "bytes": 2114770,
+          "mtime_ns": 1794517967204737300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/fr.playsoft.vnexpress_2025-07-09-1704_332.pcap",
+          "bytes": 3100001,
+          "mtime_ns": 1794517967172648800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/io.pobble.sen.android_2025-04-07-1630_188.pcap",
+          "bytes": 2359368,
+          "mtime_ns": 1794517947880092200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/io.pobble.sen.android_2025-04-07-1633_244.pcap",
+          "bytes": 3853577,
+          "mtime_ns": 1794517948252113000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/io.pobble.sen.android_2025-04-07-1646_177.pcap",
+          "bytes": 2877283,
+          "mtime_ns": 1794517948292518600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/io.pobble.sen.android_2025-04-07-1649_321.pcap",
+          "bytes": 5169800,
+          "mtime_ns": 1794517947846964900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/me.mycake_2025-03-22-0951_638.pcap",
+          "bytes": 2984424,
+          "mtime_ns": 1794517947703349500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/me.mycake_2025-03-22-1002_437.pcap",
+          "bytes": 7034941,
+          "mtime_ns": 1794517947786898300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/me.mycake_2025-03-22-1010_218.pcap",
+          "bytes": 5332933,
+          "mtime_ns": 1794517947662177200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/me.mycake_2025-03-22-1016_283.pcap",
+          "bytes": 5594638,
+          "mtime_ns": 1794517951125910300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/mobi.mangatoon.comics.aphone_2025-04-03-1233_303.pcap",
+          "bytes": 16783984,
+          "mtime_ns": 1794517951049064900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/mobi.mangatoon.comics.aphone_2025-04-03-1431_386.pcap",
+          "bytes": 56882,
+          "mtime_ns": 1794517950618128900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/mobi.mangatoon.comics.aphone_2025-04-03-1439_375.pcap",
+          "bytes": 7011837,
+          "mtime_ns": 1794517950834593000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/mobi.mangatoon.comics.aphone_2025-04-03-1459_187.pcap",
+          "bytes": 3959930,
+          "mtime_ns": 1794517950743457800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/mobi.mangatoon.novel.portuguese_2025-04-04-1713_213.pcap",
+          "bytes": 5738656,
+          "mtime_ns": 1794517950689065000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/mobi.mangatoon.novel.portuguese_2025-04-04-1722_438.pcap",
+          "bytes": 6092258,
+          "mtime_ns": 1794517950540984200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/mobi.mangatoon.novel.portuguese_2025-04-04-1805_254.pcap",
+          "bytes": 5631173,
+          "mtime_ns": 1794517950380957600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/myradio.radio.fmradio.liveradio.radiostation_2025-04-04-1643_237.pcap",
+          "bytes": 9770241,
+          "mtime_ns": 1794517952946913100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/myradio.radio.fmradio.liveradio.radiostation_2025-04-04-1652_382.pcap",
+          "bytes": 5525349,
+          "mtime_ns": 1794517950612619700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/myradio.radio.fmradio.liveradio.radiostation_2025-04-04-1659_359.pcap",
+          "bytes": 6547725,
+          "mtime_ns": 1794517950463515100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/myradio.radio.fmradio.liveradio.radiostation_2025-04-04-1705_325.pcap",
+          "bytes": 9458420,
+          "mtime_ns": 1794517951638408900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/org.telegram.messenger_2025-07-15-1052_204.pcap",
+          "bytes": 3331274,
+          "mtime_ns": 1794517964961543000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/org.telegram.messenger_2025-07-15-1056_388.pcap",
+          "bytes": 4008143,
+          "mtime_ns": 1794517966637421700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/org.telegram.messenger_2025-07-15-1103_343.pcap",
+          "bytes": 3016771,
+          "mtime_ns": 1794517966682022900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/org.telegram.messenger_2025-07-15-1109_494.pcap",
+          "bytes": 3182848,
+          "mtime_ns": 1794517967451745300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/org.wikipedia_2025-04-02-0930_638.pcap",
+          "bytes": 3023677,
+          "mtime_ns": 1794517951514750700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/org.wikipedia_2025-04-02-1046_410.pcap",
+          "bytes": 5835279,
+          "mtime_ns": 1794517953146977000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/org.wikipedia_2025-04-02-1053_512.pcap",
+          "bytes": 15855318,
+          "mtime_ns": 1794517952700620400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/org.wikipedia_2025-04-02-1102_753.pcap",
+          "bytes": 8851181,
+          "mtime_ns": 1794517953065043000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/sg.bigo.hellotalk_2025-04-03-0902_534.pcap",
+          "bytes": 5811769,
+          "mtime_ns": 1794517953220155600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/sg.bigo.hellotalk_2025-04-03-0950_260.pcap",
+          "bytes": 3965263,
+          "mtime_ns": 1794517952819184300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/sg.bigo.hellotalk_2025-04-03-1020_248.pcap",
+          "bytes": 4145920,
+          "mtime_ns": 1794517951697479000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/sg.bigo.hellotalk_2025-04-03-1025_336.pcap",
+          "bytes": 4516996,
+          "mtime_ns": 1794517952761863000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/sg.bigo.live_2025-04-22-1029_322.pcap",
+          "bytes": 28803942,
+          "mtime_ns": 1794517956328222300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/sg.bigo.live_2025-06-16-1522_76.pcap",
+          "bytes": 929950,
+          "mtime_ns": 1794517967830641200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/sg.bigo.live_2025-07-09-1720_208.pcap",
+          "bytes": 43552126,
+          "mtime_ns": 1794517966587085900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/sg.bigo.live_2025-07-09-1725_712.pcap",
+          "bytes": 25791580,
+          "mtime_ns": 1794517964739055800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/tv.twitch.android.app_2025-04-28-1541_218.pcap",
+          "bytes": 28353699,
+          "mtime_ns": 1794517951476924500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/tv.twitch.android.app_2025-04-28-1545_246.pcap",
+          "bytes": 44690196,
+          "mtime_ns": 1794517955968202100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/tv.twitch.android.app_2025-04-28-1551_506.pcap",
+          "bytes": 109432857,
+          "mtime_ns": 1794517955414676800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/tv.twitch.android.app_2025-04-28-1600_235.pcap",
+          "bytes": 39001181,
+          "mtime_ns": 1794517954095461200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/us.zoom.videomeetings_2025-04-22-1020_314.pcap",
+          "bytes": 2618246,
+          "mtime_ns": 1794517959184667100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/us.zoom.videomeetings_2025-07-09-1154_272.pcap",
+          "bytes": 3185128,
+          "mtime_ns": 1794517967302843400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/us.zoom.videomeetings_2025-07-09-1159_530.pcap",
+          "bytes": 6234265,
+          "mtime_ns": 1794517967534996200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/us.zoom.videomeetings_2025-07-09-1215_306.pcap",
+          "bytes": 4141712,
+          "mtime_ns": 1794517967261361800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vcc.mobilenewsreader.sohanews_2025-04-29-1644_302.pcap",
+          "bytes": 33904,
+          "mtime_ns": 1794517959195264600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vcc.mobilenewsreader.sohanews_2025-04-29-1650_384.pcap",
+          "bytes": 44863,
+          "mtime_ns": 1794517959190088400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vcc.mobilenewsreader.sohanews_2025-04-29-1657_165.pcap",
+          "bytes": 18346,
+          "mtime_ns": 1794517959231538100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vcc.mobilenewsreader.sohanews_2025-04-29-1706_127.pcap",
+          "bytes": 61711,
+          "mtime_ns": 1794517959147596000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/video.like_2025-03-10-1724_398.pcap",
+          "bytes": 181724607,
+          "mtime_ns": 1794517958661725100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/video.like_2025-03-10-1743_484.pcap",
+          "bytes": 191899933,
+          "mtime_ns": 1794517963779951600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/video.like_2025-03-10-1752_297.pcap",
+          "bytes": 23224536,
+          "mtime_ns": 1794517958952470600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/video.like_2025-03-21-1318_383.pcap",
+          "bytes": 151049466,
+          "mtime_ns": 1794517961217000400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vieon.phim.tv_2025-04-04-1753_292.pcap",
+          "bytes": 5397162,
+          "mtime_ns": 1794517959144266300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vieon.phim.tv_2025-04-04-1910_210.pcap",
+          "bytes": 5526414,
+          "mtime_ns": 1794517959070953200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vieon.phim.tv_2025-04-04-1915_162.pcap",
+          "bytes": 6934115,
+          "mtime_ns": 1794517953607120400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vieon.phim.tv_2025-04-04-1944_445.pcap",
+          "bytes": 7605888,
+          "mtime_ns": 1794517953473615100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.com.dantrinews.android_2025-04-07-1612_281.pcap",
+          "bytes": 3101024,
+          "mtime_ns": 1794517953519366300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.com.dantrinews.android_2025-04-07-1619_170.pcap",
+          "bytes": 1499158,
+          "mtime_ns": 1794517953373755700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.com.dantrinews.android_2025-04-07-1622_133.pcap",
+          "bytes": 1744894,
+          "mtime_ns": 1794517953287625000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.com.dantrinews.android_2025-04-07-1639_273.pcap",
+          "bytes": 4371440,
+          "mtime_ns": 1794517953350322100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.diijam.jammer_2025-04-30-1626_177.pcap",
+          "bytes": 3188745,
+          "mtime_ns": 1794517953262643800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.diijam.jammer_2025-04-30-1631_165.pcap",
+          "bytes": 1559208,
+          "mtime_ns": 1794517959225599800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.diijam.jammer_2025-04-30-1634_307.pcap",
+          "bytes": 3031247,
+          "mtime_ns": 1794517959000517200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.diijam.jammer_2025-04-30-1641_102.pcap",
+          "bytes": 2419333,
+          "mtime_ns": 1794517961248364500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.tiki.app.tikiandroid_2025-04-04-1150_292.pcap",
+          "bytes": 8659956,
+          "mtime_ns": 1794517959332216700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.tiki.app.tikiandroid_2025-04-04-1156_355.pcap",
+          "bytes": 6357634,
+          "mtime_ns": 1794517961416927900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.tiki.app.tikiandroid_2025-04-04-1203_285.pcap",
+          "bytes": 7232527,
+          "mtime_ns": 1794517961338413100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.tiki.app.tikiandroid_2025-04-04-1209_339.pcap",
+          "bytes": 13783194,
+          "mtime_ns": 1794517964917873300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.tuoitre.app_2025-04-30-1510_254.pcap",
+          "bytes": 2887819,
+          "mtime_ns": 1794517964003176200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.tuoitre.app_2025-04-30-1514_186.pcap",
+          "bytes": 2412453,
+          "mtime_ns": 1794517964038456700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.tuoitre.app_2025-04-30-1518_243.pcap",
+          "bytes": 2037837,
+          "mtime_ns": 1794517964419101100
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.tuoitre.app_2025-04-30-1523_228.pcap",
+          "bytes": 3477105,
+          "mtime_ns": 1794517964289746600
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.vtv.vtvgo_2025-04-04-1217_246.pcap",
+          "bytes": 3850972,
+          "mtime_ns": 1794517964103931300
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.vtv.vtvgo_2025-04-04-1221_152.pcap",
+          "bytes": 5199086,
+          "mtime_ns": 1794517964246597000
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.vtv.vtvgo_2025-04-04-1224_97.pcap",
+          "bytes": 5898187,
+          "mtime_ns": 1794517963965469400
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/vn.vtv.vtvgo_2025-04-04-1228_253.pcap",
+          "bytes": 3548113,
+          "mtime_ns": 1794517963888253500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/wsj.reader-sp_2025-04-07-0850_501.pcap",
+          "bytes": 3216142,
+          "mtime_ns": 1794517963829100800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/wsj.reader-sp_2025-04-07-0900_215.pcap",
+          "bytes": 2647044,
+          "mtime_ns": 1794517964393143200
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/wsj.reader-sp_2025-04-07-0935_281.pcap",
+          "bytes": 2644282,
+          "mtime_ns": 1794517964352240900
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/wsj.reader-sp_2025-04-07-0940_243.pcap",
+          "bytes": 2020721,
+          "mtime_ns": 1794517964315582700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/xyz.wmfall.phim_2025-04-07-1342_360.pcap",
+          "bytes": 2645733,
+          "mtime_ns": 1794517964149375700
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/xyz.wmfall.phim_2025-04-07-1349_239.pcap",
+          "bytes": 898013,
+          "mtime_ns": 1794517964053907500
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/xyz.wmfall.phim_2025-04-07-1356_207.pcap",
+          "bytes": 2097961,
+          "mtime_ns": 1794517964183434800
+        },
+        {
+          "path": "data/external/PARROT2025/pcaps/PARROT2025_mitmproxy/xyz.wmfall.phim_2025-04-07-1521_282.pcap",
+          "bytes": 388597,
+          "mtime_ns": 1794517964114364100
+        }
+      ],
+      "extractor_sha256": "def153805229c0302ca23adce1f0e6d7de66c072db3a7017b3fbc2fd2b09c313"
+    },
+    {
+      "state": "complete",
+      "version": "phone-aligned-v2",
+      "source": "AAGM",
+      "records": 5251478,
+      "rows": 767712,
+      "class_counts": [
+        767712,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "unknown_views_excluded": 0,
+      "malformed": 0,
+      "parsed": 5151693,
+      "late": 0,
+      "forced_reorder": 0,
+      "flow_evictions": 0,
+      "history_evictions": 0,
+      "invalid_flows": 0,
+      "packet_limit": 0,
+      "seconds": 8.024,
+      "input_bytes": 3539193958,
+      "captures": 172,
+      "input_inventory": [
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/1.pcap",
+          "bytes": 605475,
+          "mtime_ns": 1794515778342676500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/10.pcap",
+          "bytes": 6424845,
+          "mtime_ns": 1794515792220375300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/100.pcap",
+          "bytes": 91756576,
+          "mtime_ns": 1794515864895340900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/101.pcap",
+          "bytes": 11608083,
+          "mtime_ns": 1794515804566266300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/102.pcap",
+          "bytes": 275239678,
+          "mtime_ns": 1794515820243342700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/103.pcap",
+          "bytes": 233840,
+          "mtime_ns": 1794515766405043400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/104.pcap",
+          "bytes": 186309,
+          "mtime_ns": 1794515789101186500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/105.pcap",
+          "bytes": 235302,
+          "mtime_ns": 1794515804044705500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/106.pcap",
+          "bytes": 188212,
+          "mtime_ns": 1794515864902893600
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/107.pcap",
+          "bytes": 264583,
+          "mtime_ns": 1794515778298564900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/108.pcap",
+          "bytes": 186602,
+          "mtime_ns": 1794515763281308800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/109.pcap",
+          "bytes": 7851,
+          "mtime_ns": 1794515743244535400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/11.pcap",
+          "bytes": 6415665,
+          "mtime_ns": 1794515742906484100
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/110.pcap",
+          "bytes": 328698,
+          "mtime_ns": 1794515861780484900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/111.pcap",
+          "bytes": 64593418,
+          "mtime_ns": 1794515780441021600
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/112.pcap",
+          "bytes": 13653385,
+          "mtime_ns": 1794515865456367800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/113.pcap",
+          "bytes": 202629845,
+          "mtime_ns": 1794515788436807800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/114.pcap",
+          "bytes": 2849153,
+          "mtime_ns": 1794515848987842600
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/115.pcap",
+          "bytes": 2510928,
+          "mtime_ns": 1794515741391798400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/116.pcap",
+          "bytes": 562361,
+          "mtime_ns": 1794515842293501400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/117.pcap",
+          "bytes": 237461,
+          "mtime_ns": 1794515803744119100
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/118.pcap",
+          "bytes": 335038,
+          "mtime_ns": 1794515742918901500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/119.pcap",
+          "bytes": 964424,
+          "mtime_ns": 1794515790549788400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/12.pcap",
+          "bytes": 7116970,
+          "mtime_ns": 1794515767046631300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/120.pcap",
+          "bytes": 117952,
+          "mtime_ns": 1794515858872069200
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/121.pcap",
+          "bytes": 326453,
+          "mtime_ns": 1794515790204241900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/122.pcap",
+          "bytes": 427591,
+          "mtime_ns": 1794515820259737000
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/123.pcap",
+          "bytes": 383256,
+          "mtime_ns": 1794515821594468900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/124.pcap",
+          "bytes": 522974,
+          "mtime_ns": 1794515803425672800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/125.pcap",
+          "bytes": 155626718,
+          "mtime_ns": 1794515869449707300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/126.pcap",
+          "bytes": 89635688,
+          "mtime_ns": 1794515861737055800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/127.pcap",
+          "bytes": 812338,
+          "mtime_ns": 1794515743343661800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/128.pcap",
+          "bytes": 5641154,
+          "mtime_ns": 1794515836953279300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/129.pcap",
+          "bytes": 677356,
+          "mtime_ns": 1794515805161892300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/13.pcap",
+          "bytes": 9471180,
+          "mtime_ns": 1794515790003831900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/130.pcap",
+          "bytes": 1304050,
+          "mtime_ns": 1794515766250356700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/131.pcap",
+          "bytes": 20416,
+          "mtime_ns": 1794515803407798300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/132.pcap",
+          "bytes": 1967510,
+          "mtime_ns": 1794515865036558800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/133.pcap",
+          "bytes": 1293417,
+          "mtime_ns": 1794515805198900800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/134.pcap",
+          "bytes": 891884,
+          "mtime_ns": 1794515792114115200
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/135.pcap",
+          "bytes": 2793441,
+          "mtime_ns": 1794515820319412100
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/136.pcap",
+          "bytes": 991375,
+          "mtime_ns": 1794515843138993900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/137.pcap",
+          "bytes": 2826152,
+          "mtime_ns": 1794515788603742500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/138.pcap",
+          "bytes": 46971793,
+          "mtime_ns": 1794515833923986700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/139.pcap",
+          "bytes": 349823,
+          "mtime_ns": 1794515821794286900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/14.pcap",
+          "bytes": 10295712,
+          "mtime_ns": 1794515790496824800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/140.pcap",
+          "bytes": 42646015,
+          "mtime_ns": 1794515778184372700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/141.pcap",
+          "bytes": 77218509,
+          "mtime_ns": 1794515803399761600
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/142.pcap",
+          "bytes": 33390343,
+          "mtime_ns": 1794515859589831800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/143.pcap",
+          "bytes": 511617,
+          "mtime_ns": 1794515741408470800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/144.pcap",
+          "bytes": 1657672,
+          "mtime_ns": 1794515778223915900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/145.pcap",
+          "bytes": 675098,
+          "mtime_ns": 1794515844565202100
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/146.pcap",
+          "bytes": 487607,
+          "mtime_ns": 1794515804955431600
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/147.pcap",
+          "bytes": 7036319,
+          "mtime_ns": 1794515790793812400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/148.pcap",
+          "bytes": 1563595,
+          "mtime_ns": 1794515805141938600
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/149.pcap",
+          "bytes": 634849,
+          "mtime_ns": 1794515792298458400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/15.pcap",
+          "bytes": 10083779,
+          "mtime_ns": 1794515791091649300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/150.pcap",
+          "bytes": 2872462,
+          "mtime_ns": 1794515844503247700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/151.pcap",
+          "bytes": 16645342,
+          "mtime_ns": 1794515703499827900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/152.pcap",
+          "bytes": 472988,
+          "mtime_ns": 1794515780624606400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/153.pcap",
+          "bytes": 172862054,
+          "mtime_ns": 1794515826944459600
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/154.pcap",
+          "bytes": 563000,
+          "mtime_ns": 1794515804767073500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/155.pcap",
+          "bytes": 547233,
+          "mtime_ns": 1794515820338209700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/156.pcap",
+          "bytes": 415495,
+          "mtime_ns": 1794515834143909300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/157.pcap",
+          "bytes": 383275,
+          "mtime_ns": 1794515844438336700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/158.pcap",
+          "bytes": 473791,
+          "mtime_ns": 1794515861768451800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/159.pcap",
+          "bytes": 370250,
+          "mtime_ns": 1794515792483536900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/16.pcap",
+          "bytes": 9412413,
+          "mtime_ns": 1794515821782573200
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/160.pcap",
+          "bytes": 6884257,
+          "mtime_ns": 1794515804938327300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/161.pcap",
+          "bytes": 982941,
+          "mtime_ns": 1794515792243927600
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/162.pcap",
+          "bytes": 558918,
+          "mtime_ns": 1794515861754327200
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/163.pcap",
+          "bytes": 1083833,
+          "mtime_ns": 1794515778325535300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/164.pcap",
+          "bytes": 5571526,
+          "mtime_ns": 1794515743239723200
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/165.pcap",
+          "bytes": 3334775,
+          "mtime_ns": 1794515766487127000
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/166.pcap",
+          "bytes": 663278,
+          "mtime_ns": 1794515782351331800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/167.pcap",
+          "bytes": 6323217,
+          "mtime_ns": 1794515767936940600
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/168.pcap",
+          "bytes": 729113,
+          "mtime_ns": 1794515766583009500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/169.pcap",
+          "bytes": 2259105,
+          "mtime_ns": 1794515790073059600
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/17.pcap",
+          "bytes": 37494374,
+          "mtime_ns": 1794515844311506900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/170.pcap",
+          "bytes": 430095,
+          "mtime_ns": 1794515844325309200
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/171.pcap",
+          "bytes": 596639,
+          "mtime_ns": 1794515803594030300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/172.pcap",
+          "bytes": 6827759,
+          "mtime_ns": 1794515804743507000
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/173.pcap",
+          "bytes": 2908623,
+          "mtime_ns": 1794515763351024900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/18.pcap",
+          "bytes": 18602088,
+          "mtime_ns": 1794515789062046800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/19.pcap",
+          "bytes": 76612977,
+          "mtime_ns": 1794515782325990700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/2.pcap",
+          "bytes": 3400308,
+          "mtime_ns": 1794515844638180000
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/20.pcap",
+          "bytes": 1981692,
+          "mtime_ns": 1794515763516086900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/21.pcap",
+          "bytes": 3795064,
+          "mtime_ns": 1794515790964919300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/22.pcap",
+          "bytes": 3781582,
+          "mtime_ns": 1794515804131700700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/23.pcap",
+          "bytes": 4354506,
+          "mtime_ns": 1794515767446519500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/24.pcap",
+          "bytes": 3149245,
+          "mtime_ns": 1794515743022940100
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/25.pcap",
+          "bytes": 3696018,
+          "mtime_ns": 1794515768013734200
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/26.pcap",
+          "bytes": 3479208,
+          "mtime_ns": 1794515842184987000
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/27.pcap",
+          "bytes": 4026083,
+          "mtime_ns": 1794515849141865300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/28.pcap",
+          "bytes": 1890764,
+          "mtime_ns": 1794515789853011200
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/29.pcap",
+          "bytes": 3066568,
+          "mtime_ns": 1794515741473842900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/3.pcap",
+          "bytes": 720001115,
+          "mtime_ns": 1794515741193809000
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/30.pcap",
+          "bytes": 3120841,
+          "mtime_ns": 1794515803501540100
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/31.pcap",
+          "bytes": 387048048,
+          "mtime_ns": 1794515763107436900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/32.pcap",
+          "bytes": 187359007,
+          "mtime_ns": 1794515848922052800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/33.pcap",
+          "bytes": 30893140,
+          "mtime_ns": 1794515791769518900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/34.pcap",
+          "bytes": 138448459,
+          "mtime_ns": 1794515830624637700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/35.pcap",
+          "bytes": 246610,
+          "mtime_ns": 1794515743356040800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/36.pcap",
+          "bytes": 3321955,
+          "mtime_ns": 1794515792469759500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/37.pcap",
+          "bytes": 252989,
+          "mtime_ns": 1794515849152990700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/38.pcap",
+          "bytes": 201308,
+          "mtime_ns": 1794515830632980000
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/39.pcap",
+          "bytes": 226281,
+          "mtime_ns": 1794515763271351700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/4.pcap",
+          "bytes": 923557,
+          "mtime_ns": 1794515862287541500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/40.pcap",
+          "bytes": 491972,
+          "mtime_ns": 1794515844534238800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/41.pcap",
+          "bytes": 295065,
+          "mtime_ns": 1794515869459288000
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/42.pcap",
+          "bytes": 199990,
+          "mtime_ns": 1794515803765762300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/43.pcap",
+          "bytes": 218740,
+          "mtime_ns": 1794515792309354500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/44.pcap",
+          "bytes": 7221244,
+          "mtime_ns": 1794515767262826400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/45.pcap",
+          "bytes": 1361017,
+          "mtime_ns": 1794515792280959000
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/46.pcap",
+          "bytes": 59408031,
+          "mtime_ns": 1794515742831028700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/47.pcap",
+          "bytes": 3436496,
+          "mtime_ns": 1794515862263011300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/48.pcap",
+          "bytes": 5193008,
+          "mtime_ns": 1794515827060799600
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/49.pcap",
+          "bytes": 5867933,
+          "mtime_ns": 1794515858864870700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/5.pcap",
+          "bytes": 3935340,
+          "mtime_ns": 1794515743114514500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/50.pcap",
+          "bytes": 5416186,
+          "mtime_ns": 1794515805457704400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/51.pcap",
+          "bytes": 5479019,
+          "mtime_ns": 1794515865161046500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/52.pcap",
+          "bytes": 6050477,
+          "mtime_ns": 1794515803738060700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/53.pcap",
+          "bytes": 6183870,
+          "mtime_ns": 1794515789251226300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/54.pcap",
+          "bytes": 6109903,
+          "mtime_ns": 1794515741329320500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/55.pcap",
+          "bytes": 6077397,
+          "mtime_ns": 1794515766393014700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/56.pcap",
+          "bytes": 6083997,
+          "mtime_ns": 1794515792024919300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/57.pcap",
+          "bytes": 6060668,
+          "mtime_ns": 1794515805098064700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/58.pcap",
+          "bytes": 3405764,
+          "mtime_ns": 1794515767771281200
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/59.pcap",
+          "bytes": 3990395,
+          "mtime_ns": 1794515792399453800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/6.pcap",
+          "bytes": 7455179,
+          "mtime_ns": 1794515780611189300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/60.pcap",
+          "bytes": 18198753,
+          "mtime_ns": 1794515789795140800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/61.pcap",
+          "bytes": 3972095,
+          "mtime_ns": 1794515767354199400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/62.pcap",
+          "bytes": 3810862,
+          "mtime_ns": 1794515788535364800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/63.pcap",
+          "bytes": 3646333,
+          "mtime_ns": 1794515804228329900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/64.pcap",
+          "bytes": 3678318,
+          "mtime_ns": 1794515790190698500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/65.pcap",
+          "bytes": 4237261,
+          "mtime_ns": 1794515703101587300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/66.pcap",
+          "bytes": 4055416,
+          "mtime_ns": 1794515864994449000
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/67.pcap",
+          "bytes": 4236162,
+          "mtime_ns": 1794515844426356400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/68.pcap",
+          "bytes": 4195227,
+          "mtime_ns": 1794515791878269700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/69.pcap",
+          "bytes": 3657811,
+          "mtime_ns": 1794515844716962200
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/7.pcap",
+          "bytes": 49064334,
+          "mtime_ns": 1794515821508849700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/70.pcap",
+          "bytes": 3931256,
+          "mtime_ns": 1794515763463501300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/71.pcap",
+          "bytes": 3662622,
+          "mtime_ns": 1794515821673078100
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/72.pcap",
+          "bytes": 3158385,
+          "mtime_ns": 1794515766562012400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/73.pcap",
+          "bytes": 16713151,
+          "mtime_ns": 1794515766962227600
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/74.pcap",
+          "bytes": 3702516,
+          "mtime_ns": 1794515805316251800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/75.pcap",
+          "bytes": 3345084,
+          "mtime_ns": 1794515820414886200
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/76.pcap",
+          "bytes": 2818183,
+          "mtime_ns": 1794515803573229300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/77.pcap",
+          "bytes": 3263055,
+          "mtime_ns": 1794515821583038400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/78.pcap",
+          "bytes": 3562391,
+          "mtime_ns": 1794515743325985600
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/79.pcap",
+          "bytes": 3662229,
+          "mtime_ns": 1794515859669319200
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/8.pcap",
+          "bytes": 8816641,
+          "mtime_ns": 1794515763260530300
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/80.pcap",
+          "bytes": 3185681,
+          "mtime_ns": 1794515842973269900
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/81.pcap",
+          "bytes": 3441202,
+          "mtime_ns": 1794515790887402400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/82.pcap",
+          "bytes": 3580909,
+          "mtime_ns": 1794515838677677700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/83.pcap",
+          "bytes": 2191850,
+          "mtime_ns": 1794515767097492800
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/84.pcap",
+          "bytes": 2940200,
+          "mtime_ns": 1794515778288375000
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/85.pcap",
+          "bytes": 3300133,
+          "mtime_ns": 1794515865645474400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/86.pcap",
+          "bytes": 18373112,
+          "mtime_ns": 1794515862183794600
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/87.pcap",
+          "bytes": 24,
+          "mtime_ns": 1794515865041863000
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/88.pcap",
+          "bytes": 39833036,
+          "mtime_ns": 1794515858696764500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/89.pcap",
+          "bytes": 45777326,
+          "mtime_ns": 1794515777246204500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/9.pcap",
+          "bytes": 8504392,
+          "mtime_ns": 1794515865576543700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/90.pcap",
+          "bytes": 484663,
+          "mtime_ns": 1794515791894324000
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/91.pcap",
+          "bytes": 605694,
+          "mtime_ns": 1794515844520535100
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/92.pcap",
+          "bytes": 425381,
+          "mtime_ns": 1794515767786131500
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/93.pcap",
+          "bytes": 729777,
+          "mtime_ns": 1794515858716940100
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/94.pcap",
+          "bytes": 318716,
+          "mtime_ns": 1794515763475335000
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/95.pcap",
+          "bytes": 617102,
+          "mtime_ns": 1794515790518979600
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/96.pcap",
+          "bytes": 387895,
+          "mtime_ns": 1794515859684139400
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/97.pcap",
+          "bytes": 937690,
+          "mtime_ns": 1794515789090470700
+        },
+        {
+          "path": "data/external/CIC-AAGM2017/Benign Pcaps/99.pcap",
+          "bytes": 10294892,
+          "mtime_ns": 1794515804035083800
+        }
+      ],
+      "extractor_sha256": "def153805229c0302ca23adce1f0e6d7de66c072db3a7017b3fbc2fd2b09c313"
+    }
+  ],
+  "split": "70/15/15 stratified connection groups; Android app/capture groups; seed8621/8622",
+  "scope": "Causal unlabeled history crosses row-group partitions; not independent capture generalization. Manual/phone diagnostics excluded from training."
+}

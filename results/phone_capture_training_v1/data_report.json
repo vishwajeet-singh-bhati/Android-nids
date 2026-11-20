@@ -1,0 +1,101 @@
+{
+  "state": "ready",
+  "old_split_membership_preserved": true,
+  "new_session_groups_disjoint": true,
+  "old_diagnostics_and_pilot_excluded": true,
+  "phone_training_resample_factor": 8,
+  "resampling_scope": "Exact repetition of real recorded training rows; not synthetic features or independent new sessions.",
+  "unique_new_phone_rows": {
+    "train": 848,
+    "validation": 184,
+    "test": 184
+  },
+  "splits": {
+    "train": {
+      "old_rows": 4956674,
+      "unique_new_phone_rows": 848,
+      "phone_training_resample_factor": 8,
+      "rows": 4963458,
+      "phone_subtypes": {
+        "http_password_spraying": 80,
+        "http_password_guessing": 120,
+        "normal_search_or_code": 56,
+        "sql_injection": 60,
+        "xss": 60,
+        "ordinary_failed_login": 56,
+        "ordinary_server_error": 56,
+        "successful_login": 56,
+        "normal_page": 56,
+        "normal_http": 56,
+        "legitimate_http_burst": 192
+      },
+      "phone_session_ids": [
+        "phone_v1_train_01",
+        "phone_v1_train_02",
+        "phone_v1_train_03",
+        "phone_v1_train_04",
+        "phone_v1_train_05",
+        "phone_v1_train_06",
+        "phone_v1_train_07",
+        "phone_v1_train_08",
+        "phone_v1_train_09",
+        "phone_v1_train_10",
+        "phone_v1_train_11",
+        "phone_v1_train_12",
+        "phone_v1_train_13",
+        "phone_v1_train_14"
+      ]
+    },
+    "validation": {
+      "old_rows": 1188724,
+      "unique_new_phone_rows": 184,
+      "phone_training_resample_factor": 1,
+      "rows": 1188908,
+      "phone_subtypes": {
+        "http_password_spraying": 16,
+        "xss": 12,
+        "sql_injection": 12,
+        "http_password_guessing": 24,
+        "ordinary_server_error": 12,
+        "ordinary_failed_login": 12,
+        "normal_http": 12,
+        "normal_search_or_code": 12,
+        "normal_page": 12,
+        "successful_login": 12,
+        "legitimate_http_burst": 48
+      },
+      "phone_session_ids": [
+        "phone_v1_validation_01",
+        "phone_v1_validation_02",
+        "phone_v1_validation_03"
+      ]
+    },
+    "test": {
+      "old_rows": 1098929,
+      "unique_new_phone_rows": 184,
+      "phone_training_resample_factor": 1,
+      "rows": 1099113,
+      "phone_subtypes": {
+        "ordinary_failed_login": 12,
+        "http_password_guessing": 24,
+        "sql_injection": 12,
+        "http_password_spraying": 16,
+        "normal_search_or_code": 12,
+        "successful_login": 12,
+        "normal_http": 12,
+        "xss": 12,
+        "normal_page": 12,
+        "ordinary_server_error": 12,
+        "legitimate_http_burst": 48
+      },
+      "phone_session_ids": [
+        "phone_v1_test_01",
+        "phone_v1_test_02",
+        "phone_v1_test_03"
+      ]
+    }
+  },
+  "all_combined_group_overlaps_zero": true,
+  "campaign_plan_sha256": "97d967c6f64a1c850f2191867af7b2f6c8aa5496925f12a35ab659731345d171",
+  "scope": "One phone and lab app, chronological sessions/held-out forms; not independent device/day/site generalization."
+}

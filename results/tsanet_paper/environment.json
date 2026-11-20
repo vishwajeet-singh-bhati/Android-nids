@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-18",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "cudnn": 92400,
+  "gpu": "NVIDIA RTX 2000 Ada Generation",
+  "numpy": "2.2.6",
+  "pandas": "3.0.6",
+  "sklearn": "1.9.1",
+  "pypdf": "7.1.1",
+  "paper_sha256": "d2163f2ce6cacf4d6f5df331e6dbae797cfe12d5330ae31345e1610ca005cadd",
+  "source_fingerprints": {
+    "data.py": "6e00d94ff2acacf8e0d64c9f3f6ef726ebadee91de442e2289eb48f3f6eacc08",
+    "experiment.py": "8468e4fe3115a5652738471c7174582690d0c9c1f1ac4e3a3c6dad03e6d1634d",
+    "model.py": "0d26c01ad05f7048d77cb3437c73c8297eb66d36a0da586feb03166b75d02e79",
+    "run.py": "249fe582137ae3e464168174108142bcf41966b79bd7ddd9f406872dd8c64958",
+    "test_pipeline.py": "9ee6469f11746860f6369c074b8f75c69e7f9d05be15c5ae740214e7a2d63f22"
+  },
+  "scope": "Local work-PC benchmark reconstruction, user-defined 70/30; no remote training or installation"
+}
