@@ -26,3 +26,6 @@ local.properties
 *.npz
 *.db
 *.sqlite
+
+# Local compiler/Gradle logs are generated outputs.
+*.log
