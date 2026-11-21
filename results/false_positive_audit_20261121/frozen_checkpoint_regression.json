@@ -1,0 +1,910 @@
+{
+  "scope": "Already observed development/regression cases; no independent FPR or checkpoint-selection claim.",
+  "fitting_or_threshold_changes": false,
+  "phone_actions": 0,
+  "threshold": 0.5408333333333333,
+  "current": "gate_s0_final",
+  "native_reference_maximum_error": 4.589557647705078e-06,
+  "rows": 386,
+  "checkpoint_sha256": {
+    "gate_s0_best": "3135a712f65a350d12c0369c8cd08de5c0bb2610e2ce1f055af448d87176100a",
+    "gate_s0_final": "4d186ad10b55e50eb65d1de26aed071b545025bb6b42d02a18506b6159bb9b13",
+    "gate_s1_best": "bb7943aed3c0ec3e90ca36ac395414dd5c745200b8240ff82c5f2dc759c597fd",
+    "gate_s1_final": "5168b49dbf24e0c6495b72cd0e0ccbe9425c2134b261e87f3cafd2972b1755c9",
+    "gate_s2_best": "ec3b44a4c12971bab3af7f5944dd1cfbd921318468f4e324128f65645a98f13e",
+    "gate_s2_final": "02de256ac70f32534be1c1ccc9203c504af1e69aaa4a4992114f5e62c72257c4"
+  },
+  "candidates": {
+    "gate_s0_best": {
+      "normal_flags": 16,
+      "normal_connections": 118,
+      "attack_flags": 78,
+      "attack_connections": 268,
+      "partitions": {
+        "Benign/ftp_login_failure": {
+          "connections": 3,
+          "flagged": 3,
+          "score_range": [
+            0.6343806982040405,
+            0.9417069554328918
+          ]
+        },
+        "Benign/ftp_login_success": {
+          "connections": 3,
+          "flagged": 2,
+          "score_range": [
+            0.26643529534339905,
+            0.9981811046600342
+          ]
+        },
+        "Benign/probe_available": {
+          "connections": 15,
+          "flagged": 3,
+          "score_range": [
+            6.720955298078479e-06,
+            0.9248592257499695
+          ]
+        },
+        "Benign/ssh_login_failure": {
+          "connections": 3,
+          "flagged": 3,
+          "score_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "Benign/ssh_login_success": {
+          "connections": 3,
+          "flagged": 3,
+          "score_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "BotBehavior/bot_exchange": {
+          "connections": 12,
+          "flagged": 0,
+          "score_range": [
+            0.004447697661817074,
+            0.26723960041999817
+          ]
+        },
+        "BotBehavior/bot_trigger": {
+          "connections": 1,
+          "flagged": 0,
+          "score_range": [
+            0.03144894167780876,
+            0.03144894167780876
+          ]
+        },
+        "DDoS/probe_available": {
+          "connections": 9,
+          "flagged": 1,
+          "score_range": [
+            0.015438186936080456,
+            0.8815287351608276
+          ]
+        },
+        "DDoS/probe_denied": {
+          "connections": 38,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            6.804046920448834e-17
+          ]
+        },
+        "DDoS/resource_denied": {
+          "connections": 76,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            1.9487422035340335e-20
+          ]
+        },
+        "DDoS/resource_held": {
+          "connections": 20,
+          "flagged": 1,
+          "score_range": [
+            0.014331566169857979,
+            0.5437837243080139
+          ]
+        },
+        "DoS/probe_available": {
+          "connections": 7,
+          "flagged": 1,
+          "score_range": [
+            0.003089512698352337,
+            0.8353292942047119
+          ]
+        },
+        "DoS/probe_denied": {
+          "connections": 36,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            2.082033454130672e-15
+          ]
+        },
+        "DoS/resource_denied": {
+          "connections": 78,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            6.545834882178771e-17
+          ]
+        },
+        "DoS/resource_held": {
+          "connections": 18,
+          "flagged": 14,
+          "score_range": [
+            0.4526998698711395,
+            0.9867163896560669
+          ]
+        },
+        "FTPBruteForce/ftp_login_failure": {
+          "connections": 32,
+          "flagged": 31,
+          "score_range": [
+            0.16678132116794586,
+            0.99994957447052
+          ]
+        },
+        "SSHBruteForce/ssh_login_failure": {
+          "connections": 32,
+          "flagged": 32,
+          "score_range": [
+            0.9994078874588013,
+            1.0
+          ]
+        }
+      }
+    },
+    "gate_s0_final": {
+      "normal_flags": 13,
+      "normal_connections": 118,
+      "attack_flags": 79,
+      "attack_connections": 268,
+      "partitions": {
+        "Benign/ftp_login_failure": {
+          "connections": 3,
+          "flagged": 1,
+          "score_range": [
+            1.9111239453195594e-06,
+            0.9999996423721313
+          ]
+        },
+        "Benign/ftp_login_success": {
+          "connections": 3,
+          "flagged": 2,
+          "score_range": [
+            0.2083679735660553,
+            1.0
+          ]
+        },
+        "Benign/probe_available": {
+          "connections": 15,
+          "flagged": 2,
+          "score_range": [
+            2.5111992485449264e-09,
+            0.6104415059089661
+          ]
+        },
+        "Benign/ssh_login_failure": {
+          "connections": 3,
+          "flagged": 3,
+          "score_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "Benign/ssh_login_success": {
+          "connections": 3,
+          "flagged": 3,
+          "score_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "BotBehavior/bot_exchange": {
+          "connections": 12,
+          "flagged": 0,
+          "score_range": [
+            2.423012483632192e-05,
+            0.018903743475675583
+          ]
+        },
+        "BotBehavior/bot_trigger": {
+          "connections": 1,
+          "flagged": 0,
+          "score_range": [
+            0.00010479020420461893,
+            0.00010479020420461893
+          ]
+        },
+        "DDoS/probe_available": {
+          "connections": 9,
+          "flagged": 1,
+          "score_range": [
+            0.007217748556286097,
+            0.8566471934318542
+          ]
+        },
+        "DDoS/probe_denied": {
+          "connections": 38,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            4.630829053553498e-11
+          ]
+        },
+        "DDoS/resource_denied": {
+          "connections": 76,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            6.69578068157884e-23
+          ]
+        },
+        "DDoS/resource_held": {
+          "connections": 20,
+          "flagged": 0,
+          "score_range": [
+            2.3615908503415994e-05,
+            0.4019829034805298
+          ]
+        },
+        "DoS/probe_available": {
+          "connections": 7,
+          "flagged": 1,
+          "score_range": [
+            0.0007958197966217995,
+            0.6810652017593384
+          ]
+        },
+        "DoS/probe_denied": {
+          "connections": 36,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            1.877031733168999e-12
+          ]
+        },
+        "DoS/resource_denied": {
+          "connections": 78,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            6.047158798031461e-20
+          ]
+        },
+        "DoS/resource_held": {
+          "connections": 18,
+          "flagged": 18,
+          "score_range": [
+            0.7451635003089905,
+            0.8899262547492981
+          ]
+        },
+        "FTPBruteForce/ftp_login_failure": {
+          "connections": 32,
+          "flagged": 29,
+          "score_range": [
+            6.914426171379662e-13,
+            1.0
+          ]
+        },
+        "SSHBruteForce/ssh_login_failure": {
+          "connections": 32,
+          "flagged": 32,
+          "score_range": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    "gate_s1_best": {
+      "normal_flags": 15,
+      "normal_connections": 118,
+      "attack_flags": 65,
+      "attack_connections": 268,
+      "partitions": {
+        "Benign/ftp_login_failure": {
+          "connections": 3,
+          "flagged": 0,
+          "score_range": [
+            2.7486193289007904e-19,
+            8.844635093763209e-12
+          ]
+        },
+        "Benign/ftp_login_success": {
+          "connections": 3,
+          "flagged": 0,
+          "score_range": [
+            1.1313384774493818e-23,
+            3.5291695509986204e-15
+          ]
+        },
+        "Benign/probe_available": {
+          "connections": 15,
+          "flagged": 0,
+          "score_range": [
+            6.730161566936843e-11,
+            0.02340049482882023
+          ]
+        },
+        "Benign/ssh_login_failure": {
+          "connections": 3,
+          "flagged": 3,
+          "score_range": [
+            0.9998847246170044,
+            0.9999916553497314
+          ]
+        },
+        "Benign/ssh_login_success": {
+          "connections": 3,
+          "flagged": 3,
+          "score_range": [
+            0.9999527931213379,
+            1.0
+          ]
+        },
+        "BotBehavior/bot_exchange": {
+          "connections": 12,
+          "flagged": 1,
+          "score_range": [
+            6.730505992891267e-05,
+            0.565113365650177
+          ]
+        },
+        "BotBehavior/bot_trigger": {
+          "connections": 1,
+          "flagged": 0,
+          "score_range": [
+            0.00015452256775461137,
+            0.00015452256775461137
+          ]
+        },
+        "DDoS/probe_available": {
+          "connections": 9,
+          "flagged": 5,
+          "score_range": [
+            8.068238299685504e-10,
+            0.9990828037261963
+          ]
+        },
+        "DDoS/probe_denied": {
+          "connections": 38,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            3.9302797670039136e-13
+          ]
+        },
+        "DDoS/resource_denied": {
+          "connections": 76,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            7.339965658793365e-18
+          ]
+        },
+        "DDoS/resource_held": {
+          "connections": 20,
+          "flagged": 16,
+          "score_range": [
+            0.0033823216799646616,
+            0.9789150357246399
+          ]
+        },
+        "DoS/probe_available": {
+          "connections": 7,
+          "flagged": 4,
+          "score_range": [
+            1.1949178535530791e-08,
+            0.9949033260345459
+          ]
+        },
+        "DoS/probe_denied": {
+          "connections": 36,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            3.7934373524339815e-12
+          ]
+        },
+        "DoS/resource_denied": {
+          "connections": 78,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            1.3374807446460413e-13
+          ]
+        },
+        "DoS/resource_held": {
+          "connections": 18,
+          "flagged": 18,
+          "score_range": [
+            0.8769432902336121,
+            0.9847940802574158
+          ]
+        },
+        "FTPBruteForce/ftp_login_failure": {
+          "connections": 32,
+          "flagged": 0,
+          "score_range": [
+            1.1590660614450854e-13,
+            0.4872954487800598
+          ]
+        },
+        "SSHBruteForce/ssh_login_failure": {
+          "connections": 32,
+          "flagged": 30,
+          "score_range": [
+            0.0001372852420900017,
+            1.0
+          ]
+        }
+      }
+    },
+    "gate_s1_final": {
+      "normal_flags": 14,
+      "normal_connections": 118,
+      "attack_flags": 52,
+      "attack_connections": 268,
+      "partitions": {
+        "Benign/ftp_login_failure": {
+          "connections": 3,
+          "flagged": 0,
+          "score_range": [
+            5.950695245710353e-23,
+            1.5308041902768917e-14
+          ]
+        },
+        "Benign/ftp_login_success": {
+          "connections": 3,
+          "flagged": 0,
+          "score_range": [
+            4.3755826715984384e-23,
+            6.741759928097224e-12
+          ]
+        },
+        "Benign/probe_available": {
+          "connections": 15,
+          "flagged": 0,
+          "score_range": [
+            1.9037832699558543e-18,
+            0.00025505846133455634
+          ]
+        },
+        "Benign/ssh_login_failure": {
+          "connections": 3,
+          "flagged": 3,
+          "score_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "Benign/ssh_login_success": {
+          "connections": 3,
+          "flagged": 3,
+          "score_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "BotBehavior/bot_exchange": {
+          "connections": 12,
+          "flagged": 0,
+          "score_range": [
+            5.738360050600022e-05,
+            0.07221663743257523
+          ]
+        },
+        "BotBehavior/bot_trigger": {
+          "connections": 1,
+          "flagged": 0,
+          "score_range": [
+            5.647054024393583e-08,
+            5.647054024393583e-08
+          ]
+        },
+        "DDoS/probe_available": {
+          "connections": 9,
+          "flagged": 4,
+          "score_range": [
+            1.0653447013453388e-09,
+            0.9328246116638184
+          ]
+        },
+        "DDoS/probe_denied": {
+          "connections": 38,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            0.0
+          ]
+        },
+        "DDoS/resource_denied": {
+          "connections": 76,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            0.0
+          ]
+        },
+        "DDoS/resource_held": {
+          "connections": 20,
+          "flagged": 0,
+          "score_range": [
+            5.025957960924643e-08,
+            0.0018277585040777922
+          ]
+        },
+        "DoS/probe_available": {
+          "connections": 7,
+          "flagged": 4,
+          "score_range": [
+            4.8225985704863916e-11,
+            0.8530802726745605
+          ]
+        },
+        "DoS/probe_denied": {
+          "connections": 36,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            0.0
+          ]
+        },
+        "DoS/resource_denied": {
+          "connections": 78,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            0.0
+          ]
+        },
+        "DoS/resource_held": {
+          "connections": 18,
+          "flagged": 1,
+          "score_range": [
+            0.002024842659011483,
+            0.7104299664497375
+          ]
+        },
+        "FTPBruteForce/ftp_login_failure": {
+          "connections": 32,
+          "flagged": 20,
+          "score_range": [
+            3.177536774940029e-20,
+            1.0
+          ]
+        },
+        "SSHBruteForce/ssh_login_failure": {
+          "connections": 32,
+          "flagged": 31,
+          "score_range": [
+            1.1552788944653451e-20,
+            1.0
+          ]
+        }
+      }
+    },
+    "gate_s2_best": {
+      "normal_flags": 15,
+      "normal_connections": 118,
+      "attack_flags": 46,
+      "attack_connections": 268,
+      "partitions": {
+        "Benign/ftp_login_failure": {
+          "connections": 3,
+          "flagged": 0,
+          "score_range": [
+            2.03676442031564e-12,
+            1.708568220237794e-08
+          ]
+        },
+        "Benign/ftp_login_success": {
+          "connections": 3,
+          "flagged": 0,
+          "score_range": [
+            0.000598718470428139,
+            0.2161429524421692
+          ]
+        },
+        "Benign/probe_available": {
+          "connections": 15,
+          "flagged": 3,
+          "score_range": [
+            3.503239032198735e-09,
+            0.8294756412506104
+          ]
+        },
+        "Benign/ssh_login_failure": {
+          "connections": 3,
+          "flagged": 3,
+          "score_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "Benign/ssh_login_success": {
+          "connections": 3,
+          "flagged": 3,
+          "score_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "BotBehavior/bot_exchange": {
+          "connections": 12,
+          "flagged": 3,
+          "score_range": [
+            0.00011825995170511305,
+            0.9304383397102356
+          ]
+        },
+        "BotBehavior/bot_trigger": {
+          "connections": 1,
+          "flagged": 0,
+          "score_range": [
+            1.3130457432453113e-07,
+            1.3130457432453113e-07
+          ]
+        },
+        "DDoS/probe_available": {
+          "connections": 9,
+          "flagged": 3,
+          "score_range": [
+            6.236250271740573e-08,
+            0.8843082189559937
+          ]
+        },
+        "DDoS/probe_denied": {
+          "connections": 38,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            1.1567596923736656e-14
+          ]
+        },
+        "DDoS/resource_denied": {
+          "connections": 76,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            1.6611794808731168e-27
+          ]
+        },
+        "DDoS/resource_held": {
+          "connections": 20,
+          "flagged": 0,
+          "score_range": [
+            0.000892906857188791,
+            0.5376548171043396
+          ]
+        },
+        "DoS/probe_available": {
+          "connections": 7,
+          "flagged": 3,
+          "score_range": [
+            0.024225182831287384,
+            0.8906459808349609
+          ]
+        },
+        "DoS/probe_denied": {
+          "connections": 36,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            1.3686536238653908e-15
+          ]
+        },
+        "DoS/resource_denied": {
+          "connections": 78,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            2.0705546687702736e-17
+          ]
+        },
+        "DoS/resource_held": {
+          "connections": 18,
+          "flagged": 0,
+          "score_range": [
+            0.048814788460731506,
+            0.38079652190208435
+          ]
+        },
+        "FTPBruteForce/ftp_login_failure": {
+          "connections": 32,
+          "flagged": 11,
+          "score_range": [
+            4.387410636734337e-18,
+            0.9995291233062744
+          ]
+        },
+        "SSHBruteForce/ssh_login_failure": {
+          "connections": 32,
+          "flagged": 32,
+          "score_range": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    "gate_s2_final": {
+      "normal_flags": 22,
+      "normal_connections": 118,
+      "attack_flags": 93,
+      "attack_connections": 268,
+      "partitions": {
+        "Benign/ftp_login_failure": {
+          "connections": 3,
+          "flagged": 0,
+          "score_range": [
+            8.189283227200748e-20,
+            0.023439085111021996
+          ]
+        },
+        "Benign/ftp_login_success": {
+          "connections": 3,
+          "flagged": 3,
+          "score_range": [
+            0.9999727010726929,
+            1.0
+          ]
+        },
+        "Benign/probe_available": {
+          "connections": 15,
+          "flagged": 3,
+          "score_range": [
+            4.524043357816143e-13,
+            0.9242525100708008
+          ]
+        },
+        "Benign/ssh_login_failure": {
+          "connections": 3,
+          "flagged": 3,
+          "score_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "Benign/ssh_login_success": {
+          "connections": 3,
+          "flagged": 3,
+          "score_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "BotBehavior/bot_exchange": {
+          "connections": 12,
+          "flagged": 2,
+          "score_range": [
+            3.516551032589632e-06,
+            0.9334060549736023
+          ]
+        },
+        "BotBehavior/bot_trigger": {
+          "connections": 1,
+          "flagged": 0,
+          "score_range": [
+            0.0006035235710442066,
+            0.0006035235710442066
+          ]
+        },
+        "DDoS/probe_available": {
+          "connections": 9,
+          "flagged": 6,
+          "score_range": [
+            0.015230345539748669,
+            0.9739140272140503
+          ]
+        },
+        "DDoS/probe_denied": {
+          "connections": 38,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            9.420468067344402e-24
+          ]
+        },
+        "DDoS/resource_denied": {
+          "connections": 76,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            0.0
+          ]
+        },
+        "DDoS/resource_held": {
+          "connections": 20,
+          "flagged": 14,
+          "score_range": [
+            0.023237405344843864,
+            0.9192439913749695
+          ]
+        },
+        "DoS/probe_available": {
+          "connections": 7,
+          "flagged": 4,
+          "score_range": [
+            0.07539299130439758,
+            0.9263380765914917
+          ]
+        },
+        "DoS/probe_denied": {
+          "connections": 36,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            1.8959795238226348e-31
+          ]
+        },
+        "DoS/resource_denied": {
+          "connections": 78,
+          "flagged": 0,
+          "score_range": [
+            0.0,
+            0.0
+          ]
+        },
+        "DoS/resource_held": {
+          "connections": 18,
+          "flagged": 16,
+          "score_range": [
+            0.19915567338466644,
+            0.8968439102172852
+          ]
+        },
+        "FTPBruteForce/ftp_login_failure": {
+          "connections": 32,
+          "flagged": 29,
+          "score_range": [
+            3.824903004779901e-16,
+            1.0
+          ]
+        },
+        "SSHBruteForce/ssh_login_failure": {
+          "connections": 32,
+          "flagged": 32,
+          "score_range": [
+            0.9999960660934448,
+            1.0
+          ]
+        }
+      }
+    }
+  },
+  "protocol_indicator_training_counts": {
+    "ssh": {
+      "0": 7322,
+      "2": 4096
+    },
+    "ftp": {
+      "0": 3490,
+      "2": 3736
+    }
+  },
+  "protocol_indicator_ablation": {
+    "diagnostic_only_not_deployed": true,
+    "masked_features": [
+      "ssh_banner_seen",
+      "ftp_banner_or_credentials_seen"
+    ],
+    "normal_flags": 11,
+    "attack_flags": 48,
+    "normal_connections": 118,
+    "attack_connections": 268
+  },
+  "normal_control_case_ids": [
+    "20261121_161452_Benign_9641f2",
+    "20261121_172724_Benign_fea5e0",
+    "20261121_201602_Benign_8c1433"
+  ],
+  "note": "Probe failures during the dummy-service DoS are effects, not attack payloads. No new attacks were run."
+}

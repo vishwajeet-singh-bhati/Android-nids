@@ -1,0 +1,106 @@
+{
+  "rollback_tag": "checkpoint/pre-repair-v3-20261119",
+  "commit": "01cfea547ce573e8a8fee0f323ecba99b6b291f8",
+  "saved_at_ist": "2026-11-19T11:23:58.486733+05:30",
+  "current_pipeline": {
+    "gate": "gate_s0",
+    "diagnosis": "diagnosis64_s1"
+  },
+  "old_epochs_retained": 320,
+  "files": {
+    "runs\\phone_alignment_v2\\config.json": {
+      "bytes": 2748,
+      "sha256": "2b7f6fb01e03fee9bf446219f4da2fe75993bb1c4392646206d3719d82be5046"
+    },
+    "runs\\phone_alignment_v2\\frozen_selection.json": {
+      "bytes": 902,
+      "sha256": "1ab2d1ca7bca22c67dd3201183da06dab238dc0470ee12455478afc779d360b2"
+    },
+    "validation\\reports\\phone_alignment_v2\\evaluation.json": {
+      "bytes": 133967,
+      "sha256": "33e0ae0f408fcec88bd03415e472c808105c7745d130db2b3524862f3fc299fe"
+    },
+    "data\\experiments\\phone_alignment_v2\\ready.json": {
+      "bytes": 102860,
+      "sha256": "df41f1989d546206a897a2513b4d0a5415f09e2466d58e94523891de3c508ec8"
+    },
+    "data\\experiments\\phone_alignment_v2\\normalization.json": {
+      "bytes": 6898,
+      "sha256": "cf8693f22da1048eb4a37a86bb9e954a98338ac89d7104be22347d23a84db6aa"
+    },
+    "runs\\phone_alignment_v2\\extractor\\core.jar": {
+      "bytes": 253607,
+      "sha256": "def153805229c0302ca23adce1f0e6d7de66c072db3a7017b3fbc2fd2b09c313"
+    },
+    "runs\\phone_alignment_v2\\extractor\\manifest.json": {
+      "bytes": 3268,
+      "sha256": "b7d36258950c4a792fa3161ecad6610f33dd95fc11ae5d966a6bb9978a707e0e"
+    },
+    "runs\\phone_alignment_v2\\exports\\gate.pte": {
+      "bytes": 82820,
+      "sha256": "99e5f3b62b1f6940cd2fb40d05c2edb14b3a7fb83c3bc1f989e63879202ca529"
+    },
+    "runs\\phone_alignment_v2\\exports\\gate.pt": {
+      "bytes": 89488,
+      "sha256": "ac50366fc5cb88c5d86503748cd1a000693ac6ef1ad52a08918d18ae90417b63"
+    },
+    "runs\\phone_alignment_v2\\exports\\gate_manifest.json": {
+      "bytes": 859,
+      "sha256": "68641341a4e587d5070513a34ee0652cf3e1b6a92df4d90d1db32374bf4a3656"
+    },
+    "runs\\phone_alignment_v2\\exports\\gate_selfcheck.json": {
+      "bytes": 42778,
+      "sha256": "22ff219c2564148f02ab7e48e49957aa4a458028bc5e0a66507cefbb564ba3f4"
+    },
+    "runs\\phone_alignment_v2\\exports\\diagnosis.pte": {
+      "bytes": 949788,
+      "sha256": "585f43e8bf4299f755036e9ccbe55121fce14d8ff59a67fcfdcfb4ba8af951dd"
+    },
+    "runs\\phone_alignment_v2\\exports\\diagnosis.pt": {
+      "bytes": 734424,
+      "sha256": "dcccea8d7e2761335cb72320279dad35557608647d643aba9c9190efa7c2e7de"
+    },
+    "runs\\phone_alignment_v2\\exports\\diagnosis_manifest.json": {
+      "bytes": 879,
+      "sha256": "4cd4852c4ea555f0a25a0d7a07fdbd1730712a17193b329ed09a0272c684bbfc"
+    },
+    "runs\\phone_alignment_v2\\exports\\diagnosis_selfcheck.json": {
+      "bytes": 45111,
+      "sha256": "206623995fffb14c6e68b87135c30f92e7e996b181da4a359448a738f804ae1c"
+    },
+    "runs\\phone_alignment_v2\\jobs\\gate_s0\\best.pt": {
+      "bytes": 257109,
+      "sha256": "777c9a8a5ccd487089af20bb709a89a34e3d0e30e25a669208c28d7a552f7c27"
+    },
+    "runs\\phone_alignment_v2\\jobs\\gate_s0\\final.pt": {
+      "bytes": 258197,
+      "sha256": "7b4bb233fb27d2f364171f3b4fc67b11c2e062571c7a24df3733ff049bd14ed4"
+    },
+    "runs\\phone_alignment_v2\\jobs\\gate_s0\\best_validation.json": {
+      "bytes": 975,
+      "sha256": "5e393a7db35238165fb4ff3b52b66ef064c8117d8650f9ecd4a3b67244cddfdd"
+    },
+    "runs\\phone_alignment_v2\\jobs\\gate_s0\\complete.json": {
+      "bytes": 291,
+      "sha256": "76e040151857458799cab93e57578777debeab707dbe0166a9263f96c5c553f6"
+    },
+    "runs\\phone_alignment_v2\\jobs\\diagnosis64_s1\\best.pt": {
+      "bytes": 2151659,
+      "sha256": "6879b3ffc84e74b72b4603271d24d986e064288601137916488e43056bf61dc9"
+    },
+    "runs\\phone_alignment_v2\\jobs\\diagnosis64_s1\\final.pt": {
+      "bytes": 2170091,
+      "sha256": "af4070e4f2b0f80d1391292e9ba3a91508fc8c0f36ef41be032adb36cec625f1"
+    },
+    "runs\\phone_alignment_v2\\jobs\\diagnosis64_s1\\best_validation.json": {
+      "bytes": 2628,
+      "sha256": "b6c4c01fe99f8f1a5db0f4d8ff9ecd24f6c6c5b4fe43184fc6481712269ce77d"
+    },
+    "runs\\phone_alignment_v2\\jobs\\diagnosis64_s1\\complete.json": {
+      "bytes": 292,
+      "sha256": "32f5373c7bbef676e6a7d93fc25dda45f2821bd17539cf93b2399f509c476e64"
+    }
+  },
+  "installed_phone_baseline": "0.11.3-context-rc4/code33; last known deployment, device currently unavailable",
+  "scope": "Save current v2 offline pipeline separately from the earlier installed context model. User authorized v3 repair comparison and later deployment of improved or fallback v2."
+}

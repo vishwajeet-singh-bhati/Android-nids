@@ -6,6 +6,9 @@ import org.json.JSONObject
 object TsanetExplanationFacts{
     val classes=listOf("Benign","Bot","Brute Force","DDoS","DoS","Port Scan","Web Attack","Unclassified")
     fun ownerSnapshot(fresh: JSONObject,cached: JSONObject?): JSONObject{
+        if(fresh.optString("reason").contains("Ambiguous",true))return fresh
+        if(fresh.optString("match_kind")=="listener" && cached?.optString("status")=="best_effort" && cached.optString("match_kind")!="listener")
+            return JSONObject(cached.toString()).put("cached_for_current_flow",true)
         if(fresh.optString("status")!="unknown" || fresh.optString("reason").contains("Ambiguous",true))return fresh
         return if(cached?.optString("status")=="best_effort")JSONObject(cached.toString()).put("cached_for_current_flow",true) else fresh
     }
@@ -20,6 +23,10 @@ object TsanetExplanationFacts{
         val app=if(owner.optString("status")=="best_effort" && packages?.length()==1)
             packages.optString(0).take(100).replace(Regex("[^A-Za-z0-9._]"),"") else "unknown"
         val facts=JSONObject().put("suspected_pattern",classes[category]).put("app_package",app)
+            .put("app_label",owner.optString("app_label",app))
+            .put("owner_status",owner.optString("status","unknown")).put("owner_reason",owner.optString("reason"))
+            .put("owner_match_kind",owner.optString("match_kind","connected"))
+            .put("local_endpoint",owner.optString("local_endpoint")).put("remote_endpoint",owner.optString("remote_endpoint"))
             .put("socket_role",if(owner.optString("direction")=="incoming")"receiver" else if(owner.optString("direction")=="outgoing")"sender" else "unknown")
             .put("flow_packets",evidence.optInt("flow_packets"))
             .put("flow_duration_seconds",evidence.optDouble("flow_duration_seconds"))

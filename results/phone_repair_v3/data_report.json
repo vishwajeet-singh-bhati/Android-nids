@@ -1,0 +1,149 @@
+{
+  "state": "ready",
+  "same_v2_rows": true,
+  "label_changes": 0,
+  "feature_changes": 0,
+  "calibration_rows": 547200,
+  "selection_rows": 641524,
+  "calibration_groups": 99375,
+  "selection_groups": 99376,
+  "calibration_selection_group_overlap": 0,
+  "hard_benign_rows": 54695,
+  "hard_pool_scope": "train split only: empty short reset pattern or frozen v2 gate probability >=.5; labels unchanged",
+  "calibration_class_counts": [
+    467654,
+    320,
+    1200,
+    8720,
+    45392,
+    23842,
+    72
+  ],
+  "selection_class_counts": [
+    561894,
+    332,
+    1232,
+    8852,
+    45280,
+    23856,
+    78
+  ],
+  "inventory": {
+    "data/experiments/phone_alignment_v2/ready.json": {
+      "sha256": "df41f1989d546206a897a2513b4d0a5415f09e2466d58e94523891de3c508ec8",
+      "bytes": 102860,
+      "mtime_ns": 1795043544998969400
+    },
+    "data/experiments/phone_alignment_v2/normalization.json": {
+      "sha256": "cf8693f22da1048eb4a37a86bb9e954a98338ac89d7104be22347d23a84db6aa",
+      "bytes": 6898,
+      "mtime_ns": 1795043544995561700
+    },
+    "runs/phone_alignment_v2/config.json": {
+      "sha256": "2b7f6fb01e03fee9bf446219f4da2fe75993bb1c4392646206d3719d82be5046",
+      "bytes": 2748,
+      "mtime_ns": 1795043551155447600
+    },
+    "runs/phone_alignment_v2/frozen_selection.json": {
+      "sha256": "1ab2d1ca7bca22c67dd3201183da06dab238dc0470ee12455478afc779d360b2",
+      "bytes": 902,
+      "mtime_ns": 1795060073727694000
+    },
+    "runs/phone_alignment_v2/evaluation.json": {
+      "sha256": "33e0ae0f408fcec88bd03415e472c808105c7745d130db2b3524862f3fc299fe",
+      "bytes": 133967,
+      "mtime_ns": 1795060136769552600
+    },
+    "data/experiments/phone_alignment_v2/train/x.npy": {
+      "sha256": "63af40df357c57fc991437f2f5d18451c665cf903082be9dcb01deb38da4e1d0",
+      "bytes": 2914524440,
+      "mtime_ns": 1795043528822574100
+    },
+    "data/experiments/phone_alignment_v2/train/y.npy": {
+      "sha256": "4dec20fcb3fd2aae2b5911a5940614b35f0d4407b15b41a919fcd38d93faffe5",
+      "bytes": 39653520,
+      "mtime_ns": 1795043502640116000
+    },
+    "data/experiments/phone_alignment_v2/train/raw.npy": {
+      "sha256": "e97e9581e0ff8994b96f19b0d63185c41703a8a14cb7cd9fdf4fd288a6aa41c0",
+      "bytes": 2914524440,
+      "mtime_ns": 1795043515489463400
+    },
+    "data/experiments/phone_alignment_v2/train/group.npy": {
+      "sha256": "f962c5474630d98d39c18be6685349e0bdd77b2ff8136128a1498028eade1e30",
+      "bytes": 39653520,
+      "mtime_ns": 1795043502642626200
+    },
+    "data/experiments/phone_alignment_v2/train/source.npy": {
+      "sha256": "9e050c488d6181d728bcb07271e0c0a197e4566862d208256cf0551a778570e1",
+      "bytes": 4956802,
+      "mtime_ns": 1795043502649130100
+    },
+    "data/experiments/phone_alignment_v2/train/fine.npy": {
+      "sha256": "b884f5ccf6a86f31ef6774aee38af7134fd88649482551c857eb497de6fab7cf",
+      "bytes": 9913476,
+      "mtime_ns": 1795043502640618200
+    },
+    "data/experiments/phone_alignment_v2/validation/x.npy": {
+      "sha256": "d76c6210bea683a2a86f97bf0d91bfa169c834e4b075a77393fb521b9b7ec2f7",
+      "bytes": 698969840,
+      "mtime_ns": 1795043537087502600
+    },
+    "data/experiments/phone_alignment_v2/validation/y.npy": {
+      "sha256": "9080c8eeaf86fc87118651343ae35e5608d120bedd9f2993339eff0a8b8d9e04",
+      "bytes": 9509920,
+      "mtime_ns": 1795043502649130100
+    },
+    "data/experiments/phone_alignment_v2/validation/raw.npy": {
+      "sha256": "e50fedb0cc34c659e34d99854cf05372a924a7bae329f713a73c6df0ece59574",
+      "bytes": 698969840,
+      "mtime_ns": 1795043511638204700
+    },
+    "data/experiments/phone_alignment_v2/validation/group.npy": {
+      "sha256": "3c7c4d703b89ff554ad288257c802efa38f53038be5877c37dece34cc03d59d6",
+      "bytes": 9509920,
+      "mtime_ns": 1795043502649130100
+    },
+    "data/experiments/phone_alignment_v2/validation/source.npy": {
+      "sha256": "5c469014a9860ddf2f8636d2cfd978e0c2799f4b826fc96d86d8b8d69091eb6d",
+      "bytes": 1188852,
+      "mtime_ns": 1795043502649130100
+    },
+    "data/experiments/phone_alignment_v2/validation/fine.npy": {
+      "sha256": "333844692414cc0cda03a430daf8d1b9a68380a55d751a43e780b1b51f15cbdc",
+      "bytes": 2377576,
+      "mtime_ns": 1795043502649130100
+    },
+    "data/experiments/phone_alignment_v2/test/x.npy": {
+      "sha256": "e511552d3bbe82ab4c7e2890796767f1c498148a2d5c9663718e021609744fc7",
+      "bytes": 646170380,
+      "mtime_ns": 1795043542222136200
+    },
+    "data/experiments/phone_alignment_v2/test/y.npy": {
+      "sha256": "d5ddf7eb0eb7b4abf106e3df55875c84371b0528cdd2cae993bced14dab22ce3",
+      "bytes": 8791560,
+      "mtime_ns": 1795043508156749400
+    },
+    "data/experiments/phone_alignment_v2/test/raw.npy": {
+      "sha256": "6bb00ddf283cbff08776f79f0ff15b207d83b1c6643ac8662002d1f477f61849",
+      "bytes": 646170380,
+      "mtime_ns": 1795043502994475000
+    },
+    "data/experiments/phone_alignment_v2/test/group.npy": {
+      "sha256": "9840f865352b1f49b2274fea7d32fb905a4965eec4cfb0532824ec1a1ad3acb8",
+      "bytes": 8791560,
+      "mtime_ns": 1795043508156749400
+    },
+    "data/experiments/phone_alignment_v2/test/source.npy": {
+      "sha256": "1c6cb1acb980afb1ad3b75ae002577f429aa44c6420a72ee2e933a3746508139",
+      "bytes": 1099057,
+      "mtime_ns": 1795043508171004400
+    },
+    "data/experiments/phone_alignment_v2/test/fine.npy": {
+      "sha256": "e7614dfdf6a0900d71d01d8f469dd802378ab0c68dc1c045f742fd9df40b6081",
+      "bytes": 2197986,
+      "mtime_ns": 1795043508156749400
+    }
+  },
+  "existing_test_scope": "Previously opened v2 diagnostic cohort, not a new blind holdout; phone sessions still pending."
+}

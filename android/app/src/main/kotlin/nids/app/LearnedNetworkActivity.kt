@@ -80,7 +80,7 @@ class LearnedNetworkActivity : Activity() {
   };dynamic["toggle"]=toggle
   val metrics=card();bind(metrics,"traffic","0 packets observed",21f);bind(metrics,"checks","0 learned checks",15f,muted);bind(metrics,"reviews","0 observations to review",15f,amber)
   val flow=card();flow.addView(text("How it works",18f,ink,true));flow.addView(text("Traffic summaries → local models → explain → your feedback",15f,accent));flow.addView(text("Connections and recent connection history are checked locally. Monitoring continues in the background; related flags receive an automatic local explanation.",14f,muted));flow.addView(text("A flag is a reason to review activity. It does not confirm an attack or identify the app responsible.",14f,muted))
-  val latest=ObservationStore.list(this).lastOrNull()
+  val latest=ObservationStore.list(this,filter="active").lastOrNull()
   val recent=card();recent.addView(text("Latest observation",18f,ink,true))
   if(latest==null)recent.addView(text("No observations recorded yet. Monitoring can stay quiet during ordinary activity.",14f,muted))
   else{recent.addView(text(latest.optString("title"),16f));recent.addView(text("${stamp(latest.optLong("time_ms"))} · unconfirmed",12f,amber));button(recent,"Review activity"){tab=1;selectedId=latest.getString("id");build()}}
@@ -97,8 +97,9 @@ class LearnedNetworkActivity : Activity() {
   if(rows.isEmpty()){val empty=card();empty.addView(text("No activity in this view",20f));empty.addView(text("New flags appear automatically. Dismissed items remain in the seven-day history.",14f,muted))}
   for(row in rows.asReversed()){
    val c=card();val dismissed=row.optString("disposition")=="dismissed"
-   c.addView(text(if(dismissed)"Dismissed · reported expected by you" else "Unconfirmed · "+row.optString("explanation_status","queued"),12f,if(dismissed)muted else amber,true))
-   c.addView(text(row.optString("title"),19f,ink,true));c.addView(text(row.optJSONObject("attribution")?.optString("app_label","App unknown") ?: "App unknown",14f,accent))
+   val local=row.optString("traffic_scope")==NetworkObservationPolicy.LOCAL
+   c.addView(text(if(local)"On-device connection · outside network assessment" else if(dismissed)"Dismissed · reported expected by you" else "Unconfirmed · "+row.optString("explanation_status","queued"),12f,if(dismissed || local)muted else amber,true))
+   c.addView(text(row.optString("title"),19f,ink,true));c.addView(text(HybridActivityNote.appSummary(row),14f,accent))
    c.addView(text("${stamp(row.optLong("time_ms"))} · ${row.optLong("count")} grouped flags",13f,muted))
    if(row.optBoolean("historical"))c.addView(text("Previous recording",12f,muted))
    button(c,"Open activity"){selectedId=row.getString("id");draftNote="";build()}
@@ -110,17 +111,16 @@ class LearnedNetworkActivity : Activity() {
   val row=ObservationStore.get(this,selectedId)
   if(row==null){selectedId="";activityPage();return}
   button(body,"← Activity"){selectedId="";draftNote="";build()}
-  val c=card();c.addView(text("UNCONFIRMED ACTIVITY",11f,amber,true));c.addView(text(row.optString("title"),23f,ink,true));c.addView(text(stamp(row.optLong("time_ms")),12f,muted))
+  val c=card();c.addView(text(if(row.optString("traffic_scope")==NetworkObservationPolicy.LOCAL)"ON-DEVICE CONNECTION · NOT ASSESSED" else "UNCONFIRMED ACTIVITY",11f,amber,true));c.addView(text(row.optString("title"),23f,ink,true));c.addView(text(stamp(row.optLong("time_ms")),12f,muted))
   val owner=row.optJSONObject("attribution") ?: JSONObject()
-  c.addView(text("Associated app: "+owner.optString("app_label","App unknown"),17f,accent,true))
-  owner.optJSONArray("packages")?.let{if(it.length()==1)c.addView(text(it.optString(0),12f,muted))}
-  c.addView(text("Direction: "+owner.optString("direction","unknown")+" · "+owner.optString("transport","network traffic"),13f,muted))
-  c.addView(text(owner.optString("ownership_note","App ownership could not be established for this activity."),12f,muted))
+  bind(c,"appSummary",HybridActivityNote.appSummary(row),17f,accent)
+  bind(c,"direction","Direction: "+owner.optString("direction","unknown")+" · "+owner.optString("transport","network traffic"),13f,muted)
+  bind(c,"ownership",owner.optString("ownership_note","No reliable app link was recorded for this connection."),12f,muted)
   c.addView(text(row.optString("observation"),14f));bind(c,"incidentCount","${row.optLong("count")} grouped flags · attack type not established",13f,muted)
   val peers=row.optJSONObject("model_evidence")?.optJSONArray("remote_endpoints_sample")
   if(peers!=null && peers.length()>0)c.addView(text("Remote connection sample: "+(0 until peers.length()).take(4).joinToString(", "){peers.optString(it)},12f,muted))
-  val explain=card();explain.addView(text("Automatic explanation",19f,ink,true));explain.addView(text("Llama 3.2 1B · INT4 · stays on this phone",12f,accent))
-  bind(explain,"generatedText",row.optJSONObject("explanation")?.optString("display") ?: "A local explanation will appear here automatically.",15f)
+  val explain=card();explain.addView(text("Activity details and guidance",19f,ink,true));explain.addView(text("Recorded facts first · Llama adds local guidance",12f,accent))
+  bind(explain,"generatedText",HybridActivityNote.display(row),15f)
   bind(explain,"llama","",13f,amber)
   val feedback=card();feedback.addView(text("Was this expected?",19f,ink,true));feedback.addView(text("Dismiss it if you recognise the activity. Your report is saved locally; it is not verified ground truth.",13f,muted))
   val note=EditText(this).apply{hint="Optional note";setHintTextColor(muted);setTextColor(ink);textSize=14f;maxLines=3;setText(draftNote)};feedback.addView(note)
@@ -146,6 +146,25 @@ class LearnedNetworkActivity : Activity() {
   body.addView(text("On this device",25f,ink,true))
   val stats=card();stats.addView(text("Live resource use",18f,ink,true));bind(stats,"ram","Measuring app RAM…",21f);bind(stats,"cpu","",14f,muted);bind(stats,"battery","",14f,muted);bind(stats,"temperature","",14f,muted);stats.addView(text("RAM includes Llama while it is active. CPU is for the monitoring process. Battery readings cover the whole phone, including the screen and other apps.",12f,muted))
   val health=card();health.addView(text("Monitoring health",18f,ink,true));bind(health,"queue","",14f);bind(health,"coverage","",13f,muted);health.addView(text("Skipped data is reported as limited coverage. Kernel-level packet loss is not measured.",12f,muted))
+  val scope=card();scope.addView(text("Network coverage",18f,ink,true))
+  scope.addView(text("Alerts assess connections with other devices. Connections that stay inside this phone are counted separately; they are not labelled safe.",14f,muted))
+  bind(scope,"localTraffic","",13f,muted)
+  val prefs=getSharedPreferences("background_monitor",MODE_PRIVATE)
+  scope.addView(Switch(this).apply{
+   text="Alert on on-device connections (experimental)";setTextColor(ink);textSize=14f
+   isChecked=prefs.getBoolean("include_device_local_alerts",false)
+   setOnCheckedChangeListener{_,enabled->
+    prefs.edit().putBoolean("include_device_local_alerts",enabled).apply()
+    if(!enabled){
+     val ids=ObservationStore.reclassifyDeviceLocal(this@LearnedNetworkActivity)
+     val manager=getSystemService(android.app.NotificationManager::class.java)
+     ids.forEach{manager.cancel(it.hashCode())}
+     if(LlamaLive.observationId in ids)LlamaClient.cancel()
+    }
+    notice=if(enabled)"Experimental on-device alerts enabled. False alarms are possible." else "On-device connections are counted separately. Their saved history is retained."
+    build()
+   }
+  })
   val llama=card();llama.addView(text("Local explanation model",18f,ink,true));llama.addView(text("Llama 3.2 1B Instruct\nSpinQuant INT4 EO8 · ExecuTorch\nAutomatic explanations; warm cache for about 2 min idle\nWeights: approximately 1.06 GiB",14f,accent));bind(llama,"llama","Ready on device",13f,muted)
   val measurements=try{JSONObject(assets.open("tsanet_phone_benchmarks.json").bufferedReader().use{it.readText()})}catch(_: Exception){null}
   if(measurements!=null){val measured=card();measured.addView(text("Measured on this Pixel",18f,ink,true));measured.addView(text(measurements.optString("display_summary"),14f,muted))}
@@ -170,21 +189,26 @@ class LearnedNetworkActivity : Activity() {
   dynamic["temperature"]?.text="Battery temperature: %.1f °C".format(resource.optDouble("battery_temperature_c"))
   dynamic["queue"]?.text="Queued: ${LearnedLive.queueDepth} / 4096 · skipped: ${LearnedLive.queueDrops}"
   dynamic["coverage"]?.text=LearnedLive.quality
+  dynamic["localTraffic"]?.text="${LearnedLive.localOnlyFlows} on-device connection summaries this session"+
+   LearnedLive.lastLocalConnection.takeIf{it.isNotEmpty()}?.let{"\nLatest: $it"}.orEmpty()
   val selected=selectedId.takeIf{it.isNotEmpty()}?.let{ObservationStore.get(this,it)}
   dynamic["incidentCount"]?.text="${selected?.optLong("count") ?: 0} grouped flags · attack type not established"
-  if(selected!=null)dynamic["generatedText"]?.text=selected.optJSONObject("explanation")?.optString("display") ?: when(selected.optString("explanation_status")){
-   "failed","cancelled"->"A local explanation is unavailable. Review the recorded evidence and precaution steps."
-   "skipped"->"Dismissed by you. The evidence remains in your seven-day history."
-   else->"A local explanation will appear here automatically."
+  if(selected!=null){
+   dynamic["generatedText"]?.text=HybridActivityNote.display(selected)
+   dynamic["appSummary"]?.text=HybridActivityNote.appSummary(selected)
+   val latestOwner=selected.optJSONObject("attribution") ?: JSONObject()
+   dynamic["direction"]?.text="Direction: "+latestOwner.optString("direction","unknown")+" · "+latestOwner.optString("transport","network traffic")
+   dynamic["ownership"]?.text=latestOwner.optString("ownership_note","No reliable app link was recorded for this connection.")
   }
   dynamic["llama"]?.text=if(LlamaLive.running && (selectedId.isEmpty() || selectedId==LlamaLive.observationId))"${LlamaLive.stage} · ${(android.os.SystemClock.elapsedRealtime()-LlamaLive.startedMs)/1000}s"
    else if(selected!=null)when(selected.optString("explanation_status")){
-    "queued"->"Queued for automatic local explanation"
-    "running"->"Preparing a local explanation"
-    "complete"->if(selected.optJSONObject("explanation")?.optBoolean("generated_text_accepted")==true)"Generated locally by Llama" else "Evidence-based guidance; generated draft was not used"
+    "queued"->"Recorded facts shown; local guidance queued"
+    "running"->"Recorded facts shown; Llama is writing guidance"
+    "complete"->if(selected.optJSONObject("explanation")?.optBoolean("generated_text_accepted")==true)"Recorded facts with guidance from Llama" else "Recorded facts and checked default guidance"
     "skipped"->"Dismissed · automatic explanation stopped"
     "cancelled"->"Explanation cancelled; evidence remains in the log"
-    "failed"->"Local explanation unavailable; use the precaution steps below"
+    "failed"->"Recorded facts remain available; Llama guidance unavailable"
+    "not_applicable"->"On-device connection · retained outside network assessment"
     else->"Previously recorded activity"
    }else if(LlamaLive.workerResident)"Warm model ready · releases after about 2 min idle" else "Loads automatically when activity is flagged"
  }

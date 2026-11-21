@@ -1,0 +1,26 @@
+{
+  "suite_id": "20261121_104543_augmented_v1",
+  "profiles": [
+    "Benign",
+    "PortScan",
+    "SlowScan",
+    "PasswordGuessing",
+    "SQLInjection",
+    "XSS",
+    "ConnectionExhaustion",
+    "HTTPFlood",
+    "Beacon",
+    "Benign"
+  ],
+  "authorization": "User asked to deploy available model and automate all controlled attacks.",
+  "same_frozen_selection": true,
+  "normal_controls": 2,
+  "parallel_traffic": false,
+  "fresh_history_seconds": 305,
+  "observation_seconds": 130,
+  "receiver_policy": {
+    "allowed_to_attempt": false,
+    "matching_block_count": 1,
+    "reason": "Effective inbound policy explicitly blocks this Python receiver; settings preserved."
+  }
+}

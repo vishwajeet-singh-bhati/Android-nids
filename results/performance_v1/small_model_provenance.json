@@ -1,0 +1,37 @@
+{
+  "repository": "software-mansion/SmolLM2-ExecuTorch",
+  "revision": "f3ae600d5e957d9a7f216f6c55788315a9fe2f3c",
+  "license": "Apache-2.0",
+  "model": "SmolLM2-135M-Instruct",
+  "quantization": "8da8w",
+  "backend": "XNNPACK CPU",
+  "runtime_compatibility": "Published for ExecuTorch 1.4.1; local Android 1.5.1 compatibility must be tested, not assumed.",
+  "files": {
+    "smollm2_135m_xnnpack_8da8w.pte": {
+      "url": "https://huggingface.co/software-mansion/SmolLM2-ExecuTorch/resolve/f3ae600d5e957d9a7f216f6c55788315a9fe2f3c/135m/xnnpack/smollm2_135m_xnnpack_8da8w.pte",
+      "sha256": "9eac1f8076069fcd7583024d16dc412251d1ce3f13359991229526010a0ce380",
+      "bytes": 173005952
+    },
+    "config.json": {
+      "url": "https://huggingface.co/software-mansion/SmolLM2-ExecuTorch/resolve/f3ae600d5e957d9a7f216f6c55788315a9fe2f3c/135m/xnnpack/config.json",
+      "sha256": "2e2c0bbce4791d4112cf09be5738ef45f5becd8c6c1f24c2511e6477b9443d4b",
+      "bytes": 1308
+    },
+    "tokenizer.json": {
+      "url": "https://huggingface.co/software-mansion/SmolLM2-ExecuTorch/resolve/f3ae600d5e957d9a7f216f6c55788315a9fe2f3c/tokenizer.json",
+      "sha256": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+      "bytes": 2104556
+    },
+    "tokenizer_config.json": {
+      "url": "https://huggingface.co/software-mansion/SmolLM2-ExecuTorch/resolve/f3ae600d5e957d9a7f216f6c55788315a9fe2f3c/tokenizer_config.json",
+      "sha256": "15165354b3121741048c11a5c621de08843b29cc061e3cccc47739c67b7c6c49",
+      "bytes": 3779
+    },
+    "README.md": {
+      "url": "https://huggingface.co/software-mansion/SmolLM2-ExecuTorch/resolve/f3ae600d5e957d9a7f216f6c55788315a9fe2f3c/README.md",
+      "sha256": "86b7eeb71e701b4cb358962eeeeb791f7261bd454ecf93251c169901f2ab414e",
+      "bytes": 2255
+    }
+  },
+  "production_files_modified": false
+}

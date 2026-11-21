@@ -10,6 +10,13 @@ class ValidationInstrumentation: Instrumentation() {
     private var options=Bundle()
     override fun onCreate(arguments: Bundle?) { options=arguments ?: Bundle(); start() }
     override fun onStart() {
+        if(options.getString("mode") in setOf("hybrid_contract","hybrid_runtime","hybrid_attribution")){
+            HybridPipelineValidation(this,targetContext).run(options);return
+        }
+        if(options.getString("mode")=="performance"){
+            PerformanceBench(this,targetContext).run(options)
+            return
+        }
         if(options.getString("mode")=="aligned_v2_native"){
             val result=Bundle()
             try{

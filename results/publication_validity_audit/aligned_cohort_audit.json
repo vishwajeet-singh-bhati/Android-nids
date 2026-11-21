@@ -1,0 +1,123 @@
+{
+  "scope": "Independent read-only CPU audit of phone-aligned v2 cohort, also reused by v3. Checks dependence and train-only scaler fitting, not new model scores or fresh deployment evidence.",
+  "original_manifest_sha256": {
+    "data\\experiments\\phone_alignment_v2\\ready.json": "df41f1989d546206a897a2513b4d0a5415f09e2466d58e94523891de3c508ec8",
+    "data\\experiments\\phone_alignment_v2\\normalization.json": "cf8693f22da1048eb4a37a86bb9e954a98338ac89d7104be22347d23a84db6aa"
+  },
+  "split_group_overlap": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "full147_overlap": {
+    "validation": {
+      "rows": 1188724,
+      "directly_verified_matching_rows": 24261,
+      "fraction": 0.020409279193488145,
+      "rejected_hash_candidates": 0,
+      "classwise": {
+        "Benign": {
+          "support": 1029548,
+          "matching_rows": 21703
+        },
+        "Bot": {
+          "support": 652,
+          "matching_rows": 26
+        },
+        "Brute Force": {
+          "support": 2432,
+          "matching_rows": 2
+        },
+        "DDoS": {
+          "support": 17572,
+          "matching_rows": 8
+        },
+        "DoS": {
+          "support": 90672,
+          "matching_rows": 2522
+        },
+        "Port Scan": {
+          "support": 47698,
+          "matching_rows": 0
+        },
+        "Web Attack": {
+          "support": 150,
+          "matching_rows": 0
+        }
+      },
+      "scope": "All147 raw float32 values verified by equality after hash filtering. Identical features do not establish identical packets or sessions."
+    },
+    "test": {
+      "rows": 1098929,
+      "directly_verified_matching_rows": 28730,
+      "fraction": 0.02614363621307655,
+      "rejected_hash_candidates": 0,
+      "classwise": {
+        "Benign": {
+          "support": 940095,
+          "matching_rows": 26266
+        },
+        "Bot": {
+          "support": 640,
+          "matching_rows": 20
+        },
+        "Brute Force": {
+          "support": 2442,
+          "matching_rows": 0
+        },
+        "DDoS": {
+          "support": 17840,
+          "matching_rows": 0
+        },
+        "DoS": {
+          "support": 90084,
+          "matching_rows": 2444
+        },
+        "Port Scan": {
+          "support": 47688,
+          "matching_rows": 0
+        },
+        "Web Attack": {
+          "support": 140,
+          "matching_rows": 0
+        }
+      },
+      "scope": "All147 raw float32 values verified by equality after hash filtering. Identical features do not establish identical packets or sessions."
+    }
+  },
+  "watched_host_overlap": {
+    "validation": {
+      "seen_in_training_fraction": 0.9698508652975796,
+      "classwise_unseen": {
+        "Benign": 35839,
+        "Bot": 0,
+        "Brute Force": 0,
+        "DDoS": 0,
+        "DoS": 0,
+        "Port Scan": 0,
+        "Web Attack": 0
+      }
+    },
+    "test": {
+      "seen_in_training_fraction": 0.9646965363549419,
+      "classwise_unseen": {
+        "Benign": 38796,
+        "Bot": 0,
+        "Brute Force": 0,
+        "DDoS": 0,
+        "DoS": 0,
+        "Port Scan": 0,
+        "Web Attack": 0
+      }
+    }
+  },
+  "train_only_scaler_refit": {
+    "rows": 4956674,
+    "maximum_mean_error": 1.1927001608569299e-09,
+    "maximum_scale_error": 1.6599015495444291e-09,
+    "absolute_tolerance": 5e-06,
+    "scope": "Independently refit all training rows. Windows/Linux float32 log1p rounding may differ; no validation/test fitting."
+  },
+  "original_manifests_unchanged": true,
+  "completed_unix": 1795085392.2158153
+}

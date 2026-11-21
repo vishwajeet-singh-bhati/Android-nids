@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "version": "0.14.1-bounded-guidance/code39",
+  "requests": 8,
+  "categories": 7,
+  "cold_request_wall_ms": 14047,
+  "warm_request_wall_median_ms": 3690,
+  "warm_request_wall_range_ms": [
+    3221,
+    4021
+  ],
+  "llama_guidance_accepted": 7,
+  "default_guidance_retained": 1,
+  "notification_post_and_query_ms": 9,
+  "notification_factual_content_before_llama_verified": true,
+  "max_capture_queue_drops": 0,
+  "native_budget_checks_passed": true,
+  "scope": "Real production IPC, monitor active, numeric/evidence fixtures only. No attack/detection-accuracy evaluation."
+}

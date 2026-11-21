@@ -1,17 +1,15 @@
 {
-  "version": "phone-aligned-v2",
   "epochs": 40,
   "early_stopping": false,
   "batch_size": 512,
   "learning_rate": 0.001,
-  "max_parallel_training": 2,
   "max_benign_fpr": 0.001,
   "max_source_benign_fpr": 0.005,
   "min_attack_recall": 0.95,
   "min_class_attack_recall": 0.85,
   "min_typed_precision": 0.85,
   "min_typed_recall": 0.8,
-  "type_score_cutoff": 0.6,
+  "version": "real-phone-augmented-v1",
   "jobs": [
     {
       "name": "gate_s0",
@@ -20,7 +18,7 @@
       "seed": 0
     },
     {
-      "name": "diagnosis64_s0",
+      "name": "diagnosis_s0",
       "kind": "diagnosis",
       "width": 64,
       "seed": 0
@@ -32,7 +30,7 @@
       "seed": 1
     },
     {
-      "name": "diagnosis64_s1",
+      "name": "diagnosis_s1",
       "kind": "diagnosis",
       "width": 64,
       "seed": 1
@@ -44,41 +42,25 @@
       "seed": 2
     },
     {
-      "name": "diagnosis64_s2",
+      "name": "diagnosis_s2",
       "kind": "diagnosis",
       "width": 64,
       "seed": 2
-    },
-    {
-      "name": "aligned32_s0",
-      "kind": "diagnosis",
-      "width": 32,
-      "seed": 0,
-      "reference": true
-    },
-    {
-      "name": "wire_only32_s0",
-      "kind": "diagnosis",
-      "width": 32,
-      "seed": 0,
-      "wire_only": true,
-      "reference": true,
-      "selection_eligible": false
     }
   ],
   "code_sha256": {
-    "experiments/phone_alignment_v2/capture_audit.py": "482dfc5153f6e898de7d56c10cfd5a43a199826afc044fa190982060b87cd29b",
-    "experiments/phone_alignment_v2/common.py": "0f9a9b9db32ead920a1cbcfa77193a111a06e65489c2da7fd2a5a24dd31b82b2",
-    "experiments/phone_alignment_v2/data.py": "ef052a6fae57fed466e6b2918aa257084d34568830e8b5373bbdc80d57a833aa",
-    "experiments/phone_alignment_v2/evaluate.py": "aa6a1edc33104a300ab2fb77f14d665d3b2902234c89979a33258d368e50f4c0",
-    "experiments/phone_alignment_v2/export_mobile.py": "30e9ec7017e5c99c0420e12643cc9e72125f07299254eda0f6e6dc4e11e6491d",
-    "experiments/phone_alignment_v2/models.py": "48b57be50ac0cb517141c29b696c193ddf8d42af09ea783f100161088c0da330",
-    "experiments/phone_alignment_v2/preflight.py": "3b7243dfc4dc6fc2a1dbf90ab0db53ac8d38a27b64d23f968110ac77e757dc46",
-    "experiments/phone_alignment_v2/prepare.py": "09caf166f7ec0f9b5f0d8ade571c082034df351c72af3eff5201b9ecde39ca1f",
-    "experiments/phone_alignment_v2/runner.py": "373dd1ec69f7c43ad4974051efed710bfd304a6bcd11bd9ecb871c03007665e5",
-    "experiments/phone_alignment_v2/train.py": "94f0a2d1e3412803c31fb271ab4ca1ffa2cffddcf95fc60694dcac25ce0d5fec"
+    "experiments/phone_alignment_v2/train.py": "94f0a2d1e3412803c31fb271ab4ca1ffa2cffddcf95fc60694dcac25ce0d5fec",
+    "experiments/phone_alignment_v2/models.py": "48b57be50ac0cb517141c29b696c193ddf8d42af09ea783f100161088c0da330"
   },
-  "extractor_sha256": "def153805229c0302ca23adce1f0e6d7de66c072db3a7017b3fbc2fd2b09c313",
-  "data_report_sha256": "df41f1989d546206a897a2513b4d0a5415f09e2466d58e94523891de3c508ec8",
-  "rollback_tag": "checkpoint/pre-alignment-20261119"
+  "data_report_sha256": "ddbabc28180649762d21f105d67573f293d183dff5449608bbedb1d4332105de",
+  "source_names": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "PARROT",
+    "AAGM",
+    "PHONE"
+  ]
 }

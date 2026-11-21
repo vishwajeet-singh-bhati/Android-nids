@@ -1,11 +1,11 @@
 {
-  "validated_at_utc": "2026-11-20T22:50:17.709044+00:00",
+  "validated_at_utc": "2026-11-21T18:11:20.349680+00:00",
   "compiler": "Tectonic 0.17.0 (XeTeX-based; local validation)",
   "compiler_exit_code": 0,
-  "pages": 63,
+  "pages": 73,
   "main_file": "Android_NIDS_Project_Report.tex",
-  "source_sha256": "a8e8a06f024bbccdd811fd39b6ac4579dd3d2507d99f8ed90933f38f3306d015",
-  "evidence_sha256": "62f3b145d7b32cf23d3998bb4a388bd6b492f14c0e6bdf5a576bfdd371d290f1",
+  "source_sha256": "2d3381d2123c48a33a613a3e53b212625075e7dc18da045d63ffdd094a94925f",
+  "evidence_sha256": "0a35dc9caf14c23ff2ce0d53572d22b7fe207838579d45f671ff69de012816f1",
   "self_contained": true,
   "external_images_or_bibliography_required": false,
   "overfull_boxes": 0,
@@ -14,5 +14,7 @@
   "numerical_count_checks_passed": true,
   "new_phone_heldout_predictions_opened_by_report": false,
   "zip_created": false,
-  "overleaf_execution": "Not accessed; user compiles the provided portable LaTeX source on Overleaf."
+  "overleaf_execution": "Not accessed; self-contained source provided for user compilation.",
+  "coverage": "Paper through code40, completed training, live protocol evidence, inference experiments and unresolved ordinary SSH false positives.",
+  "public_copy_compiled": true
 }

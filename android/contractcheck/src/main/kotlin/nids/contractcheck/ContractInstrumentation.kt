@@ -13,6 +13,13 @@ class ContractInstrumentation: Instrumentation(){
     override fun onStart(){
         val result=Bundle()
         try{
+            if(options.getString("mode")=="hybrid_contract"){
+                val report=nids.app.HybridNoteContract.run(targetContext)
+                    .put("source_manifest",org.json.JSONObject(targetContext.assets.open("hybrid_sources.json").bufferedReader().use{it.readText()}))
+                    .put("isolated_package",targetContext.packageName)
+                File(targetContext.filesDir,"hybrid_contract_validation.json").writeText(report.toString(2))
+                result.putString("report",report.toString());finish(Activity.RESULT_OK,result);return
+            }
             val checks=AlignedCheck.run()+mapOf("source_manifest" to targetContext.assets.open("contract_sources.json").bufferedReader().use{it.readText()})
             val name=options.getString("input")
             val report=if(name==null)checks else{

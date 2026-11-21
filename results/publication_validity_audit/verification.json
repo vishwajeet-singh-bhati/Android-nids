@@ -1,0 +1,24 @@
+{
+  "verified_utc": "2026-11-19T10:53:46.553807+00:00",
+  "syntax_files": [
+    "validation/audit_tsanet_result_validity.py",
+    "validation/analyze_tsanet_dependency_subsets.py",
+    "validation/audit_aligned_result_validity.py"
+  ],
+  "numeric_and_support_assertions_passed": true,
+  "local_document_links_checked": 18,
+  "original_data_models_or_training_changed": false,
+  "hashes": {
+    "validation/audit_tsanet_result_validity.py": "4142cd08f517d2911843091b0e1eb216b4bfb58c9f80c3a3eec7ee09eca36965",
+    "validation/analyze_tsanet_dependency_subsets.py": "c5e64bb755122949efb6933e9433700386a9d96fcaba660930a994136328fd6a",
+    "validation/audit_aligned_result_validity.py": "86052372f1f1345d48a5411b7eddcfe96249fe415b6c547c3639ad3b85110339",
+    "docs/tsanet_paper_and_context/README.md": "e93ea14142820c8db8871bc6833ae1a64c8b977e25eb440cd9f80ffe234b422b",
+    "docs/tsanet_publication_assessment/README.md": "4cc99ce5c405ae8784b460c6b9b167669118d35379afb51739235ca8d1969211",
+    "validation/reports/publication_validity_audit/AUDIT.md": "25049fae0204165babcc8bb4fd26bc9e7bb31714a79f3b277908ce28181fb33b",
+    "validation/reports/publication_validity_audit/audit.json": "673c7e459341a851486c69fc11a4af43305b41e46e0b030ec5df74ec5fa44510",
+    "validation/reports/publication_validity_audit/dependency_subsets.json": "a500d52a102ec6f425112b91f9471687f8917912604ed235aeca1ea29c1f0ddf",
+    "validation/reports/publication_validity_audit/aligned_cohort_audit.json": "88074a7021849dad8d48e8ace900fb5601fcd14e1b8bb2befc8e36c0621a22ca",
+    "validation/reports/publication_validity_audit/host_novelty.json": "d2965af0e8e8dd272a63a5a570cfcc6a9a2fec97b8c65e07120e7e7467867021"
+  },
+  "scope": "Report consistency/provenance verification. Does not convert opened or dependent cohorts into independent final evaluation."
+}

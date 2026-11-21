@@ -1,0 +1,76 @@
+{
+  "installed": true,
+  "version_code": 39,
+  "version_name": "0.14.1-bounded-guidance",
+  "apk_sha256": "bfe0c3eb0d4deaa38c6be20400b40d0dc36cb64d996d125f98abc96d5a7c8563",
+  "model_hashes": {
+    "aligned_v2_gate.pte": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+    "aligned_v2_diagnosis.pte": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e",
+    "llama/Llama-3.2-1B-Instruct-SpinQuant_INT4_EO8.pte": "8715cdba9e91f6bede00cc5f2d6b12397b95225da5630c4972a8da03001cda3b",
+    "llama/tokenizer.model": "82e9d31979e92ab929cd544440f129d9ecd797b69e327f80f17e1c50d5551b55"
+  },
+  "source_hashes": {
+    "android\\app\\build.gradle.kts": "fef18da5f2189c4dd03929d15554dc8458e4ac993ec46455facef1b4adf1e3a9",
+    "android\\app\\src\\main\\kotlin\\nids\\app\\BoundedLlmCallback.kt": "571422ea170ea6831d113686006e8bf74aabaf8dea390a74a433e07ad2d8fc90",
+    "android\\app\\src\\main\\kotlin\\nids\\app\\LocalExplainer.kt": "d68e7f94225283f0d072b370f0498fc2ae3e9bc5b60e35eb537243533d2ef009"
+  },
+  "history_preservation": {
+    "observations": {
+      "unexpired_original_ids_checked": 87,
+      "missing": 0
+    },
+    "feedback": {
+      "unexpired_original_ids_checked": 0,
+      "missing": 0
+    }
+  },
+  "database_integrity": "ok",
+  "monitor_enabled": true,
+  "monitor_foreground": true,
+  "history_rebuilding_after_validation": true,
+  "history_age_seconds_at_check": 0.597150146484375,
+  "health": {
+    "event": "heartbeat",
+    "time_ms": 1795275993501,
+    "packets": 64,
+    "inferences": 0,
+    "flags": 0,
+    "schema": "phone-aligned-v2",
+    "diagnosis_inferences": 0,
+    "active_flows": 0,
+    "history_window_seconds": 300,
+    "invalid_rate_flows": 0,
+    "evictions": 0,
+    "history_evictions": 0,
+    "forced_reorder": 0,
+    "late_packets": 0,
+    "queue_drops": 0,
+    "queue_depth": 63,
+    "model_inference_ms": 0,
+    "uptime_ms": 404
+  },
+  "speculative_startup_prewarm_enabled": false,
+  "persistent_runtime_reuse_enabled": true,
+  "automatic_attacks_started": false,
+  "last_verified_history_age_seconds": 208.33560083007814,
+  "last_verified_health": {
+    "event": "heartbeat",
+    "time_ms": 1795276173857,
+    "packets": 7381,
+    "inferences": 40,
+    "flags": 0,
+    "schema": "phone-aligned-v2",
+    "diagnosis_inferences": 0,
+    "active_flows": 1,
+    "history_window_seconds": 300,
+    "invalid_rate_flows": 0,
+    "evictions": 0,
+    "history_evictions": 0,
+    "forced_reorder": 0,
+    "late_packets": 0,
+    "queue_drops": 0,
+    "queue_depth": 1,
+    "model_inference_ms": 28.081176,
+    "uptime_ms": 180768
+  }
+}

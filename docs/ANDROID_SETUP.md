@@ -61,3 +61,8 @@ Without these files, monitoring and evidence fallback remain available; no accep
 - Closed-port probes can have unknown app ownership because the OS responds without an application socket. Attribution is best effort.
 - The detector warns; it does not block traffic or prove compromise. Validate with [controlled tests](PHONE_TESTING.md), not synthetic self-check alerts.
 - New devices/networks require fresh normal-use and attack evaluation. Published Pixel metrics are not a compatibility/accuracy guarantee for every phone.
+
+
+## Current release clarification
+
+Current source is code40 with the augmented-v1 detector, not the historical code36 weights. Read [current pipeline](CURRENT_PIPELINE.md), [status](../STATUS.md), [completed training](../results/phone_capture_training_v1/RESULTS.md) and [protocol testing](PROTOCOL_TESTING.md). All six training jobs completed; readiness remains false. The old v2 reference is kept only for comparison. New cases must be kept separate from already examined development cohorts.

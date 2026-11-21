@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "profiles": [
+    "Benign",
+    "PortScan",
+    "SlowScan",
+    "PasswordGuessing",
+    "SQLInjection",
+    "XSS",
+    "ConnectionExhaustion",
+    "HTTPFlood",
+    "Beacon",
+    "Benign"
+  ],
+  "phone_actions": 0,
+  "attack_requests_sent": 0,
+  "exact_flag_correlation": true,
+  "serial_execution": true,
+  "fresh_trace_and_full_history_per_case": true,
+  "models_retuned": false
+}

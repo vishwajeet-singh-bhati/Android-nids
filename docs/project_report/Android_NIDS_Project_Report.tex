@@ -40,12 +40,12 @@
 \begin{minipage}{0.88\textwidth}
 This report explains the problem, network basics, datasets, preprocessing, model architectures, experiments, actual phone tests, failures, repairs, reproducibility checks and next steps. It is written for a reader with no prior network-security or machine-learning knowledge.
 
-The main narrative starts with the TSANet paper reconstruction. A historical appendix explains the earlier RC4, v5 and v6 work discussed in the conversation. Completed measurements, illustrative calculations, ongoing training and proposed experiments are identified separately.
+The main narrative starts with the TSANet paper reconstruction and continues through completed phone-data training, protocol tests, inference improvements and code40. A historical appendix explains the earlier RC4, v5 and v6 work. Measured results, illustrative calculations and proposed repairs are identified separately.
 \end{minipage}
 \vfill
-\textbf{Evidence cutoff:} 21 November 2026, 04:18 IST\par
-\textbf{Current installed detector:} preserved phone-aligned v2\par
-\textbf{App version:} \code{0.12.2-aligned-v2-test}, version code 36\par
+\textbf{Evidence cutoff:} 21 November 2026, 23:31 IST\par
+\textbf{Current installed detector:} augmented v1, experimental phone trial\par
+\textbf{App version:} \code{0.14.2-network-scope}, version code 40\par
 \textbf{Repository:} \url{https://github.com/vishwajeet-singh-bhati/Android-nids}\par
 \vspace{8mm}
 {\small Self-contained source: upload this single \code{.tex} file to Overleaf and select pdfLaTeX. No external figures, data files, bibliography file or shell escape are required.}
@@ -54,11 +54,11 @@ The main narrative starts with the TSANet paper reconstruction. A historical app
 \hypersetup{pageanchor=true}
 \chapter*{How to read this report}
 \addcontentsline{toc}{chapter}{How to read this report}
-Read Chapters 1--2 first if the domain is new. Chapters 3--7 follow the model-development sequence. Chapters 8--10 explain the Android system, live tests and newly captured data. Chapters 11--12 explain what can be reproduced, what remains unproven and the planned all-class test setup. Appendices contain exact feature layouts, additional candidate results, older approaches and an evidence index.
+Read Chapters 1--2 first if the domain is new. The main chapters follow paper reconstruction, connection context, phone alignment, the rejected repair, Android capture, real-phone data, completed protocol testing, measured inference work and the remaining false-positive problem. Reproducibility and coverage limits follow. Appendices retain exact feature layouts, numeric dry runs, additional candidates, older approaches and model identities.
 
 Throughout the report, \textbf{measured} means a result saved by an actual experiment; \textbf{illustrative} means an explanatory calculation; \textbf{pending} means the relevant experiment has not produced a final accepted result. A software self-check is never counted as a detected attack. A dataset label is not automatically proof that an attack successfully compromised a device.
 
-\important{The most important finding is that high offline benchmark accuracy did not automatically transfer to the phone. The current v2 detected controlled scans, but missed verified HTTP password guessing, SQL injection and XSS examples. The new phone-data experiment addresses this gap; its final results were unavailable at the report cutoff.}
+\important{The most important finding is that high offline benchmark accuracy did not automatically transfer to the phone. V2 detected controlled scans but missed verified Web examples. The completed phone-data update detected 62/64 held-out attack segments, but also flagged 10/120 normal segments. It failed readiness checks but was later installed by explicit user request for a controlled experimental trial. Codes38--40 retain its weights. Current normal SSH false positives and missed protocol classes remain unresolved; trial deployment is not production validation.}
 
 Numbers in percentage tables are percentages unless stated otherwise. A change from 90\% to 95\% is 5 \emph{percentage points}, abbreviated pp. A row, flow segment, endpoint view, request, attack episode, activity card and notification are different units.
 \tableofcontents\clearpage
@@ -150,8 +150,8 @@ Initial Android & Exported the context model, added local explanations, history,
 Aligned v2 & Rebuilt inputs from raw PCAP with shared Kotlin code; trained a small gate and larger diagnosis. & Offline results were strong overall but Bot precision failed; a controlled repair was investigated.\\
 Repair v3 & Compared loss/sampling changes, calibration and joint routing. & Fewer benign flags came with unacceptable Bot/Web regressions; preserved v2 remained the fallback.\\
 V2 phone tests & Installed fixed v2 and verified real controlled target effects. & Scans worked; verified Web examples and bounded resource denial were missed.\\
-New phone data & Built DatasetLab, captured 20 quality-gated sessions and launched six training jobs. & Final candidate comparison and native/live validation remain pending at the cutoff.\\
-Submission & Published current source, reproducibility guides and tested CI. Discussed extending coverage using extra local PCs over SSH. & Multi-source DDoS, real FTP/SSH targets and a working bot-like controller are still preparation tasks.\\
+New phone data & Built DatasetLab, captured 20 quality-gated sessions and completed six training jobs and final comparison. & Attack detection improved on held-out recordings, but false positives failed the pilot's deployment checks. No updated phone deployment occurred.\\
+Later trials & Deployed the augmented candidate experimentally, completed FTP/SSH/emulator/three-source tests, optimized explanations and corrected idle-loopback scope. & Actual misses and normal SSH false positives remain; see the later chapters.\\
 \bottomrule
 \end{longtable}
 
@@ -828,12 +828,192 @@ Frequency-derived class weights also recompute from the augmented training label
 
 The architecture, loss/training loop, learning rate, batch size, seed set and 40-epoch budget match v2. The extra rows increase updates from 9,682 to 9,695 per epoch: 13 extra updates/epoch, 520 over 40 epochs per job. Thus the same epoch count is not exactly the same optimizer-update count in this augmentation experiment.
 
-\section{Current training status and final comparison plan}
-At the evidence cutoff, \textbf{5 of six jobs were complete}; the remaining jobs were active or queued. The report does not publish partial candidate accuracy as a final result. All six jobs train for 40 epochs without early stopping, at most two concurrently, saving every epoch and best/last/final states.
+\section{Completed training and frozen final comparison}
+All \textbf{6 of six jobs completed 40 epochs}, retaining 240 epoch checkpoints without early stopping. Final evaluation completed on 21 November 2026 at approximately 05:04 IST. It selected the complete pipeline on validation and then reported the frozen original and new-phone test cohorts separately. The report now includes those completed aggregate results; it does not retune thresholds/checkpoints or rescore held-out rows.
 
-The planned evaluation compares complete gate-plus-diagnosis candidates on validation, freezes selected weights/policy before final test access and reports original and new-phone cohorts separately. It includes classwise precision/recall/F1/support, binary FPR/recall, subtypes, per-session behavior and unknown types. New phone held-out scores were not inspected for this report's dry runs. Old frozen examples were used instead.
+The selected updated candidate is \code{gate_s0_final} plus \code{diagnosis_s1_best}, with gate cutoff 0.5408333333333333 and type cutoff 0.8. It retains the binary-positive warning when diagnosis cannot name the type. This was the best available validation-ranked experimental candidate, but its validation eligibility was already false. Selecting a candidate for comparison is not granting deployment approval.
 
-Passing collection parity proves that the input format and independent labels agree; it does not prove the trained update will improve recall or preserve old-class performance. No automatic deployment follows training. Candidate hashes, native parity, ordinary-use controls and prospective live tests remain necessary before replacement.
+\important{The ``phone'' cohort below means classification of held-out recorded phone features on the work PC. At the time this frozen offline evaluation was written, the updated model had not been installed. Later explicit trial deployment and live testing are described in Stage7; earlier v2 results remain distinct.}
+
+
+{\small
+\begin{longtable}{@{}lrrrrr@{}}
+\toprule
+Cohort & Version & Binary P & Binary R & Benign FPR & Macro F1\\\midrule\endhead
+legacy & Frozen v2 & 99.541 & 99.642 & 0.0775 & 94.032\\
+legacy & Augmented v1 & 99.396 & 99.931 & 0.1026 & 94.108\\
+phone & Frozen v2 & 0.000 & 0.000 & 0.0000 & 39.474\\
+phone & Augmented v1 & 86.111 & 96.875 & 8.3333 & 93.278\\
+\bottomrule\end{longtable}
+}
+
+On the 184 held-out phone segments, frozen v2 predicted every segment Benign: 0/64 attacks detected, with 0/120 normal segments flagged. The updated candidate detected 62/64 attacks (96.875\%) but flagged 10/120 normal segments (8.333\% FPR), giving binary precision 86.111\%. These are segments from three held-out same-phone/app sessions, not 184 independent attack campaigns or population accuracy. Baseline precision is reported as zero under the evaluation's zero-division convention because it emitted no positive predictions.
+
+Phone macro F1 below averages only the two classes actually present: Benign and Web Attack. It must not be compared as an equivalent seven-class score to the legacy cohort. Absent Bot, FTP/SSH, DoS, DDoS and scan cases remain untested on this new phone cohort.
+
+\subsection{Classwise comparison on unchanged legacy test rows}
+
+{\small
+\begin{longtable}{@{}lrr@{}}
+\toprule
+Class & Frozen v2 $P/R/F_1$ & Augmented v1 $P/R/F_1$\\\midrule\endhead
+Benign & 99.94 / 99.92 / 99.93 & 99.99 / 99.90 / 99.94\\
+Bot & 54.29 / 92.03 / 68.29 & 56.45 / 86.09 / 68.19\\
+Brute Force & 99.96 / 99.67 / 99.82 & 99.96 / 99.71 / 99.84\\
+DDoS & 99.63 / 97.22 / 98.41 & 99.18 / 99.29 / 99.24\\
+DoS & 99.93 / 99.96 / 99.95 & 99.93 / 99.99 / 99.96\\
+Port Scan & 99.97 / 100.00 / 99.98 & 99.97 / 99.99 / 99.98\\
+Web Attack & 95.38 / 88.57 / 91.85 & 89.73 / 93.57 / 91.61\\
+\bottomrule\end{longtable}
+}
+
+On the old raw-capture cohort, binary recall improved from 99.6424\% to 99.9307\%, but benign flags increased from 729 to 965 and FPR from 0.07755\% to 0.10265\%. Typed macro F1 changed only from 94.0323\% to 94.1080\%. Bot precision remained weak and Bot typed recall decreased. Web typed recall improved, but its precision fell; its F1 therefore did not improve. Aggregate accuracy/recall alone would conceal these tradeoffs.
+
+\subsection{Classwise comparison on held-out phone sessions}
+
+{\small
+\begin{longtable}{@{}lrrr@{}}
+\toprule
+Present class & Support & Frozen v2 $P/R/F_1$ & Augmented $P/R/F_1$\\\midrule\endhead
+Benign & 120 & 65.22 / 100.00 / 78.95 & 98.21 / 91.67 / 94.83\\
+Web Attack & 64 & 0.00 / 0.00 / 0.00 & 88.41 / 95.31 / 91.73\\
+\bottomrule\end{longtable}
+}
+
+There were 61 correctly typed Web segments among 64: 95.3125\% type recall. Binary detection counted 62 because one additional flagged attack remained without correct Web typing. The distinction between detection and exact typing continues to matter.
+
+\subsection{Where new phone detections and false positives occurred}
+
+{\small
+\begin{longtable}{@{}lrrrr@{}}
+\toprule
+Controlled subtype & Segments & Flagged & Flag rate & Correct family\\\midrule\endhead
+http password guessing & 24 & 23 & 95.833 & 95.833\\
+http password spraying & 16 & 16 & 100.000 & 93.750\\
+legitimate http burst & 48 & 0 & 0.000 & 100.000\\
+normal http & 12 & 0 & 0.000 & 100.000\\
+normal page & 12 & 0 & 0.000 & 100.000\\
+normal search or code & 12 & 2 & 16.667 & 83.333\\
+ordinary failed login & 12 & 8 & 66.667 & 33.333\\
+ordinary server error & 12 & 0 & 0.000 & 100.000\\
+sql injection & 12 & 12 & 100.000 & 100.000\\
+successful login & 12 & 0 & 0.000 & 100.000\\
+xss & 12 & 11 & 91.667 & 91.667\\
+\bottomrule\end{longtable}
+}
+
+The ten false flags occurred in eight of twelve ordinary failed-login segments and two of twelve normal search/code segments. Other listed normal controls were quiet in this small test. This locates the errors; it does not yet prove a single causal feature or a universal normal-use failure rate. Raising or lowering a threshold after viewing this final test would create a new development experiment, not a new blind success.
+
+\subsection{Deployment decision and next steps}
+The pilot selection required legacy binary FPR at most 0.1\%, legacy recall at least 98\%, phone FPR at most 2\% and phone recall at least 85\%. Additional typing checks also applied. The updated candidate's phone FPR exceeded its limit on both validation and final test; legacy test FPR also exceeded 0.1\%. The saved final decision is \textbf{deployment eligible: false}; \textbf{phone model replaced: false}; \textbf{production validated: false}.
+
+The experiment demonstrates substantially improved sensitivity to these collected Web patterns, while also demonstrating an unacceptable normal-traffic tradeoff. It supports further controlled analysis, not a final deployment claim. Preserve the candidate, checkpoints, frozen comparison and v2 fallback. Further improvement needs matched normal failed-login/code controls, prospective data and complete-pipeline checks. Later native checks and an explicit experimental installation did occur; Stage7 records them without changing the failed readiness decision.
+
+For the complete invented software fixture in Appendix C, the updated exported models were also executed on CPU. That walkthrough uses no held-out phone row and is not an additional accuracy estimate. The original old-cohort walkthroughs remain unchanged.
+
+
+\chapter{Stage 7: experimental deployment and real protocol testing}
+\section{From an offline candidate to a controlled phone trial}
+The completed evaluation above was a frozen comparison, not a production release. The user later explicitly requested deployment of the available model for testing. After export/parity and 21 native self-checks, app code 37 installed the augmented \code{gate_s0_final} and \code{diagnosis_s1_best}. Its scientific readiness decision remained false. Codes 38--40 retained these exact detector weights; the later changes concern explanations, ownership and network scope. A trial installation must not be described as passing the failed false-positive criterion.
+
+The current gate still receives 32 flow plus 115 context/protocol values. Its architecture is the same 147--96--48--1 MLP (18,913 parameters). The diagnosis retains convolution, recurrent attention, fusion and context branches (173,721 parameters). Current gate/type cutoffs are 0.5408333333333333/0.8. Gate-negative traffic skips diagnosis and Llama. Gate-positive traffic receives an estimated family only when the diagnosis supports a non-Benign class above its cutoff; otherwise it remains Unclassified. A normal connection can therefore be falsely flagged even when diagnosis says Benign.
+
+\section{What the updated model detected in bounded HTTP tests}
+The first normal eight-request control stayed quiet. The fast scan later produced 510 flags over 512 native segments; its 129 TCP connection attempts are a different denominator. The slower scan's rotated-log recovery retained 122 flags over 124 native segments and 31/32 attempted connections flagged. These are same-phone development findings, not general scan recall.
+
+An independently audited eight-case subset contains 325 native segments and 3,248 packets, with all 147 inputs finite and packet/start-time accounting verified. Among 35 verified Web request attempts/effects, 22 were binary flagged and nine correctly typed Web; two embedded normal controls were quiet. HTTP guessing produced detections, but one SQL form was missed, XSS changed between attempts, and the two-slot capacity test remained quiet. Several early cases shared recent history; this prevents attributing every output change solely to a model improvement.
+
+\section{The separate protocol lab and three-source arrangement}
+ProtocolLab uses actual FTP and SSH authentication against invented accounts; SSH has no shell, executable command service, file-transfer subsystem or forwarding. Wrong and valid single-login controls are recorded separately from 32-attempt guessing episodes. The restricted Bot emulator exchanges only PING/STATUS and PONG/LAB-OK; it cannot execute arbitrary commands. Its receiver is a configured owned PC.
+
+DoS uses at most 96 requests and six workers against a dummy service with two resource slots. DDoS uses the controller and two additional physical PCs, 32 requests/two workers each, with three distinct phone-visible source addresses and overlapping intervals. Denial affects only the disposable service; it does not establish volumetric network saturation or general Internet DDoS coverage. Independent ordinary probes measure service availability and recovery.
+
+Unlike the old filtered companion captures, these protocol cases capture the full phone-visible warm-up at snaplen 768. Each command warms 305 seconds and observes 130 seconds, with no next profile scheduled. A failed warm-up reached an inherited 100,000-packet cap before an attack started; it remains an incomplete attempt. The corrected manual controller permits 2,000,000 packets and requires 2 GiB free on both endpoints, detects capture death promptly and avoids attaching stale previous-session target events. Dataset collection's original cap is a separate policy.
+
+\section{Completed seven-case protocol sequence}
+
+{\small
+\begin{longtable}{@{}p{0.27\textwidth}rrr@{}}
+\toprule
+Case & Primary flags & Correct family & Visible groups\\\midrule\endhead
+Benign & 3/9 & -- & 2\\
+FTPBruteForce & 29/32 & 0 & 1\\
+SSHBruteForce & 32/32 & 6 & 3\\
+BotBehavior & 0/12 & 0 & 0\\
+DoS & 18/96 & 0 & 2\\
+DDoS & 0/96 & 0 & 1\\
+Benign & 4/9 & -- & 2\\
+\bottomrule\end{longtable}
+}
+
+The primary denominator is 32 authentication attempts,12 completed emulator exchanges, or 96 actual load requests. Ordinary availability probes and the emulator trigger are excluded from attack counts. The two Benign rows are separate initial/final controls. Their combined 7/18 false flags are unacceptable negative-control findings, not a representative daily false-positive-rate estimate.
+
+FTP flagged 29/32 but never named Brute Force. SSH flagged 32/32, with only 6 correctly typed Brute Force. The emulator missed all 12 exchanges. DoS flagged 18/96 load requests, all Unknown; its console 19/139 also includes one of 43 probes. DDoS flagged 0/96 load requests; the console 1/143 is one of 47 probes, not a detected distributed request. Target evidence confirms 36/38 unavailable probes and 78/76 resource denials for DoS/DDoS, followed by recovery. All 377 matched connections and 4,270 packets passed the saved-evidence re-audit. These findings expose actual classifier limitations after working transport/capture, rather than converting setup success into detection success.
+
+\chapter{Stage 8: measured inference work and the deployed explanation pipeline}
+\section{What ExecuTorch does here}
+ExecuTorch is already the on-device inference runtime, using CPU/XNNPACK for the small PTE classifiers and an isolated persistent process for the 1 B SpinQuant INT 4 Llama. Desktop PyTorch training, model export and Android execution are distinct steps. Llama is downstream of detection: a good explanation cannot repair a missed attack or a false binary flag.
+
+\section{Detector optimization and E 8 findings}
+The paired frozen-weight detector study measured median 1.583 ms for the original graph versus 1.182 ms for a hoisted FP 32 LSTM graph, a 25.3\% reduction. Each variant had 5,040 calls across three alternating blocks. CPU work per block fell 2,192 ms to 1,755 ms; diagnosis PTE size 949,788 to 921,116 bytes. There were zero decision changes on 1,125 validation diagnostic rows and 2,351 previously saved phone inputs. The optimization was retained as an experiment and was not promoted into code 40; preserving the trained function also preserves its false alarms and misses.
+
+The user's E 8 scripts supplied useful implementation ideas, but their packed BERT encoder kernels are not a drop-in autoregressive Llama backend. FP 32-reconstructed E 8 post-training approximations changed 278/1,125 gate decisions and 655/577 diagnosis decisions for the two tested reconstructions. They were rejected before deployment; no packed 2-bit Android speedup or quantization-aware training claim is made. A smaller 135 M explanation model was also tested and rejected for unreliable advice/prompt echoes despite shorter latency.
+
+\section{Fair timing comparisons}
+Old full-note production-worker requests with monitoring active had cold/warm medians 54.605/38.254 seconds (three each), with no generated drafts accepted. A matched direct component comparison with capture paused and four requested threads reduced warm generation 21.053 to 3.888 seconds by keeping facts deterministic and generating only guidance. This 81.5\% component reduction must not be presented as the same experiment as production-worker timing. A later plain-wording component trial measured 3.247 seconds warm; it was a separate session.
+
+Resource measurements include process CPU, RSS/PSS, available RAM, GPU counters where readable, battery and thermal readings. CPU counters are process-specific; battery/temperature cover the phone and cannot be attributed wholly to inference. The CPU backend has no separately measured model VRAM allocation; unavailable GPU counters are not zero usage. The 1 B model occupies 1,135,951,488 bytes plus a 2,183,982-byte tokenizer; component tests showed roughly 1.2 GiB resident PSS. Instrumentation/all-process measurements and resident versus swapped memory must remain distinguished. Detailed sampled metrics and confounds are retained in the aggregate performance report.
+
+\section{Immediate facts, then checked local Llama guidance}
+Codes 38/39 render an immediate factual note: observed connection pattern, verified receiving/initiating app when available, peer/phone endpoint role, packet count/duration, incomplete-history/capture warnings, and a manual precaution. Llama adds one short plain-language guidance sentence. The full visible note is more detailed than that one generated sentence. A receiving app is not blamed as the attack source, and an unknown or ambiguous owner is never replaced by an invented name.
+
+The worker verifies model/tokenizer identities, loads once, resets generation context for every activity, and releases its warm model after about 120 idle seconds. Late drafts are rejected when an activity revision changes or is dismissed. A generation failure, truncation, invented app/count/cause, or unsafe/irrelevant advice leaves the checked default guidance in place. The Android 1.5.1 overload was found to omit the configured maximum-new-token dispatch; a conservative forwarded-callback stop guard now bounds text. Callback framing differs from native token accounting, so an exact-token guarantee is not claimed.
+
+Code 39's actual production IPC fixtures, with monitoring active, measured 14.047 seconds for one cold request and warm median 3.690 seconds (range 3.221--4.021, seven requests). Seven of eight guidance drafts were accepted; one Web draft retained default advice. A labelled temporary TEST notification verified factual content before Llama in 9 ms and was removed; this is post/query time, not packet-to-alert latency. Capture drops were zero. These are eight fixtures across seven categories, not a human readability study or new attack-accuracy evidence.
+
+ForgeSight PR 5's persistent-worker approach was already present. PR 17-inspired one-token boot warming was tested in three component pairs: ready request 3.048 seconds plus preparation 10.202 seconds; total median 13.092 seconds versus 12.794 seconds cold. It shifts the wait earlier without a proven total-time gain and remains disabled. No remote PR scripts were executed as part of the review.
+
+\section{Simple dry run of the current user-facing flow}
+A connection summary first passes the network-scope check, then normalization and the gate. If the gate is negative, there is no incident and no Llama call. If positive, diagnosis may name a family or leave it Unclassified; the factual note appears without waiting for Llama. For an incoming connection whose socket owner is a lab app, the note says that app received the traffic; it does not claim that app originated the attack. Llama may add ``Check recent account activity and review unexpected repeated connections.'' The advice never becomes ground truth or an automatic training label. AppendixC retains a complete invented numeric input and executed current-model output, solely as a software walkthrough.
+
+\chapter{Stage 9: ordinary traffic, recurring idle alerts and code 40}
+\section{Two different false-alarm problems}
+Nine new flags in the saved idle-session tail had both endpoints on 127.0.0.1. They were real new flags and activity IDs, not an old notification being replayed. The producing app was not verified. A repeated loopback port alone cannot establish malware, the exact service, or safety.
+
+The separate normal protocol case at 20:16 had 4/9 false flags: ordinary wrong/valid SSH logins and two normal HTTP probes. Both FTP controls were quiet. A later user-launched normal protocol case at 22:59 had 2/9 flags, both SSH; all five HTTP probes and both FTP controls were quiet. One grouped note accepted local Llama guidance, which does not make its underlying false positive correct. Different traffic histories and packet values prevent calling 4\textrightarrow 2 a causal accuracy gain from code 40. The later case was re-audited offline only; reporting started no new phone traffic.
+
+The separate saved HTTP guessing case flagged 21 of 31 failed dummy guesses: seven Web and 14 Unknown, with ten misses; its successful-login control stayed quiet. All 21 flags match the recorded traffic. Detection, correct family, app attribution, grouping and explanation acceptance are five different outcomes.
+
+\section{What code 40 changed and what it did not solve}
+Code 40 observes/counts both-endpoint loopback separately and excludes it from default external-network model assessment. Device settings show the scope and an experimental local-alert opt-in. This is an explicit coverage change, not learning that loopback is benign: malicious on-device loopback traffic is also outside default model alerts. LAN/external connections, even to the same port numbers, remain scored. No app/port allowlist or threshold increase was added.
+
+All 104 original activity IDs and raw evidence survived installation. Fifty-seven old loopback activities were moved outside Active/automatic explanations/notifications while retaining the original model assessment in seven-day history. External records remained unchanged; SQLite integrity passed. Source-hashed fixtures verify local-history idempotence, stale-result rejection, and bit-identical 147 external features when loopback traffic is interleaved. Ownership parsing now rejects TIME\_WAIT/inode-zero kernel entries without rejecting real UID 0 sockets with a positive inode. The exact cause of each old root attribution remains unproven.
+
+A new code 40 normal HTTP control completed 8/8 requests,80 packets/eightTCPtuples and eight target events, with zero flags/new activities/notifications. At the recorded 714-second post-install inspection,11 local summaries were counted separately,159 external checks had run, and capture counters were healthy with zero flags. That short window includes the normal web control; it cannot establish zero everyday false positives. The subsequent SSH failure above remains a documented counterexample.
+
+\section{Frozen candidate regression and rejected shortcuts}
+Eight already examined protocol cases supplied 386 matched development connections, including 118 normal controls/probes and 268 attack attempts/exchanges. Probes affected by dummy-service capacity are not attack requests. Six frozen checkpoints were replayed at the unchanged cutoff; this is development diagnosis, not an independent selection benchmark:
+
+{\small
+\begin{longtable}{@{}p{0.41\textwidth}rr@{}}
+\toprule
+Frozen checkpoint & Normal flags /118 & Attack flags /268\\\midrule\endhead
+gate\_s 0\_best & 16 & 78\\
+gate\_s 0\_final & 13 & 79\\
+gate\_s 1\_best & 15 & 65\\
+gate\_s 1\_final & 14 & 52\\
+gate\_s 2\_best & 15 & 46\\
+gate\_s 2\_final & 22 & 93\\
+\bottomrule\end{longtable}
+}
+
+None eliminates false positives. The installed seed 0 final has the fewest normal flags in this particular cohort, not demonstrated universal superiority. CPU/native probability difference was at most 4.590 e-6. Masking SSH/FTP indicators reduces normal flags 13 to 11 but attack flags 79 to 48; that shortcut was rejected and never installed. Raising a cutoff also cannot cleanly separate normal SSH examples already scoring 1.0.
+
+The actual training rows with positive SSH indicators comprise 7,322 Benign and 4,096 BruteForce; FTP indicators comprise 3,490 Benign and 3,736 BruteForce. Thus the cause is not a total absence of benign protocol training data. Some normal protocol examples have standardized rare indicators around 13.8, which alone does not prove a scaling bug. The phone-specific extension contains 848 unique HTTP/web training segments and no modern phone FTP/SSH control cohort. A protocol/context distribution gap and poor generalization are plausible; exact causal contributions have not been isolated.
+
+\section{What is needed for a genuine detector repair}
+Collect independently labelled normal sessions with successful logins, occasional ordinary mistakes, browsing/downloads/background services and legitimate bursts, varying apps/rates/sizes. Background traffic is not automatically declared safe. Retain verified attack sessions and all original-class evaluations. Allocate fresh sessions/devices/days before prediction inspection, keep their 300-second contexts disjoint, fit preprocessing/selection on training/validation only, and reserve a genuinely untouched final cohort. Preserve all 40 epoch checkpoints, compare classwise attack recall and precision plus false notifications per hour, and reject repairs with unacceptable class regressions. No such additional repair has been trained or promoted in code 40. Ordinary-use readiness remains unproven.
+
 
 \chapter{Reproducibility, engineering checks and research claims}
 \section{Recorded environment}
@@ -856,14 +1036,14 @@ Epoch checkpoints include optimizer and random-generator state as required by ea
 Rollback snapshots preserved earlier model bundles before repair/deployment. The current gate and diagnosis hashes are recorded in Appendix F. No report-building operation changes a model, threshold, training split or running training source. Temporary file-access/session issues discussed in the conversation were operational interruptions; conclusions here are anchored to saved artifacts rather than assuming that an inaccessible file implied failed training. No definitive universal root cause is invented for every historical access issue.
 
 \section{GitHub submission and what is excluded}
-The user supplied \url{https://github.com/vishwajeet-singh-bhati/Android-nids} and authorized terminal publication under their account. We prepared an isolated current-source snapshot with readable directories for Android, four paper-to-current experiment stages, validation tools, models, results and documentation. A clean source root was used instead of pushing the entire older workstation history. The latest publication before this report was \code{e0100ed}; this report's documentation commit can be newer.
+The user supplied \url{https://github.com/vishwajeet-singh-bhati/Android-nids} and authorized terminal publication under their account. We prepared an isolated current-source snapshot with readable directories for Android, four paper-to-current experiment stages, validation tools, models, results and documentation. A clean source root was used instead of pushing the entire older workstation history. The original source submission and first report remain in Git history; this update synchronizes the current code40 source and its evidence. Public source commits are separate from local workstation commits.
 
 The source snapshot contains the current small inference models and a pinned optional Llama download manifest, not the large language-model weights. Research datasets, raw phone recordings, app histories, credentials, old packet fixtures, unused legacy weights, caches and epoch checkpoint dumps are excluded. No ZIP was created; the user deferred that until the end.
 
 Public benchmark runs can be regenerated after obtaining the matching publisher files and following the documented layout/configurations. Exact private-phone-cohort retraining cannot be independently reproduced from source alone while those recordings are excluded. Another researcher can repeat the collection method but will obtain a different timed cohort. Historical repair and pre-paper evidence remains locally preserved; the curated repository does not imply that every historical experiment's full source/data bundle is included.
 
 \section{What could support an incremental paper?}
-\textbf{Model selection at the cutoff:} context-pruned-30 has the best score on the historical CSV benchmark. That benchmark contains dependent laboratory history and does not justify deploying it as the best phone detector. V2 is the installed experimental pipeline with shared phone-visible inputs. The matched repair was rejected for class regressions, and the phone-data candidates have no final accepted comparison yet. There is no validated general-purpose production winner at this cutoff.
+\textbf{Model selection at the cutoff:} context-pruned-30 has the best score on the historical CSV benchmark. That benchmark contains dependent laboratory history and does not justify deploying it as the best phone detector. The augmented candidate is now installed for experimental evaluation. Repair v3 failed class-regression checks, and the completed phone-data update still fails false-positive/readiness checks. There is no validated general-purpose production winner at this cutoff.
 
 The plausible research story is a carefully documented progression: transparent TSANet reconstruction; matched context/control experiment; demonstration of benchmark-to-phone failure; a shared phone-visible feature implementation; independently labeled real-phone collection; and prospective comparison of the repaired data pipeline. Negative findings and failed repairs are valuable evidence when their protocols and limits are explicit.
 
@@ -877,18 +1057,18 @@ The methodology was informed by CIC-IDS2017 provenance and the cautions on sampl
 \toprule Family & Completed phone evidence & Remaining coverage work\\\midrule\endhead
 Benign & Small HTTP controls, plus independently labeled new normal actions. & Long normal-use sessions, legitimate multi-client bursts, different apps/devices/networks and false alerts per observation hour.\\
 Port Scan & Fast and slower scans detected by fixed v2. & Independent repetitions, different port sets/rates and discovery/retry controls; assess episode recall/delay.\\
-Web Attack & Confirmed SQL/XSS/HTTP-guessing examples missed; new varied real data collected. & Finish candidate evaluation and repeat prospective tests; encrypted semantics remain unavailable.\\
-Brute Force & Existing dummy HTTP login belongs to Web, not the FTP/SSH family. & Actual disposable FTP and SSH services on the phone, dummy credentials and authentication logs; normal failed-login controls.\\
-DoS & Bounded two-slot denial missed; ordinary HTTP burst flagged with weak typing. & Several controlled request/slow-connection patterns and measured impact on normal requests; distinguish target pressure from sender/Wi-Fi bottlenecks.\\
-DDoS & No completed distributed phone experiment. & Multiple independent clients, verified origins and measured service impact under a fixed bounded protocol.\\
-Bot & Intended Beacon connections timed out. & Reachable approved local controller and harmless agent with verified check-in/dummy-command/reply behavior. This cannot certify detection of every malware family.\\
+Web Attack & V2 missed confirmed examples; completed data update detected 62/64 held-out recorded attack segments but falsely flagged 10/120 normal segments. & Resolve the false-positive tradeoff under a new protocol and run fresh native/live validation; encrypted semantics remain unavailable.\\
+Brute Force & Actual FTP29/32 and SSH32/32 attempts flagged; correct family0/32 and6/32. & Normal SSH controls also flag; improve specificity and typing with independent sessions.\\
+DoS & Earlier capacity test missed; later real resource denial18/96 flags, all Unknown. & Several controlled request/slow-connection patterns and measured impact on normal requests; distinguish target pressure from sender/Wi-Fi bottlenecks.\\
+DDoS & Three-source dummy-resource denial verified;0/96 load requests flagged. & Other bounded patterns, independent episodes and improved detection; no volumetric-coverage claim.\\
+Bot & Old Beacon path failed; later restricted emulator completed12 exchanges with0flags. & Improve detection on independently recorded behaviour; do not equate emulator coverage with every malware family.\\
 \bottomrule
 \end{longtable}
 
 \section{The proposed extra-PC arrangement}
-The user offered SSH access to two or three additional PCs and confirmed that they share the phone's local network. This is a proposed setup; hosts/credentials were not supplied and no such remote test was run. The main work PC can coordinate, collect results and send low-rate normal probes. Two additional physical PCs can originate bounded concurrent traffic. A third can provide another source or independent normal probe.
+The user offered SSH access to two or three additional PCs and confirmed that they share the phone's local network. This arrangement was subsequently completed with two additional owned PCs and public-key SSH, with private connection details excluded from the repository. Stage7 records the three-source results. The main work PC can coordinate, collect results and send low-rate normal probes. Two additional physical PCs can originate bounded concurrent traffic. A third can provide another source or independent normal probe.
 
-SSH is the control channel; test traffic should travel from each selected PC directly to the phone's isolated service. Verify the actual source addresses in phone captures. Current TrafficLab accepts only one controller, so its target restrictions must be extended to a fixed explicit set of test sources before this campaign. Merely opening many workers on one existing client does not provide the same evidence as independent source machines.
+SSH is the control channel; test traffic should travel from each selected PC directly to the phone's isolated service. Verify the actual source addresses in phone captures. ProtocolLab used a fixed explicit source set for the completed campaign; ordinary TrafficLab remains a separate single-controller target. Merely opening many workers on one existing client does not provide the same evidence as independent source machines.
 
 A two-source experiment is a useful starting design, not a universal source count that proves complete DDoS coverage. A shared access point/router and small target impose scale/bottleneck limits. Confirm whether the test service actually slows or refuses ordinary requests, record the measured impact, and separate that from capture loss or network failure. Larger source count by itself is not a correctness metric.
 
@@ -1042,6 +1222,7 @@ context\_baseline & Benign & 1.000000 & --\\
 context\_pruned\_30 & Benign & 1.000000 & --\\
 Aligned v2 & Benign & 0.994170 & 0.029194\\
 Selected repair & Benign & 0.820366 & 0.000251\\
+Augmented v1 & Benign & 0.999264 & 0.000000\\
 \bottomrule\end{longtable}
 }
 
@@ -1292,7 +1473,7 @@ Repair comparison & \code{validation/reports/phone_repair_v3/evaluation.json}, \
 Native deployment & \code{validation/reports/v2_phone_deployment/device_native.json}, \code{native_offline.json}, \code{deployment.json}\\
 Actual phone cases & \code{validation/reports/v2_automated_phone_tests/RESULTS.md}; exact case reviews under \code{validation/reports/manual_phone_tests/}\\
 New collection/QC & \code{experiments/phone_capture_v1/DATASHEET.md}; \code{validation/reports/phone_capture_v1/collection_summary.json}\\
-Augmentation counts & \code{validation/reports/phone_capture_training_v1/data_report.json}\\
+Augmentation counts/results & \code{validation/reports/phone_capture_training_v1/data_report.json}, \code{evaluation.json}, \code{RESULTS.md}\\
 Dataset comparison & \code{validation/reports/dataset_comparison/provenance.json}\\
 Older v5/v6 & \code{validation/reports/robust_v5_audit/}, \code{robust_v5_phone/}, \code{cascade_v6/}\\
 Report numerical trace & \code{docs/project_report/REPORT_EVIDENCE.json}; read-only collector \code{tools/report/collect_report_evidence.py}\\
@@ -1300,16 +1481,22 @@ Public guides/results & Repository \code{docs/}, \code{results/}, \code{models/c
 \bottomrule
 \end{longtable}
 
-\section{Frozen current inference hashes}
+\section{Historical v2 and current trial inference hashes}
 \begin{lstlisting}
-gate PTE SHA-256:
+Historical v2 gate PTE SHA-256:
 99e5f3b62b1f6940cd2fb40d05c2edb14b3a7fb83c3bc1f989e63879202ca529
-diagnosis PTE SHA-256:
+Historical v2 diagnosis PTE SHA-256:
 585f43e8bf4299f755036e9ccbe55121fce14d8ff59a67fcfdcfb4ba8af951dd
+Current augmented gate PTE SHA-256:
+733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e
+Current augmented diagnosis PTE SHA-256:
+e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e
+Current APK SHA-256 (code40):
+ab7f3ed45a635386ced5d58666efbd88e270887f9fc40bb70f6e995bff3b367e
 feature-contract SHA-256:
 0a6f7c956c3fe8cc8329395c62098eefd735d9f49b82176ebcce42c7f609993c
 \end{lstlisting}
-The report collector hashes its aggregate source records and executes frozen old-model dry runs on CPU. It never trains, changes thresholds, connects to a phone or scores the new held-out phone cohort. Static report examples and old opened-cohort inspection cannot replace future prospective evaluation.
+The report collector hashes its aggregate source records and executes frozen-model dry runs on CPU. It reads the completed final aggregate comparison but never trains, changes thresholds, connects to a phone or rescores held-out phone rows. Static report examples and old opened-cohort inspection cannot replace future prospective evaluation.
 
 \section{Public reproduction entry points}
 After obtaining datasets and setting up the documented environment, run from the curated repository root:

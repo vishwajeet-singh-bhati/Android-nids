@@ -1,0 +1,36 @@
+{
+  "installed": true,
+  "version_code": 38,
+  "version_name": "0.14.0-hybrid-guidance",
+  "apk_sha256": "ff338327700acf534b14b1e3c28dfbe66a1acd1d97a177d46b44a3aefca964e4",
+  "llama_sha256": "8715cdba9e91f6bede00cc5f2d6b12397b95225da5630c4972a8da03001cda3b",
+  "monitor_enabled": true,
+  "monitor_foreground": true,
+  "detector_sha256": {
+    "gate": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+    "diagnosis": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e"
+  },
+  "history_schema_unchanged": true,
+  "manual_attack_tests_only": true,
+  "history_age_seconds_at_check": 34.92509497070313,
+  "health": {
+    "event": "heartbeat",
+    "time_ms": 1795273860413,
+    "packets": 286,
+    "inferences": 5,
+    "flags": 0,
+    "schema": "phone-aligned-v2",
+    "diagnosis_inferences": 0,
+    "active_flows": 2,
+    "history_window_seconds": 300,
+    "invalid_rate_flows": 0,
+    "evictions": 0,
+    "history_evictions": 0,
+    "forced_reorder": 0,
+    "late_packets": 0,
+    "queue_drops": 0,
+    "queue_depth": 0,
+    "model_inference_ms": 4.356203,
+    "uptime_ms": 30461
+  }
+}

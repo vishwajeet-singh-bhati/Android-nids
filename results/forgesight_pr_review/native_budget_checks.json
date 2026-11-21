@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "token_budget_checks": {
+    "passed": true,
+    "cases": [
+      {
+        "limit": 1,
+        "forwarded_callbacks": 1,
+        "received_callbacks": 2,
+        "native_generated_tokens": 1,
+        "stopped": true,
+        "raw_fixture_output": "1"
+      },
+      {
+        "limit": 3,
+        "forwarded_callbacks": 3,
+        "received_callbacks": 3,
+        "native_generated_tokens": 2,
+        "stopped": true,
+        "raw_fixture_output": "1, "
+      },
+      {
+        "limit": 48,
+        "forwarded_callbacks": 48,
+        "received_callbacks": 48,
+        "native_generated_tokens": 47,
+        "stopped": true,
+        "raw_fixture_output": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, "
+      }
+    ],
+    "scope": "Actual production callback against native model on numeric generation fixtures, no incident or traffic"
+  },
+  "guidance_fresh_after_truncated_generation": true,
+  "same_input_output_matched": true,
+  "scope": "Actual production callback against native model on numeric generation fixtures, no incident or traffic",
+  "trials": [
+    {
+      "display": "Possible check for open connections (model estimate). This does not confirm an attack. Observed: 12 network packets (small pieces of data). The app involved is unknown. Check whether you expected a device search or connection test; review unfamiliar app activity.",
+      "generated_text_accepted": true,
+      "display_source": "hybrid_fixed_facts_local_model_guidance",
+      "raw_local_draft": "Possible check for open connections (model estimate). This does not confirm an attack. Observed: 12 network packets (small pieces of data). The app involved is unknown. Check whether you expected a device search or connection test; review unfamiliar app activity.",
+      "normalized_local_draft": "Possible check for open connections (model estimate). This does not confirm an attack. Observed: 12 network packets (small pieces of data). The app involved is unknown. Check whether you expected a device search or connection test; review unfamiliar app activity.",
+      "runtime_error": "",
+      "elapsed_ms": 15019,
+      "total_including_verification_ms": 15019,
+      "verification_ms": 3207,
+      "load_ms": 7845,
+      "generation_ms": 3924,
+      "warm_model_reused": false,
+      "quantization": "SpinQuant INT4 EO8",
+      "model": "Llama 3.2 1B Instruct",
+      "first_callback_including_verification_ms": 13370,
+      "output_characters": 263,
+      "runtime_stats_raw": "{\"prefill_token_per_sec\":31.2364,\"decode_token_per_sec\":9.93789,\"prompt_tokens\":72,\"generated_tokens\":16,\"model_load_start_ms\":0,\"model_load_end_ms\":0,\"inference_start_ms\":1795275844416,\"inference_end_ms\":1795275848331,\"model_execution_start_ms\":1795275848242,\"model_execution_end_ms\":1795275848330,\"prompt_eval_end_ms\":1795275846721,\"first_token_ms\":1795275846721,\"aggregate_sampling_time_ms\":10,\"aggregate_model_execution_time_ms\":3890,\"SCALING_FACTOR_UNITS_PER_SECOND\":1000}",
+      "evidence_revision_used": 1,
+      "performance_profile": "plain_hybrid48",
+      "fixed_assistant_prefix": "Possible check for open connections (model estimate). This does not confirm an attack. Observed: 12 network packets (small pieces of data). The app involved is unknown. ",
+      "scope": "local explanation of detector evidence; no verified attack attribution",
+      "name": "before_truncated_generation"
+    },
+    {
+      "display": "Possible check for open connections (model estimate). This does not confirm an attack. Observed: 12 network packets (small pieces of data). The app involved is unknown. Check whether you expected a device search or connection test; review unfamiliar app activity.",
+      "generated_text_accepted": true,
+      "display_source": "hybrid_fixed_facts_local_model_guidance",
+      "raw_local_draft": "Possible check for open connections (model estimate). This does not confirm an attack. Observed: 12 network packets (small pieces of data). The app involved is unknown. Check whether you expected a device search or connection test; review unfamiliar app activity.",
+      "normalized_local_draft": "Possible check for open connections (model estimate). This does not confirm an attack. Observed: 12 network packets (small pieces of data). The app involved is unknown. Check whether you expected a device search or connection test; review unfamiliar app activity.",
+      "runtime_error": "",
+      "elapsed_ms": 3594,
+      "total_including_verification_ms": 3594,
+      "verification_ms": 0,
+      "load_ms": 0,
+      "generation_ms": 3585,
+      "warm_model_reused": true,
+      "quantization": "SpinQuant INT4 EO8",
+      "model": "Llama 3.2 1B Instruct",
+      "first_callback_including_verification_ms": 2025,
+      "output_characters": 263,
+      "runtime_stats_raw": "{\"prefill_token_per_sec\":35.5907,\"decode_token_per_sec\":10.2433,\"prompt_tokens\":72,\"generated_tokens\":16,\"model_load_start_ms\":0,\"model_load_end_ms\":0,\"inference_start_ms\":1795275855675,\"inference_end_ms\":1795275859260,\"model_execution_start_ms\":1795275859148,\"model_execution_end_ms\":1795275859259,\"prompt_eval_end_ms\":1795275857698,\"first_token_ms\":1795275857698,\"aggregate_sampling_time_ms\":9,\"aggregate_model_execution_time_ms\":3571,\"SCALING_FACTOR_UNITS_PER_SECOND\":1000}",
+      "evidence_revision_used": 1,
+      "performance_profile": "plain_hybrid48",
+      "fixed_assistant_prefix": "Possible check for open connections (model estimate). This does not confirm an attack. Observed: 12 network packets (small pieces of data). The app involved is unknown. ",
+      "scope": "local explanation of detector evidence; no verified attack attribution",
+      "name": "after_truncated_generation"
+    }
+  ]
+}

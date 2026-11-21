@@ -1,0 +1,176 @@
+{
+  "date": "2026-11-18",
+  "scope": "Local dataset provenance comparison; original records read from local WSL on the same work PC, no remote access or training",
+  "andmal2017": {
+    "raw_capture_count": 2126,
+    "raw_captures_by_category": {
+      "Adware": 104,
+      "Benign": 1700,
+      "Scareware": 112,
+      "SMSMalware": 109,
+      "Ransomware": 101
+    },
+    "processed_windows": 827225,
+    "processed_window_counts": {
+      "benign": 659570,
+      "malicious_associated": 167655
+    },
+    "processed_unique_flows": 648462,
+    "window_shape": [
+      32,
+      12
+    ],
+    "payload_shape": [
+      32,
+      128
+    ],
+    "preprocessing_caps": {
+      "examples_per_capture": 400,
+      "raw_records_per_capture": 1000000
+    },
+    "processed_totals_source": "Local original artifacts/phase34_report.txt and data/manifests/p34_full.csv",
+    "splits": {
+      "full_family_holdout_s0": {
+        "source_sha256": "f40bdeaf9934a9ad7f832fcfd0735f0241a16124719b4f7da82c08e061708677",
+        "strategy": "family_holdout",
+        "seed": 0,
+        "per_split": {
+          "train": {
+            "examples": 577806,
+            "flows": 452796,
+            "captures": 1484,
+            "apps": 1455,
+            "label_counts": {
+              "benign": 461436,
+              "malicious_associated": 116370
+            },
+            "malware_family_count": 29
+          },
+          "val": {
+            "examples": 124374,
+            "flows": 97327,
+            "captures": 323,
+            "apps": 312,
+            "label_counts": {
+              "benign": 98951,
+              "malicious_associated": 25423
+            },
+            "malware_family_count": 7
+          },
+          "test": {
+            "examples": 125045,
+            "flows": 98339,
+            "captures": 319,
+            "apps": 307,
+            "label_counts": {
+              "benign": 99183,
+              "malicious_associated": 25862
+            },
+            "malware_family_count": 6
+          }
+        },
+        "leakage_errors": []
+      },
+      "full_group_random_s0": {
+        "source_sha256": "bfb1692c33951c501ddb6665f953deeb297d490885e26fc3153dab29cf4a40e9",
+        "strategy": "group_random",
+        "seed": 0,
+        "per_split": {
+          "train": {
+            "examples": 578636,
+            "flows": 453025,
+            "captures": 1489,
+            "apps": 1460,
+            "label_counts": {
+              "benign": 461436,
+              "malicious_associated": 117200
+            },
+            "malware_family_count": 42
+          },
+          "val": {
+            "examples": 124219,
+            "flows": 97516,
+            "captures": 319,
+            "apps": 308,
+            "label_counts": {
+              "benign": 98951,
+              "malicious_associated": 25268
+            },
+            "malware_family_count": 29
+          },
+          "test": {
+            "examples": 124370,
+            "flows": 97921,
+            "captures": 318,
+            "apps": 306,
+            "label_counts": {
+              "benign": 99183,
+              "malicious_associated": 25187
+            },
+            "malware_family_count": 30
+          }
+        },
+        "leakage_errors": []
+      }
+    }
+  },
+  "cicids2017_current": {
+    "raw_labeled_flows": 2830743,
+    "retained_flows": 2827829,
+    "train_rows": 1979480,
+    "test_rows": 848349,
+    "classes": [
+      "Benign",
+      "Bot",
+      "Brute Force",
+      "DDoS",
+      "DoS",
+      "Port Scan",
+      "Web Attack"
+    ],
+    "train_class_counts": {
+      "Benign": 1589924,
+      "Bot": 1369,
+      "Brute Force": 9682,
+      "DDoS": 89618,
+      "DoS": 176198,
+      "Port Scan": 111163,
+      "Web Attack": 1526
+    },
+    "test_class_counts": {
+      "Benign": 681396,
+      "Bot": 587,
+      "Brute Force": 4150,
+      "DDoS": 38407,
+      "DoS": 75514,
+      "Port Scan": 47641,
+      "Web Attack": 654
+    },
+    "input_flow_features": 32,
+    "input_context_features": 78,
+    "context_bank": "training flows only; 2/5/15-minute interval-safe network endpoint histories",
+    "android_sources_in_this_run": false,
+    "visibility_limit": "Lab-wide endpoint histories can include remote-host connections not visible from one phone; a phone-visibility-matched evaluation remains necessary"
+  },
+  "aagm_local": {
+    "pcaps": 242,
+    "groups": {
+      "Adware Pcaps": 62,
+      "Benign Pcaps": 173,
+      "General Malware Pcaps": 7
+    },
+    "labels": "capture-level malware association; benign subset used as later training controls"
+  },
+  "parrot_local": {
+    "pcaps": 320,
+    "apps": 80,
+    "captures_per_app": 4,
+    "interpretation": "ordinary-app startup stress; Android 15 emulator with interception; not certified clean Pixel traffic"
+  },
+  "proposed_only_in_local_project_records": [
+    "CICMalDroid2020",
+    "UNSW-NB15",
+    "NSL-KDD"
+  ],
+  "no_model_or_dataset_changes": true
+}

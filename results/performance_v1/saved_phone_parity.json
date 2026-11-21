@@ -1,0 +1,102 @@
+{
+  "rows": 2351,
+  "sources": [
+    {
+      "case": "20261121_104159_Benign",
+      "rows": 34,
+      "native_snapshot_sha256": "d4e8139869fbc49f73fd67bf7b36e7d937d874b3b14d344095f7764cf1aabd23"
+    },
+    {
+      "case": "20261121_105054_PortScan",
+      "rows": 557,
+      "native_snapshot_sha256": "6891017ae1ab81a3eb6ae0744a1c2949567fc1f635c7f065d966cc58a4bb844b"
+    },
+    {
+      "case": "20261121_105921_SlowScan",
+      "rows": 192,
+      "native_snapshot_sha256": "786e0168415fee8c0c6db37341812179aaf29971ff6fcc92b1943b4ddd3a98b7"
+    },
+    {
+      "case": "20261121_113935_PasswordGuessing",
+      "rows": 32,
+      "native_snapshot_sha256": "d15f04e9a81bb82ffb1d03cf57a7cc0e130f26c1f2a26793cf569ff7f97f1f48"
+    },
+    {
+      "case": "20261121_114213_SQLInjection",
+      "rows": 3,
+      "native_snapshot_sha256": "f5d50d4c8391875d13eca4370e263a193856a4ea1be0bc90d7601fbcd18bec37"
+    },
+    {
+      "case": "20261121_114437_XSS",
+      "rows": 1,
+      "native_snapshot_sha256": "0b33cc780912e330b90af77aa6c6567580a9c516b897e9950d6be457eea10820"
+    },
+    {
+      "case": "20261121_114717_ConnectionExhaustion",
+      "rows": 16,
+      "native_snapshot_sha256": "665a10921b10143a95df36bcd52a06d383f4589b4daa635f03938ba893559687"
+    },
+    {
+      "case": "20261121_114945_HTTPFlood",
+      "rows": 128,
+      "native_snapshot_sha256": "3437f731387f21910c72a0e383b0e4f29b2a542a59f475c09a3dcc739a74294b"
+    },
+    {
+      "case": "20261121_115902_HTTPFlood",
+      "rows": 128,
+      "native_snapshot_sha256": "d09c023c13c280ca524af1e4c3089080ee7523fc740c7ac9fe1e8df27238219c"
+    },
+    {
+      "case": "20261121_120751_ConnectionExhaustion",
+      "rows": 16,
+      "native_snapshot_sha256": "ab531d5939311cae11a3609160e79066ad1717f9b050c5a78c51d517e224a8e3"
+    },
+    {
+      "case": "20261121_121909_XSS",
+      "rows": 1,
+      "native_snapshot_sha256": "fa4991067e4fc531ec6c9b0ecc09b0a7703b38fcc40e001b622b1ef20c7af9a5"
+    },
+    {
+      "case": "20261121_161452_Benign_9641f2",
+      "rows": 116,
+      "native_snapshot_sha256": "d4ef069e11719125486cef2d74b7634b0c6b09fda5452d9a832ea6b7419bd4c9"
+    },
+    {
+      "case": "20261121_163023_FTPBruteForce_8c74df",
+      "rows": 53,
+      "native_snapshot_sha256": "5ce184de3db84537daeb254e45847b1ef98c39b02997fa2725c22f078a14b6de"
+    },
+    {
+      "case": "20261121_163908_SSHBruteForce_737391",
+      "rows": 70,
+      "native_snapshot_sha256": "872b0735d3e63b630fc976de377aac9ab4df7dbe801f8c5d5e2f5690e8c46772"
+    },
+    {
+      "case": "20261121_164814_BotBehavior_368522",
+      "rows": 180,
+      "native_snapshot_sha256": "20acf5f10376773b2e83e734cd7f8065e921b71ac0420c3ce44dd5f68df6a804"
+    },
+    {
+      "case": "20261121_171054_DoS_014602",
+      "rows": 332,
+      "native_snapshot_sha256": "8a26f94f1d6a204ce3a239d88ae54c00a615c75f13dd6d1b47d48b3eb0a15af7"
+    },
+    {
+      "case": "20261121_171906_DDoS_a4333b",
+      "rows": 335,
+      "native_snapshot_sha256": "0c5cf160f3ef8a0f98cd6d42ab1aed6cd895519845fa63429141b2dd68c09dbb"
+    },
+    {
+      "case": "20261121_172724_Benign_fea5e0",
+      "rows": 157,
+      "native_snapshot_sha256": "20ff88e46fe8b7567fcda03cd068b3e083f94d32b3859a578baccc5d59174350"
+    }
+  ],
+  "gate_pte_byte_identical": true,
+  "maximum_diagnosis_logit_change": 0.0,
+  "candidate_family_flips_vs_current": 0,
+  "current_cpu_vs_saved_phone_family_flips": 0,
+  "thresholds_changed": false,
+  "training_performed": false,
+  "scope": "Saved development phone inputs, including background rows. No new traffic; numeric/decision parity only, not new accuracy evidence."
+}

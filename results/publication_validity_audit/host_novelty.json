@@ -1,0 +1,37 @@
+{
+  "Benign": {
+    "support": 681396,
+    "unseen_source": 141,
+    "unseen_destination": 346
+  },
+  "Bot": {
+    "support": 587,
+    "unseen_source": 0,
+    "unseen_destination": 0
+  },
+  "Brute Force": {
+    "support": 4150,
+    "unseen_source": 0,
+    "unseen_destination": 0
+  },
+  "DDoS": {
+    "support": 38407,
+    "unseen_source": 0,
+    "unseen_destination": 0
+  },
+  "DoS": {
+    "support": 75514,
+    "unseen_source": 0,
+    "unseen_destination": 0
+  },
+  "Port Scan": {
+    "support": 47641,
+    "unseen_source": 0,
+    "unseen_destination": 0
+  },
+  "Web Attack": {
+    "support": 654,
+    "unseen_source": 0,
+    "unseen_destination": 0
+  }
+}

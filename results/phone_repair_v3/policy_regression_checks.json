@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "scope": "Controlled synthetic policy examples, not detection metrics",
+  "old_false_positives": 20,
+  "old_missed_ddos": 10,
+  "new_false_positives": 0,
+  "new_missed_ddos": 0,
+  "review_policy_recovers_attacks": true,
+  "unchanged_scores_not_falsely_called_improvement": true,
+  "high_warning_never_vetoed": true,
+  "production_models_modified": false
+}

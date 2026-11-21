@@ -50,7 +50,7 @@ def measures(y,predicted,flags):
 def baseline(raw,device):
     # The preserved mobile reference embeds CPU LSTM state allocations.
     # Keep that immutable artifact on CPU rather than rewriting its graph.
-    folder=ROOT/'models/current';g=torch.jit.load(str(folder/'gate.pt'),map_location='cpu').eval();d=torch.jit.load(str(folder/'diagnosis.pt'),map_location='cpu').eval()
+    folder=ROOT/'models/references/aligned_v2';g=torch.jit.load(str(folder/'gate.pt'),map_location='cpu').eval();d=torch.jit.load(str(folder/'diagnosis.pt'),map_location='cpu').eval()
     gp=[];dp=[]
     with torch.inference_mode():
         for start in range(0,len(raw),1024):
@@ -125,7 +125,7 @@ def main():
         'phone_test_sessions':episodes,'production_validated':False,'automation_smoke_only':SMOKE,'runtime':'Local WSL PyTorch CUDA/CPU; new-model native reattestation pending',
         'scope':'Same phone/app, chronological sessions with held-out request forms; small per-subtype support. Rates are recorded segments, not independent campaigns or general mobile accuracy. No auto-deployment.'}
     if SMOKE:report['scope']='Automation smoke only, not research model results. Technical fixtures reuse development pilot rows in validation/test to exercise code; excluded from the actual campaign.'
-    report['baseline_artifact_sha256']={kind:sha(ROOT/'models/current'/(kind+'.pt')) for kind in ['gate','diagnosis']}
+    report['baseline_artifact_sha256']={kind:sha(ROOT/'models/references/aligned_v2'/(kind+'.pt')) for kind in ['gate','diagnosis']}
     exports=RUN/'exports';exports.mkdir(exist_ok=True)
     norm=json.loads((CACHE/'normalization.json').read_text())
     for kind,name in [('gate',selected['gate']),('diagnosis',selected['diagnosis'])]:

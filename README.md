@@ -2,41 +2,44 @@
 
 [![Reproducibility checks](https://github.com/vishwajeet-singh-bhati/Android-nids/actions/workflows/checks.yml/badge.svg)](https://github.com/vishwajeet-singh-bhati/Android-nids/actions/workflows/checks.yml)
 
-An Android research prototype that monitors connection statistics and recent connection history, flags suspicious activity with a small local model, assigns an estimated attack family with a larger model, and produces local guidance with Llama or an evidence-based fallback.
+An Android research prototype: capture phone-visible TCP/UDP traffic, extract connection statistics and recent history, use a lightweight binary detector, diagnose flagged connections, and show immediate facts with checked local Llama guidance.
 
-**Current app:** `0.12.2-aligned-v2-test` / code 36. **Current detector:** preserved v2 gate + diagnosis, 147 inputs. The additional real-phone-data training run is separate; see [current status](STATUS.md). This repository contains one current source snapshot with the baseline experiments needed to reproduce its comparisons.
+**Current source: `0.14.2-network-scope` / code 40.** The included detector is the real-phone-augmented v 1 gate/diagnosis, with 147 inputs and cutoffs **0.5408333333 / 0.8**. It is installed for experimental evaluation and **has not passed normal-use readiness**. The old code 36 source remains in Git history; its frozen inference reference is retained only for scientific comparison.
 
 ## Start here
 
 | Goal | Guide |
 |---|---|
-| Read the complete beginner report / Overleaf source | [Project report](docs/project_report/README.md) |
-| Build and install on an owned test phone | [Android setup](docs/ANDROID_SETUP.md) |
-| Reproduce the paper and context experiments | [Reproducing results](docs/REPRODUCING_RESULTS.md) |
-| Obtain the required datasets yourself | [Dataset layout and provenance](docs/DATASETS.md) |
-| Run each controlled phone test | [Phone testing](docs/PHONE_TESTING.md) |
-| Understand inputs, labels and the pipeline | [Methodology](docs/METHODS.md) |
-| Read measured results and their limits | [Results index](results/README.md) |
-| Collect new phone data and retrain | [Phone dataset procedure](experiments/phone_capture_v1/DATASHEET.md) |
-| Review version and validation records | [Changelog](CHANGELOG.md) and [validation](reproducibility/VALIDATION.json) |
+| Follow the entire project from the paper | [Complete report and Overleaf source](docs/project_report/README.md) |
+| Understand the latest state and remaining issues | [Status](STATUS.md), [development history](docs/DEVELOPMENT_HISTORY.md) |
+| Understand current inputs, architectures and outputs | [Current pipeline](docs/CURRENT_PIPELINE.md), [model card](models/current/MODEL_CARD.md) |
+| Build/install on an owned rooted phone | [Android setup](docs/ANDROID_SETUP.md) |
+| Reproduce paper, context, aligned and augmented experiments | [Reproduction](docs/REPRODUCING_RESULTS.md), [datasets](docs/DATASETS.md) |
+| Run bounded HTTP/scan tests manually | [Phone testing](docs/PHONE_TESTING.md) |
+| Repeat FTP/SSH, emulator and three-source resource tests | [Protocol testing](docs/PROTOCOL_TESTING.md) |
+| Review measured results and caveats | [Results index](results/README.md) |
+| Reproduce inference experiments | [Inference measurements](docs/INFERENCE_PERFORMANCE.md) |
+| Review change history and software checks | [Changelog](CHANGELOG.md), [validation](reproducibility/VALIDATION.json) |
 
-## Repository layout
+## Layout
 
 ```text
-android/          Current app, shared Kotlin features, isolated targets and checks
-experiments/      Paper baseline, context extension, aligned models, new phone data
-validation/       Bounded phone test runner and packet/flag correlation
-reproducibility/  Portable paths, environment records and source provenance
-models/           Current small inference models; optional Llama download manifest
-results/          Published aggregate measurements, separate from generated runs
-docs/             Installation, data, reproduction, methodology and test guides
-tests/            Dataset-free packaging/model-contract checks
+android/          Current app, shared Kotlin features, isolated labs and checks
+experiments/      Paper, context, aligned v2, rejected repair, phone augmentation
+validation/       Manual test controllers, correlation, audits and benchmarks
+models/current/   Current inference references and training configuration
+models/references/ Historical aligned-v2 reference for matched comparisons
+results/          Published aggregate evidence; no raw dataset or packet capture
+docs/             Setup, research methodology, results, full LaTeX report
+tools/report/     Report builders using saved aggregate evidence
+reproducibility/  Portable paths, pinned provenance and validation records
+tests/            Dataset-free model/package/preview checks
 reproduce.py      Common setup and experiment entry point
 ```
 
 ## Quick checks
 
-Use Python 3.12. For research training, Linux/WSL and an NVIDIA CUDA GPU match the measured environment. CPU smoke tests are available without research datasets.
+Use Python 3.12. Training matches Linux/WSL; build/install can use Windows Python.
 
 ```bash
 python -m venv .venv
@@ -48,14 +51,12 @@ python reproduce.py paper --smoke
 python reproduce.py context --smoke
 ```
 
-Windows users can build/install through `reproduce.py` using Windows Python; use WSL for the paper/context training commands. See the guides for exact environment variables and commands.
+Live capture needs an **already-rooted test device** and compatible ARM 64 tcpdump with immediate mode. This is not an unrooted VPN monitor. Small classifiers are included; optional 1.06 GiB Llama weights have a pinned download manifest and separate license. Monitoring needs no Internet inference connection; LAN tests need working local connectivity.
 
-## What the results mean
+## What is established
 
-The paper reconstruction reached 97.03% baseline accuracy on its declared CSV 70/30 split. Context improved that benchmark, but related rows/campaigns limit its interpretation. Phone-aligned processing and real phone tests are separate evaluations. On the installed v2, scans were detected; confirmed HTTP guessing, SQL injection and XSS examples were missed. New phone data is intended to address that gap; unfinished training is not presented as an improvement.
+The declared paper 70/30 reconstruction reached 97.03% accuracy; context improved that historical benchmark. Those scores do not establish real-phone accuracy. The augmented model detected 62/64 held-out recorded Web segments but falsely flagged 10/120 normal segments. Later live protocol tests found ordinary SSH false positives, weak family typing and missed emulator/distributed resource-load cases.
 
-**Live capture requires an already-rooted Android test device and compatible tcpdump.** This is not a VPN-based unrooted monitor. The small models are included; optional 1.06 GiB Llama weights are downloaded separately. The app does not decrypt TLS, block attacks or prove malware identity. Notifications may use evidence fallback when a Llama draft is unavailable or rejected.
+Code 40 stops recurring idle-loopback alerts by observing on-device connections separately from default external-network assessment. This narrows scope and does not teach the model that local traffic is safe. Normal SSH false positives remain. Immediate factual notes and short local Llama guidance improve explanation latency, not detection accuracy. Read the denominators and experimental limits in [results](results/README.md).
 
-Research datasets, real phone recordings, credentials and training caches are not included. Public-data runs can be regenerated after obtaining the specified source files. Private phone-session numbers cannot be independently retrained exactly without those recordings; the documented collection process produces a new cohort. See [reproducibility boundaries](docs/REPRODUCING_RESULTS.md).
-
-Third-party components retain their licenses; see [notices](NOTICE.md). No project-wide open-source license has been assigned by this submission.
+No research datasets, private phone captures/histories, credentials, private keys, full training checkpoints, large Llama weights or ZIP are included. Public-data runs can be regenerated after obtaining the source files. Exact private-phone-cohort retraining requires the excluded recordings; repeating the procedure produces a new cohort. Third-party licenses remain in [notices](NOTICE.md); no project-wide open-source license has been assigned.

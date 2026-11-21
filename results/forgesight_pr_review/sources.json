@@ -1,0 +1,81 @@
+{
+  "pull_requests": [
+    {
+      "pr": 5,
+      "url": "https://github.com/honey-cake7/ForgeSight/pull/5",
+      "title": "feat(edge): reuse the Llama advisory runtime between notes",
+      "merged_at": "2026-11-13T21:46:07Z",
+      "head_sha": "bd5a3c5dba0d9f25f4625b85c6827b7d2326354f",
+      "base_sha": "6ba86d2b72e05edb07a33f2fdec4459fa2c6f74a",
+      "metadata_sha256": "33747b5c193111c1656b61bbfe9cae1174a404f11839005e76e22ca99ec8f1b0",
+      "file_diff_sha256": "958e5fea9ade7c38abc1e7100606f6f6be3b768170ee0197c2adba1b709ea846",
+      "files": [
+        {
+          "path": "forgesight/assist_display.py",
+          "additions": 3,
+          "deletions": 1
+        },
+        {
+          "path": "forgesight/assist_edge_worker.py",
+          "additions": 327,
+          "deletions": 0
+        },
+        {
+          "path": "forgesight/assist_jetson_replay_once.py",
+          "additions": 160,
+          "deletions": 46
+        },
+        {
+          "path": "forgesight/jetson_live_ui.py",
+          "additions": 107,
+          "deletions": 1
+        },
+        {
+          "path": "tests/test_assist_display.py",
+          "additions": 20,
+          "deletions": 0
+        },
+        {
+          "path": "tests/test_assist_edge_worker.py",
+          "additions": 378,
+          "deletions": 0
+        },
+        {
+          "path": "tests/test_assist_replay_provenance.py",
+          "additions": 180,
+          "deletions": 0
+        },
+        {
+          "path": "tests/test_ui_worker_lifecycle.py",
+          "additions": 69,
+          "deletions": 0
+        }
+      ]
+    },
+    {
+      "pr": 17,
+      "url": "https://github.com/honey-cake7/ForgeSight/pull/17",
+      "title": "fix(assist): warm the persistent advisory worker before reporting ready",
+      "merged_at": "2026-11-21T05:15:52Z",
+      "head_sha": "195c79c2d9f4ee5e60f03314f3fd06354c3e87b1",
+      "base_sha": "bb722542cc3625a6cea472a1105a14586b83e730",
+      "metadata_sha256": "c401bfded8eb64fd7ab9b791a6cae99e453c63f63ffa5336a61fb58e535b4dd5",
+      "file_diff_sha256": "24fa9e11e112f40d91bdef885c6c1c1f1ab70415fc7284cf82cb8c8646b7fdb1",
+      "files": [
+        {
+          "path": "forgesight/assist_edge_worker.py",
+          "additions": 34,
+          "deletions": 2
+        },
+        {
+          "path": "tests/test_assist_edge_worker.py",
+          "additions": 41,
+          "deletions": 0
+        }
+      ]
+    }
+  ],
+  "retrieval": "Public GitHub API; no credentials or external source execution",
+  "platform_in_pr": "Jetson/Linux Python ExecuTorch",
+  "platform_here": "Pixel6a Android Java/JNI ExecuTorch1.5.1"
+}

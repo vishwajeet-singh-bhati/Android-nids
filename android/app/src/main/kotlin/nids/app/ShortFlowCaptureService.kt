@@ -17,6 +17,8 @@ object LearnedLive {
  @Volatile var packets=0L
  @Volatile var inferences=0L
  @Volatile var warnings=0L
+ @Volatile var localOnlyFlows=0L
+ @Volatile var lastLocalConnection=""
  @Volatile var lastEvidence=""
  @Volatile var seconds=0.0
  @Volatile var queueDepth=0

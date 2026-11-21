@@ -20,13 +20,13 @@ object AutomaticExplanations {
  }
  private fun start(app: Context,row: JSONObject){
   val id=row.getString("id");val revision=row.getInt("revision")
-  if(row.optString("disposition")=="dismissed")return
+  if(!NetworkObservationPolicy.explanationAllowed(row))return
   try{
    ObservationStore.explanationState(app,id,"running")
    LlamaClient.explain(app,JSONObject(row.toString())){report,error ->
     if(report!=null){
-     ObservationStore.saveExplanation(app,id,report.optInt("evidence_revision_used",revision),report)
-     File(app.filesDir,"last_local_explanation.json").writeText(report.toString(2))
+     val saved=ObservationStore.saveExplanation(app,id,report.optInt("evidence_revision_used",revision),report)
+     if(saved)File(app.filesDir,"last_local_explanation.json").writeText(report.toString(2))
     }else{
      val attempts=ObservationStore.get(app,id)?.optInt("explanation_attempts") ?: 2
      val cancelled=error?.contains("cancel",true)==true

@@ -48,7 +48,8 @@ def adb(*args,binary=False,required=True,timeout=35):
     command=[str(ADB)]+(['-s',SERIAL] if SERIAL else [])+list(args)
     result=subprocess.run(command,capture_output=True,timeout=timeout)
     if required and result.returncode:
-        raise RuntimeError((result.stdout+result.stderr).decode(errors='replace').strip())
+        detail=(result.stdout+result.stderr).decode(errors='replace').strip()
+        raise RuntimeError('ADB exited '+str(result.returncode)+' (0x'+format(result.returncode & 0xffffffff,'08x')+'): '+detail)
     return result.stdout if binary else result.stdout.decode(errors='replace')
 
 
@@ -64,18 +65,30 @@ def select_phone():
     if expected and adb('shell','getprop','ro.product.device').strip()!=expected:raise RuntimeError('Device codename differs from explicit configuration')
 
 
+def select_wlan_endpoint(interface_text,route_lookup):
+    # Android can move its active Wi-Fi interface from wlan0 to wlan1. Select
+    # by actual interface/address and local route, never by a guessed IP.
+    candidates=[]
+    for match in re.finditer(r'^\d+:\s+wlan\d+(?:@\S+)?\s+inet\s+([0-9.]+/\d+)',interface_text,re.M):
+        phone_interface=ipaddress.ip_interface(match[1]);phone=str(phone_interface.ip)
+        if not phone_interface.ip.is_private:continue
+        try:controller=route_lookup(phone)
+        except OSError:continue
+        controller_ip=ipaddress.ip_address(controller)
+        if controller_ip.is_private and controller_ip in phone_interface.network and controller!=phone:
+            candidates.append((phone,controller))
+    candidates=list(dict.fromkeys(candidates))
+    if len(candidates)!=1:
+        raise RuntimeError('Exactly one private Pixel Wi-Fi address on this PC\'s local WLAN is required; found '+str(len(candidates))+'.')
+    return candidates[0]
+
+
 def endpoints():
-    interface=adb('shell','ip','-o','-4','addr','show','wlan0')
-    match=re.search(r'\binet ([0-9.]+/\d+)',interface)
-    if not match:raise RuntimeError('The Pixel needs a WLAN address reachable from this PC.')
-    phone_interface=ipaddress.ip_interface(match[1]);phone=str(phone_interface.ip)
-    with socket.socket(socket.AF_INET,socket.SOCK_DGRAM) as route:
-        route.connect((phone,9));controller=route.getsockname()[0]  # Route lookup; sends no datagram.
-    if not phone_interface.ip.is_private or not ipaddress.ip_address(controller).is_private:
-        raise RuntimeError('Only private owned-PC/Pixel endpoints are supported.')
-    if ipaddress.ip_address(controller) not in phone_interface.network or controller==phone:
-        raise RuntimeError('This PC must be on the same WLAN as the test Pixel.')
-    return phone,controller
+    interfaces=adb('shell','ip','-o','-4','addr','show')
+    def route_lookup(phone):
+        with socket.socket(socket.AF_INET,socket.SOCK_DGRAM) as route:
+            route.connect((phone,9));return route.getsockname()[0]  # Route lookup only; no datagram sent.
+    return select_wlan_endpoint(interfaces,route_lookup)
 
 
 def json_lines(text):
@@ -87,7 +100,19 @@ def json_lines(text):
 
 
 def monitor_log():
-    return json_lines(adb('exec-out','run-as','nids.app','tail','-n','1500','files/tsanet_monitor.jsonl',required=False))
+    # The monitor rotates at4MB. Read both generations, then the current file
+    # and its rotated file again to cover a rotation during collection. Preserve duplicate event
+    # multiplicity within a snapshot without counting reread events twice.
+    from collections import Counter
+    counts=Counter();values={}
+    for name in ('tsanet_monitor.jsonl','tsanet_monitor.jsonl.1','tsanet_monitor.jsonl','tsanet_monitor.jsonl.1'):
+        snapshot=json_lines(adb('exec-out','run-as','nids.app','tail','-n','1500','files/'+name,required=False))
+        observed=Counter()
+        for row in snapshot:
+            token=json.dumps(row,sort_keys=True,separators=(',',':'));observed[token]+=1;values[token]=row
+        for token,n in observed.items():counts[token]=max(counts[token],n)
+    result=[values[token] for token,n in counts.items() for _ in range(n)]
+    return sorted(result,key=lambda row:row.get('time_ms',0))
 
 
 def monitor_state():
@@ -175,10 +200,15 @@ def capture_summary(path,phone,controller):
 
 
 def begin_capture(directory,controller):
+    phone,_=endpoints()
+    addresses=adb('shell','ip','-o','-4','addr','show')
+    interface_match=re.search(r'^\d+:\s+(wlan\d+)(?:@\S+)?\s+inet\s+'+re.escape(phone)+r'/',addresses,re.M)
+    if not interface_match:raise RuntimeError('The selected Pixel Wi-Fi interface changed; no traffic started.')
+    interface=interface_match[1]
     pidfile='/data/local/tmp/nids_manual_capture_'+str(time.time_ns())+'.pid'
     remote_error=pidfile+'.stderr'
     bpf=f'tcp and host {controller} and (port 43190 or portrange 43200-43500 or port 43990)'
-    command=f'echo $$ > {pidfile}; exec /data/local/tmp/tcpdump -i wlan0 -U -s 96 -c 20000 -w - "{bpf}" 2>{remote_error}'
+    command=f'echo $$ > {pidfile}; exec /data/local/tmp/tcpdump -i {interface} -U -s 96 -c 20000 -w - "{bpf}" 2>{remote_error}'
     output=(directory/'traffic.pcap').open('wb');errors=(directory/'capture_stderr.txt').open('wb')
     # exec-out preserves the argument boundary; shell-style outer quotes would become literal.
     process=subprocess.Popen([str(ADB),'-s',SERIAL,'exec-out','su','-c',command],stdout=output,stderr=errors)
@@ -187,13 +217,13 @@ def begin_capture(directory,controller):
         if process.poll() is not None:raise RuntimeError('Passive packet capture failed; no attack was started. Read capture_stderr.txt.')
         pid=adb('shell','su','-c',"'cat "+pidfile+"'").strip()
         if not pid.isdigit():raise RuntimeError('Passive capture did not publish a valid PID.')
-        return {'process':process,'output':output,'errors':errors,'pid':pid,'pidfile':pidfile,'remote_error':remote_error,'controller':controller}
+        return {'process':process,'output':output,'errors':errors,'pid':pid,'pidfile':pidfile,'remote_error':remote_error,'controller':controller,'interface':interface}
     except BaseException:
         try:
             value=adb('shell','su','-c',"'cat "+pidfile+"'",required=False).strip()
             if value.isdigit():
                 running=adb('shell','su','-c',f"'cat /proc/{value}/cmdline'",required=False).replace('\x00',' ')
-                if '/data/local/tmp/tcpdump' in running and '-i wlan0' in running and controller in running:
+                if '/data/local/tmp/tcpdump' in running and '-i '+interface in running and controller in running:
                     adb('shell','su','-c',f"'kill -INT {value}'",required=False)
             (directory/'capture_tcpdump_stderr.txt').write_text(adb('shell','su','-c',"'cat "+remote_error+"'",required=False))
             adb('shell','su','-c',"'rm -f "+pidfile+' '+remote_error+"'",required=False)
@@ -208,7 +238,7 @@ def end_capture(capture,directory,phone):
     try:
         command=adb('shell','su','-c',f"'cat /proc/{pid}/cmdline'",required=False).replace('\x00',' ')
         # Stop only this uniquely identified auxiliary capture, never the NIDS capture.
-        if '/data/local/tmp/tcpdump' in command and '-i wlan0' in command and capture['controller'] in command:
+        if '/data/local/tmp/tcpdump' in command and '-i '+capture['interface'] in command and capture['controller'] in command:
             adb('shell','su','-c',f"'kill -INT {pid}'",required=False)
         try:process.wait(timeout=5)
         except subprocess.TimeoutExpired:process.terminate();process.wait(timeout=5)
@@ -233,6 +263,8 @@ def request(phone,port,path=None):
     try:
         with socket.create_connection((phone,port),timeout=2) as stream:
             row['connected']=True
+            row.update({'source':stream.getsockname()[0],'sport':stream.getsockname()[1],
+                        'destination':phone,'dport':port,'protocol':6,'requested_path':path})
             if path is not None:
                 stream.settimeout(8)
                 stream.sendall(('GET '+path+' HTTP/1.1\r\nHost: nids-owned-test\r\nConnection: close\r\n\r\n').encode())

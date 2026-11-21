@@ -88,9 +88,11 @@ def prepare_fresh_session():
         'connection_history_reset_and_rewarmed':True,'diagnostic_trace_reset':True}
 
 
-def review(case):
-    meta=json.loads((case/'run.json').read_text(encoding='utf-8'));check=json.loads((case/'check.json').read_text(encoding='utf-8'))
-    trace=trace_snapshot(case/'nids_numeric_trace.jsonl');tuples,note=captured_tcp_tuples(case/'traffic.pcap');assert tuples is not None
+def review(case,*,saved=False):
+    check_path=case/'check_reconciled.json' if (case/'check_reconciled.json').exists() else case/'check.json'
+    meta=json.loads((case/'run.json').read_text(encoding='utf-8'));check=json.loads(check_path.read_text(encoding='utf-8'))
+    trace=lab.json_lines((case/'nids_numeric_trace.jsonl').read_text(encoding='utf-8')) if saved else trace_snapshot(case/'nids_numeric_trace.jsonl')
+    tuples,note=captured_tcp_tuples(case/'traffic.pcap');assert tuples is not None
     lower=meta['start_unix']*1000;upper=datetime.fromisoformat(check['checked_at_ist']).timestamp()*1000
     matched=[]
     for row in trace:
@@ -105,7 +107,7 @@ def review(case):
     assert len(flags)==check['traffic_correlation']['counts']['matched_test_capture'],'Flag/trace test correlation disagrees'
     beat=check['monitor']['last_heartbeat']
     assert all(beat.get(k,-1)==0 for k in ['late_packets','queue_drops','evictions','history_evictions','forced_reorder','invalid_rate_flows'])
-    if meta['profile']=='SlowScan':
+    if meta['profile'] in ('PortScan','SlowScan'):
         interpretation='Controlled scan detected' if flags else 'Controlled scan missed'
     elif meta['profile']=='Benign':
         interpretation='Normal control quiet' if not flags else 'Normal control flagged: false positives on controlled requests'
@@ -124,7 +126,7 @@ def review(case):
         'activity_rows_in_window':check['new_or_updated_activity_rows'],'visible_activity_alerts':check['currently_visible_alerts_for_activity_rows'],
         'activity_types':[a.get('model_evidence',{}).get('suspected_pattern') for a in check['activities']],
         'capture_healthy':True,'interpretation':interpretation,'gate_model_sha256':GATE,'diagnosis_model_sha256':DIAG,
-        'trace_rows_at_pull':len(trace),'scope':'One bounded case; retries/segments correlated. Load/heartbeat traffic does not establish full-scale DoS or real Bot malware. Window alerts are not automatically test detections.'}
+        'trace_rows_at_pull':len(trace),'check_source':check_path.name,'scope':'One bounded case; retries/segments correlated. Load/heartbeat traffic does not establish full-scale DoS or real Bot malware. Window alerts are not automatically test detections.'}
     if meta['profile']=='Beacon':
         probe=[r for r in matched if r['source']==meta['phone'] and r['dport']==43990]
         result.update({'beacon_native_segments':len(probe),'beacon_flagged_segments':sum(r['flagged'] for r in probe),

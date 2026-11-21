@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "source": "Offline recomputation from public captured device reports; no phone/model/network calls.",
+  "warmup_pairs_with_identical_output": 3,
+  "native_limit_cases": [
+    1,
+    3,
+    48
+  ],
+  "guidance_identical_after_truncated_generation": true,
+  "production_requests_checked": 8,
+  "production_warm_median_ms": 3690,
+  "factual_prefix_and_app_warning_preserved": true,
+  "all_native_counts_within_budget": true,
+  "capture_queue_drops": 0,
+  "original_history_ids_missing": 0
+}

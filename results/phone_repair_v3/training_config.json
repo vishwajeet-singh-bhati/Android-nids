@@ -1,0 +1,195 @@
+{
+  "version": "phone-repair-v3",
+  "epochs": 40,
+  "early_stopping": false,
+  "batch_size": 512,
+  "learning_rate": 0.001,
+  "max_parallel_training": 2,
+  "weight_cap_relative_to_benign": 3.0,
+  "hard_benign_fraction": 0.1,
+  "max_benign_fpr": 0.001,
+  "max_source_benign_fpr": 0.005,
+  "min_attack_recall": 0.95,
+  "min_class_attack_recall": 0.85,
+  "min_typed_precision": 0.85,
+  "min_typed_recall": 0.8,
+  "type_score_cutoff": 0.6,
+  "max_routing_fraction": 0.25,
+  "shortlist_per_metric": 2,
+  "joint_high_quantiles": [
+    0.999,
+    0.9995,
+    0.9999
+  ],
+  "review_accept_thresholds": [
+    0.5,
+    0.9,
+    0.99
+  ],
+  "type_thresholds": [
+    0.5,
+    0.6,
+    0.8
+  ],
+  "improvement": {
+    "min_macro_f1_gain": 0.005,
+    "min_bot_precision_gain": 0.05,
+    "max_binary_recall_loss": 0.001,
+    "max_class_binary_recall_loss": 0.01,
+    "max_typed_recall_loss": 0.02,
+    "max_typed_precision_loss": 0.01,
+    "max_fpr_increase": 0.0
+  },
+  "jobs": [
+    {
+      "name": "unweighted_gate_s0",
+      "kind": "gate",
+      "width": 96,
+      "seed": 0,
+      "arm": "unweighted"
+    },
+    {
+      "name": "unweighted_diagnosis_s0",
+      "kind": "diagnosis",
+      "width": 64,
+      "seed": 0,
+      "arm": "unweighted"
+    },
+    {
+      "name": "moderate_gate_s0",
+      "kind": "gate",
+      "width": 96,
+      "seed": 0,
+      "arm": "moderate"
+    },
+    {
+      "name": "moderate_diagnosis_s0",
+      "kind": "diagnosis",
+      "width": 64,
+      "seed": 0,
+      "arm": "moderate"
+    },
+    {
+      "name": "hard_benign_gate_s0",
+      "kind": "gate",
+      "width": 96,
+      "seed": 0,
+      "arm": "hard_benign"
+    },
+    {
+      "name": "hard_benign_diagnosis_s0",
+      "kind": "diagnosis",
+      "width": 64,
+      "seed": 0,
+      "arm": "hard_benign"
+    },
+    {
+      "name": "unweighted_gate_s1",
+      "kind": "gate",
+      "width": 96,
+      "seed": 1,
+      "arm": "unweighted"
+    },
+    {
+      "name": "unweighted_diagnosis_s1",
+      "kind": "diagnosis",
+      "width": 64,
+      "seed": 1,
+      "arm": "unweighted"
+    },
+    {
+      "name": "moderate_gate_s1",
+      "kind": "gate",
+      "width": 96,
+      "seed": 1,
+      "arm": "moderate"
+    },
+    {
+      "name": "moderate_diagnosis_s1",
+      "kind": "diagnosis",
+      "width": 64,
+      "seed": 1,
+      "arm": "moderate"
+    },
+    {
+      "name": "hard_benign_gate_s1",
+      "kind": "gate",
+      "width": 96,
+      "seed": 1,
+      "arm": "hard_benign"
+    },
+    {
+      "name": "hard_benign_diagnosis_s1",
+      "kind": "diagnosis",
+      "width": 64,
+      "seed": 1,
+      "arm": "hard_benign"
+    },
+    {
+      "name": "unweighted_gate_s2",
+      "kind": "gate",
+      "width": 96,
+      "seed": 2,
+      "arm": "unweighted"
+    },
+    {
+      "name": "unweighted_diagnosis_s2",
+      "kind": "diagnosis",
+      "width": 64,
+      "seed": 2,
+      "arm": "unweighted"
+    },
+    {
+      "name": "moderate_gate_s2",
+      "kind": "gate",
+      "width": 96,
+      "seed": 2,
+      "arm": "moderate"
+    },
+    {
+      "name": "moderate_diagnosis_s2",
+      "kind": "diagnosis",
+      "width": 64,
+      "seed": 2,
+      "arm": "moderate"
+    },
+    {
+      "name": "hard_benign_gate_s2",
+      "kind": "gate",
+      "width": 96,
+      "seed": 2,
+      "arm": "hard_benign"
+    },
+    {
+      "name": "hard_benign_diagnosis_s2",
+      "kind": "diagnosis",
+      "width": 64,
+      "seed": 2,
+      "arm": "hard_benign"
+    }
+  ],
+  "baseline_policy": {
+    "low": 0.7858333333333334,
+    "high": 0.7858333333333334,
+    "review_accept": 0.5,
+    "type_cutoff": 0.6
+  },
+  "code_sha256": {
+    "experiments/phone_repair_v3/common.py": "d76ed708895b85a40e36e283a85abb210018908ad63aca3bcd91873761da75bb",
+    "experiments/phone_repair_v3/data.py": "3b6b66c76c79b21f2f307e0b3ec8a2661164b27174fa28549a9e6079eb36937b",
+    "experiments/phone_repair_v3/evaluate.py": "8f03e298df4a9fc6167f13dbe1ce84d1b75fe1efb454709546f4559c7c251f78",
+    "experiments/phone_repair_v3/export_mobile.py": "7d6c187bbf4700a19370295947cdffd92337af68a41f1e6c70e114be6852940c",
+    "experiments/phone_repair_v3/policy.py": "f9e0dc514eceafd7b44eec2da02e4356b47c79c160f60e0897a0d628fbb9714d",
+    "experiments/phone_repair_v3/preflight.py": "cd82cde453d4abf76306923b409ca3418a0640ae45bd144bc9bd9ae495521abb",
+    "experiments/phone_repair_v3/runner.py": "5d2cce5009708c1f4f91237756f0e69236b64b52d6a5260ab46d5cf106b459d6",
+    "experiments/phone_repair_v3/select.py": "d085ec5e9818c02eb4b989adb9f20425f6d9eb817850f402320d13209a2664b6",
+    "experiments/phone_repair_v3/train.py": "63138f42e4b0fe14ae1066bef667e0cff3b88f97994f16d7a7b0177dec0f75fb",
+    "experiments/phone_alignment_v2/models.py": "48b57be50ac0cb517141c29b696c193ddf8d42af09ea783f100161088c0da330",
+    "experiments/phone_alignment_v2/train.py": "94f0a2d1e3412803c31fb271ab4ca1ffa2cffddcf95fc60694dcac25ce0d5fec",
+    "experiments/phone_alignment_v2/evaluate.py": "aa6a1edc33104a300ab2fb77f14d665d3b2902234c89979a33258d368e50f4c0",
+    "experiments/phone_alignment_v2/common.py": "0f9a9b9db32ead920a1cbcfa77193a111a06e65489c2da7fd2a5a24dd31b82b2",
+    "experiments/tsanet_android/export_model.py": "03cb8cc4557d144298f14a056273e62ecad0eaeb7764a9b64e337058197a89b5"
+  },
+  "data_report_sha256": "91219f42ec3274008332f62f18a6c57c8441dd2bc7fb715530926cc34cfe4582",
+  "rollback_tag": "checkpoint/pre-repair-v3-20261119"
+}

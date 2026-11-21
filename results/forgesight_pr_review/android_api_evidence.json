@@ -1,0 +1,9 @@
+{
+  "runtime": "ExecuTorch Android1.5.1",
+  "classes_jar_sha256": "bf7db2efbf307f330534c9cd8bf1820419b2fc4a997cd3506b0cc780a57f3b2f",
+  "overload": "LlmModule.generate(String,LlmGenerationConfig,LlmCallback)",
+  "seq_len_forwarded": true,
+  "max_new_tokens_forwarded": false,
+  "evidence": "javap bytecode of actual cached/installed AAR, plus request1/native generated17 on Pixel. Raw bytecode/error kept privately.",
+  "one_token_trial_initial_attempt_failed_honestly": true
+}

@@ -81,5 +81,5 @@ def bootstrap_reference_extractor():
     public=ROOT/'validation/reports/phone_alignment_v2';public.mkdir(parents=True,exist_ok=True)
     if not (public/'feature_contract.json').exists():shutil.copy2(source/'spec.json',public/'feature_contract.json')
     run=ROOT/'runs/phone_alignment_v2'
-    if not (run/'config.json').exists():shutil.copy2(ROOT/'models/current/training_config.json',run/'config.json')
+    if not (run/'config.json').exists():shutil.copy2(ROOT/'models/references/aligned_v2/training_config.json',run/'config.json')
     return target

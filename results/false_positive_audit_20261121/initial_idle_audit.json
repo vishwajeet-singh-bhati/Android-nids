@@ -1,0 +1,7 @@
+{
+  "saved_tail_model_flags": 9,
+  "both_endpoints_loopback": 9,
+  "all_flags_device_local": true,
+  "producer_app_identified": false,
+  "scope": "Read-only saved current-session tail; local traffic is not thereby established safe."
+}

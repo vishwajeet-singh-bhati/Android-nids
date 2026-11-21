@@ -1,0 +1,5 @@
+{
+  "allowed_to_attempt": false,
+  "matching_block_count": 1,
+  "reason": "Effective inbound policy explicitly blocks this Python receiver; settings preserved."
+}

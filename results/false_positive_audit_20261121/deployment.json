@@ -1,0 +1,18 @@
+{
+  "version_code": 40,
+  "version_name": "0.14.2-network-scope",
+  "apk_sha256": "ab7f3ed45a635386ced5d58666efbd88e270887f9fc40bb70f6e995bff3b367e",
+  "model_hashes": {
+    "aligned_v2_gate.pte": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+    "aligned_v2_diagnosis.pte": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e",
+    "llama/Llama-3.2-1B-Instruct-SpinQuant_INT4_EO8.pte": "8715cdba9e91f6bede00cc5f2d6b12397b95225da5630c4972a8da03001cda3b",
+    "llama/tokenizer.model": "82e9d31979e92ab929cd544440f129d9ecd797b69e327f80f17e1c50d5551b55"
+  },
+  "weights_and_thresholds_unchanged": true,
+  "native_checks_passed": true,
+  "passive_observation_start_ms": 1795278898091,
+  "before_observations": 104,
+  "before_feedback": 0,
+  "automatic_attacks_started": false,
+  "ordinary_external_false_positives_fixed": false
+}

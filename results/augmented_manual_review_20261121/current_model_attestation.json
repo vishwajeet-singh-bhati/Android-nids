@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "model_sha256": {
+    "gate": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+    "diagnosis": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e"
+  },
+  "models_modified": false,
+  "new_test_traffic_started": false
+}

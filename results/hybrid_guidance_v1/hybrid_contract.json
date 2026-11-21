@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "notes": [
+    {
+      "class": 1,
+      "known_receiver": false,
+      "display": "Possible automated background activity (model estimate). This does not confirm an attack.\n\nNo receiving app could be linked to this connection; a closed port or a brief connection can leave no app match. Source device: 192.0.2.20:53221. Phone port: 43194.\n\nObserved: 37 network packets (small pieces of data) over 1.25 seconds. Recent connection history is still building. Some traffic was skipped; this observation is incomplete.\n\nCheck expected background syncing and review unfamiliar apps and their permissions."
+    },
+    {
+      "class": 1,
+      "known_receiver": true,
+      "display": "Possible automated background activity (model estimate). This does not confirm an attack.\n\nProtocol Lab (nids.protocollab) received this traffic. It is not identified as the source of the activity. Source device: 192.0.2.20:53221. Phone port: 43194.\n\nObserved: 37 network packets (small pieces of data) over 1.25 seconds. Recent connection history is still building. Some traffic was skipped; this observation is incomplete.\n\nCheck expected background syncing and review unfamiliar apps and their permissions."
+    },
+    {
+      "class": 2,
+      "known_receiver": false,
+      "display": "Possible repeated sign-in attempts (model estimate). This does not confirm an attack.\n\nNo receiving app could be linked to this connection; a closed port or a brief connection can leave no app match. Source device: 192.0.2.20:53221. Phone port: 43194.\n\nObserved: 37 network packets (small pieces of data) over 1.25 seconds. Recent connection history is still building. Some traffic was skipped; this observation is incomplete. Connection statistics cannot confirm failed logins.\n\nCheck recent account activity and review apps making unexpected repeated connections."
+    },
+    {
+      "class": 2,
+      "known_receiver": true,
+      "display": "Possible repeated sign-in attempts (model estimate). This does not confirm an attack.\n\nProtocol Lab (nids.protocollab) received this traffic. It is not identified as the source of the activity. Source device: 192.0.2.20:53221. Phone port: 43194.\n\nObserved: 37 network packets (small pieces of data) over 1.25 seconds. Recent connection history is still building. Some traffic was skipped; this observation is incomplete. Connection statistics cannot confirm failed logins.\n\nCheck recent account activity and review apps making unexpected repeated connections."
+    },
+    {
+      "class": 3,
+      "known_receiver": false,
+      "display": "Possible overload from several sources (model estimate). This does not confirm an attack.\n\nNo receiving app could be linked to this connection; a closed port or a brief connection can leave no app match. Source device: 192.0.2.20:53221. Phone port: 43194.\n\nObserved: 37 network packets (small pieces of data) over 1.25 seconds. Recent connection history is still building. Some traffic was skipped; this observation is incomplete.\n\nCheck for unexpected downloads or repeated connection attempts, and pause unfamiliar app activity."
+    },
+    {
+      "class": 3,
+      "known_receiver": true,
+      "display": "Possible overload from several sources (model estimate). This does not confirm an attack.\n\nProtocol Lab (nids.protocollab) received this traffic. It is not identified as the source of the activity. Source device: 192.0.2.20:53221. Phone port: 43194.\n\nObserved: 37 network packets (small pieces of data) over 1.25 seconds. Recent connection history is still building. Some traffic was skipped; this observation is incomplete.\n\nCheck for unexpected downloads or repeated connection attempts, and pause unfamiliar app activity."
+    },
+    {
+      "class": 4,
+      "known_receiver": false,
+      "display": "Possible connection overload (model estimate). This does not confirm an attack.\n\nNo receiving app could be linked to this connection; a closed port or a brief connection can leave no app match. Source device: 192.0.2.20:53221. Phone port: 43194.\n\nObserved: 37 network packets (small pieces of data) over 1.25 seconds. Recent connection history is still building. Some traffic was skipped; this observation is incomplete.\n\nCheck for unexpected downloads or repeated connection attempts, and pause unfamiliar app activity."
+    },
+    {
+      "class": 4,
+      "known_receiver": true,
+      "display": "Possible connection overload (model estimate). This does not confirm an attack.\n\nProtocol Lab (nids.protocollab) received this traffic. It is not identified as the source of the activity. Source device: 192.0.2.20:53221. Phone port: 43194.\n\nObserved: 37 network packets (small pieces of data) over 1.25 seconds. Recent connection history is still building. Some traffic was skipped; this observation is incomplete.\n\nCheck for unexpected downloads or repeated connection attempts, and pause unfamiliar app activity."
+    },
+    {
+      "class": 5,
+      "known_receiver": false,
+      "display": "Possible check for open connections (model estimate). This does not confirm an attack.\n\nNo receiving app could be linked to this connection; a closed port or a brief connection can leave no app match. Source device: 192.0.2.20:53221. Phone port: 43194.\n\nObserved: 37 network packets (small pieces of data) over 1.25 seconds. Recent connection history is still building. Some traffic was skipped; this observation is incomplete.\n\nCheck whether you expected a device search or connection test; review unfamiliar app activity."
+    },
+    {
+      "class": 5,
+      "known_receiver": true,
+      "display": "Possible check for open connections (model estimate). This does not confirm an attack.\n\nProtocol Lab (nids.protocollab) received this traffic. It is not identified as the source of the activity. Source device: 192.0.2.20:53221. Phone port: 43194.\n\nObserved: 37 network packets (small pieces of data) over 1.25 seconds. Recent connection history is still building. Some traffic was skipped; this observation is incomplete.\n\nCheck whether you expected a device search or connection test; review unfamiliar app activity."
+    },
+    {
+      "class": 6,
+      "known_receiver": false,
+      "display": "Possible suspicious web activity (model estimate). This does not confirm an attack.\n\nNo receiving app could be linked to this connection; a closed port or a brief connection can leave no app match. Source device: 192.0.2.20:53221. Phone port: 43194.\n\nObserved: 37 network packets (small pieces of data) over 1.25 seconds. Recent connection history is still building. Some traffic was skipped; this observation is incomplete. The model does not establish what a web request contained.\n\nReview recent web activity and avoid entering passwords into unexpected prompts."
+    },
+    {
+      "class": 6,
+      "known_receiver": true,
+      "display": "Possible suspicious web activity (model estimate). This does not confirm an attack.\n\nProtocol Lab (nids.protocollab) received this traffic. It is not identified as the source of the activity. Source device: 192.0.2.20:53221. Phone port: 43194.\n\nObserved: 37 network packets (small pieces of data) over 1.25 seconds. Recent connection history is still building. Some traffic was skipped; this observation is incomplete. The model does not establish what a web request contained.\n\nReview recent web activity and avoid entering passwords into unexpected prompts."
+    },
+    {
+      "class": 7,
+      "known_receiver": false,
+      "display": "Unusual network activity to review (model estimate). This does not confirm an attack.\n\nNo receiving app could be linked to this connection; a closed port or a brief connection can leave no app match. Source device: 192.0.2.20:53221. Phone port: 43194.\n\nObserved: 37 network packets (small pieces of data) over 1.25 seconds. Recent connection history is still building. Some traffic was skipped; this observation is incomplete.\n\nCheck whether you expected this app or network activity."
+    },
+    {
+      "class": 7,
+      "known_receiver": true,
+      "display": "Unusual network activity to review (model estimate). This does not confirm an attack.\n\nProtocol Lab (nids.protocollab) received this traffic. It is not identified as the source of the activity. Source device: 192.0.2.20:53221. Phone port: 43194.\n\nObserved: 37 network packets (small pieces of data) over 1.25 seconds. Recent connection history is still building. Some traffic was skipped; this observation is incomplete.\n\nCheck whether you expected this app or network activity."
+    }
+  ],
+  "contract_cases": 14,
+  "stale_revision_rejected": true,
+  "dismissed_result_rejected": true,
+  "fresh_facts_before_llama": true,
+  "listener_is_not_confirmed_delivery": true,
+  "live_incidents_or_notifications_inserted": false
+}

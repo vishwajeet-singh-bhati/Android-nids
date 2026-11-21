@@ -1,0 +1,4309 @@
+{
+  "state": "complete",
+  "selected_validation_pipeline": {
+    "gate": "gate_s0_final",
+    "diagnosis": "diagnosis_s1_best",
+    "threshold": 0.5408333333333333,
+    "type_cutoff": 0.8,
+    "eligible": false,
+    "rank": [
+      0,
+      0.9409327167286395,
+      -0.09166666666666666,
+      0.942653880376313
+    ],
+    "validation": {
+      "legacy": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9999261132353556,
+            "recall": 0.9990063600725755,
+            "f1-score": 0.9994660250545514,
+            "support": 1029548.0
+          },
+          "Bot": {
+            "precision": 0.5412573673870335,
+            "recall": 0.8450920245398773,
+            "f1-score": 0.6598802395209581,
+            "support": 652.0
+          },
+          "Brute Force": {
+            "precision": 0.9995886466474702,
+            "recall": 0.9991776315789473,
+            "f1-score": 0.999383096853794,
+            "support": 2432.0
+          },
+          "DDoS": {
+            "precision": 0.9931199181213396,
+            "recall": 0.9939676758479399,
+            "f1-score": 0.9935436161438038,
+            "support": 17572.0
+          },
+          "DoS": {
+            "precision": 0.9991514029403337,
+            "recall": 0.9998786836068466,
+            "f1-score": 0.9995149109751392,
+            "support": 90672.0
+          },
+          "Port Scan": {
+            "precision": 0.9996646264777396,
+            "recall": 0.9998742085622039,
+            "f1-score": 0.9997694065362766,
+            "support": 47698.0
+          },
+          "Web Attack": {
+            "precision": 0.9407894736842105,
+            "recall": 0.9533333333333334,
+            "f1-score": 0.9470198675496688,
+            "support": 150.0
+          }
+        },
+        "macro_f1_present_classes": 0.942653880376313,
+        "binary": {
+          "tp": 159100,
+          "fp": 1023,
+          "fn": 76,
+          "tn": 1028525,
+          "recall": 0.999522541086596,
+          "precision": 0.9936111614196587,
+          "benign_fpr": 0.000993639927424462
+        },
+        "unknown_flags": 489,
+        "confusion_with_unknown_column": [
+          [
+            1028525,
+            467,
+            1,
+            121,
+            77,
+            16,
+            8,
+            333
+          ],
+          [
+            6,
+            551,
+            0,
+            0,
+            0,
+            0,
+            1,
+            94
+          ],
+          [
+            2,
+            0,
+            2430,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            54,
+            0,
+            0,
+            17466,
+            0,
+            0,
+            0,
+            52
+          ],
+          [
+            8,
+            0,
+            0,
+            0,
+            90661,
+            0,
+            0,
+            3
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            47692,
+            0,
+            2
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            143,
+            5
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "phone": {
+        "classwise": {
+          "Benign": {
+            "precision": 1.0,
+            "recall": 0.9083333333333333,
+            "f1-score": 0.9519650655021834,
+            "support": 120.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Web Attack": {
+            "precision": 0.875,
+            "recall": 0.984375,
+            "f1-score": 0.9264705882352942,
+            "support": 64.0
+          }
+        },
+        "macro_f1_present_classes": 0.9392178268687388,
+        "binary": {
+          "tp": 64,
+          "fp": 11,
+          "fn": 0,
+          "tn": 109,
+          "recall": 1.0,
+          "precision": 0.8533333333333334,
+          "benign_fpr": 0.09166666666666666
+        },
+        "unknown_flags": 3,
+        "confusion_with_unknown_column": [
+          [
+            109,
+            0,
+            0,
+            0,
+            0,
+            0,
+            9,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            63,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    }
+  },
+  "frozen_v2_baseline": {
+    "legacy": {
+      "classwise": {
+        "Benign": {
+          "precision": 0.9993957022514347,
+          "recall": 0.9992245464554114,
+          "f1-score": 0.9993101170247906,
+          "support": 940095.0
+        },
+        "Bot": {
+          "precision": 0.5428571428571428,
+          "recall": 0.9203125,
+          "f1-score": 0.6828985507246377,
+          "support": 640.0
+        },
+        "Brute Force": {
+          "precision": 0.9995893223819302,
+          "recall": 0.9967239967239967,
+          "f1-score": 0.9981546032396965,
+          "support": 2442.0
+        },
+        "DDoS": {
+          "precision": 0.996266299040726,
+          "recall": 0.9721973094170404,
+          "f1-score": 0.9840846548838265,
+          "support": 17840.0
+        },
+        "DoS": {
+          "precision": 0.9993230420934646,
+          "recall": 0.9996003729852138,
+          "f1-score": 0.9994616883008773,
+          "support": 90084.0
+        },
+        "Port Scan": {
+          "precision": 0.999706498951782,
+          "recall": 0.9999580607280658,
+          "f1-score": 0.9998322640164381,
+          "support": 47688.0
+        },
+        "Web Attack": {
+          "precision": 0.9538461538461539,
+          "recall": 0.8857142857142857,
+          "f1-score": 0.9185185185185185,
+          "support": 140.0
+        }
+      },
+      "macro_f1_present_classes": 0.9403229138155408,
+      "binary": {
+        "tp": 158266,
+        "fp": 729,
+        "fn": 568,
+        "tn": 939366,
+        "recall": 0.996423939458806,
+        "precision": 0.9954149501556653,
+        "benign_fpr": 0.0007754535445885788
+      },
+      "unknown_flags": 127,
+      "confusion_with_unknown_column": [
+        [
+          939366,
+          496,
+          1,
+          65,
+          60,
+          14,
+          6,
+          87
+        ],
+        [
+          50,
+          589,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          8,
+          0,
+          2434,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          474,
+          0,
+          0,
+          17344,
+          0,
+          0,
+          0,
+          22
+        ],
+        [
+          30,
+          0,
+          0,
+          0,
+          90048,
+          0,
+          0,
+          6
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          47686,
+          0,
+          1
+        ],
+        [
+          5,
+          0,
+          0,
+          0,
+          1,
+          0,
+          124,
+          10
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "phone": {
+      "classwise": {
+        "Benign": {
+          "precision": 0.6521739130434783,
+          "recall": 1.0,
+          "f1-score": 0.7894736842105263,
+          "support": 120.0
+        },
+        "Bot": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "Brute Force": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "DDoS": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "DoS": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "Port Scan": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "Web Attack": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 64.0
+        }
+      },
+      "macro_f1_present_classes": 0.39473684210526316,
+      "binary": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 64,
+        "tn": 120,
+        "recall": 0.0,
+        "precision": 0.0,
+        "benign_fpr": 0.0
+      },
+      "unknown_flags": 0,
+      "confusion_with_unknown_column": [
+        [
+          120,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          64,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  },
+  "augmented_pipeline": {
+    "legacy": {
+      "classwise": {
+        "Benign": {
+          "precision": 0.9998828840338998,
+          "recall": 0.9989735079965323,
+          "f1-score": 0.9994279891557386,
+          "support": 940095.0
+        },
+        "Bot": {
+          "precision": 0.5645491803278688,
+          "recall": 0.8609375,
+          "f1-score": 0.681930693069307,
+          "support": 640.0
+        },
+        "Brute Force": {
+          "precision": 0.9995894909688013,
+          "recall": 0.9971334971334971,
+          "f1-score": 0.998359983599836,
+          "support": 2442.0
+        },
+        "DDoS": {
+          "precision": 0.9918248502155775,
+          "recall": 0.9928811659192825,
+          "f1-score": 0.9923527269671419,
+          "support": 17840.0
+        },
+        "DoS": {
+          "precision": 0.9993232298577673,
+          "recall": 0.999877891745482,
+          "f1-score": 0.9996004838584381,
+          "support": 90084.0
+        },
+        "Port Scan": {
+          "precision": 0.9996855279984905,
+          "recall": 0.9999161214561315,
+          "f1-score": 0.9998008114313272,
+          "support": 47688.0
+        },
+        "Web Attack": {
+          "precision": 0.8972602739726028,
+          "recall": 0.9357142857142857,
+          "f1-score": 0.916083916083916,
+          "support": 140.0
+        }
+      },
+      "macro_f1_present_classes": 0.9410795148808149,
+      "binary": {
+        "tp": 158724,
+        "fp": 965,
+        "fn": 110,
+        "tn": 939130,
+        "recall": 0.9993074530642054,
+        "precision": 0.9939570039263819,
+        "benign_fpr": 0.0010264920034677347
+      },
+      "unknown_flags": 439,
+      "confusion_with_unknown_column": [
+        [
+          939130,
+          425,
+          1,
+          146,
+          61,
+          13,
+          15,
+          304
+        ],
+        [
+          10,
+          551,
+          0,
+          0,
+          0,
+          0,
+          0,
+          79
+        ],
+        [
+          7,
+          0,
+          2435,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          80,
+          0,
+          0,
+          17713,
+          0,
+          2,
+          0,
+          45
+        ],
+        [
+          11,
+          0,
+          0,
+          0,
+          90073,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          47684,
+          0,
+          3
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          131,
+          8
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "phone": {
+      "classwise": {
+        "Benign": {
+          "precision": 0.9821428571428571,
+          "recall": 0.9166666666666666,
+          "f1-score": 0.9482758620689655,
+          "support": 120.0
+        },
+        "Bot": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "Brute Force": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "DDoS": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "DoS": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "Port Scan": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "Web Attack": {
+          "precision": 0.8840579710144928,
+          "recall": 0.953125,
+          "f1-score": 0.9172932330827067,
+          "support": 64.0
+        }
+      },
+      "macro_f1_present_classes": 0.9327845475758361,
+      "binary": {
+        "tp": 62,
+        "fp": 10,
+        "fn": 2,
+        "tn": 110,
+        "recall": 0.96875,
+        "precision": 0.8611111111111112,
+        "benign_fpr": 0.08333333333333333
+      },
+      "unknown_flags": 3,
+      "confusion_with_unknown_column": [
+        [
+          110,
+          0,
+          0,
+          0,
+          0,
+          0,
+          8,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          61,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  },
+  "all_flagship_candidates": {
+    "gate_s0_best": {
+      "legacy": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9999126772412398,
+            "recall": 0.9987958663752068,
+            "f1-score": 0.9993539597901168,
+            "support": 940095.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 640.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 2442.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 17840.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 90084.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 47688.0
+          },
+          "Web Attack": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 140.0
+          }
+        },
+        "macro_f1_present_classes": 0.1427648513985881,
+        "binary": {
+          "tp": 158752,
+          "fp": 1132,
+          "fn": 82,
+          "tn": 938963,
+          "recall": 0.9994837377387713,
+          "precision": 0.9929198669035051,
+          "benign_fpr": 0.0012041336247932389
+        },
+        "unknown_flags": 159884,
+        "confusion_with_unknown_column": [
+          [
+            938963,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1132
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            638
+          ],
+          [
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2435
+          ],
+          [
+            63,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            17777
+          ],
+          [
+            5,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            90079
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            47687
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            136
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "phone": {
+        "classwise": {
+          "Benign": {
+            "precision": 1.0,
+            "recall": 0.9,
+            "f1-score": 0.9473684210526315,
+            "support": 120.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Web Attack": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 64.0
+          }
+        },
+        "macro_f1_present_classes": 0.47368421052631576,
+        "binary": {
+          "tp": 64,
+          "fp": 12,
+          "fn": 0,
+          "tn": 108,
+          "recall": 1.0,
+          "precision": 0.8421052631578947,
+          "benign_fpr": 0.1
+        },
+        "unknown_flags": 76,
+        "confusion_with_unknown_column": [
+          [
+            108,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            12
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            64
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "gate_s0_final": {
+      "legacy": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9998828840338998,
+            "recall": 0.9989735079965323,
+            "f1-score": 0.9994279891557386,
+            "support": 940095.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 640.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 2442.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 17840.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 90084.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 47688.0
+          },
+          "Web Attack": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 140.0
+          }
+        },
+        "macro_f1_present_classes": 0.14277542702224838,
+        "binary": {
+          "tp": 158724,
+          "fp": 965,
+          "fn": 110,
+          "tn": 939130,
+          "recall": 0.9993074530642054,
+          "precision": 0.9939570039263819,
+          "benign_fpr": 0.0010264920034677347
+        },
+        "unknown_flags": 159689,
+        "confusion_with_unknown_column": [
+          [
+            939130,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            965
+          ],
+          [
+            10,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            630
+          ],
+          [
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2435
+          ],
+          [
+            80,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            17760
+          ],
+          [
+            11,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            90073
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            47687
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            139
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "phone": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9821428571428571,
+            "recall": 0.9166666666666666,
+            "f1-score": 0.9482758620689655,
+            "support": 120.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Web Attack": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 64.0
+          }
+        },
+        "macro_f1_present_classes": 0.47413793103448276,
+        "binary": {
+          "tp": 62,
+          "fp": 10,
+          "fn": 2,
+          "tn": 110,
+          "recall": 0.96875,
+          "precision": 0.8611111111111112,
+          "benign_fpr": 0.08333333333333333
+        },
+        "unknown_flags": 72,
+        "confusion_with_unknown_column": [
+          [
+            110,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            10
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            62
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "diagnosis_s0_best": {
+      "legacy": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9998573300923841,
+            "recall": 0.9989384051611805,
+            "f1-score": 0.9993976563938348,
+            "support": 940095.0
+          },
+          "Bot": {
+            "precision": 0.48448145344436033,
+            "recall": 1.0,
+            "f1-score": 0.6527281998980112,
+            "support": 640.0
+          },
+          "Brute Force": {
+            "precision": 0.9991793188346327,
+            "recall": 0.9971334971334971,
+            "f1-score": 0.9981553597048576,
+            "support": 2442.0
+          },
+          "DDoS": {
+            "precision": 0.9902744396624001,
+            "recall": 0.9931053811659193,
+            "f1-score": 0.9916878900674484,
+            "support": 17840.0
+          },
+          "DoS": {
+            "precision": 0.9992235508130533,
+            "recall": 1.0,
+            "f1-score": 0.9996116246296564,
+            "support": 90084.0
+          },
+          "Port Scan": {
+            "precision": 0.999120050282841,
+            "recall": 1.0,
+            "f1-score": 0.9995598314783374,
+            "support": 47688.0
+          },
+          "Web Attack": {
+            "precision": 0.8242424242424242,
+            "recall": 0.9714285714285714,
+            "f1-score": 0.8918032786885246,
+            "support": 140.0
+          }
+        },
+        "macro_f1_present_classes": 0.9332776915515245,
+        "binary": {
+          "tp": 158700,
+          "fp": 998,
+          "fn": 134,
+          "tn": 939097,
+          "recall": 0.9991563519145775,
+          "precision": 0.9937507044546582,
+          "benign_fpr": 0.001061594838819481
+        },
+        "unknown_flags": 0,
+        "confusion_with_unknown_column": [
+          [
+            939097,
+            681,
+            2,
+            174,
+            70,
+            42,
+            29,
+            0
+          ],
+          [
+            0,
+            640,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            7,
+            0,
+            2435,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            123,
+            0,
+            0,
+            17717,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            90084,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            47688,
+            0,
+            0
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            136,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "phone": {
+        "classwise": {
+          "Benign": {
+            "precision": 1.0,
+            "recall": 0.875,
+            "f1-score": 0.9333333333333333,
+            "support": 120.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Web Attack": {
+            "precision": 0.810126582278481,
+            "recall": 1.0,
+            "f1-score": 0.8951048951048951,
+            "support": 64.0
+          }
+        },
+        "macro_f1_present_classes": 0.9142191142191143,
+        "binary": {
+          "tp": 64,
+          "fp": 15,
+          "fn": 0,
+          "tn": 105,
+          "recall": 1.0,
+          "precision": 0.810126582278481,
+          "benign_fpr": 0.125
+        },
+        "unknown_flags": 0,
+        "confusion_with_unknown_column": [
+          [
+            105,
+            0,
+            0,
+            0,
+            0,
+            0,
+            15,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            64,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "diagnosis_s0_final": {
+      "legacy": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9999116194824735,
+            "recall": 0.9988756455464607,
+            "f1-score": 0.9993933640411746,
+            "support": 940095.0
+          },
+          "Bot": {
+            "precision": 0.4896551724137931,
+            "recall": 0.9984375,
+            "f1-score": 0.6570694087403599,
+            "support": 640.0
+          },
+          "Brute Force": {
+            "precision": 0.9951000408329931,
+            "recall": 0.997952497952498,
+            "f1-score": 0.9965242281741975,
+            "support": 2442.0
+          },
+          "DDoS": {
+            "precision": 0.9856286760625902,
+            "recall": 0.9956838565022421,
+            "f1-score": 0.990630751212983,
+            "support": 17840.0
+          },
+          "DoS": {
+            "precision": 0.9992789714805489,
+            "recall": 1.0,
+            "f1-score": 0.9996393557228699,
+            "support": 90084.0
+          },
+          "Port Scan": {
+            "precision": 0.9996645842941596,
+            "recall": 0.9999580607280658,
+            "f1-score": 0.999811300974945,
+            "support": 47688.0
+          },
+          "Web Attack": {
+            "precision": 0.7734806629834254,
+            "recall": 1.0,
+            "f1-score": 0.8722741433021807,
+            "support": 140.0
+          }
+        },
+        "macro_f1_present_classes": 0.9307632217383872,
+        "binary": {
+          "tp": 158751,
+          "fp": 1057,
+          "fn": 83,
+          "tn": 939038,
+          "recall": 0.9994774418575368,
+          "precision": 0.9933858129755707,
+          "benign_fpr": 0.0011243544535392699
+        },
+        "unknown_flags": 0,
+        "confusion_with_unknown_column": [
+          [
+            939038,
+            666,
+            12,
+            259,
+            65,
+            14,
+            41,
+            0
+          ],
+          [
+            1,
+            639,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            5,
+            0,
+            2437,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            75,
+            0,
+            0,
+            17763,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            90084,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            47686,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            140,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "phone": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9818181818181818,
+            "recall": 0.9,
+            "f1-score": 0.9391304347826087,
+            "support": 120.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Web Attack": {
+            "precision": 0.8378378378378378,
+            "recall": 0.96875,
+            "f1-score": 0.8985507246376812,
+            "support": 64.0
+          }
+        },
+        "macro_f1_present_classes": 0.9188405797101449,
+        "binary": {
+          "tp": 62,
+          "fp": 12,
+          "fn": 2,
+          "tn": 108,
+          "recall": 0.96875,
+          "precision": 0.8378378378378378,
+          "benign_fpr": 0.1
+        },
+        "unknown_flags": 0,
+        "confusion_with_unknown_column": [
+          [
+            108,
+            0,
+            0,
+            0,
+            0,
+            0,
+            12,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            62,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "gate_s1_best": {
+      "legacy": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9999179794394694,
+            "recall": 0.9985288720820769,
+            "f1-score": 0.9992229429810462,
+            "support": 940095.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 640.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 2442.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 17840.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 90084.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 47688.0
+          },
+          "Web Attack": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 140.0
+          }
+        },
+        "macro_f1_present_classes": 0.14274613471157802,
+        "binary": {
+          "tp": 158757,
+          "fp": 1383,
+          "fn": 77,
+          "tn": 938712,
+          "recall": 0.9995152171449437,
+          "precision": 0.9913638066691645,
+          "benign_fpr": 0.0014711279179231887
+        },
+        "unknown_flags": 160140,
+        "confusion_with_unknown_column": [
+          [
+            938712,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1383
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            636
+          ],
+          [
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2434
+          ],
+          [
+            58,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            17782
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            90082
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            47687
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            136
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "phone": {
+        "classwise": {
+          "Benign": {
+            "precision": 1.0,
+            "recall": 0.875,
+            "f1-score": 0.9333333333333333,
+            "support": 120.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Web Attack": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 64.0
+          }
+        },
+        "macro_f1_present_classes": 0.4666666666666667,
+        "binary": {
+          "tp": 64,
+          "fp": 15,
+          "fn": 0,
+          "tn": 105,
+          "recall": 1.0,
+          "precision": 0.810126582278481,
+          "benign_fpr": 0.125
+        },
+        "unknown_flags": 79,
+        "confusion_with_unknown_column": [
+          [
+            105,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            15
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            64
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "gate_s1_final": {
+      "legacy": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9999264821831169,
+            "recall": 0.9982810247900478,
+            "f1-score": 0.9991030759968764,
+            "support": 940095.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 640.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 2442.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 17840.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 90084.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 47688.0
+          },
+          "Web Attack": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 140.0
+          }
+        },
+        "macro_f1_present_classes": 0.14272901085669662,
+        "binary": {
+          "tp": 158765,
+          "fp": 1616,
+          "fn": 69,
+          "tn": 938479,
+          "recall": 0.9995655841948198,
+          "precision": 0.9899239934905008,
+          "benign_fpr": 0.0017189752099521856
+        },
+        "unknown_flags": 160381,
+        "confusion_with_unknown_column": [
+          [
+            938479,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1616
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            637
+          ],
+          [
+            12,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2430
+          ],
+          [
+            49,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            17791
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            90082
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            47687
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            138
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "phone": {
+        "classwise": {
+          "Benign": {
+            "precision": 1.0,
+            "recall": 0.8833333333333333,
+            "f1-score": 0.9380530973451328,
+            "support": 120.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Web Attack": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 64.0
+          }
+        },
+        "macro_f1_present_classes": 0.4690265486725664,
+        "binary": {
+          "tp": 64,
+          "fp": 14,
+          "fn": 0,
+          "tn": 106,
+          "recall": 1.0,
+          "precision": 0.8205128205128205,
+          "benign_fpr": 0.11666666666666667
+        },
+        "unknown_flags": 78,
+        "confusion_with_unknown_column": [
+          [
+            106,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            14
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            64
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "diagnosis_s1_best": {
+      "legacy": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9999094911807141,
+            "recall": 0.9988884102138613,
+            "f1-score": 0.9993986898889439,
+            "support": 940095.0
+          },
+          "Bot": {
+            "precision": 0.4878048780487805,
+            "recall": 1.0,
+            "f1-score": 0.6557377049180327,
+            "support": 640.0
+          },
+          "Brute Force": {
+            "precision": 0.9991796554552912,
+            "recall": 0.9975429975429976,
+            "f1-score": 0.9983606557377049,
+            "support": 2442.0
+          },
+          "DDoS": {
+            "precision": 0.9865592890863649,
+            "recall": 0.9956838565022421,
+            "f1-score": 0.991100571906821,
+            "support": 17840.0
+          },
+          "DoS": {
+            "precision": 0.9992678868552413,
+            "recall": 1.0,
+            "f1-score": 0.9996338093811379,
+            "support": 90084.0
+          },
+          "Port Scan": {
+            "precision": 0.9993712932497852,
+            "recall": 0.9999790303640329,
+            "f1-score": 0.999675069440805,
+            "support": 47688.0
+          },
+          "Web Attack": {
+            "precision": 0.7965116279069767,
+            "recall": 0.9785714285714285,
+            "f1-score": 0.8782051282051282,
+            "support": 140.0
+          }
+        },
+        "macro_f1_present_classes": 0.9317302327826533,
+        "binary": {
+          "tp": 158749,
+          "fp": 1045,
+          "fn": 85,
+          "tn": 939050,
+          "recall": 0.9994648500950678,
+          "precision": 0.9934603301751005,
+          "benign_fpr": 0.001111589786138635
+        },
+        "unknown_flags": 0,
+        "confusion_with_unknown_column": [
+          [
+            939050,
+            672,
+            2,
+            242,
+            66,
+            28,
+            35,
+            0
+          ],
+          [
+            0,
+            640,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            6,
+            0,
+            2436,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            75,
+            0,
+            0,
+            17763,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            90084,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            47687,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            137,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "phone": {
+        "classwise": {
+          "Benign": {
+            "precision": 1.0,
+            "recall": 0.925,
+            "f1-score": 0.961038961038961,
+            "support": 120.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Web Attack": {
+            "precision": 0.8767123287671232,
+            "recall": 1.0,
+            "f1-score": 0.9343065693430657,
+            "support": 64.0
+          }
+        },
+        "macro_f1_present_classes": 0.9476727651910133,
+        "binary": {
+          "tp": 64,
+          "fp": 9,
+          "fn": 0,
+          "tn": 111,
+          "recall": 1.0,
+          "precision": 0.8767123287671232,
+          "benign_fpr": 0.075
+        },
+        "unknown_flags": 0,
+        "confusion_with_unknown_column": [
+          [
+            111,
+            0,
+            0,
+            0,
+            0,
+            0,
+            9,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            64,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "diagnosis_s1_final": {
+      "legacy": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9999435367112585,
+            "recall": 0.9984203724091714,
+            "f1-score": 0.9991813740779814,
+            "support": 940095.0
+          },
+          "Bot": {
+            "precision": 0.48632218844984804,
+            "recall": 1.0,
+            "f1-score": 0.65439672801636,
+            "support": 640.0
+          },
+          "Brute Force": {
+            "precision": 0.9983606557377049,
+            "recall": 0.9975429975429976,
+            "f1-score": 0.9979516591560835,
+            "support": 2442.0
+          },
+          "DDoS": {
+            "precision": 0.9633558863328823,
+            "recall": 0.9976457399103139,
+            "f1-score": 0.9802010188627289,
+            "support": 17840.0
+          },
+          "DoS": {
+            "precision": 0.999190274419327,
+            "recall": 0.9999666977487678,
+            "f1-score": 0.9995783353121983,
+            "support": 90084.0
+          },
+          "Port Scan": {
+            "precision": 0.9994969713483264,
+            "recall": 0.9999790303640329,
+            "f1-score": 0.9997379427457311,
+            "support": 47688.0
+          },
+          "Web Attack": {
+            "precision": 0.8117647058823529,
+            "recall": 0.9857142857142858,
+            "f1-score": 0.8903225806451613,
+            "support": 140.0
+          }
+        },
+        "macro_f1_present_classes": 0.9316242341166063,
+        "binary": {
+          "tp": 158781,
+          "fp": 1485,
+          "fn": 53,
+          "tn": 938610,
+          "recall": 0.9996663182945716,
+          "precision": 0.9907341544681966,
+          "benign_fpr": 0.0015796275908285865
+        },
+        "unknown_flags": 0,
+        "confusion_with_unknown_column": [
+          [
+            938610,
+            676,
+            4,
+            677,
+            73,
+            23,
+            32,
+            0
+          ],
+          [
+            0,
+            640,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            6,
+            0,
+            2436,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            41,
+            0,
+            0,
+            17798,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            90081,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            47687,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            138,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "phone": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9724770642201835,
+            "recall": 0.8833333333333333,
+            "f1-score": 0.925764192139738,
+            "support": 120.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Web Attack": {
+            "precision": 0.8133333333333334,
+            "recall": 0.953125,
+            "f1-score": 0.8776978417266187,
+            "support": 64.0
+          }
+        },
+        "macro_f1_present_classes": 0.9017310169331784,
+        "binary": {
+          "tp": 61,
+          "fp": 14,
+          "fn": 3,
+          "tn": 106,
+          "recall": 0.953125,
+          "precision": 0.8133333333333334,
+          "benign_fpr": 0.11666666666666667
+        },
+        "unknown_flags": 0,
+        "confusion_with_unknown_column": [
+          [
+            106,
+            0,
+            0,
+            0,
+            0,
+            0,
+            14,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            61,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "gate_s2_best": {
+      "legacy": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9999179875639325,
+            "recall": 0.9986277982544317,
+            "f1-score": 0.9992724764592648,
+            "support": 940095.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 640.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 2442.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 17840.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 90084.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 47688.0
+          },
+          "Web Attack": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 140.0
+          }
+        },
+        "macro_f1_present_classes": 0.14275321092275212,
+        "binary": {
+          "tp": 158757,
+          "fp": 1290,
+          "fn": 77,
+          "tn": 938805,
+          "recall": 0.9995152171449437,
+          "precision": 0.9919398676638738,
+          "benign_fpr": 0.001372201745568267
+        },
+        "unknown_flags": 160047,
+        "confusion_with_unknown_column": [
+          [
+            938805,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1290
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            636
+          ],
+          [
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2435
+          ],
+          [
+            63,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            17777
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            90084
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            47688
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            137
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "phone": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9907407407407407,
+            "recall": 0.8916666666666667,
+            "f1-score": 0.9385964912280702,
+            "support": 120.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Web Attack": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 64.0
+          }
+        },
+        "macro_f1_present_classes": 0.4692982456140351,
+        "binary": {
+          "tp": 63,
+          "fp": 13,
+          "fn": 1,
+          "tn": 107,
+          "recall": 0.984375,
+          "precision": 0.8289473684210527,
+          "benign_fpr": 0.10833333333333334
+        },
+        "unknown_flags": 76,
+        "confusion_with_unknown_column": [
+          [
+            107,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            13
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            63
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "gate_s2_final": {
+      "legacy": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9999147812915108,
+            "recall": 0.9984958966912918,
+            "f1-score": 0.9992048352827465,
+            "support": 940095.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 640.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 2442.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 17840.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 90084.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 47688.0
+          },
+          "Web Attack": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 140.0
+          }
+        },
+        "macro_f1_present_classes": 0.1427435478975352,
+        "binary": {
+          "tp": 158754,
+          "fp": 1414,
+          "fn": 80,
+          "tn": 938681,
+          "recall": 0.9994963295012403,
+          "precision": 0.991171769641876,
+          "benign_fpr": 0.0015041033087081625
+        },
+        "unknown_flags": 160168,
+        "confusion_with_unknown_column": [
+          [
+            938681,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1414
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            637
+          ],
+          [
+            10,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2432
+          ],
+          [
+            63,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            17777
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            90081
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            47687
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            140
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "phone": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.978021978021978,
+            "recall": 0.7416666666666667,
+            "f1-score": 0.8436018957345972,
+            "support": 120.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Web Attack": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 64.0
+          }
+        },
+        "macro_f1_present_classes": 0.4218009478672986,
+        "binary": {
+          "tp": 62,
+          "fp": 31,
+          "fn": 2,
+          "tn": 89,
+          "recall": 0.96875,
+          "precision": 0.6666666666666666,
+          "benign_fpr": 0.25833333333333336
+        },
+        "unknown_flags": 93,
+        "confusion_with_unknown_column": [
+          [
+            89,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            31
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            62
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "diagnosis_s2_best": {
+      "legacy": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9998456223283347,
+            "recall": 0.9989522335508645,
+            "f1-score": 0.9993987282837151,
+            "support": 940095.0
+          },
+          "Bot": {
+            "precision": 0.4859529233105543,
+            "recall": 1.0,
+            "f1-score": 0.6540623403168114,
+            "support": 640.0
+          },
+          "Brute Force": {
+            "precision": 0.9854368932038835,
+            "recall": 0.9975429975429976,
+            "f1-score": 0.9914529914529915,
+            "support": 2442.0
+          },
+          "DDoS": {
+            "precision": 0.9917100767378032,
+            "recall": 0.992432735426009,
+            "f1-score": 0.9920712744795899,
+            "support": 17840.0
+          },
+          "DoS": {
+            "precision": 0.9992678868552413,
+            "recall": 1.0,
+            "f1-score": 0.9996338093811379,
+            "support": 90084.0
+          },
+          "Port Scan": {
+            "precision": 0.9996645913254931,
+            "recall": 0.9999790303640329,
+            "f1-score": 0.9998217861223805,
+            "support": 47688.0
+          },
+          "Web Attack": {
+            "precision": 0.7653631284916201,
+            "recall": 0.9785714285714285,
+            "f1-score": 0.8589341692789969,
+            "support": 140.0
+          }
+        },
+        "macro_f1_present_classes": 0.9279107284736604,
+        "binary": {
+          "tp": 158689,
+          "fp": 985,
+          "fn": 145,
+          "tn": 939110,
+          "recall": 0.999087097220998,
+          "precision": 0.9938311810313514,
+          "benign_fpr": 0.0010477664491354596
+        },
+        "unknown_flags": 0,
+        "confusion_with_unknown_column": [
+          [
+            939110,
+            677,
+            36,
+            148,
+            66,
+            16,
+            42,
+            0
+          ],
+          [
+            0,
+            640,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            6,
+            0,
+            2436,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            135,
+            0,
+            0,
+            17705,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            90084,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            47687,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            137,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "phone": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9906542056074766,
+            "recall": 0.8833333333333333,
+            "f1-score": 0.933920704845815,
+            "support": 120.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Web Attack": {
+            "precision": 0.8513513513513513,
+            "recall": 0.984375,
+            "f1-score": 0.9130434782608695,
+            "support": 64.0
+          }
+        },
+        "macro_f1_present_classes": 0.9234820915533423,
+        "binary": {
+          "tp": 63,
+          "fp": 14,
+          "fn": 1,
+          "tn": 106,
+          "recall": 0.984375,
+          "precision": 0.8181818181818182,
+          "benign_fpr": 0.11666666666666667
+        },
+        "unknown_flags": 0,
+        "confusion_with_unknown_column": [
+          [
+            106,
+            3,
+            0,
+            0,
+            0,
+            0,
+            11,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            63,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "diagnosis_s2_final": {
+      "legacy": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9998849408937109,
+            "recall": 0.9983459118493344,
+            "f1-score": 0.9991148336946565,
+            "support": 940095.0
+          },
+          "Bot": {
+            "precision": 0.4673913043478261,
+            "recall": 0.940625,
+            "f1-score": 0.6244813278008299,
+            "support": 640.0
+          },
+          "Brute Force": {
+            "precision": 0.9028189910979229,
+            "recall": 0.9967239967239967,
+            "f1-score": 0.947450369793694,
+            "support": 2442.0
+          },
+          "DDoS": {
+            "precision": 0.9870648975739743,
+            "recall": 0.9966367713004485,
+            "f1-score": 0.9918277410537473,
+            "support": 17840.0
+          },
+          "DoS": {
+            "precision": 0.9992678706127701,
+            "recall": 0.9999777984991786,
+            "f1-score": 0.9996227085090328,
+            "support": 90084.0
+          },
+          "Port Scan": {
+            "precision": 0.9970935095349616,
+            "recall": 0.9999370910920986,
+            "f1-score": 0.9985132758187453,
+            "support": 47688.0
+          },
+          "Web Attack": {
+            "precision": 0.44871794871794873,
+            "recall": 1.0,
+            "f1-score": 0.6194690265486725,
+            "support": 140.0
+          }
+        },
+        "macro_f1_present_classes": 0.8829256118884826,
+        "binary": {
+          "tp": 158726,
+          "fp": 1555,
+          "fn": 108,
+          "tn": 938540,
+          "recall": 0.9993200448266744,
+          "precision": 0.9902982886305925,
+          "benign_fpr": 0.0016540881506656242
+        },
+        "unknown_flags": 0,
+        "confusion_with_unknown_column": [
+          [
+            938540,
+            686,
+            261,
+            233,
+            65,
+            139,
+            171,
+            0
+          ],
+          [
+            37,
+            602,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            8,
+            0,
+            2434,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            59,
+            0,
+            0,
+            17780,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            90082,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            1,
+            0,
+            0,
+            47685,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            140,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "phone": {
+        "classwise": {
+          "Benign": {
+            "precision": 1.0,
+            "recall": 0.725,
+            "f1-score": 0.8405797101449275,
+            "support": 120.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Web Attack": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1-score": 0.8,
+            "support": 64.0
+          }
+        },
+        "macro_f1_present_classes": 0.8202898550724638,
+        "binary": {
+          "tp": 64,
+          "fp": 33,
+          "fn": 0,
+          "tn": 87,
+          "recall": 1.0,
+          "precision": 0.6597938144329897,
+          "benign_fpr": 0.275
+        },
+        "unknown_flags": 0,
+        "confusion_with_unknown_column": [
+          [
+            87,
+            0,
+            0,
+            0,
+            1,
+            0,
+            32,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            64,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    }
+  },
+  "phone_subtypes": {
+    "http_password_guessing": {
+      "support": 24,
+      "flag_rate": 0.9583333333333334,
+      "correct_family_rate": 0.9583333333333334
+    },
+    "http_password_spraying": {
+      "support": 16,
+      "flag_rate": 1.0,
+      "correct_family_rate": 0.9375
+    },
+    "legitimate_http_burst": {
+      "support": 48,
+      "flag_rate": 0.0,
+      "correct_family_rate": 1.0
+    },
+    "normal_http": {
+      "support": 12,
+      "flag_rate": 0.0,
+      "correct_family_rate": 1.0
+    },
+    "normal_page": {
+      "support": 12,
+      "flag_rate": 0.0,
+      "correct_family_rate": 1.0
+    },
+    "normal_search_or_code": {
+      "support": 12,
+      "flag_rate": 0.16666666666666666,
+      "correct_family_rate": 0.8333333333333334
+    },
+    "ordinary_failed_login": {
+      "support": 12,
+      "flag_rate": 0.6666666666666666,
+      "correct_family_rate": 0.3333333333333333
+    },
+    "ordinary_server_error": {
+      "support": 12,
+      "flag_rate": 0.0,
+      "correct_family_rate": 1.0
+    },
+    "sql_injection": {
+      "support": 12,
+      "flag_rate": 1.0,
+      "correct_family_rate": 1.0
+    },
+    "successful_login": {
+      "support": 12,
+      "flag_rate": 0.0,
+      "correct_family_rate": 1.0
+    },
+    "xss": {
+      "support": 12,
+      "flag_rate": 0.9166666666666666,
+      "correct_family_rate": 0.9166666666666666
+    }
+  },
+  "phone_observed_traffic_seconds": 143.2481288909912,
+  "deployment_eligible_in_this_pilot": false,
+  "phone_model_replaced": false,
+  "phone_test_sessions": {
+    "phone_v1_test_01": {
+      "recorded_segments": 56,
+      "attack_segments": 32,
+      "normal_segments": 24,
+      "flagged_attack_segments": 32,
+      "flagged_normal_segments": 5
+    },
+    "phone_v1_test_02": {
+      "recorded_segments": 72,
+      "attack_segments": 0,
+      "normal_segments": 72,
+      "flagged_attack_segments": 0,
+      "flagged_normal_segments": 0
+    },
+    "phone_v1_test_03": {
+      "recorded_segments": 56,
+      "attack_segments": 32,
+      "normal_segments": 24,
+      "flagged_attack_segments": 30,
+      "flagged_normal_segments": 5
+    }
+  },
+  "production_validated": false,
+  "automation_smoke_only": false,
+  "runtime": "Local WSL PyTorch CUDA/CPU; new-model native reattestation pending",
+  "scope": "Same phone/app, chronological sessions with held-out request forms; small per-subtype support. Rates are recorded segments, not independent campaigns or general mobile accuracy. No auto-deployment.",
+  "baseline_artifact_sha256": {
+    "gate": "ac50366fc5cb88c5d86503748cd1a000693ac6ef1ad52a08918d18ae90417b63",
+    "diagnosis": "dcccea8d7e2761335cb72320279dad35557608647d643aba9c9190efa7c2e7de"
+  }
+}

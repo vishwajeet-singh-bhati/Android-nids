@@ -1,0 +1,40 @@
+{
+  "run_id": "20261121_153901_Benign_cd3a4e",
+  "profile": "Benign",
+  "completed": false,
+  "failure_kind": "controller_http_module_shadowed_by_function",
+  "failure_stage": "after successful FTP/SSH controls; before any HTTP probes or remote-PC source probes",
+  "control_authentication": {
+    "ftp": {
+      "incorrect_password_rejected": true,
+      "valid_dummy_password_accepted": true
+    },
+    "ssh": {
+      "incorrect_password_rejected": true,
+      "valid_dummy_password_accepted": true
+    }
+  },
+  "target_event_counts": {
+    "target_started": 1,
+    "ftp_login_failure": 1,
+    "ftp_login_success": 1,
+    "ssh_login_failure": 1,
+    "ssh_login_success": 1
+  },
+  "capture_sha256": "c9bc315d63ddb424985703cfd76f02c22d225d16726be9d724fee23c1124ad8b",
+  "scope": "Partial control only; no completed protocol-suite false-positive rate, attack detection result or remote-phone path claim.",
+  "phone_target_stopped": true,
+  "nids_monitor_running": true,
+  "models_unchanged": {
+    "gate": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+    "diagnosis": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e"
+  },
+  "retry_automatically_started": false,
+  "original_failure_preserved": true,
+  "previous_version_error_reproduced_without_network": true,
+  "fixed_helper_loopback_statuses_verified": [
+    200,
+    503,
+    202
+  ]
+}

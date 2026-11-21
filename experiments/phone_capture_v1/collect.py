@@ -60,18 +60,20 @@ def addresses():
     assert out;return sorted(out)
 
 
-def begin_capture(case):
+def begin_capture(case,*,packet_limit=100000):
+    if type(packet_limit) is not int or not 1<=packet_limit<=2000000:
+        raise ValueError('Raw capture packet limit must be an integer between 1 and 2000000')
     token=case.name
     assert re.fullmatch('[a-zA-Z0-9_-]{8,80}',token)
     remote='/data/local/tmp/nids_dataset_'+token
-    command=f'echo $$ > {remote}.pid; exec /data/local/tmp/tcpdump --immediate-mode -i any -U -s 768 -c 100000 -w {remote}.pcap 2>{remote}.stderr'
+    command=f'echo $$ > {remote}.pid; exec /data/local/tmp/tcpdump --immediate-mode -i any -U -s 768 -c {packet_limit} -w {remote}.pcap 2>{remote}.stderr'
     output=(case/'capture_transport.txt').open('wb')
     process=subprocess.Popen([str(lab.ADB),'-s',lab.SERIAL,'exec-out','su','-c',command],stdout=output,stderr=subprocess.STDOUT)
     time.sleep(1)
     if process.poll() is not None:
         output.close();raise RuntimeError('Raw phone capture failed to start')
     pid=lab.adb('shell','su','-c',f"'cat {remote}.pid'").strip();assert pid.isdigit()
-    return {'process':process,'output':output,'remote':remote,'pid':pid}
+    return {'process':process,'output':output,'remote':remote,'pid':pid,'packet_limit':packet_limit}
 
 
 def end_capture(capture,case):
@@ -92,8 +94,12 @@ def end_capture(capture,case):
     # Delete only uniquely named, verified session files, after preserving the capture.
     lab.adb('shell','su','-c',f"'rm -f {remote}.pcap {remote}.pid {remote}.stderr'")
     dropped=re.findall(r'(\d+) packets dropped by kernel',error)
+    captured=re.findall(r'(\d+) packets captured',error)
+    count=int(captured[-1]) if captured else None
     return {'capture_sha256':digest,'ended_early':early,'kernel_drops':int(dropped[-1]) if dropped else None,
-        'snaplen':768,'interface':'any','filtered_attack_ports_only':False,'streamed_packet_data_during_capture':False}
+        'snaplen':768,'interface':'any','filtered_attack_ports_only':False,'streamed_packet_data_during_capture':False,
+        'packet_limit':capture.get('packet_limit',100000),'captured_packets':count,
+        'packet_limit_reached':count is not None and count>=capture.get('packet_limit',100000)}
 
 
 def restart_trace(case,session):

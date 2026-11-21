@@ -1,0 +1,86 @@
+{
+  "intended_deployment": "preserved_v2",
+  "selected_bundle": "exports/preserved_v2",
+  "repair_models": {
+    "gate": {
+      "schema": "phone-aligned-v2-repair-v3-policy",
+      "kind": "gate",
+      "job": "unweighted_gate_s2",
+      "epoch": 40,
+      "checkpoint_sha256": "1dc879f196fb444e29ee347646c9790c4da86777ba0cea184db10ab58016fc4e",
+      "model_sha256": "1e8cef86903e76e910afcce44abf7adc7fce3b46f53f9d7403326e76d37d1404",
+      "parameters": 18913,
+      "bytes": 83332,
+      "input_shapes": [
+        [
+          1,
+          32
+        ],
+        [
+          1,
+          115
+        ]
+      ],
+      "normalization_and_calibration_embedded": true,
+      "output": "calibrated logits",
+      "parity_rows": 960,
+      "all_source_classes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "maximum_pte_error": 0.00030517578125,
+      "device_native_verification_pending": true
+    },
+    "diagnosis": {
+      "schema": "phone-aligned-v2-repair-v3-policy",
+      "kind": "diagnosis",
+      "job": "unweighted_diagnosis_s2",
+      "epoch": 39,
+      "checkpoint_sha256": "15de669f8eb267955ddf4b13dd48412ab629e6579bfe24665a7b3a03d49a197b",
+      "model_sha256": "2174a0d7cec73a168f9ac47e37530f12c11afab8b92786da99b2042e19b24098",
+      "parameters": 173721,
+      "bytes": 950044,
+      "input_shapes": [
+        [
+          1,
+          32
+        ],
+        [
+          1,
+          115
+        ]
+      ],
+      "normalization_and_calibration_embedded": true,
+      "output": "calibrated logits",
+      "parity_rows": 960,
+      "all_source_classes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "maximum_pte_error": 0.00390625,
+      "device_native_verification_pending": true
+    }
+  },
+  "native_policy_verification": {
+    "pipeline_type_flips": 0,
+    "binary_flag_flips": 0,
+    "routing_flips": 0,
+    "rows": 960,
+    "passed": true
+  },
+  "fallback_preserved": true,
+  "device_validation_pending": true,
+  "deployment_executed": false,
+  "offline_readiness_targets_passed": false,
+  "fallback_authorization": "User instructed comparison followed by improved repair or preserved v2 deployment; device absent, no install attempted."
+}

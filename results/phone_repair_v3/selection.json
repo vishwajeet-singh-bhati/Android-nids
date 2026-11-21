@@ -1,0 +1,2814 @@
+{
+  "scope": "Calibration groups disjoint from selection groups; all choices frozen before v3 test evaluation. The inherited v2 test is already opened development data.",
+  "config_sha256": "68c589b5b6badb1ce6be4a26e894994f2b73de88415d198ab2d3519242e12765",
+  "calibration_idx_sha256": "0d8216481a21b95ee7543793bff80e5c40db87d1870da3330c55c8c92990b352",
+  "selection_idx_sha256": "d81ed1f1eb922cfd6d245ad47075d98cbd6634ee0b7dfc280e77967aa0334897",
+  "baseline_selection_metrics": {
+    "binary": {
+      "tp": 79380,
+      "fp": 390,
+      "fn": 250,
+      "tn": 561504,
+      "precision": 0.9951109439638962,
+      "recall": 0.996860479718699,
+      "f1": 0.9959849435382685,
+      "benign_fpr": 0.0006940810900276565,
+      "class_attack_recall": {
+        "Bot": 0.9186746987951807,
+        "Brute Force": 1.0,
+        "DDoS": 0.9767284229552643,
+        "DoS": 0.9997128975265017,
+        "Port Scan": 0.999832327297116,
+        "Web Attack": 1.0
+      }
+    },
+    "classwise": {
+      "Benign": {
+        "precision": 0.9995549653407008,
+        "recall": 0.9993059189099723,
+        "f1-score": 0.9994304266104688,
+        "support": 561894
+      },
+      "Bot": {
+        "precision": 0.49755301794453505,
+        "recall": 0.9186746987951807,
+        "f1-score": 0.6455026455026455,
+        "support": 332
+      },
+      "Brute Force": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 1232
+      },
+      "DDoS": {
+        "precision": 0.9974557650052042,
+        "recall": 0.9743560777225486,
+        "f1-score": 0.9857706154637408,
+        "support": 8852
+      },
+      "DoS": {
+        "precision": 0.9990950026487727,
+        "recall": 0.999624558303887,
+        "f1-score": 0.9993597103241191,
+        "support": 45280
+      },
+      "Port Scan": {
+        "precision": 0.9999580747945664,
+        "recall": 0.999790409121395,
+        "f1-score": 0.9998742349291524,
+        "support": 23856
+      },
+      "Web Attack": {
+        "precision": 1.0,
+        "recall": 0.9230769230769231,
+        "f1-score": 0.96,
+        "support": 78
+      }
+    },
+    "macro_f1": 0.9414196618328753,
+    "typed_accuracy": 0.9989524943727748,
+    "source_benign_fpr": {
+      "Monday": 0.0,
+      "Tuesday": 1.527277170260859e-05,
+      "Wednesday": 0.0005954455675612874,
+      "Thursday": 0.00014214457395394516,
+      "Friday": 0.00531204275081112,
+      "PARROT": 0.0,
+      "AAGM": 5.162978005713696e-05
+    },
+    "confusion_with_unknown": [
+      [
+        561504,
+        308,
+        0,
+        22,
+        41,
+        1,
+        0,
+        18
+      ],
+      [
+        27,
+        305,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1232,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        206,
+        0,
+        0,
+        8625,
+        0,
+        0,
+        0,
+        21
+      ],
+      [
+        13,
+        0,
+        0,
+        0,
+        45263,
+        0,
+        0,
+        4
+      ],
+      [
+        4,
+        0,
+        0,
+        0,
+        0,
+        23851,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        72,
+        6
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "routing_fraction": 0.1243445295889164,
+    "unknown_flagged": 50,
+    "eligible": false,
+    "rank": [
+      0,
+      0.6455026455026455,
+      0.9414196618328753,
+      0.9959849435382685,
+      -0.0006940810900276565
+    ]
+  },
+  "selected": {
+    "policy": {
+      "low": 0.1,
+      "high": 0.99,
+      "review_accept": 0.5,
+      "type_cutoff": 0.5
+    },
+    "metrics": {
+      "binary": {
+        "tp": 79467,
+        "fp": 167,
+        "fn": 163,
+        "tn": 561727,
+        "precision": 0.9979029057940075,
+        "recall": 0.9979530327765918,
+        "f1": 0.9979279686558168,
+        "benign_fpr": 0.00029720908214004774,
+        "class_attack_recall": {
+          "Bot": 0.5933734939759037,
+          "Brute Force": 1.0,
+          "DDoS": 0.9978535924084952,
+          "DoS": 0.9999558303886926,
+          "Port Scan": 0.999874245472837,
+          "Web Attack": 0.9487179487179487
+        }
+      },
+      "classwise": {
+        "Benign": {
+          "precision": 0.9997099076331666,
+          "recall": 0.99970279091786,
+          "f1-score": 0.9997063492628476,
+          "support": 561894
+        },
+        "Bot": {
+          "precision": 0.718978102189781,
+          "recall": 0.5933734939759037,
+          "f1-score": 0.6501650165016502,
+          "support": 332
+        },
+        "Brute Force": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1232
+        },
+        "DDoS": {
+          "precision": 0.9949301487156377,
+          "recall": 0.9976276547672842,
+          "f1-score": 0.9962770758122743,
+          "support": 8852
+        },
+        "DoS": {
+          "precision": 0.9990732568402472,
+          "recall": 0.9999558303886926,
+          "f1-score": 0.999514348785872,
+          "support": 45280
+        },
+        "Port Scan": {
+          "precision": 1.0,
+          "recall": 0.999832327297116,
+          "f1-score": 0.9999161566194349,
+          "support": 23856
+        },
+        "Web Attack": {
+          "precision": 1.0,
+          "recall": 0.9358974358974359,
+          "f1-score": 0.9668874172185431,
+          "support": 78
+        }
+      },
+      "macro_f1": 0.9446380520286602,
+      "typed_accuracy": 0.999479364762659,
+      "source_benign_fpr": {
+        "Monday": 0.0,
+        "Tuesday": 0.0,
+        "Wednesday": 0.0006099686301847334,
+        "Thursday": 1.2922233995813197e-05,
+        "Friday": 0.0019562313124244545,
+        "PARROT": 0.0,
+        "AAGM": 1.7209926685712318e-05
+      },
+      "confusion_with_unknown": [
+        [
+          561727,
+          77,
+          0,
+          45,
+          42,
+          0,
+          0,
+          3
+        ],
+        [
+          135,
+          197,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1232,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          19,
+          0,
+          0,
+          8831,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          0,
+          45278,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          0,
+          0,
+          0,
+          23852,
+          0,
+          1
+        ],
+        [
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          73,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "routing_fraction": 0.1251161297161135,
+      "unknown_flagged": 7,
+      "eligible": false,
+      "rank": [
+        0,
+        0.6501650165016503,
+        0.9446380520286602,
+        0.9979279686558168,
+        -0.00029720908214004774
+      ]
+    },
+    "comparison": {
+      "better": false,
+      "failed_comparison_checks": [
+        "macro_f1_gain",
+        "Bot_typed_recall_regression",
+        "Bot_binary_recall_regression",
+        "Web Attack_binary_recall_regression"
+      ]
+    },
+    "selection_rank": [
+      0,
+      0,
+      0.6501650165016503,
+      0.9446380520286602,
+      0.9979279686558168,
+      -0.00029720908214004774
+    ],
+    "arm": "unweighted",
+    "seed": 2,
+    "gate": {
+      "job": {
+        "name": "unweighted_gate_s2",
+        "kind": "gate",
+        "width": 96,
+        "seed": 2,
+        "arm": "unweighted"
+      },
+      "epoch": 40,
+      "checkpoint": "runs/phone_repair_v3/jobs/unweighted_gate_s2/epoch_40.pt",
+      "checkpoint_sha256": "1dc879f196fb444e29ee347646c9790c4da86777ba0cea184db10ab58016fc4e",
+      "validation_logits": "runs/phone_repair_v3/jobs/unweighted_gate_s2/validation_logits_40.npy"
+    },
+    "diagnosis": {
+      "job": {
+        "name": "unweighted_diagnosis_s2",
+        "kind": "diagnosis",
+        "width": 64,
+        "seed": 2,
+        "arm": "unweighted"
+      },
+      "epoch": 39,
+      "checkpoint": "runs/phone_repair_v3/jobs/unweighted_diagnosis_s2/epoch_39.pt",
+      "checkpoint_sha256": "15de669f8eb267955ddf4b13dd48412ab629e6579bfe24665a7b3a03d49a197b",
+      "validation_logits": "runs/phone_repair_v3/jobs/unweighted_diagnosis_s2/validation_logits_39.npy"
+    },
+    "gate_calibration": {
+      "scale": 0.7398917078971863,
+      "bias": [
+        -0.5505730509757996
+      ],
+      "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+    },
+    "diagnosis_calibration": {
+      "scale": 0.76264488697052,
+      "bias": [
+        0.007212234195321798,
+        -0.5133340954780579,
+        -0.1593630611896515,
+        -0.1743832230567932,
+        0.8812562823295593,
+        0.29436302185058594,
+        -0.3357727527618408
+      ],
+      "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+    }
+  },
+  "finalists": [
+    {
+      "policy": {
+        "low": 0.1,
+        "high": 0.43437832593917847,
+        "review_accept": 0.9,
+        "type_cutoff": 0.5
+      },
+      "metrics": {
+        "binary": {
+          "tp": 79546,
+          "fp": 358,
+          "fn": 84,
+          "tn": 561536,
+          "precision": 0.995519623548258,
+          "recall": 0.9989451211854828,
+          "f1": 0.9972294307169631,
+          "benign_fpr": 0.0006371308467433359,
+          "class_attack_recall": {
+            "Bot": 0.8253012048192772,
+            "Brute Force": 1.0,
+            "DDoS": 0.9978535924084952,
+            "DoS": 0.9999337455830388,
+            "Port Scan": 0.999832327297116,
+            "Web Attack": 1.0
+          }
+        },
+        "classwise": {
+          "Benign": {
+            "precision": 0.999850432676899,
+            "recall": 0.9993628691532567,
+            "f1-score": 0.9996065914621447,
+            "support": 561894
+          },
+          "Bot": {
+            "precision": 0.7964601769911505,
+            "recall": 0.5421686746987951,
+            "f1-score": 0.6451612903225806,
+            "support": 332
+          },
+          "Brute Force": {
+            "precision": 1.0,
+            "recall": 0.9991883116883117,
+            "f1-score": 0.9995939910678034,
+            "support": 1232
+          },
+          "DDoS": {
+            "precision": 0.9958154263741235,
+            "recall": 0.9946904654315409,
+            "f1-score": 0.9952526280094948,
+            "support": 8852
+          },
+          "DoS": {
+            "precision": 0.9990291262135922,
+            "recall": 0.9999116607773851,
+            "f1-score": 0.9994701986754967,
+            "support": 45280
+          },
+          "Port Scan": {
+            "precision": 1.0,
+            "recall": 0.9971076458752515,
+            "f1-score": 0.9985517284805743,
+            "support": 23856
+          },
+          "Web Attack": {
+            "precision": 1.0,
+            "recall": 0.9230769230769231,
+            "f1-score": 0.96,
+            "support": 78
+          }
+        },
+        "macro_f1": 0.9425194897168707,
+        "typed_accuracy": 0.9990070519575261,
+        "source_benign_fpr": {
+          "Monday": 0.0,
+          "Tuesday": 0.0,
+          "Wednesday": 0.0006825839433019635,
+          "Thursday": 0.00010337787196650557,
+          "Friday": 0.004787200203575291,
+          "PARROT": 0.0,
+          "AAGM": 3.4419853371424635e-05
+        },
+        "confusion_with_unknown": [
+          [
+            561536,
+            46,
+            0,
+            37,
+            44,
+            0,
+            0,
+            231
+          ],
+          [
+            58,
+            180,
+            0,
+            0,
+            0,
+            0,
+            0,
+            94
+          ],
+          [
+            0,
+            0,
+            1231,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            19,
+            0,
+            0,
+            8805,
+            0,
+            0,
+            0,
+            28
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            45276,
+            0,
+            0,
+            1
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            23787,
+            0,
+            65
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            72,
+            6
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "routing_fraction": 0.1250070145466109,
+        "unknown_flagged": 426,
+        "eligible": false,
+        "rank": [
+          0,
+          0.6451612903225806,
+          0.9425194897168707,
+          0.9972294307169631,
+          -0.0006371308467433359
+        ]
+      },
+      "comparison": {
+        "better": false,
+        "failed_comparison_checks": [
+          "macro_f1_gain",
+          "Bot_typed_recall_regression",
+          "Bot_binary_recall_regression"
+        ]
+      },
+      "selection_rank": [
+        0,
+        0,
+        0.6451612903225806,
+        0.9425194897168707,
+        0.9972294307169631,
+        -0.0006371308467433359
+      ],
+      "arm": "unweighted",
+      "seed": 0,
+      "gate": {
+        "job": {
+          "name": "unweighted_gate_s0",
+          "kind": "gate",
+          "width": 96,
+          "seed": 0,
+          "arm": "unweighted"
+        },
+        "epoch": 23,
+        "checkpoint": "runs/phone_repair_v3/jobs/unweighted_gate_s0/epoch_23.pt",
+        "checkpoint_sha256": "e3bf949c6d0b1f20aefe8f43ca029663d9b8d20e5bcba572d7490e97113e3d9d",
+        "validation_logits": "runs/phone_repair_v3/jobs/unweighted_gate_s0/validation_logits_23.npy"
+      },
+      "diagnosis": {
+        "job": {
+          "name": "unweighted_diagnosis_s0",
+          "kind": "diagnosis",
+          "width": 64,
+          "seed": 0,
+          "arm": "unweighted"
+        },
+        "epoch": 26,
+        "checkpoint": "runs/phone_repair_v3/jobs/unweighted_diagnosis_s0/epoch_26.pt",
+        "checkpoint_sha256": "e66caf708dd5a93cbf02445c4c6fd08ddd29e1a6a4ca2ab2a7ebe58b2ef4396b",
+        "validation_logits": "runs/phone_repair_v3/jobs/unweighted_diagnosis_s0/validation_logits_26.npy"
+      },
+      "gate_calibration": {
+        "scale": 0.8863893747329712,
+        "bias": [
+          0.24991659820079803
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      },
+      "diagnosis_calibration": {
+        "scale": 0.7352946400642395,
+        "bias": [
+          0.40171098709106445,
+          0.14428643882274628,
+          0.28010809421539307,
+          0.6922547221183777,
+          0.44253358244895935,
+          -1.8326901197433472,
+          -0.12824036180973053
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      }
+    },
+    {
+      "policy": {
+        "low": 0.1,
+        "high": 0.4040327207595166,
+        "review_accept": 0.9,
+        "type_cutoff": 0.5
+      },
+      "metrics": {
+        "binary": {
+          "tp": 79518,
+          "fp": 283,
+          "fn": 112,
+          "tn": 561611,
+          "precision": 0.9964536785253317,
+          "recall": 0.9985934949139772,
+          "f1": 0.9975224391743136,
+          "benign_fpr": 0.0005036537140457097,
+          "class_attack_recall": {
+            "Bot": 0.7439759036144579,
+            "Brute Force": 1.0,
+            "DDoS": 0.9975146859466787,
+            "DoS": 0.9999558303886926,
+            "Port Scan": 0.999874245472837,
+            "Web Attack": 1.0
+          }
+        },
+        "classwise": {
+          "Benign": {
+            "precision": 0.9998006134696282,
+            "recall": 0.9994963462859543,
+            "f1-score": 0.9996484567250229,
+            "support": 561894
+          },
+          "Bot": {
+            "precision": 0.8274111675126904,
+            "recall": 0.49096385542168675,
+            "f1-score": 0.6162570888468809,
+            "support": 332
+          },
+          "Brute Force": {
+            "precision": 0.9991889699918897,
+            "recall": 1.0,
+            "f1-score": 0.9995943204868154,
+            "support": 1232
+          },
+          "DDoS": {
+            "precision": 0.9944713979465193,
+            "recall": 0.9957071848169905,
+            "f1-score": 0.9950889077053344,
+            "support": 8852
+          },
+          "DoS": {
+            "precision": 0.9990731341307322,
+            "recall": 0.9998233215547703,
+            "f1-score": 0.9994480870697838,
+            "support": 45280
+          },
+          "Port Scan": {
+            "precision": 1.0,
+            "recall": 0.9995808182427901,
+            "f1-score": 0.9997903651838498,
+            "support": 23856
+          },
+          "Web Attack": {
+            "precision": 1.0,
+            "recall": 0.8846153846153846,
+            "f1-score": 0.9387755102040817,
+            "support": 78
+          }
+        },
+        "macro_f1": 0.9355146766031098,
+        "typed_accuracy": 0.9991941065338164,
+        "source_benign_fpr": {
+          "Monday": 0.0,
+          "Tuesday": 0.0,
+          "Wednesday": 0.0006535378180550714,
+          "Thursday": 0.00011630010596231876,
+          "Friday": 0.0034671416756791146,
+          "PARROT": 6.521285475792988e-05,
+          "AAGM": 1.7209926685712318e-05
+        },
+        "confusion_with_unknown": [
+          [
+            561611,
+            34,
+            1,
+            49,
+            42,
+            0,
+            0,
+            157
+          ],
+          [
+            85,
+            163,
+            0,
+            0,
+            0,
+            0,
+            0,
+            84
+          ],
+          [
+            0,
+            0,
+            1232,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            22,
+            0,
+            0,
+            8814,
+            0,
+            0,
+            0,
+            16
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            45272,
+            0,
+            0,
+            6
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            0,
+            23846,
+            0,
+            7
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            69,
+            9
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "routing_fraction": 0.12514574669069278,
+        "unknown_flagged": 279,
+        "eligible": false,
+        "rank": [
+          0,
+          0.6162570888468809,
+          0.9355146766031098,
+          0.9975224391743136,
+          -0.0005036537140457097
+        ]
+      },
+      "comparison": {
+        "better": false,
+        "failed_comparison_checks": [
+          "macro_f1_gain",
+          "Bot_typed_recall_regression",
+          "Web Attack_typed_recall_regression",
+          "Bot_binary_recall_regression"
+        ]
+      },
+      "selection_rank": [
+        0,
+        0,
+        0.6162570888468809,
+        0.9355146766031098,
+        0.9975224391743136,
+        -0.0005036537140457097
+      ],
+      "arm": "unweighted",
+      "seed": 1,
+      "gate": {
+        "job": {
+          "name": "unweighted_gate_s1",
+          "kind": "gate",
+          "width": 96,
+          "seed": 1,
+          "arm": "unweighted"
+        },
+        "epoch": 40,
+        "checkpoint": "runs/phone_repair_v3/jobs/unweighted_gate_s1/epoch_40.pt",
+        "checkpoint_sha256": "6d2dd71ded0ff113569331339b769a3687eda07560932f682d32a43c17fd9deb",
+        "validation_logits": "runs/phone_repair_v3/jobs/unweighted_gate_s1/validation_logits_40.npy"
+      },
+      "diagnosis": {
+        "job": {
+          "name": "unweighted_diagnosis_s1",
+          "kind": "diagnosis",
+          "width": 64,
+          "seed": 1,
+          "arm": "unweighted"
+        },
+        "epoch": 30,
+        "checkpoint": "runs/phone_repair_v3/jobs/unweighted_diagnosis_s1/epoch_30.pt",
+        "checkpoint_sha256": "37256b97fd0adeb371c9cc6b55f7dcd04efd558a495f3ea36ea234e180557c77",
+        "validation_logits": "runs/phone_repair_v3/jobs/unweighted_diagnosis_s1/validation_logits_30.npy"
+      },
+      "gate_calibration": {
+        "scale": 0.7008407115936279,
+        "bias": [
+          -0.07565826922655106
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      },
+      "diagnosis_calibration": {
+        "scale": 0.6730334162712097,
+        "bias": [
+          0.33778056502342224,
+          0.1838560700416565,
+          -0.23191870748996735,
+          0.28049296140670776,
+          1.6245026588439941,
+          -1.8241406679153442,
+          -0.37060123682022095
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      }
+    },
+    {
+      "policy": {
+        "low": 0.1,
+        "high": 0.99,
+        "review_accept": 0.5,
+        "type_cutoff": 0.5
+      },
+      "metrics": {
+        "binary": {
+          "tp": 79467,
+          "fp": 167,
+          "fn": 163,
+          "tn": 561727,
+          "precision": 0.9979029057940075,
+          "recall": 0.9979530327765918,
+          "f1": 0.9979279686558168,
+          "benign_fpr": 0.00029720908214004774,
+          "class_attack_recall": {
+            "Bot": 0.5933734939759037,
+            "Brute Force": 1.0,
+            "DDoS": 0.9978535924084952,
+            "DoS": 0.9999558303886926,
+            "Port Scan": 0.999874245472837,
+            "Web Attack": 0.9487179487179487
+          }
+        },
+        "classwise": {
+          "Benign": {
+            "precision": 0.9997099076331666,
+            "recall": 0.99970279091786,
+            "f1-score": 0.9997063492628476,
+            "support": 561894
+          },
+          "Bot": {
+            "precision": 0.718978102189781,
+            "recall": 0.5933734939759037,
+            "f1-score": 0.6501650165016502,
+            "support": 332
+          },
+          "Brute Force": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 1232
+          },
+          "DDoS": {
+            "precision": 0.9949301487156377,
+            "recall": 0.9976276547672842,
+            "f1-score": 0.9962770758122743,
+            "support": 8852
+          },
+          "DoS": {
+            "precision": 0.9990732568402472,
+            "recall": 0.9999558303886926,
+            "f1-score": 0.999514348785872,
+            "support": 45280
+          },
+          "Port Scan": {
+            "precision": 1.0,
+            "recall": 0.999832327297116,
+            "f1-score": 0.9999161566194349,
+            "support": 23856
+          },
+          "Web Attack": {
+            "precision": 1.0,
+            "recall": 0.9358974358974359,
+            "f1-score": 0.9668874172185431,
+            "support": 78
+          }
+        },
+        "macro_f1": 0.9446380520286602,
+        "typed_accuracy": 0.999479364762659,
+        "source_benign_fpr": {
+          "Monday": 0.0,
+          "Tuesday": 0.0,
+          "Wednesday": 0.0006099686301847334,
+          "Thursday": 1.2922233995813197e-05,
+          "Friday": 0.0019562313124244545,
+          "PARROT": 0.0,
+          "AAGM": 1.7209926685712318e-05
+        },
+        "confusion_with_unknown": [
+          [
+            561727,
+            77,
+            0,
+            45,
+            42,
+            0,
+            0,
+            3
+          ],
+          [
+            135,
+            197,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1232,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            19,
+            0,
+            0,
+            8831,
+            0,
+            0,
+            0,
+            2
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            45278,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            0,
+            23852,
+            0,
+            1
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            73,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "routing_fraction": 0.1251161297161135,
+        "unknown_flagged": 7,
+        "eligible": false,
+        "rank": [
+          0,
+          0.6501650165016503,
+          0.9446380520286602,
+          0.9979279686558168,
+          -0.00029720908214004774
+        ]
+      },
+      "comparison": {
+        "better": false,
+        "failed_comparison_checks": [
+          "macro_f1_gain",
+          "Bot_typed_recall_regression",
+          "Bot_binary_recall_regression",
+          "Web Attack_binary_recall_regression"
+        ]
+      },
+      "selection_rank": [
+        0,
+        0,
+        0.6501650165016503,
+        0.9446380520286602,
+        0.9979279686558168,
+        -0.00029720908214004774
+      ],
+      "arm": "unweighted",
+      "seed": 2,
+      "gate": {
+        "job": {
+          "name": "unweighted_gate_s2",
+          "kind": "gate",
+          "width": 96,
+          "seed": 2,
+          "arm": "unweighted"
+        },
+        "epoch": 40,
+        "checkpoint": "runs/phone_repair_v3/jobs/unweighted_gate_s2/epoch_40.pt",
+        "checkpoint_sha256": "1dc879f196fb444e29ee347646c9790c4da86777ba0cea184db10ab58016fc4e",
+        "validation_logits": "runs/phone_repair_v3/jobs/unweighted_gate_s2/validation_logits_40.npy"
+      },
+      "diagnosis": {
+        "job": {
+          "name": "unweighted_diagnosis_s2",
+          "kind": "diagnosis",
+          "width": 64,
+          "seed": 2,
+          "arm": "unweighted"
+        },
+        "epoch": 39,
+        "checkpoint": "runs/phone_repair_v3/jobs/unweighted_diagnosis_s2/epoch_39.pt",
+        "checkpoint_sha256": "15de669f8eb267955ddf4b13dd48412ab629e6579bfe24665a7b3a03d49a197b",
+        "validation_logits": "runs/phone_repair_v3/jobs/unweighted_diagnosis_s2/validation_logits_39.npy"
+      },
+      "gate_calibration": {
+        "scale": 0.7398917078971863,
+        "bias": [
+          -0.5505730509757996
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      },
+      "diagnosis_calibration": {
+        "scale": 0.76264488697052,
+        "bias": [
+          0.007212234195321798,
+          -0.5133340954780579,
+          -0.1593630611896515,
+          -0.1743832230567932,
+          0.8812562823295593,
+          0.29436302185058594,
+          -0.3357727527618408
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      }
+    },
+    {
+      "policy": {
+        "low": 0.1,
+        "high": 0.556011706084015,
+        "review_accept": 0.9,
+        "type_cutoff": 0.5
+      },
+      "metrics": {
+        "binary": {
+          "tp": 79506,
+          "fp": 281,
+          "fn": 124,
+          "tn": 561613,
+          "precision": 0.9964781230024942,
+          "recall": 0.9984427979404747,
+          "f1": 0.9974594930277197,
+          "benign_fpr": 0.0005000943238404397,
+          "class_attack_recall": {
+            "Bot": 0.7108433734939759,
+            "Brute Force": 1.0,
+            "DDoS": 0.9972887483054677,
+            "DoS": 0.9999779151943463,
+            "Port Scan": 0.999874245472837,
+            "Web Attack": 1.0
+          }
+        },
+        "classwise": {
+          "Benign": {
+            "precision": 0.9997792561287577,
+            "recall": 0.9994999056761595,
+            "f1-score": 0.9996395613862558,
+            "support": 561894
+          },
+          "Bot": {
+            "precision": 0.7399103139013453,
+            "recall": 0.49698795180722893,
+            "f1-score": 0.5945945945945946,
+            "support": 332
+          },
+          "Brute Force": {
+            "precision": 1.0,
+            "recall": 0.9991883116883117,
+            "f1-score": 0.9995939910678034,
+            "support": 1232
+          },
+          "DDoS": {
+            "precision": 0.9975115937111186,
+            "recall": 0.9962720289200181,
+            "f1-score": 0.9968914259876788,
+            "support": 8852
+          },
+          "DoS": {
+            "precision": 0.9990732363909177,
+            "recall": 0.9999337455830388,
+            "f1-score": 0.999503305776002,
+            "support": 45280
+          },
+          "Port Scan": {
+            "precision": 1.0,
+            "recall": 0.999790409121395,
+            "f1-score": 0.9998951935774625,
+            "support": 23856
+          },
+          "Web Attack": {
+            "precision": 0.987012987012987,
+            "recall": 0.9743589743589743,
+            "f1-score": 0.9806451612903225,
+            "support": 78
+          }
+        },
+        "macro_f1": 0.9386804619543029,
+        "typed_accuracy": 0.9992330762372101,
+        "source_benign_fpr": {
+          "Monday": 0.0,
+          "Tuesday": 1.527277170260859e-05,
+          "Wednesday": 0.0006099686301847334,
+          "Thursday": 0.00014214457395394516,
+          "Friday": 0.003546663273745149,
+          "PARROT": 6.5212854757929885e-06,
+          "AAGM": 5.162978005713696e-05
+        },
+        "confusion_with_unknown": [
+          [
+            561613,
+            58,
+            0,
+            22,
+            42,
+            0,
+            1,
+            158
+          ],
+          [
+            96,
+            165,
+            0,
+            0,
+            0,
+            0,
+            0,
+            71
+          ],
+          [
+            0,
+            0,
+            1231,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            24,
+            0,
+            0,
+            8819,
+            0,
+            0,
+            0,
+            9
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            45277,
+            0,
+            0,
+            2
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            0,
+            23851,
+            0,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            76,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "routing_fraction": 0.12523615640256638,
+        "unknown_flagged": 245,
+        "eligible": false,
+        "rank": [
+          0,
+          0.5945945945945946,
+          0.9386804619543029,
+          0.9974594930277197,
+          -0.0005000943238404397
+        ]
+      },
+      "comparison": {
+        "better": false,
+        "failed_comparison_checks": [
+          "macro_f1_gain",
+          "Bot_typed_recall_regression",
+          "Web Attack_typed_precision_regression",
+          "Bot_binary_recall_regression"
+        ]
+      },
+      "selection_rank": [
+        0,
+        0,
+        0.5945945945945946,
+        0.9386804619543029,
+        0.9974594930277197,
+        -0.0005000943238404397
+      ],
+      "arm": "moderate",
+      "seed": 0,
+      "gate": {
+        "job": {
+          "name": "moderate_gate_s0",
+          "kind": "gate",
+          "width": 96,
+          "seed": 0,
+          "arm": "moderate"
+        },
+        "epoch": 29,
+        "checkpoint": "runs/phone_repair_v3/jobs/moderate_gate_s0/epoch_29.pt",
+        "checkpoint_sha256": "1e80787c671cf53c62db4b7f901ccac7d8111b54755cd45854c34485ec6e4728",
+        "validation_logits": "runs/phone_repair_v3/jobs/moderate_gate_s0/validation_logits_29.npy"
+      },
+      "diagnosis": {
+        "job": {
+          "name": "moderate_diagnosis_s0",
+          "kind": "diagnosis",
+          "width": 64,
+          "seed": 0,
+          "arm": "moderate"
+        },
+        "epoch": 37,
+        "checkpoint": "runs/phone_repair_v3/jobs/moderate_diagnosis_s0/epoch_37.pt",
+        "checkpoint_sha256": "1d384fbf846fa2eb956b9a03dfd3cc20ab6f4dfae89bc58e03b1e942b1c77b89",
+        "validation_logits": "runs/phone_repair_v3/jobs/moderate_diagnosis_s0/validation_logits_37.npy"
+      },
+      "gate_calibration": {
+        "scale": 0.7169082760810852,
+        "bias": [
+          -0.10685359686613083
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      },
+      "diagnosis_calibration": {
+        "scale": 0.7295727729797363,
+        "bias": [
+          0.352308452129364,
+          -0.4902735650539398,
+          0.10386920720338821,
+          0.5700244903564453,
+          0.7845765948295593,
+          -0.9451048970222473,
+          -0.375410258769989
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      }
+    },
+    {
+      "policy": {
+        "low": 0.0005123314331285655,
+        "high": 0.42690576672554553,
+        "review_accept": 0.9,
+        "type_cutoff": 0.5
+      },
+      "metrics": {
+        "binary": {
+          "tp": 79527,
+          "fp": 285,
+          "fn": 103,
+          "tn": 561609,
+          "precision": 0.9964291084047512,
+          "recall": 0.998706517644104,
+          "f1": 0.9975665132148367,
+          "benign_fpr": 0.0005072131042509798,
+          "class_attack_recall": {
+            "Bot": 0.7740963855421686,
+            "Brute Force": 1.0,
+            "DDoS": 0.9977406235878897,
+            "DoS": 0.9999337455830388,
+            "Port Scan": 0.999874245472837,
+            "Web Attack": 0.9743589743589743
+          }
+        },
+        "classwise": {
+          "Benign": {
+            "precision": 0.9998166320107101,
+            "recall": 0.999492786895749,
+            "f1-score": 0.9996546832252586,
+            "support": 561894
+          },
+          "Bot": {
+            "precision": 0.8288770053475936,
+            "recall": 0.46686746987951805,
+            "f1-score": 0.5973025048169557,
+            "support": 332
+          },
+          "Brute Force": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 1232
+          },
+          "DDoS": {
+            "precision": 0.9942385901491189,
+            "recall": 0.9942385901491189,
+            "f1-score": 0.9942385901491189,
+            "support": 8852
+          },
+          "DoS": {
+            "precision": 0.9990732159406858,
+            "recall": 0.9999116607773851,
+            "f1-score": 0.9994922625223515,
+            "support": 45280
+          },
+          "Port Scan": {
+            "precision": 1.0,
+            "recall": 0.999664654594232,
+            "f1-score": 0.999832299178266,
+            "support": 23856
+          },
+          "Web Attack": {
+            "precision": 1.0,
+            "recall": 0.9230769230769231,
+            "f1-score": 0.96,
+            "support": 78
+          }
+        },
+        "macro_f1": 0.9357886199845644,
+        "typed_accuracy": 0.9991722834999158,
+        "source_benign_fpr": {
+          "Monday": 0.0,
+          "Tuesday": 0.0,
+          "Wednesday": 0.0006244916928081793,
+          "Thursday": 0.00012922233995813198,
+          "Friday": 0.003642089191424391,
+          "PARROT": 1.3042570951585977e-05,
+          "AAGM": 1.7209926685712318e-05
+        },
+        "confusion_with_unknown": [
+          [
+            561609,
+            32,
+            0,
+            51,
+            42,
+            0,
+            0,
+            160
+          ],
+          [
+            75,
+            155,
+            0,
+            0,
+            0,
+            0,
+            0,
+            102
+          ],
+          [
+            0,
+            0,
+            1232,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            8801,
+            0,
+            0,
+            0,
+            31
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            45276,
+            0,
+            0,
+            1
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            0,
+            23848,
+            0,
+            5
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            72,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "routing_fraction": 0.13288201220842868,
+        "unknown_flagged": 303,
+        "eligible": false,
+        "rank": [
+          0,
+          0.5973025048169557,
+          0.9357886199845644,
+          0.9975665132148367,
+          -0.0005072131042509798
+        ]
+      },
+      "comparison": {
+        "better": false,
+        "failed_comparison_checks": [
+          "macro_f1_gain",
+          "Bot_typed_recall_regression",
+          "Bot_binary_recall_regression",
+          "Web Attack_binary_recall_regression"
+        ]
+      },
+      "selection_rank": [
+        0,
+        0,
+        0.5973025048169557,
+        0.9357886199845644,
+        0.9975665132148367,
+        -0.0005072131042509798
+      ],
+      "arm": "moderate",
+      "seed": 1,
+      "gate": {
+        "job": {
+          "name": "moderate_gate_s1",
+          "kind": "gate",
+          "width": 96,
+          "seed": 1,
+          "arm": "moderate"
+        },
+        "epoch": 40,
+        "checkpoint": "runs/phone_repair_v3/jobs/moderate_gate_s1/epoch_40.pt",
+        "checkpoint_sha256": "d4bae7d4e2ecfb1c62e3baf0bda758d7154b0e103fa469f453a84638bd570421",
+        "validation_logits": "runs/phone_repair_v3/jobs/moderate_gate_s1/validation_logits_40.npy"
+      },
+      "diagnosis": {
+        "job": {
+          "name": "moderate_diagnosis_s1",
+          "kind": "diagnosis",
+          "width": 64,
+          "seed": 1,
+          "arm": "moderate"
+        },
+        "epoch": 33,
+        "checkpoint": "runs/phone_repair_v3/jobs/moderate_diagnosis_s1/epoch_33.pt",
+        "checkpoint_sha256": "e2addaf4355de896b777199edc62f17ec573e2cbdf7bfa5dfc318252d533707e",
+        "validation_logits": "runs/phone_repair_v3/jobs/moderate_diagnosis_s1/validation_logits_33.npy"
+      },
+      "gate_calibration": {
+        "scale": 0.7878875136375427,
+        "bias": [
+          -0.6684653162956238
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      },
+      "diagnosis_calibration": {
+        "scale": 0.8104262351989746,
+        "bias": [
+          0.6712625026702881,
+          -0.10695938766002655,
+          0.09701472520828247,
+          0.17351530492305756,
+          0.8680121898651123,
+          -1.1502305269241333,
+          -0.5526272654533386
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      }
+    },
+    {
+      "policy": {
+        "low": 0.1,
+        "high": 0.7071389529407033,
+        "review_accept": 0.9,
+        "type_cutoff": 0.5
+      },
+      "metrics": {
+        "binary": {
+          "tp": 79524,
+          "fp": 281,
+          "fn": 106,
+          "tn": 561613,
+          "precision": 0.9964789173610676,
+          "recall": 0.9986688434007284,
+          "f1": 0.9975726785210274,
+          "benign_fpr": 0.0005000943238404397,
+          "class_attack_recall": {
+            "Bot": 0.8343373493975904,
+            "Brute Force": 1.0,
+            "DDoS": 0.9950293718933574,
+            "DoS": 0.9999337455830388,
+            "Port Scan": 0.9999161636485581,
+            "Web Attack": 0.9743589743589743
+          }
+        },
+        "classwise": {
+          "Benign": {
+            "precision": 0.9998112935471294,
+            "recall": 0.9994999056761595,
+            "f1-score": 0.9996555753626916,
+            "support": 561894
+          },
+          "Bot": {
+            "precision": 0.7702127659574468,
+            "recall": 0.5451807228915663,
+            "f1-score": 0.6384479717813051,
+            "support": 332
+          },
+          "Brute Force": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 1232
+          },
+          "DDoS": {
+            "precision": 0.9977324263038548,
+            "recall": 0.9941256213285133,
+            "f1-score": 0.9959257582616569,
+            "support": 8852
+          },
+          "DoS": {
+            "precision": 0.9990732159406858,
+            "recall": 0.9999116607773851,
+            "f1-score": 0.9994922625223515,
+            "support": 45280
+          },
+          "Port Scan": {
+            "precision": 1.0,
+            "recall": 0.999832327297116,
+            "f1-score": 0.9999161566194349,
+            "support": 23856
+          },
+          "Web Attack": {
+            "precision": 1.0,
+            "recall": 0.9743589743589743,
+            "f1-score": 0.987012987012987,
+            "support": 78
+          }
+        },
+        "macro_f1": 0.9457786730800609,
+        "typed_accuracy": 0.9992299586609387,
+        "source_benign_fpr": {
+          "Monday": 0.0,
+          "Tuesday": 0.0,
+          "Wednesday": 0.0006099686301847334,
+          "Thursday": 3.876670198743959e-05,
+          "Friday": 0.0037216107894904255,
+          "PARROT": 6.5212854757929885e-06,
+          "AAGM": 1.7209926685712318e-05
+        },
+        "confusion_with_unknown": [
+          [
+            561613,
+            54,
+            0,
+            20,
+            42,
+            0,
+            0,
+            165
+          ],
+          [
+            55,
+            181,
+            0,
+            0,
+            0,
+            0,
+            0,
+            96
+          ],
+          [
+            0,
+            0,
+            1232,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            44,
+            0,
+            0,
+            8800,
+            0,
+            0,
+            0,
+            8
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            45276,
+            0,
+            0,
+            1
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            23852,
+            0,
+            2
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            76,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "routing_fraction": 0.1258596716568671,
+        "unknown_flagged": 272,
+        "eligible": false,
+        "rank": [
+          0,
+          0.6384479717813052,
+          0.9457786730800609,
+          0.9975726785210274,
+          -0.0005000943238404397
+        ]
+      },
+      "comparison": {
+        "better": false,
+        "failed_comparison_checks": [
+          "macro_f1_gain",
+          "Bot_typed_recall_regression",
+          "Bot_binary_recall_regression",
+          "Web Attack_binary_recall_regression"
+        ]
+      },
+      "selection_rank": [
+        0,
+        0,
+        0.6384479717813052,
+        0.9457786730800609,
+        0.9975726785210274,
+        -0.0005000943238404397
+      ],
+      "arm": "moderate",
+      "seed": 2,
+      "gate": {
+        "job": {
+          "name": "moderate_gate_s2",
+          "kind": "gate",
+          "width": 96,
+          "seed": 2,
+          "arm": "moderate"
+        },
+        "epoch": 38,
+        "checkpoint": "runs/phone_repair_v3/jobs/moderate_gate_s2/epoch_38.pt",
+        "checkpoint_sha256": "323267d71598899c9378f598059c80bc0f2020df022c23a8e62f77c2199fae65",
+        "validation_logits": "runs/phone_repair_v3/jobs/moderate_gate_s2/validation_logits_38.npy"
+      },
+      "diagnosis": {
+        "job": {
+          "name": "moderate_diagnosis_s2",
+          "kind": "diagnosis",
+          "width": 64,
+          "seed": 2,
+          "arm": "moderate"
+        },
+        "epoch": 26,
+        "checkpoint": "runs/phone_repair_v3/jobs/moderate_diagnosis_s2/epoch_26.pt",
+        "checkpoint_sha256": "965e2639dcc71cbdbc3dbd07a6d39adb85a54adc2a4debd7b45f6e3fb140310f",
+        "validation_logits": "runs/phone_repair_v3/jobs/moderate_diagnosis_s2/validation_logits_26.npy"
+      },
+      "gate_calibration": {
+        "scale": 0.5575740337371826,
+        "bias": [
+          0.5633627772331238
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      },
+      "diagnosis_calibration": {
+        "scale": 0.7740312218666077,
+        "bias": [
+          0.18614032864570618,
+          -0.8334386348724365,
+          -0.09793838113546371,
+          0.40335097908973694,
+          0.7488564848899841,
+          -0.10832738131284714,
+          -0.29865217208862305
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      }
+    },
+    {
+      "policy": {
+        "low": 0.00048646493814885616,
+        "high": 0.35987117609390873,
+        "review_accept": 0.9,
+        "type_cutoff": 0.5
+      },
+      "metrics": {
+        "binary": {
+          "tp": 79416,
+          "fp": 285,
+          "fn": 214,
+          "tn": 561609,
+          "precision": 0.9964241352053299,
+          "recall": 0.9973125706392063,
+          "f1": 0.9968681549729808,
+          "benign_fpr": 0.0005072131042509798,
+          "class_attack_recall": {
+            "Bot": 0.463855421686747,
+            "Brute Force": 1.0,
+            "DDoS": 0.9968368730230457,
+            "DoS": 0.9999116607773851,
+            "Port Scan": 0.9999161636485581,
+            "Web Attack": 0.9743589743589743
+          }
+        },
+        "classwise": {
+          "Benign": {
+            "precision": 0.9996190971177755,
+            "recall": 0.999492786895749,
+            "f1-score": 0.9995559380164223,
+            "support": 561894
+          },
+          "Bot": {
+            "precision": 0.9058823529411765,
+            "recall": 0.463855421686747,
+            "f1-score": 0.6135458167330677,
+            "support": 332
+          },
+          "Brute Force": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 1232
+          },
+          "DDoS": {
+            "precision": 0.9972748949699103,
+            "recall": 0.9922051513782196,
+            "f1-score": 0.9947335636219492,
+            "support": 8852
+          },
+          "DoS": {
+            "precision": 0.9990951224895167,
+            "recall": 0.9997570671378092,
+            "f1-score": 0.9994259852080803,
+            "support": 45280
+          },
+          "Port Scan": {
+            "precision": 1.0,
+            "recall": 0.9999161636485581,
+            "f1-score": 0.9999580800670719,
+            "support": 23856
+          },
+          "Web Attack": {
+            "precision": 1.0,
+            "recall": 0.9102564102564102,
+            "f1-score": 0.9530201342281879,
+            "support": 78
+          }
+        },
+        "macro_f1": 0.9371770739821113,
+        "typed_accuracy": 0.9991395489490651,
+        "source_benign_fpr": {
+          "Monday": 1.3183915622940014e-05,
+          "Tuesday": 0.0,
+          "Wednesday": 0.0006971070059254096,
+          "Thursday": 3.876670198743959e-05,
+          "Friday": 0.0034194287168394935,
+          "PARROT": 0.0001108618530884808,
+          "AAGM": 1.7209926685712318e-05
+        },
+        "confusion_with_unknown": [
+          [
+            561609,
+            16,
+            0,
+            24,
+            41,
+            0,
+            0,
+            204
+          ],
+          [
+            178,
+            154,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1232,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            28,
+            0,
+            0,
+            8783,
+            0,
+            0,
+            0,
+            41
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            45269,
+            0,
+            0,
+            7
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            23854,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            71,
+            5
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "routing_fraction": 0.13288045342029292,
+        "unknown_flagged": 257,
+        "eligible": false,
+        "rank": [
+          0,
+          0.6135458167330679,
+          0.9371770739821113,
+          0.9968681549729808,
+          -0.0005072131042509798
+        ]
+      },
+      "comparison": {
+        "better": false,
+        "failed_comparison_checks": [
+          "macro_f1_gain",
+          "Bot_typed_recall_regression",
+          "Bot_binary_recall_regression",
+          "Web Attack_binary_recall_regression"
+        ]
+      },
+      "selection_rank": [
+        0,
+        0,
+        0.6135458167330679,
+        0.9371770739821113,
+        0.9968681549729808,
+        -0.0005072131042509798
+      ],
+      "arm": "hard_benign",
+      "seed": 0,
+      "gate": {
+        "job": {
+          "name": "hard_benign_gate_s0",
+          "kind": "gate",
+          "width": 96,
+          "seed": 0,
+          "arm": "hard_benign"
+        },
+        "epoch": 20,
+        "checkpoint": "runs/phone_repair_v3/jobs/hard_benign_gate_s0/epoch_20.pt",
+        "checkpoint_sha256": "19373b31c59103f7aa3e0a9c95fcf48bb2f2ec7b5f1d7c6aed9ccd9ab5c2fb32",
+        "validation_logits": "runs/phone_repair_v3/jobs/hard_benign_gate_s0/validation_logits_20.npy"
+      },
+      "diagnosis": {
+        "job": {
+          "name": "hard_benign_diagnosis_s0",
+          "kind": "diagnosis",
+          "width": 64,
+          "seed": 0,
+          "arm": "hard_benign"
+        },
+        "epoch": 36,
+        "checkpoint": "runs/phone_repair_v3/jobs/hard_benign_diagnosis_s0/epoch_36.pt",
+        "checkpoint_sha256": "10c9973da3c4c3a4bae80f6824c44f1b87543ee836a44519eb58ca5d747706cd",
+        "validation_logits": "runs/phone_repair_v3/jobs/hard_benign_diagnosis_s0/validation_logits_36.npy"
+      },
+      "gate_calibration": {
+        "scale": 0.8577150702476501,
+        "bias": [
+          0.7955122590065002
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      },
+      "diagnosis_calibration": {
+        "scale": 0.5853435397148132,
+        "bias": [
+          -0.7742969393730164,
+          0.061403539031744,
+          0.06319182366132736,
+          -0.227910578250885,
+          1.2220104932785034,
+          -0.17104585468769073,
+          -0.17336827516555786
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      }
+    },
+    {
+      "policy": {
+        "low": 0.1,
+        "high": 0.870078966873916,
+        "review_accept": 0.5,
+        "type_cutoff": 0.5
+      },
+      "metrics": {
+        "binary": {
+          "tp": 79396,
+          "fp": 97,
+          "fn": 234,
+          "tn": 561797,
+          "precision": 0.998779766771917,
+          "recall": 0.9970614090167023,
+          "f1": 0.9979198481677696,
+          "benign_fpr": 0.0001726304249555966,
+          "class_attack_recall": {
+            "Bot": 0.4367469879518072,
+            "Brute Force": 1.0,
+            "DDoS": 0.996046091278807,
+            "DoS": 0.9998895759717314,
+            "Port Scan": 0.999874245472837,
+            "Web Attack": 0.9487179487179487
+          }
+        },
+        "classwise": {
+          "Benign": {
+            "precision": 0.999583652859006,
+            "recall": 0.9998273695750444,
+            "f1-score": 0.9997054963631915,
+            "support": 561894
+          },
+          "Bot": {
+            "precision": 0.8834355828220859,
+            "recall": 0.43373493975903615,
+            "f1-score": 0.5818181818181818,
+            "support": 332
+          },
+          "Brute Force": {
+            "precision": 0.9991883116883117,
+            "recall": 0.9991883116883117,
+            "f1-score": 0.9991883116883117,
+            "support": 1232
+          },
+          "DDoS": {
+            "precision": 0.9977303676804358,
+            "recall": 0.9932218707636692,
+            "f1-score": 0.9954710144927537,
+            "support": 8852
+          },
+          "DoS": {
+            "precision": 0.9990730113887172,
+            "recall": 0.999690812720848,
+            "f1-score": 0.999381816576147,
+            "support": 45280
+          },
+          "Port Scan": {
+            "precision": 1.0,
+            "recall": 0.999790409121395,
+            "f1-score": 0.9998951935774625,
+            "support": 23856
+          },
+          "Web Attack": {
+            "precision": 1.0,
+            "recall": 0.9230769230769231,
+            "f1-score": 0.96,
+            "support": 78
+          }
+        },
+        "macro_f1": 0.933637144930864,
+        "typed_accuracy": 0.9994216896016361,
+        "source_benign_fpr": {
+          "Monday": 0.0,
+          "Tuesday": 1.527277170260859e-05,
+          "Wednesday": 0.0006390147554316254,
+          "Thursday": 0.0,
+          "Friday": 0.0007315987022075195,
+          "PARROT": 3.912771285475793e-05,
+          "AAGM": 0.0
+        },
+        "confusion_with_unknown": [
+          [
+            561797,
+            19,
+            1,
+            20,
+            42,
+            0,
+            0,
+            15
+          ],
+          [
+            187,
+            144,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1231,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            35,
+            0,
+            0,
+            8792,
+            0,
+            0,
+            0,
+            25
+          ],
+          [
+            5,
+            0,
+            0,
+            0,
+            45266,
+            0,
+            0,
+            9
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            0,
+            23851,
+            0,
+            2
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            72,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "routing_fraction": 0.1258596716568671,
+        "unknown_flagged": 55,
+        "eligible": false,
+        "rank": [
+          0,
+          0.5818181818181818,
+          0.933637144930864,
+          0.9979198481677696,
+          -0.0001726304249555966
+        ]
+      },
+      "comparison": {
+        "better": false,
+        "failed_comparison_checks": [
+          "macro_f1_gain",
+          "Bot_typed_recall_regression",
+          "Bot_binary_recall_regression",
+          "Web Attack_binary_recall_regression"
+        ]
+      },
+      "selection_rank": [
+        0,
+        0,
+        0.5818181818181818,
+        0.933637144930864,
+        0.9979198481677696,
+        -0.0001726304249555966
+      ],
+      "arm": "hard_benign",
+      "seed": 1,
+      "gate": {
+        "job": {
+          "name": "hard_benign_gate_s1",
+          "kind": "gate",
+          "width": 96,
+          "seed": 1,
+          "arm": "hard_benign"
+        },
+        "epoch": 40,
+        "checkpoint": "runs/phone_repair_v3/jobs/hard_benign_gate_s1/epoch_40.pt",
+        "checkpoint_sha256": "b5b6acde24de5447f42831013c2085e3b64d473e8752be2b8b7f9ce50e596d62",
+        "validation_logits": "runs/phone_repair_v3/jobs/hard_benign_gate_s1/validation_logits_40.npy"
+      },
+      "diagnosis": {
+        "job": {
+          "name": "hard_benign_diagnosis_s1",
+          "kind": "diagnosis",
+          "width": 64,
+          "seed": 1,
+          "arm": "hard_benign"
+        },
+        "epoch": 39,
+        "checkpoint": "runs/phone_repair_v3/jobs/hard_benign_diagnosis_s1/epoch_39.pt",
+        "checkpoint_sha256": "3d0ec91f99d5116a2046fae1027362af8b5bb303b391c1dd1c43388084604ef3",
+        "validation_logits": "runs/phone_repair_v3/jobs/hard_benign_diagnosis_s1/validation_logits_39.npy"
+      },
+      "gate_calibration": {
+        "scale": 0.8510486483573914,
+        "bias": [
+          1.2762213945388794
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      },
+      "diagnosis_calibration": {
+        "scale": 0.5585018396377563,
+        "bias": [
+          -0.49995851516723633,
+          0.14047828316688538,
+          -0.0950157418847084,
+          -0.17885886132717133,
+          1.1032066345214844,
+          0.12248705327510834,
+          -0.5923576354980469
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      }
+    },
+    {
+      "policy": {
+        "low": 0.0006901359301991761,
+        "high": 0.39046119479836194,
+        "review_accept": 0.9,
+        "type_cutoff": 0.5
+      },
+      "metrics": {
+        "binary": {
+          "tp": 79505,
+          "fp": 300,
+          "fn": 125,
+          "tn": 561594,
+          "precision": 0.9962408370402857,
+          "recall": 0.9984302398593495,
+          "f1": 0.9973343368770973,
+          "benign_fpr": 0.000533908530790505,
+          "class_attack_recall": {
+            "Bot": 0.7108433734939759,
+            "Brute Force": 1.0,
+            "DDoS": 0.9977406235878897,
+            "DoS": 0.9999116607773851,
+            "Port Scan": 0.999874245472837,
+            "Web Attack": 0.9743589743589743
+          }
+        },
+        "classwise": {
+          "Benign": {
+            "precision": 0.9997774688055772,
+            "recall": 0.9994660914692095,
+            "f1-score": 0.9996217558892608,
+            "support": 561894
+          },
+          "Bot": {
+            "precision": 0.8983050847457628,
+            "recall": 0.4789156626506024,
+            "f1-score": 0.6247544204322201,
+            "support": 332
+          },
+          "Brute Force": {
+            "precision": 0.9991883116883117,
+            "recall": 0.9991883116883117,
+            "f1-score": 0.9991883116883117,
+            "support": 1232
+          },
+          "DDoS": {
+            "precision": 0.9956862299920536,
+            "recall": 0.9908495255309535,
+            "f1-score": 0.9932619896948077,
+            "support": 8852
+          },
+          "DoS": {
+            "precision": 0.999050961177691,
+            "recall": 0.999690812720848,
+            "f1-score": 0.9993707845323384,
+            "support": 45280
+          },
+          "Port Scan": {
+            "precision": 0.9999161601341437,
+            "recall": 0.999874245472837,
+            "f1-score": 0.9998952023642347,
+            "support": 23856
+          },
+          "Web Attack": {
+            "precision": 1.0,
+            "recall": 0.9102564102564102,
+            "f1-score": 0.9530201342281879,
+            "support": 78
+          }
+        },
+        "macro_f1": 0.9384446569756231,
+        "typed_accuracy": 0.9990974616693997,
+        "source_benign_fpr": {
+          "Monday": 0.0,
+          "Tuesday": 0.0,
+          "Wednesday": 0.0006390147554316254,
+          "Thursday": 3.876670198743959e-05,
+          "Friday": 0.0037852280679432533,
+          "PARROT": 7.173414023372287e-05,
+          "AAGM": 6.883970674284927e-05
+        },
+        "confusion_with_unknown": [
+          [
+            561594,
+            18,
+            1,
+            38,
+            43,
+            0,
+            0,
+            200
+          ],
+          [
+            96,
+            159,
+            0,
+            0,
+            0,
+            0,
+            0,
+            77
+          ],
+          [
+            0,
+            0,
+            1231,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            20,
+            0,
+            0,
+            8771,
+            0,
+            2,
+            0,
+            59
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            45266,
+            0,
+            0,
+            10
+          ],
+          [
+            3,
+            0,
+            0,
+            0,
+            0,
+            23853,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            71,
+            5
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "routing_fraction": 0.13287577705588569,
+        "unknown_flagged": 352,
+        "eligible": false,
+        "rank": [
+          0,
+          0.6247544204322201,
+          0.9384446569756231,
+          0.9973343368770973,
+          -0.000533908530790505
+        ]
+      },
+      "comparison": {
+        "better": false,
+        "failed_comparison_checks": [
+          "macro_f1_gain",
+          "Bot_typed_recall_regression",
+          "Bot_binary_recall_regression",
+          "Web Attack_binary_recall_regression"
+        ]
+      },
+      "selection_rank": [
+        0,
+        0,
+        0.6247544204322201,
+        0.9384446569756231,
+        0.9973343368770973,
+        -0.000533908530790505
+      ],
+      "arm": "hard_benign",
+      "seed": 2,
+      "gate": {
+        "job": {
+          "name": "hard_benign_gate_s2",
+          "kind": "gate",
+          "width": 96,
+          "seed": 2,
+          "arm": "hard_benign"
+        },
+        "epoch": 40,
+        "checkpoint": "runs/phone_repair_v3/jobs/hard_benign_gate_s2/epoch_40.pt",
+        "checkpoint_sha256": "b00a2f4ce18bd93919abb98d39654de1b89b603178104f74c7fd35112045d5d3",
+        "validation_logits": "runs/phone_repair_v3/jobs/hard_benign_gate_s2/validation_logits_40.npy"
+      },
+      "diagnosis": {
+        "job": {
+          "name": "hard_benign_diagnosis_s2",
+          "kind": "diagnosis",
+          "width": 64,
+          "seed": 2,
+          "arm": "hard_benign"
+        },
+        "epoch": 37,
+        "checkpoint": "runs/phone_repair_v3/jobs/hard_benign_diagnosis_s2/epoch_37.pt",
+        "checkpoint_sha256": "70ed1c1a25f6f547d6192289d90ddd6fa518bca7f7c673dfcead41f56b124aff",
+        "validation_logits": "runs/phone_repair_v3/jobs/hard_benign_diagnosis_s2/validation_logits_37.npy"
+      },
+      "gate_calibration": {
+        "scale": 0.6345311403274536,
+        "bias": [
+          1.0761572122573853
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      },
+      "diagnosis_calibration": {
+        "scale": 0.6842201948165894,
+        "bias": [
+          -0.8873339295387268,
+          0.17165696620941162,
+          -0.08530841022729874,
+          -0.8107737302780151,
+          0.9711112976074219,
+          0.9788687825202942,
+          -0.3382311761379242
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      }
+    },
+    {
+      "policy": {
+        "low": 0.1,
+        "high": 0.9218348165333546,
+        "review_accept": 0.5,
+        "type_cutoff": 0.5
+      },
+      "metrics": {
+        "binary": {
+          "tp": 79396,
+          "fp": 123,
+          "fn": 234,
+          "tn": 561771,
+          "precision": 0.9984531998641833,
+          "recall": 0.9970614090167023,
+          "f1": 0.9977568190814897,
+          "benign_fpr": 0.00021890249762410703,
+          "class_attack_recall": {
+            "Bot": 0.5150602409638554,
+            "Brute Force": 1.0,
+            "DDoS": 0.9931089019430637,
+            "DoS": 0.9999116607773851,
+            "Port Scan": 0.9997484909456741,
+            "Web Attack": 0.9743589743589743
+          }
+        },
+        "classwise": {
+          "Benign": {
+            "precision": 0.9995836335975659,
+            "recall": 0.9997810975023759,
+            "f1-score": 0.9996823557988752,
+            "support": 561894
+          },
+          "Bot": {
+            "precision": 0.7555555555555555,
+            "recall": 0.5120481927710844,
+            "f1-score": 0.6104129263913824,
+            "support": 332
+          },
+          "Brute Force": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 1232
+          },
+          "DDoS": {
+            "precision": 0.9976152623211447,
+            "recall": 0.9924310890194307,
+            "f1-score": 0.9950164231509797,
+            "support": 8852
+          },
+          "DoS": {
+            "precision": 0.9990731954895514,
+            "recall": 0.9998895759717314,
+            "f1-score": 0.9994812190249125,
+            "support": 45280
+          },
+          "Port Scan": {
+            "precision": 1.0,
+            "recall": 0.9966465459423206,
+            "f1-score": 0.9983204568357407,
+            "support": 23856
+          },
+          "Web Attack": {
+            "precision": 1.0,
+            "recall": 0.9230769230769231,
+            "f1-score": 0.96,
+            "support": 78
+          }
+        },
+        "macro_f1": 0.9375590544574129,
+        "typed_accuracy": 0.999309456855862,
+        "source_benign_fpr": {
+          "Monday": 0.0,
+          "Tuesday": 1.527277170260859e-05,
+          "Wednesday": 0.0006099686301847334,
+          "Thursday": 0.0,
+          "Friday": 0.001224632610216935,
+          "PARROT": 0.0,
+          "AAGM": 5.162978005713696e-05
+        },
+        "confusion_with_unknown": [
+          [
+            561771,
+            55,
+            0,
+            21,
+            42,
+            0,
+            0,
+            5
+          ],
+          [
+            161,
+            170,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1232,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            61,
+            0,
+            0,
+            8785,
+            0,
+            0,
+            0,
+            6
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            45275,
+            0,
+            0,
+            1
+          ],
+          [
+            6,
+            0,
+            0,
+            0,
+            0,
+            23776,
+            0,
+            74
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            72,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "routing_fraction": 0.1250678072839052,
+        "unknown_flagged": 91,
+        "eligible": false,
+        "rank": [
+          0,
+          0.6104129263913824,
+          0.9375590544574129,
+          0.9977568190814897,
+          -0.00021890249762410703
+        ]
+      },
+      "comparison": {
+        "better": false,
+        "failed_comparison_checks": [
+          "macro_f1_gain",
+          "Bot_typed_recall_regression",
+          "Bot_binary_recall_regression",
+          "Web Attack_binary_recall_regression"
+        ]
+      },
+      "selection_rank": [
+        0,
+        0,
+        0.6104129263913824,
+        0.9375590544574129,
+        0.9977568190814897,
+        -0.00021890249762410703
+      ],
+      "arm": "routing_only",
+      "seed": 0,
+      "gate": {
+        "job": {
+          "name": "gate_s0",
+          "kind": "gate",
+          "width": 96,
+          "seed": 0
+        },
+        "epoch": 37,
+        "checkpoint": "runs/phone_alignment_v2/jobs/gate_s0/best.pt",
+        "checkpoint_sha256": "777c9a8a5ccd487089af20bb709a89a34e3d0e30e25a669208c28d7a552f7c27",
+        "validation_logits": "runs/phone_repair_v3/baseline_gate_validation_logits.npy"
+      },
+      "diagnosis": {
+        "job": {
+          "name": "diagnosis64_s1",
+          "kind": "diagnosis",
+          "width": 64,
+          "seed": 1
+        },
+        "epoch": 23,
+        "checkpoint": "runs/phone_alignment_v2/jobs/diagnosis64_s1/best.pt",
+        "checkpoint_sha256": "6879b3ffc84e74b72b4603271d24d986e064288601137916488e43056bf61dc9",
+        "validation_logits": "runs/phone_repair_v3/baseline_diagnosis_validation_logits.npy"
+      },
+      "gate_calibration": {
+        "scale": 0.8263152837753296,
+        "bias": [
+          -0.27754080295562744
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      },
+      "diagnosis_calibration": {
+        "scale": 0.83675616979599,
+        "bias": [
+          1.1917840242385864,
+          -0.7941250801086426,
+          0.1207370012998581,
+          0.3124173581600189,
+          1.5276336669921875,
+          -2.2421538829803467,
+          -0.11630254983901978
+        ],
+        "method": "positive shared logit scale plus class biases; natural-frequency calibration NLL"
+      }
+    }
+  ],
+  "pairs_scored": 100,
+  "frozen_unix": 1795113018.4127188
+}

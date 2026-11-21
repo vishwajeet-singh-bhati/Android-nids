@@ -39,3 +39,31 @@ def test_current_feature_architectures():
 def test_misassigned_socket_proof_is_rejected():
     from experiments.phone_capture_v1.smoke import negative_label_checks
     assert all(negative_label_checks().values())
+
+
+def test_current_cpu_models_match_the_shipped_native_selfchecks():
+    import torch
+    torch.set_num_threads(2)
+    assets=ROOT/'android/app/src/main/assets'
+    for kind in ('gate','diagnosis'):
+        model=torch.jit.load(str(ROOT/'models/current'/(kind+'.pt')),map_location='cpu').eval()
+        manifest=json.loads((assets/f'aligned_v2_{kind}_manifest.json').read_text())
+        assert manifest['model_family']=='real-phone-augmented-v1'
+        assert manifest['gate_threshold']==0.5408333333333333 and manifest['type_score_cutoff']==0.8
+        fixture=json.loads((assets/f'aligned_v2_{kind}_selfcheck.json').read_text())
+        with torch.inference_mode():
+            for case in fixture['cases']:
+                actual=model(torch.tensor([case['flow']]),torch.tensor([case['context']])).flatten()
+                torch.testing.assert_close(actual,torch.tensor(case['expected']),atol=.002,rtol=.0002)
+
+
+def test_protocol_preview_starts_no_device_or_source(monkeypatch,capsys):
+    import validation.protocol_phone_test as protocol
+    def forbidden(*args,**kwargs):raise AssertionError('Preview attempted an external action')
+    monkeypatch.setattr(protocol.lab,'adb',forbidden)
+    monkeypatch.setattr(protocol,'remote',forbidden)
+    monkeypatch.setattr(sys,'argv',['protocol_phone_test.py','--profile','DDoS','--preview'])
+    protocol.main()
+    result=json.loads(capsys.readouterr().out)
+    assert result['phone_actions']==result['attack_requests_sent']==0
+    assert result['max_load_requests']==96 and result['max_load_workers']==6

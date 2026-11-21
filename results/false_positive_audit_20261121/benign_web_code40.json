@@ -1,0 +1,41 @@
+{
+  "profile": "Benign",
+  "checked_at_ist": "2026-11-21T22:12:39.220737+05:30",
+  "traffic_summary": {
+    "attempts": 8,
+    "connected": 8,
+    "timeouts": 0,
+    "open_ports": [
+      43190
+    ]
+  },
+  "packet_evidence": {
+    "captured_records": 80,
+    "pc_to_phone_syn_packets": 8,
+    "phone_to_pc_rst_packets": 0,
+    "phone_to_pc_tcp_packets": 40,
+    "pc_to_phone_tcp_packets": 40,
+    "unsupported_records": 0,
+    "linktype": 1,
+    "syn_target_ports": [
+      43190
+    ],
+    "tcp_tuples": 8,
+    "single_packet_tuples": 0,
+    "scope": "Packet evidence only. TCP tuples are not exact NIDS flow segments. No classifier decisions inferred.",
+    "sha256": "95966d0610fd889c5b5dfa3f503e131177f2fd33b6cb5865c1da561d90745205"
+  },
+  "nids_model_flags_during_window": 0,
+  "new_or_updated_activity_rows": 0,
+  "target_event_counts": {
+    "http_request": 8
+  },
+  "currently_visible_alerts_for_activity_rows": 0,
+  "run_id": "20261121_221017_Benign",
+  "history_age_seconds_at_start": 318.86041943359373,
+  "monitor_running": true,
+  "invocation_mode": "agent_benign_regression",
+  "attack_profile_executed": false,
+  "source_report_sha256": "9c40953cc8a247d8d86668f17fbf638690abe65852ea6b2a2519219c2e62f993",
+  "scope": "Eight verified normal HTTP connections; single development control, no general everyday FPR estimate."
+}

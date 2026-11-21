@@ -1,0 +1,769 @@
+{
+  "variants": [
+    {
+      "name": "hoisted_fp32",
+      "rows": 1125,
+      "split": "validation-only diagnostic fixture",
+      "models": {
+        "gate": {
+          "pte_sha256": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+          "pte_bytes": 82820,
+          "max_abs_logit_change": 0.00018310546875,
+          "quantized_tensors": [],
+          "runtime_representation": "unchanged FP32 weights, hoisted LSTM input projections"
+        },
+        "diagnosis": {
+          "pte_sha256": "b8dd730cb1b19455e68426460da352d6b27afc0e0e9f692fd02fc79eb97e86fa",
+          "pte_bytes": 921116,
+          "max_abs_logit_change": 0.001708984375,
+          "quantized_tensors": [],
+          "runtime_representation": "unchanged FP32 weights, hoisted LSTM input projections"
+        }
+      },
+      "training": false,
+      "binary_flips": 0,
+      "family_flips": 0,
+      "classwise": [
+        {
+          "class_id": 0,
+          "support": 617,
+          "baseline_correct": 605,
+          "candidate_correct": 605,
+          "baseline_flags": 12,
+          "candidate_flags": 12
+        },
+        {
+          "class_id": 1,
+          "support": 66,
+          "baseline_correct": 52,
+          "candidate_correct": 52,
+          "baseline_flags": 64,
+          "candidate_flags": 64
+        },
+        {
+          "class_id": 2,
+          "support": 66,
+          "baseline_correct": 66,
+          "candidate_correct": 66,
+          "baseline_flags": 66,
+          "candidate_flags": 66
+        },
+        {
+          "class_id": 3,
+          "support": 69,
+          "baseline_correct": 69,
+          "candidate_correct": 69,
+          "baseline_flags": 69,
+          "candidate_flags": 69
+        },
+        {
+          "class_id": 4,
+          "support": 109,
+          "baseline_correct": 109,
+          "candidate_correct": 109,
+          "baseline_flags": 109,
+          "candidate_flags": 109
+        },
+        {
+          "class_id": 5,
+          "support": 89,
+          "baseline_correct": 89,
+          "candidate_correct": 89,
+          "baseline_flags": 89,
+          "candidate_flags": 89
+        },
+        {
+          "class_id": 6,
+          "support": 109,
+          "baseline_correct": 107,
+          "candidate_correct": 107,
+          "baseline_flags": 109,
+          "candidate_flags": 109
+        }
+      ]
+    },
+    {
+      "name": "e8_blockmax_reconstructed",
+      "rows": 1125,
+      "split": "validation-only diagnostic fixture",
+      "models": {
+        "gate": {
+          "pte_sha256": "79a2bd288dce03f36928292eed2d321be567408630a11f82d6ca6b0a8bd4de5d",
+          "pte_bytes": 82820,
+          "max_abs_logit_change": 423.30072021484375,
+          "quantized_tensors": [
+            {
+              "name": "model.layers.0.weight",
+              "shape": [
+                96,
+                147
+              ],
+              "packed_weight_payload_bytes": 3840,
+              "fp32_weight_bytes": 56448,
+              "relative_l2_error": 0.6073513627052307
+            },
+            {
+              "name": "model.layers.2.weight",
+              "shape": [
+                48,
+                96
+              ],
+              "packed_weight_payload_bytes": 1152,
+              "fp32_weight_bytes": 18432,
+              "relative_l2_error": 0.5970487594604492
+            },
+            {
+              "name": "model.layers.4.weight",
+              "shape": [
+                1,
+                48
+              ],
+              "packed_weight_payload_bytes": 16,
+              "fp32_weight_bytes": 192,
+              "relative_l2_error": 0.5474589467048645
+            }
+          ],
+          "runtime_representation": "FP32 reconstructed weights with XNNPACK; not packed E8 inference"
+        },
+        "diagnosis": {
+          "pte_sha256": "39b960d332b3befad749108d61621d36185f9477f5dd976dd52a85ff42c3a70d",
+          "pte_bytes": 921116,
+          "max_abs_logit_change": 3895.357177734375,
+          "quantized_tensors": [
+            {
+              "name": "model.temporal.weight_hh_l0",
+              "shape": [
+                256,
+                64
+              ],
+              "packed_weight_payload_bytes": 4096,
+              "fp32_weight_bytes": 65536,
+              "relative_l2_error": 0.6203458309173584
+            },
+            {
+              "name": "model.temporal_attention.weight",
+              "shape": [
+                1,
+                64
+              ],
+              "packed_weight_payload_bytes": 16,
+              "fp32_weight_bytes": 256,
+              "relative_l2_error": 0.5377945303916931
+            },
+            {
+              "name": "model.final_lstm.weight_ih_l0",
+              "shape": [
+                512,
+                128
+              ],
+              "packed_weight_payload_bytes": 16384,
+              "fp32_weight_bytes": 262144,
+              "relative_l2_error": 0.6095033288002014
+            },
+            {
+              "name": "model.final_lstm.weight_hh_l0",
+              "shape": [
+                512,
+                128
+              ],
+              "packed_weight_payload_bytes": 16384,
+              "fp32_weight_bytes": 262144,
+              "relative_l2_error": 0.6068078875541687
+            },
+            {
+              "name": "model.context.0.weight",
+              "shape": [
+                32,
+                115
+              ],
+              "packed_weight_payload_bytes": 1024,
+              "fp32_weight_bytes": 14720,
+              "relative_l2_error": 0.6097509860992432
+            },
+            {
+              "name": "model.context.2.weight",
+              "shape": [
+                16,
+                32
+              ],
+              "packed_weight_payload_bytes": 128,
+              "fp32_weight_bytes": 2048,
+              "relative_l2_error": 0.6161524653434753
+            },
+            {
+              "name": "model.classifier.0.weight",
+              "shape": [
+                128,
+                144
+              ],
+              "packed_weight_payload_bytes": 5120,
+              "fp32_weight_bytes": 73728,
+              "relative_l2_error": 0.6094363331794739
+            },
+            {
+              "name": "model.classifier.2.weight",
+              "shape": [
+                7,
+                128
+              ],
+              "packed_weight_payload_bytes": 224,
+              "fp32_weight_bytes": 3584,
+              "relative_l2_error": 0.5928211808204651
+            }
+          ],
+          "runtime_representation": "FP32 reconstructed weights with XNNPACK; not packed E8 inference"
+        }
+      },
+      "training": false,
+      "binary_flips": 278,
+      "family_flips": 655,
+      "classwise": [
+        {
+          "class_id": 0,
+          "support": 617,
+          "baseline_correct": 605,
+          "candidate_correct": 412,
+          "baseline_flags": 12,
+          "candidate_flags": 205
+        },
+        {
+          "class_id": 1,
+          "support": 66,
+          "baseline_correct": 52,
+          "candidate_correct": 0,
+          "baseline_flags": 64,
+          "candidate_flags": 56
+        },
+        {
+          "class_id": 2,
+          "support": 66,
+          "baseline_correct": 66,
+          "candidate_correct": 34,
+          "baseline_flags": 66,
+          "candidate_flags": 64
+        },
+        {
+          "class_id": 3,
+          "support": 69,
+          "baseline_correct": 69,
+          "candidate_correct": 0,
+          "baseline_flags": 69,
+          "candidate_flags": 13
+        },
+        {
+          "class_id": 4,
+          "support": 109,
+          "baseline_correct": 109,
+          "candidate_correct": 1,
+          "baseline_flags": 109,
+          "candidate_flags": 103
+        },
+        {
+          "class_id": 5,
+          "support": 89,
+          "baseline_correct": 89,
+          "candidate_correct": 8,
+          "baseline_flags": 89,
+          "candidate_flags": 89
+        },
+        {
+          "class_id": 6,
+          "support": 109,
+          "baseline_correct": 107,
+          "candidate_correct": 0,
+          "baseline_flags": 109,
+          "candidate_flags": 98
+        }
+      ]
+    },
+    {
+      "name": "e8_rowsigma_reconstructed",
+      "rows": 1125,
+      "split": "validation-only diagnostic fixture",
+      "models": {
+        "gate": {
+          "pte_sha256": "1995d611be664f469f76ba687ac15418c3055b1e045895524ab5295dcfb1f5f0",
+          "pte_bytes": 82820,
+          "max_abs_logit_change": 455.2234191894531,
+          "quantized_tensors": [
+            {
+              "name": "model.layers.0.weight",
+              "shape": [
+                96,
+                147
+              ],
+              "packed_weight_payload_bytes": 3840,
+              "fp32_weight_bytes": 56448,
+              "relative_l2_error": 0.6375389099121094
+            },
+            {
+              "name": "model.layers.2.weight",
+              "shape": [
+                48,
+                96
+              ],
+              "packed_weight_payload_bytes": 1152,
+              "fp32_weight_bytes": 18432,
+              "relative_l2_error": 0.6140854358673096
+            },
+            {
+              "name": "model.layers.4.weight",
+              "shape": [
+                1,
+                48
+              ],
+              "packed_weight_payload_bytes": 16,
+              "fp32_weight_bytes": 192,
+              "relative_l2_error": 0.49289369583129883
+            }
+          ],
+          "runtime_representation": "FP32 reconstructed weights with XNNPACK; not packed E8 inference"
+        },
+        "diagnosis": {
+          "pte_sha256": "c1a4204f4aa867bb6c384b73bb120fa27437e03f30e7e548457bf845a8409d4e",
+          "pte_bytes": 921116,
+          "max_abs_logit_change": 3276.7099609375,
+          "quantized_tensors": [
+            {
+              "name": "model.temporal.weight_hh_l0",
+              "shape": [
+                256,
+                64
+              ],
+              "packed_weight_payload_bytes": 4096,
+              "fp32_weight_bytes": 65536,
+              "relative_l2_error": 0.6120001077651978
+            },
+            {
+              "name": "model.temporal_attention.weight",
+              "shape": [
+                1,
+                64
+              ],
+              "packed_weight_payload_bytes": 16,
+              "fp32_weight_bytes": 256,
+              "relative_l2_error": 0.5561211705207825
+            },
+            {
+              "name": "model.final_lstm.weight_ih_l0",
+              "shape": [
+                512,
+                128
+              ],
+              "packed_weight_payload_bytes": 16384,
+              "fp32_weight_bytes": 262144,
+              "relative_l2_error": 0.6252270340919495
+            },
+            {
+              "name": "model.final_lstm.weight_hh_l0",
+              "shape": [
+                512,
+                128
+              ],
+              "packed_weight_payload_bytes": 16384,
+              "fp32_weight_bytes": 262144,
+              "relative_l2_error": 0.6215397119522095
+            },
+            {
+              "name": "model.context.0.weight",
+              "shape": [
+                32,
+                115
+              ],
+              "packed_weight_payload_bytes": 1024,
+              "fp32_weight_bytes": 14720,
+              "relative_l2_error": 0.6417245864868164
+            },
+            {
+              "name": "model.context.2.weight",
+              "shape": [
+                16,
+                32
+              ],
+              "packed_weight_payload_bytes": 128,
+              "fp32_weight_bytes": 2048,
+              "relative_l2_error": 0.5841547846794128
+            },
+            {
+              "name": "model.classifier.0.weight",
+              "shape": [
+                128,
+                144
+              ],
+              "packed_weight_payload_bytes": 5120,
+              "fp32_weight_bytes": 73728,
+              "relative_l2_error": 0.6082162261009216
+            },
+            {
+              "name": "model.classifier.2.weight",
+              "shape": [
+                7,
+                128
+              ],
+              "packed_weight_payload_bytes": 224,
+              "fp32_weight_bytes": 3584,
+              "relative_l2_error": 0.5932594537734985
+            }
+          ],
+          "runtime_representation": "FP32 reconstructed weights with XNNPACK; not packed E8 inference"
+        }
+      },
+      "training": false,
+      "binary_flips": 278,
+      "family_flips": 577,
+      "classwise": [
+        {
+          "class_id": 0,
+          "support": 617,
+          "baseline_correct": 605,
+          "candidate_correct": 517,
+          "baseline_flags": 12,
+          "candidate_flags": 100
+        },
+        {
+          "class_id": 1,
+          "support": 66,
+          "baseline_correct": 52,
+          "candidate_correct": 0,
+          "baseline_flags": 64,
+          "candidate_flags": 9
+        },
+        {
+          "class_id": 2,
+          "support": 66,
+          "baseline_correct": 66,
+          "candidate_correct": 20,
+          "baseline_flags": 66,
+          "candidate_flags": 41
+        },
+        {
+          "class_id": 3,
+          "support": 69,
+          "baseline_correct": 69,
+          "candidate_correct": 0,
+          "baseline_flags": 69,
+          "candidate_flags": 7
+        },
+        {
+          "class_id": 4,
+          "support": 109,
+          "baseline_correct": 109,
+          "candidate_correct": 0,
+          "baseline_flags": 109,
+          "candidate_flags": 98
+        },
+        {
+          "class_id": 5,
+          "support": 89,
+          "baseline_correct": 89,
+          "candidate_correct": 7,
+          "baseline_flags": 89,
+          "candidate_flags": 89
+        },
+        {
+          "class_id": 6,
+          "support": 109,
+          "baseline_correct": 107,
+          "candidate_correct": 0,
+          "baseline_flags": 109,
+          "candidate_flags": 76
+        }
+      ]
+    }
+  ],
+  "frozen_thresholds": {
+    "gate": "gate_s0_final",
+    "diagnosis": "diagnosis_s1_best",
+    "threshold": 0.5408333333333333,
+    "type_cutoff": 0.8,
+    "eligible": false,
+    "rank": [
+      0,
+      0.9409327167286395,
+      -0.09166666666666666,
+      0.942653880376313
+    ],
+    "validation": {
+      "legacy": {
+        "classwise": {
+          "Benign": {
+            "precision": 0.9999261132353556,
+            "recall": 0.9990063600725755,
+            "f1-score": 0.9994660250545514,
+            "support": 1029548.0
+          },
+          "Bot": {
+            "precision": 0.5412573673870335,
+            "recall": 0.8450920245398773,
+            "f1-score": 0.6598802395209581,
+            "support": 652.0
+          },
+          "Brute Force": {
+            "precision": 0.9995886466474702,
+            "recall": 0.9991776315789473,
+            "f1-score": 0.999383096853794,
+            "support": 2432.0
+          },
+          "DDoS": {
+            "precision": 0.9931199181213396,
+            "recall": 0.9939676758479399,
+            "f1-score": 0.9935436161438038,
+            "support": 17572.0
+          },
+          "DoS": {
+            "precision": 0.9991514029403337,
+            "recall": 0.9998786836068466,
+            "f1-score": 0.9995149109751392,
+            "support": 90672.0
+          },
+          "Port Scan": {
+            "precision": 0.9996646264777396,
+            "recall": 0.9998742085622039,
+            "f1-score": 0.9997694065362766,
+            "support": 47698.0
+          },
+          "Web Attack": {
+            "precision": 0.9407894736842105,
+            "recall": 0.9533333333333334,
+            "f1-score": 0.9470198675496688,
+            "support": 150.0
+          }
+        },
+        "macro_f1_present_classes": 0.942653880376313,
+        "binary": {
+          "tp": 159100,
+          "fp": 1023,
+          "fn": 76,
+          "tn": 1028525,
+          "recall": 0.999522541086596,
+          "precision": 0.9936111614196587,
+          "benign_fpr": 0.000993639927424462
+        },
+        "unknown_flags": 489,
+        "confusion_with_unknown_column": [
+          [
+            1028525,
+            467,
+            1,
+            121,
+            77,
+            16,
+            8,
+            333
+          ],
+          [
+            6,
+            551,
+            0,
+            0,
+            0,
+            0,
+            1,
+            94
+          ],
+          [
+            2,
+            0,
+            2430,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            54,
+            0,
+            0,
+            17466,
+            0,
+            0,
+            0,
+            52
+          ],
+          [
+            8,
+            0,
+            0,
+            0,
+            90661,
+            0,
+            0,
+            3
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            47692,
+            0,
+            2
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            143,
+            5
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "phone": {
+        "classwise": {
+          "Benign": {
+            "precision": 1.0,
+            "recall": 0.9083333333333333,
+            "f1-score": 0.9519650655021834,
+            "support": 120.0
+          },
+          "Bot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Brute Force": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DDoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Port Scan": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 0.0
+          },
+          "Web Attack": {
+            "precision": 0.875,
+            "recall": 0.984375,
+            "f1-score": 0.9264705882352942,
+            "support": 64.0
+          }
+        },
+        "macro_f1_present_classes": 0.9392178268687388,
+        "binary": {
+          "tp": 64,
+          "fp": 11,
+          "fn": 0,
+          "tn": 109,
+          "recall": 1.0,
+          "precision": 0.8533333333333334,
+          "benign_fpr": 0.09166666666666666
+        },
+        "unknown_flags": 3,
+        "confusion_with_unknown_column": [
+          [
+            109,
+            0,
+            0,
+            0,
+            0,
+            0,
+            9,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            63,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    }
+  },
+  "held_out_test_opened": false,
+  "no_retraining": true
+}

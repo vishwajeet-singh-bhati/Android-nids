@@ -1,0 +1,283 @@
+{
+  "runtime_checks_passed": true,
+  "fixtures": 8,
+  "unique_categories": 7,
+  "accepted_guidance": 7,
+  "default_guidance_used": 1,
+  "cold_full_client_ms": 15522,
+  "warm_full_client_median_ms": 3707,
+  "warm_full_client_range_ms": [
+    2944,
+    3792
+  ],
+  "immediate_notification_content_verified": true,
+  "notification_post_and_query_ms": 10,
+  "max_capture_queue_drops": 0,
+  "scope": "Live production IPC worker with monitoring active. Eight evidence fixtures, no attack test. One cold and seven warm; first immediate labelled test notification only, then removed. No real history insertion.",
+  "resources": {
+    "valid_samples": 17,
+    "sample_errors": 0,
+    "phases": {
+      "hybrid_worker_live_monitor": {
+        "app_rss_kib": {
+          "samples": 17,
+          "min": 100480.0,
+          "median": 104824.0,
+          "max": 186124.0,
+          "mean": 115536.0
+        },
+        "app_pss_kib": {
+          "samples": 17,
+          "min": 20773.0,
+          "median": 25774.0,
+          "max": 77804.0,
+          "mean": 33666.117647058825
+        },
+        "app_swap_kib": {
+          "samples": 17,
+          "min": 20864.0,
+          "median": 42372.0,
+          "max": 42552.0,
+          "mean": 36677.17647058824
+        },
+        "app_swap_pss_kib": {
+          "samples": 17,
+          "min": 241.0,
+          "median": 19752.0,
+          "max": 19796.0,
+          "mean": 14141.64705882353
+        },
+        "app_threads": {
+          "samples": 17,
+          "min": 24.0,
+          "median": 25.0,
+          "max": 43.0,
+          "mean": 26.235294117647058
+        },
+        "root_capture_rss_kib": {
+          "samples": 17,
+          "min": 6400.0,
+          "median": 6400.0,
+          "max": 8420.0,
+          "mean": 6957.176470588235
+        },
+        "root_capture_swap_kib": {
+          "samples": 17,
+          "min": 0.0,
+          "median": 1240.0,
+          "max": 1240.0,
+          "mean": 875.2941176470588
+        },
+        "root_capture_threads": {
+          "samples": 17,
+          "min": 1.0,
+          "median": 1.0,
+          "max": 1.0,
+          "mean": 1.0
+        },
+        "combined_app_worker_pss_kib": {
+          "samples": 17,
+          "min": 54149.0,
+          "median": 921999.0,
+          "max": 1102208.0,
+          "mean": 722083.2941176471
+        },
+        "combined_app_worker_rss_kib": {
+          "samples": 17,
+          "min": 137076.0,
+          "median": 1073420.0,
+          "max": 1272492.0,
+          "mean": 894292.9411764706
+        },
+        "device_gpu_cur_freq": {
+          "samples": 17,
+          "min": 251000.0,
+          "median": 251000.0,
+          "max": 251000.0,
+          "mean": 251000.0
+        },
+        "device_gpu_utilization": {
+          "samples": 17,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "device_gpu_total_gpu_mem": {
+          "samples": 17,
+          "min": 293638144.0,
+          "median": 293756928.0,
+          "max": 306507776.0,
+          "mean": 295143303.5294118
+        },
+        "device_gpu_dma_buf_gpu_mem": {
+          "samples": 17,
+          "min": 145989632.0,
+          "median": 145989632.0,
+          "max": 156602368.0,
+          "mean": 147329505.88235295
+        },
+        "device_mem_available_kib": {
+          "samples": 17,
+          "min": 1265088.0,
+          "median": 1314844.0,
+          "max": 1879224.0,
+          "mean": 1415813.6470588236
+        },
+        "battery_current_now": {
+          "samples": 17,
+          "min": -2376562.0,
+          "median": -1520625.0,
+          "max": -266562.0,
+          "mean": -1304080.6470588236
+        },
+        "battery_voltage_now": {
+          "samples": 17,
+          "min": 3441562.0,
+          "median": 3568906.0,
+          "max": 3717187.0,
+          "mean": 3564815.705882353
+        },
+        "battery_charge_counter": {
+          "samples": 17,
+          "min": 1364000.0,
+          "median": 1368000.0,
+          "max": 1374000.0,
+          "mean": 1368823.5294117648
+        },
+        "battery_temp": {
+          "samples": 17,
+          "min": 357.0,
+          "median": 363.0,
+          "max": 368.0,
+          "mean": 363.29411764705884
+        },
+        "battery_capacity": {
+          "samples": 17,
+          "min": 38.0,
+          "median": 38.0,
+          "max": 38.0,
+          "mean": 38.0
+        },
+        "whole_device_battery_discharge_mw_estimate": {
+          "samples": 17,
+          "min": 974.575462266,
+          "median": 5357.826388125,
+          "max": 8183.170779922,
+          "mean": 4593.60177449
+        },
+        "mean_cpu_frequency_khz": {
+          "samples": 17,
+          "min": 958500.0,
+          "median": 1458000.0,
+          "max": 1922625.0,
+          "mean": 1476897.0588235294
+        },
+        "root_capture_pss_kib": {
+          "samples": 16,
+          "min": 2786.0,
+          "median": 2830.0,
+          "max": 4757.0,
+          "mean": 3261.5
+        },
+        "root_capture_swap_pss_kib": {
+          "samples": 16,
+          "min": 0.0,
+          "median": 1228.0,
+          "max": 1240.0,
+          "mean": 923.25
+        },
+        "whole_device_cpu_busy_percent": {
+          "samples": 16,
+          "min": 23.666666666666668,
+          "median": 63.903249739839225,
+          "max": 69.31818181818181,
+          "mean": 52.38420104040776
+        },
+        "app_cpu_one_core_percent": {
+          "samples": 15,
+          "min": 8.433734939741292,
+          "median": 9.881422924905733,
+          "max": 14.55938697317683,
+          "mean": 10.602636824389396
+        },
+        "app_cpu_all8cores_percent": {
+          "samples": 15,
+          "min": 1.0542168674676615,
+          "median": 1.2351778656132166,
+          "max": 1.8199233716471037,
+          "mean": 1.3253296030486745
+        },
+        "root_capture_cpu_one_core_percent": {
+          "samples": 15,
+          "min": 0.0,
+          "median": 0.3831417624520218,
+          "max": 0.8333333333353544,
+          "mean": 0.3952488953844229
+        },
+        "root_capture_cpu_all8cores_percent": {
+          "samples": 15,
+          "min": 0.0,
+          "median": 0.047892720306502726,
+          "max": 0.1041666666669193,
+          "mean": 0.049406111923052866
+        },
+        "llama_worker_rss_kib": {
+          "samples": 15,
+          "min": 98484.0,
+          "median": 970788.0,
+          "max": 1168280.0,
+          "mean": 882591.2
+        },
+        "llama_worker_pss_kib": {
+          "samples": 15,
+          "min": 26851.0,
+          "median": 899179.0,
+          "max": 1076802.0,
+          "mean": 780206.1333333333
+        },
+        "llama_worker_swap_kib": {
+          "samples": 15,
+          "min": 23652.0,
+          "median": 367924.0,
+          "max": 373720.0,
+          "mean": 291021.86666666664
+        },
+        "llama_worker_swap_pss_kib": {
+          "samples": 15,
+          "min": 304.0,
+          "median": 344097.0,
+          "max": 349518.0,
+          "mean": 267952.6
+        },
+        "llama_worker_threads": {
+          "samples": 15,
+          "min": 15.0,
+          "median": 22.0,
+          "max": 22.0,
+          "mean": 21.533333333333335
+        },
+        "llama_worker_cpu_one_core_percent": {
+          "samples": 14,
+          "min": 91.6967509023922,
+          "median": 415.7452500170008,
+          "max": 446.692607002677,
+          "mean": 339.5683227841562
+        },
+        "llama_worker_cpu_all8cores_percent": {
+          "samples": 14,
+          "min": 11.462093862799025,
+          "median": 51.9681562521251,
+          "max": 55.836575875334624,
+          "mean": 42.44604034801952
+        }
+      }
+    },
+    "scopes": {
+      "cpu": "Process jiffies at CLK_TCK=100; one core 100%, normalized device capacity eight cores. Phase-crossing deltas excluded.",
+      "gpu": "Pixel unified/shared GPU memory and utilization, whole device including UI/other apps; detector and Llama use CPU XNNPACK. Dedicated model VRAM is not applicable.",
+      "battery": "Whole-device current/voltage estimate; not app-only energy, includes screen/radios/other applications.",
+      "memory": "Sampled process PSS/RSS; maxima can miss sub-sampling transients. VmHWM fields in Llama worker reports are process-lifetime peaks."
+    }
+  }
+}

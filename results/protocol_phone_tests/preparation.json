@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "contract": {
+    "phone": "owned-Pixel",
+    "controller": "work-PC",
+    "receiver_host": "PC1",
+    "http_port": 43194,
+    "allowed_sources": [
+      "work-PC",
+      "PC1",
+      "PC2"
+    ],
+    "max_total_load_requests": 96,
+    "max_concurrent_load_workers": 6
+  },
+  "apk_sha256": "5f1cfc50ba7620cd90343448925f9d5c653ff25031ed8f0a95b5fac25275c44b",
+  "apk": "artifacts\\releases\\nids-protocollab-0.1.0.apk",
+  "helper_sha256": {
+    "LabSource.ps1": "ca1cf0118840b36f322266feeb7e65aea445881ba97822957942d18317f1c004",
+    "LabReceiver.ps1": "bb70cce4f0d6e3b2bf5f50b125133ee6839ed3ec9dd7dd1021422932950df97f",
+    "ReceiverCleanup.ps1": "5133de18b79dedc908da37af403643cceb906592e281c9913383f31bc3e43cdb"
+  },
+  "client_sha256": {
+    "jcl-over-slf4j-1.7.36.jar": "ab57ca8fd223772c17365d121f59e94ecbf0ae59d08c03a3cb5b81071c019195",
+    "protocolcore.jar": "2e71b0fa4033a6eef5ca9b8e788ead3d39413ad0961e51e3ac0e7b4eddb72048",
+    "slf4j-api-2.0.17.jar": "7b751d952061954d5abfed7181c1f645d336091b679891591d63329c622eb832",
+    "slf4j-nop-2.0.17.jar": "3716f83649ec66161a2edefd4f49df34d1dd1c51cdcf941996c6987260f0a829",
+    "sshd-common-2.20.1.jar": "19212364751ca6b0227298fa72da06338eba1cc8d7c8e11b35115f7590dd2b59",
+    "sshd-core-2.20.1.jar": "267525ebf83dbb5a9c72f372c8ba03a1512b1d27129b0271c56f68c73814534f"
+  },
+  "platform_check": {
+    "passed": true,
+    "listeners_started": 0,
+    "network_requests_sent": 0,
+    "ssh_factory_and_rsa_available": true,
+    "nio_acceptor_available": true
+  },
+  "models_unchanged": {
+    "gate": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+    "diagnosis": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e"
+  },
+  "listeners_started": 0,
+  "attack_requests_sent": 0,
+  "scope": "Inert lab installed and helpers copied; live protocol/path/attack validation awaits explicit manual profile commands."
+}

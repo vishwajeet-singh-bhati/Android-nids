@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "schema": "phone-aligned-v2",
+  "gate_model_sha256": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+  "diagnosis_model_sha256": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e",
+  "contract_sha256": "0a6f7c956c3fe8cc8329395c62098eefd735d9f49b82176ebcce42c7f609993c",
+  "feature_checks": {
+    "passed": true,
+    "rapid_history": true,
+    "phone_visibility": true,
+    "zero_duration": true,
+    "http_reassembly": true,
+    "payload_duplicate": true,
+    "sql_negative_control": true,
+    "encrypted_scope": true,
+    "expiry": true
+  },
+  "policy_checks": {
+    "passed": true,
+    "binary_warning_never_vetoed": true,
+    "unknown_type_retains_alert": true,
+    "negative_gate_skips_diagnosis": true
+  },
+  "delivery_clock_checks": {
+    "passed": true,
+    "wall_clock_offset_independent": true,
+    "backlogged_packets_not_skipped": true,
+    "matching_flow_context_and_decision_times": true,
+    "rows": 21,
+    "late_packets": 0
+  },
+  "selfcheck_rows": 21,
+  "pipeline_decision_flips": 0,
+  "device": "Pixel 6a",
+  "attack_detection_test": false,
+  "replay": {
+    "frames": 2029,
+    "rows": 204,
+    "parsed": 2029,
+    "malformed": 0,
+    "late": 0,
+    "forced": 0,
+    "flow_evictions": 0,
+    "history_evictions": 0,
+    "invalid": 0
+  },
+  "passive_feature_rows": 204,
+  "passive_values_compared": 29988,
+  "passive_maximum_error": 0.0,
+  "new_attack_traffic_sent": 0
+}

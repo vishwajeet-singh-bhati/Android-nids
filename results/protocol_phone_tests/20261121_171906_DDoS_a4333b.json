@@ -1,0 +1,42 @@
+{
+  "profile": "DDoS",
+  "run_id": "20261121_171906_DDoS_a4333b",
+  "model_sha256": {
+    "gate": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+    "diagnosis": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e"
+  },
+  "source_events": {
+    "target_started": 1,
+    "probe_available": 9,
+    "resource_held": 20,
+    "probe_denied": 38,
+    "resource_denied": 76
+  },
+  "native_segments": 143,
+  "flagged_segments": 1,
+  "classification_counts": {
+    "Benign": 142,
+    "Unclassified": 1
+  },
+  "captured_test_packets": 1433,
+  "unique_tcp_connections": 143,
+  "all_per_connection_packet_counts_exact": true,
+  "maximum_start_timestamp_error_seconds": 0.0,
+  "activity_groups": [
+    {
+      "type": "Unclassified",
+      "grouped_flags": 1,
+      "visible_notification": true,
+      "explanation_status": "complete",
+      "display_source": "evidence_based_fallback",
+      "generated_text_accepted": false
+    }
+  ],
+  "visible_matched_notification_groups": 1,
+  "notification_snapshot_error": null,
+  "notification_scope": "Visible snapshot only; absence does not prove never posted.",
+  "capture_healthy": true,
+  "receiver_or_source_effects_verified": true,
+  "next_test_scheduled": false,
+  "scope": "One manually launched bounded development case. C2 emulator is not real malware; capacity loss is confined to the dummy service; no general class recall claim."
+}

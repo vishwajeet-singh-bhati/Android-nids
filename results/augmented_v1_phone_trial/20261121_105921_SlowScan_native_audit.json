@@ -1,0 +1,67 @@
+{
+  "run_id": "20261121_105921_SlowScan",
+  "profile": "SlowScan",
+  "passed": true,
+  "captured_packets": 252,
+  "native_segments": 124,
+  "unique_tcp_tuples": 32,
+  "all_per_tuple_packet_counts_exact": true,
+  "all_segment_starts_match_packet_timestamp": true,
+  "maximum_start_timestamp_error_seconds": 0.0,
+  "input_dimensions": 147,
+  "inputs_finite": true,
+  "frozen_gate_threshold_consistent": true,
+  "native_class_counts": {
+    "0": 2,
+    "7": 34,
+    "1": 2,
+    "5": 86
+  },
+  "connections_with_at_least_one_flag": 31,
+  "connections_with_at_least_one_port_scan_label": 23,
+  "target_behavior_verified": true,
+  "beacon_ping_pong_events": null,
+  "beacon_pc_pong_replies": null,
+  "notification_snapshot_count": 4,
+  "activity_explanations": [
+    {
+      "type": "Bot",
+      "count": 2,
+      "explanation_status": "complete",
+      "generated_text_accepted": false,
+      "display_source": "evidence_based_fallback",
+      "app_ownership_status": "unknown"
+    },
+    {
+      "type": "Unclassified",
+      "count": 34,
+      "explanation_status": "complete",
+      "generated_text_accepted": false,
+      "display_source": "evidence_based_fallback",
+      "app_ownership_status": "unknown"
+    },
+    {
+      "type": "Port Scan",
+      "count": 31,
+      "explanation_status": "complete",
+      "generated_text_accepted": false,
+      "display_source": "evidence_based_fallback",
+      "app_ownership_status": "unknown"
+    },
+    {
+      "type": "Port Scan",
+      "count": 55,
+      "explanation_status": "complete",
+      "generated_text_accepted": false,
+      "display_source": "evidence_based_fallback",
+      "app_ownership_status": "unknown"
+    }
+  ],
+  "artifact_sha256": {
+    "run.json": "2bd4c5c53b960d31a802141d82ad3495f9ea7dbd6edc556f322e1c74a1a7998e",
+    "check.json": "41e50c39445b4d7bba24f3d4e8f4503623ae22263a2719ed1b996fdeac9d238c",
+    "traffic.pcap": "d261b9120e0d2c5bea52c4fba7d33fdf59f835c4e4fb1926e17634d675977418",
+    "nids_numeric_trace.jsonl": "786e0168415fee8c0c6db37341812179aaf29971ff6fcc92b1943b4ddd3a98b7",
+    "target_events.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+  }
+}

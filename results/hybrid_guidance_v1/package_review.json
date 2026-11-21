@@ -1,0 +1,12 @@
+{
+  "version_code": 38,
+  "version_name": "0.14.0-hybrid-guidance",
+  "apk_sha256": "ff338327700acf534b14b1e3c28dfbe66a1acd1d97a177d46b44a3aefca964e4",
+  "apk_bytes": 54975082,
+  "production_detector_models_unchanged": true,
+  "models": {
+    "gate": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+    "diagnosis": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e"
+  },
+  "user_authorization": "Explicit request to deploy the hybrid pipeline supersedes the prior code37 preservation instruction for this release."
+}

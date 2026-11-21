@@ -1,0 +1,36 @@
+{
+  "resumed_at_ist": "2026-11-19T14:58:08.462359+05:30",
+  "recovered_completed_epochs": 164,
+  "current_saved_epochs": 164,
+  "completed_jobs_reused": [
+    "unweighted_gate_s0",
+    "unweighted_diagnosis_s0",
+    "moderate_gate_s0"
+  ],
+  "resumed_jobs": {
+    "moderate_diagnosis_s0": {
+      "epoch": 27,
+      "phase": "training",
+      "step": 1500,
+      "steps": 9682
+    },
+    "hard_benign_gate_s0": {
+      "epoch": 19,
+      "phase": "training",
+      "step": 6000,
+      "steps": 9682
+    }
+  },
+  "source_hashes_passed": true,
+  "resumable_optimizer_rng_checkpoints_verified": true,
+  "cuda_available": true,
+  "device": "NVIDIA RTX 2000 Ada Generation",
+  "scheduler_host_pid": 39888,
+  "finalizer_host_pid": 41292,
+  "finalizer_running": true,
+  "original_config_sha256": "68c589b5b6badb1ce6be4a26e894994f2b73de88415d198ab2d3519242e12765",
+  "pre_shutdown_logs_archived": "runs\\phone_repair_v3\\restarts\\20261119_145652",
+  "no_training_configuration_changes": true,
+  "post_reboot_feature_cache_warmed_read_only": true,
+  "training_step_advancement_verified": true
+}

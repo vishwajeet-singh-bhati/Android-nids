@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "attack_generated": false,
+  "checks": [
+    {
+      "match_kind": "listener",
+      "method": "root_receiving_port_snapshot",
+      "app_label": "NIDS Traffic Lab",
+      "packages": [
+        "nids.trafficlab"
+      ],
+      "direction": "incoming",
+      "scope": "Synthetic endpoint lookup against a real owned listening socket; no attack/connection delivery claimed"
+    },
+    {
+      "match_kind": "connected",
+      "method": "root_connected_socket_snapshot",
+      "app_label": "NIDS Traffic Lab",
+      "packages": [
+        "nids.trafficlab"
+      ],
+      "direction": "incoming",
+      "scope": "Real benign TCP connection; no attack detection claimed"
+    }
+  ],
+  "benign_http_status": 200
+}

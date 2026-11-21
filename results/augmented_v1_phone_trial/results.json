@@ -1,0 +1,508 @@
+{
+  "state": "manual_remaining",
+  "model_family": "real-phone-augmented-v1",
+  "version": "0.13.0-augmented-v1-trial",
+  "model_sha256": {
+    "gate": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+    "diagnosis": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e"
+  },
+  "gate_threshold": 0.5408333333333333,
+  "type_cutoff": 0.8,
+  "selection_and_thresholds_unchanged": true,
+  "results": [
+    {
+      "run_id": "20261121_104159_Benign",
+      "profile": "Benign",
+      "invocation_mode": "user_authorized_automated_suite",
+      "suite_id": "20261121_104155_augmented_v1",
+      "attempts": 8,
+      "target_events": {
+        "http_request": 8
+      },
+      "traffic_summary": {
+        "attempts": 8,
+        "connected": 8,
+        "timeouts": 0,
+        "open_ports": [
+          43190
+        ]
+      },
+      "captured_packets": 80,
+      "captured_tcp_tuples": 8,
+      "native_decisions_matched": 8,
+      "all_capture_tuples_observed": true,
+      "native_packet_count_sum": 80,
+      "test_matched_flags": 0,
+      "classification_counts": {
+        "Benign": 8,
+        "Bot": 0,
+        "Brute Force": 0,
+        "DDoS": 0,
+        "DoS": 0,
+        "Port Scan": 0,
+        "Web Attack": 0,
+        "Unclassified": 0
+      },
+      "window_flags": 0,
+      "correlation": {
+        "counts": {
+          "matched_test_capture": 0,
+          "outside_test_endpoints": 0,
+          "same_endpoints_not_in_capture": 0,
+          "unresolved": 0
+        },
+        "capture_tuple_count": 8,
+        "capture_available_for_matching": true,
+        "scope": "Exact IPv4 TCP tuple matching; 0 unsupported records. A match establishes traffic association, not maliciousness or correct diagnosis."
+      },
+      "activity_rows_in_window": 0,
+      "visible_activity_alerts": 0,
+      "activity_types": [],
+      "capture_healthy": true,
+      "interpretation": "Normal control quiet",
+      "gate_model_sha256": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+      "diagnosis_model_sha256": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e",
+      "trace_rows_at_pull": 34,
+      "scope": "One bounded case; retries/segments correlated. Load/heartbeat traffic does not establish full-scale DoS or real Bot malware. Window alerts are not automatically test detections.",
+      "native_audit": {
+        "run_id": "20261121_104159_Benign",
+        "profile": "Benign",
+        "passed": true,
+        "captured_packets": 80,
+        "native_segments": 8,
+        "unique_tcp_tuples": 8,
+        "all_per_tuple_packet_counts_exact": true,
+        "all_segment_starts_match_packet_timestamp": true,
+        "maximum_start_timestamp_error_seconds": 0.0,
+        "input_dimensions": 147,
+        "inputs_finite": true,
+        "frozen_gate_threshold_consistent": true,
+        "native_class_counts": {
+          "0": 8
+        },
+        "connections_with_at_least_one_flag": 0,
+        "connections_with_at_least_one_port_scan_label": 0,
+        "target_behavior_verified": true,
+        "beacon_ping_pong_events": null,
+        "beacon_pc_pong_replies": null,
+        "notification_snapshot_count": 0,
+        "activity_explanations": [],
+        "artifact_sha256": {
+          "run.json": "f559e7359599fb6112a0167e902f47cd639746f4022bbf60d469f57cb6ad1976",
+          "check.json": "434bc7238d91db9c091109b391c3b8c507082827c09d7fb54a4d2d573d68eccd",
+          "traffic.pcap": "cb22ab58a87ba4dfe009d2b17b16f6f2c22173cc5ada51b428a8a498b0f128aa",
+          "nids_numeric_trace.jsonl": "d4e8139869fbc49f73fd67bf7b36e7d937d874b3b14d344095f7764cf1aabd23",
+          "target_events.json": "7c0b91fd2d31a27ed43c15658dba05f70441962dc3c208f36e067248821be65d"
+        }
+      },
+      "request_breakdown": {
+        "connected_requests": 8,
+        "attack_requests": 0,
+        "attack_requests_flagged": 0,
+        "normal_controls": 8,
+        "normal_controls_flagged": 0,
+        "rows": [
+          {
+            "truth": "normal_control",
+            "flagged": false,
+            "native_segments": 1,
+            "model_labels": [
+              "Benign"
+            ]
+          },
+          {
+            "truth": "normal_control",
+            "flagged": false,
+            "native_segments": 1,
+            "model_labels": [
+              "Benign"
+            ]
+          },
+          {
+            "truth": "normal_control",
+            "flagged": false,
+            "native_segments": 1,
+            "model_labels": [
+              "Benign"
+            ]
+          },
+          {
+            "truth": "normal_control",
+            "flagged": false,
+            "native_segments": 1,
+            "model_labels": [
+              "Benign"
+            ]
+          },
+          {
+            "truth": "normal_control",
+            "flagged": false,
+            "native_segments": 1,
+            "model_labels": [
+              "Benign"
+            ]
+          },
+          {
+            "truth": "normal_control",
+            "flagged": false,
+            "native_segments": 1,
+            "model_labels": [
+              "Benign"
+            ]
+          },
+          {
+            "truth": "normal_control",
+            "flagged": false,
+            "native_segments": 1,
+            "model_labels": [
+              "Benign"
+            ]
+          },
+          {
+            "truth": "normal_control",
+            "flagged": false,
+            "native_segments": 1,
+            "model_labels": [
+              "Benign"
+            ]
+          }
+        ]
+      },
+      "packet_accounting_exact": true,
+      "target_evidence": {
+        "http_request": 8
+      }
+    },
+    {
+      "run_id": "20261121_105054_PortScan",
+      "profile": "PortScan",
+      "invocation_mode": "user_authorized_automated_suite",
+      "suite_id": "20261121_104543_augmented_v1",
+      "attempts": 129,
+      "target_events": {},
+      "traffic_summary": {
+        "attempts": 129,
+        "connected": 1,
+        "timeouts": 128,
+        "open_ports": [
+          43190
+        ]
+      },
+      "captured_packets": 1028,
+      "captured_tcp_tuples": 129,
+      "native_decisions_matched": 512,
+      "all_capture_tuples_observed": true,
+      "native_packet_count_sum": 1028,
+      "test_matched_flags": 510,
+      "classification_counts": {
+        "Benign": 2,
+        "Bot": 5,
+        "Brute Force": 0,
+        "DDoS": 0,
+        "DoS": 0,
+        "Port Scan": 437,
+        "Web Attack": 0,
+        "Unclassified": 68
+      },
+      "window_flags": 510,
+      "correlation": {
+        "counts": {
+          "matched_test_capture": 510,
+          "outside_test_endpoints": 0,
+          "same_endpoints_not_in_capture": 0,
+          "unresolved": 0
+        },
+        "capture_tuple_count": 129,
+        "capture_available_for_matching": true,
+        "scope": "Exact IPv4 TCP tuple matching; 0 unsupported records. A match establishes traffic association, not maliciousness or correct diagnosis."
+      },
+      "activity_rows_in_window": 7,
+      "visible_activity_alerts": 7,
+      "activity_types": [
+        "Unclassified",
+        "Bot",
+        "Port Scan",
+        "Unclassified",
+        "Unclassified",
+        "Port Scan",
+        "Port Scan"
+      ],
+      "capture_healthy": true,
+      "interpretation": "Inconclusive: beacon exchanges did not complete; inspect receiver connectivity",
+      "gate_model_sha256": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+      "diagnosis_model_sha256": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e",
+      "trace_rows_at_pull": 557,
+      "scope": "One bounded case; retries/segments correlated. Load/heartbeat traffic does not establish full-scale DoS or real Bot malware. Window alerts are not automatically test detections.",
+      "target_evidence": {},
+      "native_audit": {
+        "run_id": "20261121_105054_PortScan",
+        "profile": "PortScan",
+        "passed": true,
+        "captured_packets": 1028,
+        "native_segments": 512,
+        "unique_tcp_tuples": 129,
+        "all_per_tuple_packet_counts_exact": true,
+        "all_segment_starts_match_packet_timestamp": true,
+        "maximum_start_timestamp_error_seconds": 0.0,
+        "input_dimensions": 147,
+        "inputs_finite": true,
+        "frozen_gate_threshold_consistent": true,
+        "native_class_counts": {
+          "0": 2,
+          "7": 68,
+          "1": 5,
+          "5": 437
+        },
+        "connections_with_at_least_one_flag": 128,
+        "connections_with_at_least_one_port_scan_label": 122,
+        "target_behavior_verified": true,
+        "beacon_ping_pong_events": null,
+        "beacon_pc_pong_replies": null,
+        "notification_snapshot_count": 7,
+        "activity_explanations": [
+          {
+            "type": "Unclassified",
+            "count": 17,
+            "explanation_status": "complete",
+            "generated_text_accepted": false,
+            "display_source": "evidence_based_fallback",
+            "app_ownership_status": "unknown"
+          },
+          {
+            "type": "Bot",
+            "count": 5,
+            "explanation_status": "complete",
+            "generated_text_accepted": false,
+            "display_source": "evidence_based_fallback",
+            "app_ownership_status": "unknown"
+          },
+          {
+            "type": "Port Scan",
+            "count": 1,
+            "explanation_status": "complete",
+            "generated_text_accepted": false,
+            "display_source": "evidence_based_fallback",
+            "app_ownership_status": "unknown"
+          },
+          {
+            "type": "Unclassified",
+            "count": 49,
+            "explanation_status": "complete",
+            "generated_text_accepted": false,
+            "display_source": "evidence_based_fallback",
+            "app_ownership_status": "unknown"
+          },
+          {
+            "type": "Unclassified",
+            "count": 2,
+            "explanation_status": "complete",
+            "generated_text_accepted": false,
+            "display_source": "evidence_based_fallback",
+            "app_ownership_status": "unknown"
+          },
+          {
+            "type": "Port Scan",
+            "count": 428,
+            "explanation_status": "complete",
+            "generated_text_accepted": false,
+            "display_source": "evidence_based_fallback",
+            "app_ownership_status": "unknown"
+          },
+          {
+            "type": "Port Scan",
+            "count": 8,
+            "explanation_status": "complete",
+            "generated_text_accepted": false,
+            "display_source": "evidence_based_fallback",
+            "app_ownership_status": "unknown"
+          }
+        ],
+        "artifact_sha256": {
+          "run.json": "bc1e1384a0595d3a4ff3bc8746383865aa0a1a7d54ada66dc63e8069682229eb",
+          "check.json": "55e17d172f6519e8434a9f3a07b2a776a3d9056212ab9442dc4b5f3f7ad9e5d3",
+          "traffic.pcap": "a236e9f80cf1da94ac20529e02778f2d7d09d2d5995b293ab77dfce9c3bf08f1",
+          "nids_numeric_trace.jsonl": "6891017ae1ab81a3eb6ae0744a1c2949567fc1f635c7f065d966cc58a4bb844b",
+          "target_events.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+        }
+      },
+      "request_breakdown": {
+        "connected_requests": 1,
+        "attack_requests": 0,
+        "attack_requests_flagged": 0,
+        "normal_controls": 0,
+        "normal_controls_flagged": 0,
+        "rows": [
+          {
+            "truth": "controlled_behavior_probe",
+            "flagged": false,
+            "native_segments": 1,
+            "model_labels": [
+              "Benign"
+            ]
+          }
+        ]
+      },
+      "packet_accounting_exact": true
+    },
+    {
+      "run_id": "20261121_105921_SlowScan",
+      "profile": "SlowScan",
+      "invocation_mode": "user_authorized_automated_suite",
+      "suite_id": "20261121_104543_augmented_v1",
+      "attempts": 32,
+      "target_events": {},
+      "traffic_summary": {
+        "attempts": 32,
+        "connected": 1,
+        "timeouts": 31,
+        "open_ports": [
+          43190
+        ]
+      },
+      "captured_packets": 252,
+      "captured_tcp_tuples": 32,
+      "native_decisions_matched": 124,
+      "all_capture_tuples_observed": true,
+      "native_packet_count_sum": 252,
+      "test_matched_flags": 122,
+      "classification_counts": {
+        "Benign": 2,
+        "Bot": 2,
+        "Brute Force": 0,
+        "DDoS": 0,
+        "DoS": 0,
+        "Port Scan": 86,
+        "Web Attack": 0,
+        "Unclassified": 34
+      },
+      "window_flags": 122,
+      "correlation": {
+        "counts": {
+          "matched_test_capture": 122,
+          "outside_test_endpoints": 0,
+          "same_endpoints_not_in_capture": 0,
+          "unresolved": 0
+        },
+        "capture_tuple_count": 32,
+        "capture_available_for_matching": true,
+        "scope": "Exact IPv4 TCP tuple matching; 0 unsupported records. A match establishes traffic association, not maliciousness or correct diagnosis."
+      },
+      "activity_rows_in_window": 4,
+      "visible_activity_alerts": 4,
+      "activity_types": [
+        "Bot",
+        "Unclassified",
+        "Port Scan",
+        "Port Scan"
+      ],
+      "capture_healthy": true,
+      "interpretation": "Controlled scan detected",
+      "gate_model_sha256": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+      "diagnosis_model_sha256": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e",
+      "trace_rows_at_pull": 192,
+      "check_source": "check_reconciled.json",
+      "scope": "One bounded case; retries/segments correlated. Load/heartbeat traffic does not establish full-scale DoS or real Bot malware. Window alerts are not automatically test detections.",
+      "native_audit": {
+        "run_id": "20261121_105921_SlowScan",
+        "profile": "SlowScan",
+        "passed": true,
+        "captured_packets": 252,
+        "native_segments": 124,
+        "unique_tcp_tuples": 32,
+        "all_per_tuple_packet_counts_exact": true,
+        "all_segment_starts_match_packet_timestamp": true,
+        "maximum_start_timestamp_error_seconds": 0.0,
+        "input_dimensions": 147,
+        "inputs_finite": true,
+        "frozen_gate_threshold_consistent": true,
+        "native_class_counts": {
+          "0": 2,
+          "7": 34,
+          "1": 2,
+          "5": 86
+        },
+        "connections_with_at_least_one_flag": 31,
+        "connections_with_at_least_one_port_scan_label": 23,
+        "target_behavior_verified": true,
+        "beacon_ping_pong_events": null,
+        "beacon_pc_pong_replies": null,
+        "notification_snapshot_count": 4,
+        "activity_explanations": [
+          {
+            "type": "Bot",
+            "count": 2,
+            "explanation_status": "complete",
+            "generated_text_accepted": false,
+            "display_source": "evidence_based_fallback",
+            "app_ownership_status": "unknown"
+          },
+          {
+            "type": "Unclassified",
+            "count": 34,
+            "explanation_status": "complete",
+            "generated_text_accepted": false,
+            "display_source": "evidence_based_fallback",
+            "app_ownership_status": "unknown"
+          },
+          {
+            "type": "Port Scan",
+            "count": 31,
+            "explanation_status": "complete",
+            "generated_text_accepted": false,
+            "display_source": "evidence_based_fallback",
+            "app_ownership_status": "unknown"
+          },
+          {
+            "type": "Port Scan",
+            "count": 55,
+            "explanation_status": "complete",
+            "generated_text_accepted": false,
+            "display_source": "evidence_based_fallback",
+            "app_ownership_status": "unknown"
+          }
+        ],
+        "artifact_sha256": {
+          "run.json": "2bd4c5c53b960d31a802141d82ad3495f9ea7dbd6edc556f322e1c74a1a7998e",
+          "check.json": "41e50c39445b4d7bba24f3d4e8f4503623ae22263a2719ed1b996fdeac9d238c",
+          "traffic.pcap": "d261b9120e0d2c5bea52c4fba7d33fdf59f835c4e4fb1926e17634d675977418",
+          "nids_numeric_trace.jsonl": "786e0168415fee8c0c6db37341812179aaf29971ff6fcc92b1943b4ddd3a98b7",
+          "target_events.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+        }
+      },
+      "request_breakdown": {
+        "connected_requests": 1,
+        "attack_requests": 0,
+        "attack_requests_flagged": 0,
+        "normal_controls": 0,
+        "normal_controls_flagged": 0,
+        "rows": [
+          {
+            "truth": "controlled_behavior_probe",
+            "flagged": false,
+            "native_segments": 1,
+            "model_labels": [
+              "Benign"
+            ]
+          }
+        ]
+      },
+      "packet_accounting_exact": true,
+      "target_evidence": {},
+      "log_rotation_reconciliation": {
+        "original_window_flags": 89,
+        "restored_flags_from_rotated_file": 33,
+        "original_check_sha256": "41e50c39445b4d7bba24f3d4e8f4503623ae22263a2719ed1b996fdeac9d238c",
+        "original_observation_window_preserved": true,
+        "model_predictions_unchanged": true
+      }
+    }
+  ],
+  "production_promoted": false,
+  "not_reproduced": [
+    "Distributed DDoS: additional authorized source PCs not supplied.",
+    "Bot malware: fixed benign beacon behavior is not a real infection.",
+    "FTP/SSH-Patator: HTTP dummy-account guessing tests Web behavior, not these protocols."
+  ],
+  "scope": "Fresh controlled development cases on one owned phone/app. Exact tuple-correlated decisions. Bounded load does not establish full DoS/DDoS; no population accuracy claim.",
+  "automatic_execution_stopped_by_user": true
+}

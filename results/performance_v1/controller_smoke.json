@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "phone_connected_or_modified": false,
+  "checks": [
+    "Monitor readiness tolerates two asynchronous initialization polls",
+    "Failed native report raises rather than passing",
+    "Failure evidence and status preserved",
+    "Android benchmark target cancelled before original monitoring restored"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "audited_runs": 8,
+  "native_segments": 325,
+  "packet_records": 3248,
+  "verified_web_requests": 35,
+  "web_requests_binary_flagged": 22,
+  "web_requests_typed_web": 9,
+  "normal_request_controls": 2,
+  "normal_request_controls_flagged": 0,
+  "unknown_web_flag_top_predictions": {
+    "Web Attack": 2,
+    "Benign": 11
+  },
+  "new_attack_traffic_sent": 0,
+  "models_changed": false,
+  "next_tests_started": false,
+  "scope": "Small correlated same-phone development cases. Four earlier cases include previous-test history. These are descriptive counts, not independent class recall or representative mobile false-positive rates."
+}

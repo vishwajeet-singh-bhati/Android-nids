@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "training_jobs": 6,
+  "epochs_each": 2,
+  "all_epochs_retained": true,
+  "identical_initialization_and_orders": true,
+  "routing_invariants_passed": true,
+  "calibration_selection_evaluation_native_export": true,
+  "completed_job_resume_preserves_checkpoint": true,
+  "scope": "synthetic automation only, not detector accuracy",
+  "new_attacks_sent": 0
+}

@@ -1,0 +1,31 @@
+{
+  "run_id": "20261121_104159_Benign",
+  "profile": "Benign",
+  "passed": true,
+  "captured_packets": 80,
+  "native_segments": 8,
+  "unique_tcp_tuples": 8,
+  "all_per_tuple_packet_counts_exact": true,
+  "all_segment_starts_match_packet_timestamp": true,
+  "maximum_start_timestamp_error_seconds": 0.0,
+  "input_dimensions": 147,
+  "inputs_finite": true,
+  "frozen_gate_threshold_consistent": true,
+  "native_class_counts": {
+    "0": 8
+  },
+  "connections_with_at_least_one_flag": 0,
+  "connections_with_at_least_one_port_scan_label": 0,
+  "target_behavior_verified": true,
+  "beacon_ping_pong_events": null,
+  "beacon_pc_pong_replies": null,
+  "notification_snapshot_count": 0,
+  "activity_explanations": [],
+  "artifact_sha256": {
+    "run.json": "f559e7359599fb6112a0167e902f47cd639746f4022bbf60d469f57cb6ad1976",
+    "check.json": "434bc7238d91db9c091109b391c3b8c507082827c09d7fb54a4d2d573d68eccd",
+    "traffic.pcap": "cb22ab58a87ba4dfe009d2b17b16f6f2c22173cc5ada51b428a8a498b0f128aa",
+    "nids_numeric_trace.jsonl": "d4e8139869fbc49f73fd67bf7b36e7d937d874b3b14d344095f7764cf1aabd23",
+    "target_events.json": "7c0b91fd2d31a27ed43c15658dba05f70441962dc3c208f36e067248821be65d"
+  }
+}

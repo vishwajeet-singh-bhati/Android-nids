@@ -64,9 +64,18 @@ class TsanetCaptureService: Service(){
         ResourceMonitor.acquire(this,"monitor")
         try{
             owners.refresh();refreshAddresses();check(watched.isNotEmpty()){"No local interface addresses available: ${owners.status}"}
-            ObservationStore.migrate(this);ObservationStore.recoverQueue(this)
+            ObservationStore.migrate(this)
+            if(!getSharedPreferences("background_monitor",Context.MODE_PRIVATE).getBoolean("include_device_local_alerts",false)){
+                val localIds=ObservationStore.reclassifyDeviceLocal(this)
+                android.os.Handler(android.os.Looper.getMainLooper()).post{
+                    for(id in localIds)getSystemService(NotificationManager::class.java).cancel(id.hashCode())
+                    if(LlamaLive.observationId in localIds)LlamaClient.cancel("Device-local activity moved to separate scope")
+                }
+            }
+            ObservationStore.recoverQueue(this)
             LearnedLive.packets=0;LearnedLive.inferences=0;LearnedLive.warnings=0
             LearnedLive.queueDrops=0;LearnedLive.queueDepth=0;LearnedLive.queuePeak=0
+            LearnedLive.localOnlyFlows=0;LearnedLive.lastLocalConnection=""
             LearnedLive.behaviorSnapshot="{}";LearnedLive.status="Starting";LearnedLive.quality="Checking v2 models"
             AlignedV2Scorer(this).use{scorer->
                 log(JSONObject().put("event","session_start").put("time_ms",System.currentTimeMillis())
@@ -74,6 +83,7 @@ class TsanetCaptureService: Service(){
                     .put("diagnosis_model_sha256",scorer.diagnosisManifest.getString("model_sha256"))
                     .put("feature_contract_sha256",scorer.gateManifest.getString("feature_contract_sha256"))
                     .put("schema","phone-aligned-v2").put("history_scope","all observed completed flows incident to watched phone address")
+                    .put("local_only_default","observed separately; not external-intrusion scored")
                     .put("history_window_seconds",300).put("flow_timeout_seconds",30).put("capture_snaplen",768)
                     .put("capture_immediate_mode",true).put("idle_delivery_grace_ms",2000)
                     .put("gate_threshold",scorer.policy.gateThreshold).put("type_score_cutoff",scorer.policy.typeCutoff)
@@ -97,9 +107,19 @@ class TsanetCaptureService: Service(){
                 LearnedLive.status="Monitoring"
                 fun inspect(view: AlignedSnapshot){
                     val snapshot=view.flow
+                    val cached=cachedOwners.remove(snapshot.key);refreshed.remove(snapshot.key);orientations.remove(snapshot.key)
+                    val localOnly=NetworkObservationPolicy.isDeviceLocal(snapshot.source,snapshot.destination)
+                    val includeLocal=getSharedPreferences("background_monitor",Context.MODE_PRIVATE).getBoolean("include_device_local_alerts",false)
+                    if(localOnly){
+                        LearnedLive.localOnlyFlows++
+                        LearnedLive.lastLocalConnection="${snapshot.source}:${snapshot.sourcePort} → ${snapshot.destination}:${snapshot.destinationPort} (${snapshot.packets} packets)"
+                        log(JSONObject().put("event","device_local_flow").put("time_ms",System.currentTimeMillis())
+                            .put("source",snapshot.source).put("sport",snapshot.sourcePort).put("destination",snapshot.destination).put("dport",snapshot.destinationPort)
+                            .put("packets",snapshot.packets).put("model_evaluated",includeLocal).put("external_intrusion_assessed",false))
+                        if(!includeLocal)return
+                    }
                     val decision=scorer.score(view);LearnedLive.inferences++
                     val category=decision.classId
-                    val cached=cachedOwners.remove(snapshot.key);refreshed.remove(snapshot.key);orientations.remove(snapshot.key)
                     if(getSharedPreferences("background_monitor",Context.MODE_PRIVATE).getBoolean("validation_trace",false) && diagnosticRows++<2000){
                         File(filesDir,"tsanet_validation_trace.jsonl").appendText(JSONObject()
                             .put("time_ms",System.currentTimeMillis()).put("start",snapshot.start).put("end",snapshot.end)
@@ -122,6 +142,7 @@ class TsanetCaptureService: Service(){
                     fun count(index: Int)=kotlin.math.round(kotlin.math.expm1(view.context[index].toDouble())).toInt().coerceAtLeast(0)
                     val historyAge=kotlin.math.expm1(view.context[114].toDouble())
                     val evidence=JSONObject().put("schema","tsanet_phone_evidence_v1")
+                        .put("traffic_scope",if(localOnly)"device_local_experimental" else "external_network")
                         .put("class_id",category).put("suspected_pattern",TsanetExplanationFacts.classes[category])
                         .put("model_sha256",scorer.gateManifest.getString("model_sha256"))
                         .put("attribution",owner).put("flow_packets",snapshot.packets)
@@ -142,7 +163,7 @@ class TsanetCaptureService: Service(){
                         .put("decision_time_ms",(view.decisionTime*1000).toLong()).put("flow_features",JSONArray(snapshot.flow.toList()))
                         .put("context_features",JSONArray(view.context.toList()))
                         .put("remote_endpoints_sample",JSONArray().put(owner.optString("remote_endpoint","unknown")))
-                    val key="aligned-v2|$category|${owner.optInt("uid",-1)}|${owner.optString("direction","unknown")}|${System.currentTimeMillis()/60000}"
+                    val key="aligned-v2|$category|${owner.optInt("uid",-1)}|${owner.optString("direction","unknown")}|${System.currentTimeMillis()/60000}"+(if(localOnly)"|local-experimental" else "")
                     evidence.put("fingerprint",key).put("detector","phone_aligned_v2_gate_diagnosis")
                     val previous=pending[key]
                     pending[key]=Pair((previous?.first ?: 0)+1,evidence)
@@ -183,6 +204,7 @@ class TsanetCaptureService: Service(){
                     if(now-lastHeartbeat>=30000){
                         log(JSONObject().put("event","heartbeat").put("time_ms",System.currentTimeMillis())
                             .put("packets",packets.get()).put("inferences",LearnedLive.inferences).put("flags",LearnedLive.warnings)
+                            .put("local_only_flows",LearnedLive.localOnlyFlows).put("local_only_alerts_enabled",getSharedPreferences("background_monitor",Context.MODE_PRIVATE).getBoolean("include_device_local_alerts",false))
                             .put("schema","phone-aligned-v2").put("diagnosis_inferences",scorer.diagnosisInferences)
                             .put("active_flows",collector.activeFlows).put("history_window_seconds",300)
                             .put("invalid_rate_flows",collector.invalidFlows).put("evictions",collector.flowEvictions)

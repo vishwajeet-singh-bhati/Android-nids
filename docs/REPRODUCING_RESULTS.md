@@ -86,3 +86,10 @@ Linux equivalents are `cat` for status JSON and `tail -f` for a selected job log
 - Original public-data benchmark runs can be regenerated after acquiring matching publisher files. Historical aggregate reports retain counts/configurations/provenance.
 - Real phone captures are excluded as requested. You can repeat the collection method on your own device, but timing/traffic/features will differ. Exact retraining/re-auditing of our private-phone cohort requires those original recordings; source alone cannot provide that claim.
 - Full new-device accuracy, daily false-alert rate and every attack class are not established by a small single-phone lab study.
+
+
+## Current release clarification
+
+Current source is code40 with the augmented-v1 detector, not the historical code36 weights. Read [current pipeline](CURRENT_PIPELINE.md), [status](../STATUS.md), [completed training](../results/phone_capture_training_v1/RESULTS.md) and [protocol testing](PROTOCOL_TESTING.md). All six training jobs completed; readiness remains false. The old v2 reference is kept only for comparison. New cases must be kept separate from already examined development cohorts.
+
+The rejected repair source is also included under `experiments/phone_repair_v3`. With the baseline cache/jobs regenerated, run its Linux runner for a separate experiment; it is never an automatic deployment. Augmented before/after evaluation loads the historical reference from `models/references/aligned_v2`, while `models/current` remains current. To regenerate the report from the shipped aggregate evidence, run `python tools/report/build_report.py`; it performs no training or phone actions. Collectors need the separately obtained original artifacts.

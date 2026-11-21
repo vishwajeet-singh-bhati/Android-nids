@@ -1,0 +1,59 @@
+{
+  "run_id": "20261121_105921_SlowScan",
+  "profile": "SlowScan",
+  "invocation_mode": "user_authorized_automated_suite",
+  "suite_id": "20261121_104543_augmented_v1",
+  "attempts": 32,
+  "target_events": {},
+  "traffic_summary": {
+    "attempts": 32,
+    "connected": 1,
+    "timeouts": 31,
+    "open_ports": [
+      43190
+    ]
+  },
+  "captured_packets": 252,
+  "captured_tcp_tuples": 32,
+  "native_decisions_matched": 124,
+  "all_capture_tuples_observed": true,
+  "native_packet_count_sum": 252,
+  "test_matched_flags": 122,
+  "classification_counts": {
+    "Benign": 2,
+    "Bot": 2,
+    "Brute Force": 0,
+    "DDoS": 0,
+    "DoS": 0,
+    "Port Scan": 86,
+    "Web Attack": 0,
+    "Unclassified": 34
+  },
+  "window_flags": 122,
+  "correlation": {
+    "counts": {
+      "matched_test_capture": 122,
+      "outside_test_endpoints": 0,
+      "same_endpoints_not_in_capture": 0,
+      "unresolved": 0
+    },
+    "capture_tuple_count": 32,
+    "capture_available_for_matching": true,
+    "scope": "Exact IPv4 TCP tuple matching; 0 unsupported records. A match establishes traffic association, not maliciousness or correct diagnosis."
+  },
+  "activity_rows_in_window": 4,
+  "visible_activity_alerts": 4,
+  "activity_types": [
+    "Bot",
+    "Unclassified",
+    "Port Scan",
+    "Port Scan"
+  ],
+  "capture_healthy": true,
+  "interpretation": "Controlled scan detected",
+  "gate_model_sha256": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+  "diagnosis_model_sha256": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e",
+  "trace_rows_at_pull": 192,
+  "check_source": "check_reconciled.json",
+  "scope": "One bounded case; retries/segments correlated. Load/heartbeat traffic does not establish full-scale DoS or real Bot malware. Window alerts are not automatically test detections."
+}

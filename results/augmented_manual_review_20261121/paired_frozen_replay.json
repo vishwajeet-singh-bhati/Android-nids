@@ -1,0 +1,4722 @@
+{
+  "scope": "Paired work-PC CPU replay on exact saved native inputs; v2 is counterfactual, not another live deployment. No fitting or selection.",
+  "rows": 325,
+  "models": {
+    "preserved_v2": {
+      "threshold": 0.7858333333333334,
+      "type_cutoff": 0.6,
+      "sha256": {
+        "gate": "ac50366fc5cb88c5d86503748cd1a000693ac6ef1ad52a08918d18ae90417b63",
+        "diagnosis": "dcccea8d7e2761335cb72320279dad35557608647d643aba9c9190efa7c2e7de"
+      },
+      "cases": {
+        "20261121_113935_PasswordGuessing": {
+          "rows": 32,
+          "flags": 0,
+          "web_labels": 0,
+          "class_counts": {
+            "0": 32
+          }
+        },
+        "20261121_114213_SQLInjection": {
+          "rows": 3,
+          "flags": 0,
+          "web_labels": 0,
+          "class_counts": {
+            "0": 3
+          }
+        },
+        "20261121_114437_XSS": {
+          "rows": 1,
+          "flags": 0,
+          "web_labels": 0,
+          "class_counts": {
+            "0": 1
+          }
+        },
+        "20261121_114717_ConnectionExhaustion": {
+          "rows": 16,
+          "flags": 2,
+          "web_labels": 0,
+          "class_counts": {
+            "0": 14,
+            "7": 2
+          }
+        },
+        "20261121_114945_HTTPFlood": {
+          "rows": 128,
+          "flags": 106,
+          "web_labels": 0,
+          "class_counts": {
+            "7": 104,
+            "0": 22,
+            "1": 2
+          }
+        },
+        "20261121_115902_HTTPFlood": {
+          "rows": 128,
+          "flags": 71,
+          "web_labels": 0,
+          "class_counts": {
+            "0": 57,
+            "7": 68,
+            "4": 3
+          }
+        },
+        "20261121_120751_ConnectionExhaustion": {
+          "rows": 16,
+          "flags": 0,
+          "web_labels": 0,
+          "class_counts": {
+            "0": 16
+          }
+        },
+        "20261121_121909_XSS": {
+          "rows": 1,
+          "flags": 0,
+          "web_labels": 0,
+          "class_counts": {
+            "0": 1
+          }
+        }
+      },
+      "predictions": [
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 0,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 1,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 2,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 3,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 4,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 5,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 6,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 7,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 8,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 9,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 10,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 11,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 12,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 13,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 14,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 15,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 16,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 17,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 18,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 19,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 20,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 21,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 22,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 23,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 24,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 25,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 26,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 27,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 28,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 29,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 30,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 31,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114213_SQLInjection",
+          "row": 0,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114213_SQLInjection",
+          "row": 1,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114213_SQLInjection",
+          "row": 2,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114437_XSS",
+          "row": 0,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 0,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 1,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 2,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 3,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 4,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 5,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 6,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 7,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 8,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 9,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 10,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 11,
+          "score": 2.37694835644755e-16,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 12,
+          "score": 3.5929996775026587e-16,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 13,
+          "score": 1.0248117294698301e-16,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 14,
+          "score": 0.9881278872489929,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 15,
+          "score": 0.9861704111099243,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 0,
+          "score": 0.9187116026878357,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 1,
+          "score": 0.39998090267181396,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 2,
+          "score": 0.6874340772628784,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 3,
+          "score": 0.8655986189842224,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 4,
+          "score": 0.5483678579330444,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 5,
+          "score": 0.8901535868644714,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 6,
+          "score": 0.9338300824165344,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 7,
+          "score": 0.46449947357177734,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 8,
+          "score": 0.5240715146064758,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 9,
+          "score": 0.3829366862773895,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 10,
+          "score": 0.8935737013816833,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 11,
+          "score": 0.884736955165863,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 12,
+          "score": 0.9236304759979248,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 13,
+          "score": 0.9111117720603943,
+          "flagged": true,
+          "class_id": 1
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 14,
+          "score": 0.6230648159980774,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 15,
+          "score": 0.5919188857078552,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 16,
+          "score": 0.19699202477931976,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 17,
+          "score": 0.8839995861053467,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 18,
+          "score": 0.6884239315986633,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 19,
+          "score": 0.3701806962490082,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 20,
+          "score": 0.34232407808303833,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 21,
+          "score": 0.7996373176574707,
+          "flagged": true,
+          "class_id": 1
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 22,
+          "score": 0.13144373893737793,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 23,
+          "score": 0.8571037650108337,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 24,
+          "score": 0.22166430950164795,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 25,
+          "score": 0.5927042365074158,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 26,
+          "score": 0.7714664936065674,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 27,
+          "score": 0.2097090780735016,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 28,
+          "score": 0.8418548703193665,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 29,
+          "score": 0.7962144613265991,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 30,
+          "score": 0.6212137937545776,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 31,
+          "score": 0.3261394500732422,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 32,
+          "score": 0.3340223431587219,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 33,
+          "score": 0.8408612012863159,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 34,
+          "score": 0.7608753442764282,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 35,
+          "score": 0.999677300453186,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 36,
+          "score": 0.9999071359634399,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 37,
+          "score": 0.9999867677688599,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 38,
+          "score": 0.999870777130127,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 39,
+          "score": 0.9997771382331848,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 40,
+          "score": 0.9999583959579468,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 41,
+          "score": 0.9996662139892578,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 42,
+          "score": 0.9999970197677612,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 43,
+          "score": 0.9999947547912598,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 44,
+          "score": 0.9997721314430237,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 45,
+          "score": 0.9998492002487183,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 46,
+          "score": 0.9999960660934448,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 47,
+          "score": 0.9998899698257446,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 48,
+          "score": 0.9999970197677612,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 49,
+          "score": 0.9999966621398926,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 50,
+          "score": 0.9999977350234985,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 51,
+          "score": 0.9999908208847046,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 52,
+          "score": 0.9999946355819702,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 53,
+          "score": 0.9999933242797852,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 54,
+          "score": 0.9998276233673096,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 55,
+          "score": 0.9999935626983643,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 56,
+          "score": 0.9997727274894714,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 57,
+          "score": 0.9994326233863831,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 58,
+          "score": 0.9999010562896729,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 59,
+          "score": 0.9989927411079407,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 60,
+          "score": 0.9991617202758789,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 61,
+          "score": 0.999880313873291,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 62,
+          "score": 0.9999614953994751,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 63,
+          "score": 0.999808132648468,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 64,
+          "score": 0.9999973773956299,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 65,
+          "score": 0.9999961853027344,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 66,
+          "score": 0.9999911785125732,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 67,
+          "score": 0.9999961853027344,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 68,
+          "score": 0.9993212223052979,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 69,
+          "score": 0.9999957084655762,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 70,
+          "score": 0.9993532299995422,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 71,
+          "score": 0.9998219609260559,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 72,
+          "score": 0.999980092048645,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 73,
+          "score": 0.9999972581863403,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 74,
+          "score": 0.9996665716171265,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 75,
+          "score": 0.9999964237213135,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 76,
+          "score": 0.9998865127563477,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 77,
+          "score": 0.9999938011169434,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 78,
+          "score": 0.9999967813491821,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 79,
+          "score": 0.9998540878295898,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 80,
+          "score": 0.9999544620513916,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 81,
+          "score": 0.9999964237213135,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 82,
+          "score": 0.9997695088386536,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 83,
+          "score": 0.23728302121162415,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 84,
+          "score": 0.9999995231628418,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 85,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 86,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 87,
+          "score": 0.9999973773956299,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 88,
+          "score": 0.9999982118606567,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 89,
+          "score": 0.9999946355819702,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 90,
+          "score": 0.999935507774353,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 91,
+          "score": 0.9999996423721313,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 92,
+          "score": 0.9999979734420776,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 93,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 94,
+          "score": 0.9999997615814209,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 95,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 96,
+          "score": 0.9999979734420776,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 97,
+          "score": 0.9999969005584717,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 98,
+          "score": 0.9997931122779846,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 99,
+          "score": 0.9999997615814209,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 100,
+          "score": 0.9999957084655762,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 101,
+          "score": 0.9999982118606567,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 102,
+          "score": 0.9999997615814209,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 103,
+          "score": 0.9999942779541016,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 104,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 105,
+          "score": 0.9999971389770508,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 106,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 107,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 108,
+          "score": 0.9999996423721313,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 109,
+          "score": 0.999998927116394,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 110,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 111,
+          "score": 0.9999929666519165,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 112,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 113,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 114,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 115,
+          "score": 0.9999979734420776,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 116,
+          "score": 0.9999591112136841,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 117,
+          "score": 0.9999886751174927,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 118,
+          "score": 0.9998874664306641,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 119,
+          "score": 0.9999974966049194,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 120,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 121,
+          "score": 0.9999802112579346,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 122,
+          "score": 0.9999921321868896,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 123,
+          "score": 0.9994332194328308,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 124,
+          "score": 0.9999982118606567,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 125,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 126,
+          "score": 0.9999842643737793,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 127,
+          "score": 0.9999953508377075,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 0,
+          "score": 0.008140994235873222,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 1,
+          "score": 0.005120174027979374,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 2,
+          "score": 0.005993919912725687,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 3,
+          "score": 0.0066036805510520935,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 4,
+          "score": 0.0052342042326927185,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 5,
+          "score": 0.009134549647569656,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 6,
+          "score": 0.012713080272078514,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 7,
+          "score": 0.010777895338833332,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 8,
+          "score": 0.012376147322356701,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 9,
+          "score": 0.00011231396638322622,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 10,
+          "score": 0.0007015817682258785,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 11,
+          "score": 0.0003356624802108854,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 12,
+          "score": 0.0001401988265570253,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 13,
+          "score": 0.005013406276702881,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 14,
+          "score": 0.005951142404228449,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 15,
+          "score": 0.014134860597550869,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 16,
+          "score": 0.018609898164868355,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 17,
+          "score": 0.0019012766424566507,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 18,
+          "score": 0.0048844460397958755,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 19,
+          "score": 0.006322255823761225,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 20,
+          "score": 0.00126584991812706,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 21,
+          "score": 0.043958891183137894,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 22,
+          "score": 0.02933754026889801,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 23,
+          "score": 0.010532768443226814,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 24,
+          "score": 0.01915225014090538,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 25,
+          "score": 0.038432713598012924,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 26,
+          "score": 0.020227527245879173,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 27,
+          "score": 0.02062786929309368,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 28,
+          "score": 0.029327498748898506,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 29,
+          "score": 0.001558473682962358,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 30,
+          "score": 0.030255908146500587,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 31,
+          "score": 0.01787133887410164,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 32,
+          "score": 0.0010602474212646484,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 33,
+          "score": 0.0014105035224929452,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 34,
+          "score": 0.9381145238876343,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 35,
+          "score": 0.0033723001834005117,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 36,
+          "score": 0.001031701103784144,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 37,
+          "score": 0.033310666680336,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 38,
+          "score": 0.9478070735931396,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 39,
+          "score": 0.0010558567009866238,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 40,
+          "score": 0.014471336267888546,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 41,
+          "score": 0.0013048769906163216,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 42,
+          "score": 0.0009495214326307178,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 43,
+          "score": 0.04259074851870537,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 44,
+          "score": 0.01719827950000763,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 45,
+          "score": 0.0002640685997903347,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 46,
+          "score": 0.013588002882897854,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 47,
+          "score": 0.016027892008423805,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 48,
+          "score": 0.011699319817125797,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 49,
+          "score": 0.048185307532548904,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 50,
+          "score": 0.009962835349142551,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 51,
+          "score": 0.02695441246032715,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 52,
+          "score": 0.000906325236428529,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 53,
+          "score": 0.0013312692753970623,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 54,
+          "score": 0.017255686223506927,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 55,
+          "score": 0.002713351510465145,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 56,
+          "score": 0.018263958394527435,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 57,
+          "score": 0.0013984092511236668,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 58,
+          "score": 0.0019264770671725273,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 59,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 60,
+          "score": 0.9999997615814209,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 61,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 62,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 63,
+          "score": 0.9999996423721313,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 64,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 65,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 66,
+          "score": 0.9999997615814209,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 67,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 68,
+          "score": 0.9999990463256836,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 69,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 70,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 71,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 72,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 73,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 74,
+          "score": 0.9999996423721313,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 75,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 76,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 77,
+          "score": 0.9999996423721313,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 78,
+          "score": 0.9999994039535522,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 79,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 80,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 81,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 82,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 83,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 84,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 85,
+          "score": 0.9999996423721313,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 86,
+          "score": 0.9999997615814209,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 87,
+          "score": 0.9999997615814209,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 88,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 89,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 90,
+          "score": 0.9999997615814209,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 91,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 92,
+          "score": 0.9999997615814209,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 93,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 94,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 95,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 96,
+          "score": 0.9999995231628418,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 97,
+          "score": 0.9999997615814209,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 98,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 99,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 100,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 101,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 102,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 103,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 104,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 105,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 106,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 107,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 108,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 109,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 110,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 111,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 112,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 113,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 114,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 115,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 4
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 116,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 4
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 117,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 4
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 118,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 119,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 120,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 121,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 122,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 123,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 124,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 125,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 126,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 127,
+          "score": 0.9999998807907104,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 0,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 1,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 2,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 3,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 4,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 5,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 6,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 7,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 8,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 9,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 10,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 11,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 12,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 13,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 14,
+          "score": 0.06678996980190277,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 15,
+          "score": 0.08958470821380615,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_121909_XSS",
+          "row": 0,
+          "score": 1.5041130778988547e-37,
+          "flagged": false,
+          "class_id": 0
+        }
+      ]
+    },
+    "augmented_v1": {
+      "threshold": 0.5408333333333333,
+      "type_cutoff": 0.8,
+      "sha256": {
+        "gate": "0d6179aca935d70880c8d51649d4927d2ebeeace9dc1a6ce547c77f80eabc333",
+        "diagnosis": "17954500e7e4bf89003cdc9285172141dfa17b7810a49fde565969a2821cb53a"
+      },
+      "cases": {
+        "20261121_113935_PasswordGuessing": {
+          "rows": 32,
+          "flags": 20,
+          "web_labels": 8,
+          "class_counts": {
+            "6": 8,
+            "7": 12,
+            "0": 12
+          }
+        },
+        "20261121_114213_SQLInjection": {
+          "rows": 3,
+          "flags": 1,
+          "web_labels": 1,
+          "class_counts": {
+            "0": 2,
+            "6": 1
+          }
+        },
+        "20261121_114437_XSS": {
+          "rows": 1,
+          "flags": 0,
+          "web_labels": 0,
+          "class_counts": {
+            "0": 1
+          }
+        },
+        "20261121_114717_ConnectionExhaustion": {
+          "rows": 16,
+          "flags": 0,
+          "web_labels": 0,
+          "class_counts": {
+            "0": 16
+          }
+        },
+        "20261121_114945_HTTPFlood": {
+          "rows": 128,
+          "flags": 0,
+          "web_labels": 0,
+          "class_counts": {
+            "0": 128
+          }
+        },
+        "20261121_115902_HTTPFlood": {
+          "rows": 128,
+          "flags": 3,
+          "web_labels": 0,
+          "class_counts": {
+            "0": 125,
+            "4": 3
+          }
+        },
+        "20261121_120751_ConnectionExhaustion": {
+          "rows": 16,
+          "flags": 0,
+          "web_labels": 0,
+          "class_counts": {
+            "0": 16
+          }
+        },
+        "20261121_121909_XSS": {
+          "rows": 1,
+          "flags": 1,
+          "web_labels": 0,
+          "class_counts": {
+            "7": 1
+          }
+        }
+      },
+      "predictions": [
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 0,
+          "score": 0.9976575374603271,
+          "flagged": true,
+          "class_id": 6
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 1,
+          "score": 0.9999778270721436,
+          "flagged": true,
+          "class_id": 6
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 2,
+          "score": 0.9999687671661377,
+          "flagged": true,
+          "class_id": 6
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 3,
+          "score": 0.9999791383743286,
+          "flagged": true,
+          "class_id": 6
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 4,
+          "score": 0.9999790191650391,
+          "flagged": true,
+          "class_id": 6
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 5,
+          "score": 0.9999734163284302,
+          "flagged": true,
+          "class_id": 6
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 6,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 7,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 6
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 8,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 6
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 9,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 10,
+          "score": 0.9999994039535522,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 11,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 12,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 13,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 14,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 15,
+          "score": 0.00012113496632082388,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 16,
+          "score": 0.9999604225158691,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 17,
+          "score": 0.999961256980896,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 18,
+          "score": 0.9999709129333496,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 19,
+          "score": 0.9999700784683228,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 20,
+          "score": 0.9999731779098511,
+          "flagged": true,
+          "class_id": 7
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 21,
+          "score": 3.135371760203021e-19,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 22,
+          "score": 2.741773528214253e-07,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 23,
+          "score": 7.481018116095584e-08,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 24,
+          "score": 8.370335308427457e-06,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 25,
+          "score": 1.412024040105416e-15,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 26,
+          "score": 3.5265942320257884e-14,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 27,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 28,
+          "score": 4.105154665636976e-14,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 29,
+          "score": 2.4799075553499916e-13,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 30,
+          "score": 2.701105622151347e-20,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_113935_PasswordGuessing",
+          "row": 31,
+          "score": 7.572809427354558e-20,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114213_SQLInjection",
+          "row": 0,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114213_SQLInjection",
+          "row": 1,
+          "score": 9.78187644612442e-18,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114213_SQLInjection",
+          "row": 2,
+          "score": 1.0,
+          "flagged": true,
+          "class_id": 6
+        },
+        {
+          "case": "20261121_114437_XSS",
+          "row": 0,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 0,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 1,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 2,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 3,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 4,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 5,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 6,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 7,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 8,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 9,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 10,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 11,
+          "score": 5.971976210192971e-32,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 12,
+          "score": 2.5592431011928916e-32,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 13,
+          "score": 3.462199968397795e-32,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 14,
+          "score": 0.0660431757569313,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114717_ConnectionExhaustion",
+          "row": 15,
+          "score": 0.08696763962507248,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 0,
+          "score": 0.06254126131534576,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 1,
+          "score": 0.031748853623867035,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 2,
+          "score": 0.09568704664707184,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 3,
+          "score": 0.04195631667971611,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 4,
+          "score": 0.033480096608400345,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 5,
+          "score": 0.03348691016435623,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 6,
+          "score": 0.04511217027902603,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 7,
+          "score": 0.04289310798048973,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 8,
+          "score": 0.03147288039326668,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 9,
+          "score": 0.04496787488460541,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 10,
+          "score": 0.03871701657772064,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 11,
+          "score": 0.042198896408081055,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 12,
+          "score": 0.039007123559713364,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 13,
+          "score": 0.05424913018941879,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 14,
+          "score": 0.08795690536499023,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 15,
+          "score": 0.08790978789329529,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 16,
+          "score": 0.08142609894275665,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 17,
+          "score": 0.04666822776198387,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 18,
+          "score": 0.04918636754155159,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 19,
+          "score": 0.052286699414253235,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 20,
+          "score": 0.04620574787259102,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 21,
+          "score": 0.09566859900951385,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 22,
+          "score": 0.10919839143753052,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 23,
+          "score": 0.05491485074162483,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 24,
+          "score": 0.02952534891664982,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 25,
+          "score": 0.030259372666478157,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 26,
+          "score": 0.07803087681531906,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 27,
+          "score": 0.04272017627954483,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 28,
+          "score": 0.04745345190167427,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 29,
+          "score": 0.050095364451408386,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 30,
+          "score": 0.093428835272789,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 31,
+          "score": 0.05413341894745827,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 32,
+          "score": 0.053033702075481415,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 33,
+          "score": 0.06247447803616524,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 34,
+          "score": 0.10016387701034546,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 35,
+          "score": 0.05904465913772583,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 36,
+          "score": 0.040658410638570786,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 37,
+          "score": 0.042069997638463974,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 38,
+          "score": 0.041892725974321365,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 39,
+          "score": 0.04026351869106293,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 40,
+          "score": 0.07310926914215088,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 41,
+          "score": 0.03999955207109451,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 42,
+          "score": 0.0467551164329052,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 43,
+          "score": 0.04612769931554794,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 44,
+          "score": 0.03992275521159172,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 45,
+          "score": 0.039735857397317886,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 46,
+          "score": 0.046708784997463226,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 47,
+          "score": 0.041657231748104095,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 48,
+          "score": 0.047271259129047394,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 49,
+          "score": 0.047839488834142685,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 50,
+          "score": 0.04770025983452797,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 51,
+          "score": 0.04524127021431923,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 52,
+          "score": 0.04596864432096481,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 53,
+          "score": 0.04348153993487358,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 54,
+          "score": 0.062159791588783264,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 55,
+          "score": 0.046074531972408295,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 56,
+          "score": 0.040198370814323425,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 57,
+          "score": 0.03642423078417778,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 58,
+          "score": 0.03948815166950226,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 59,
+          "score": 0.03777284920215607,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 60,
+          "score": 0.036699265241622925,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 61,
+          "score": 0.056606367230415344,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 62,
+          "score": 0.05913340300321579,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 63,
+          "score": 0.03810727596282959,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 64,
+          "score": 0.06311777979135513,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 65,
+          "score": 0.0434524342417717,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 66,
+          "score": 0.04272279143333435,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 67,
+          "score": 0.04439022019505501,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 68,
+          "score": 0.03853592649102211,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 69,
+          "score": 0.04496050626039505,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 70,
+          "score": 0.035756781697273254,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 71,
+          "score": 0.03866465017199516,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 72,
+          "score": 0.042753107845783234,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 73,
+          "score": 0.04595636948943138,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 74,
+          "score": 0.038617171347141266,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 75,
+          "score": 0.04531465098261833,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 76,
+          "score": 0.03904964402318001,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 77,
+          "score": 0.04461638256907463,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 78,
+          "score": 0.0463516004383564,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 79,
+          "score": 0.040170423686504364,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 80,
+          "score": 0.04132836312055588,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 81,
+          "score": 0.04605402797460556,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 82,
+          "score": 0.04059191420674324,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 83,
+          "score": 0.376036673784256,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 84,
+          "score": 0.0584632009267807,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 85,
+          "score": 0.04404682293534279,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 86,
+          "score": 0.04495660215616226,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 87,
+          "score": 0.04099062830209732,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 88,
+          "score": 0.038491517305374146,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 89,
+          "score": 0.036679159849882126,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 90,
+          "score": 0.033865511417388916,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 91,
+          "score": 0.038669466972351074,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 92,
+          "score": 0.039255451411008835,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 93,
+          "score": 0.04713429883122444,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 94,
+          "score": 0.0412544347345829,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 95,
+          "score": 0.04119570553302765,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 96,
+          "score": 0.0542362742125988,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 97,
+          "score": 0.03713897615671158,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 98,
+          "score": 0.46413740515708923,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 99,
+          "score": 0.04093535989522934,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 100,
+          "score": 0.038389500230550766,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 101,
+          "score": 0.038755618035793304,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 102,
+          "score": 0.06129742041230202,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 103,
+          "score": 0.05587291345000267,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 104,
+          "score": 0.04585540294647217,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 105,
+          "score": 0.0390678271651268,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 106,
+          "score": 0.045170921832323074,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 107,
+          "score": 0.04681140184402466,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 108,
+          "score": 0.0418630987405777,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 109,
+          "score": 0.04177103564143181,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 110,
+          "score": 0.04512163996696472,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 111,
+          "score": 0.03856883570551872,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 112,
+          "score": 0.048557695001363754,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 113,
+          "score": 0.06388106197118759,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 114,
+          "score": 0.04712587222456932,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 115,
+          "score": 0.03825996071100235,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 116,
+          "score": 0.0374797023832798,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 117,
+          "score": 0.03768620640039444,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 118,
+          "score": 0.44158655405044556,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 119,
+          "score": 0.03946676105260849,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 120,
+          "score": 0.04265642911195755,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 121,
+          "score": 0.03575671464204788,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 122,
+          "score": 0.03744190186262131,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 123,
+          "score": 0.4119360148906708,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 124,
+          "score": 0.038227636367082596,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 125,
+          "score": 0.0418228842318058,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 126,
+          "score": 0.03547687456011772,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_114945_HTTPFlood",
+          "row": 127,
+          "score": 0.03839631378650665,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 0,
+          "score": 0.003080745693296194,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 1,
+          "score": 0.002741718664765358,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 2,
+          "score": 0.002739719580858946,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 3,
+          "score": 0.0027727133128792048,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 4,
+          "score": 0.0026855487376451492,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 5,
+          "score": 0.0028267602901905775,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 6,
+          "score": 0.0029898579232394695,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 7,
+          "score": 0.00290207308717072,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 8,
+          "score": 0.0029564842116087675,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 9,
+          "score": 0.0013515680329874158,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 10,
+          "score": 0.001914976630359888,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 11,
+          "score": 0.0017991593340411782,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 12,
+          "score": 0.0016650659963488579,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 13,
+          "score": 0.0018989850068464875,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 14,
+          "score": 0.001854541595093906,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 15,
+          "score": 0.002060654805973172,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 16,
+          "score": 0.002167356666177511,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 17,
+          "score": 0.0018795836949720979,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 18,
+          "score": 0.002576905768364668,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 19,
+          "score": 0.001950285630300641,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 20,
+          "score": 0.0018291536252945662,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 21,
+          "score": 0.0023628834169358015,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 22,
+          "score": 0.0022952852305024862,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 23,
+          "score": 0.002071096794679761,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 24,
+          "score": 0.002230016514658928,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 25,
+          "score": 0.0028639158699661493,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 26,
+          "score": 0.002237916924059391,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 27,
+          "score": 0.002243178430944681,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 28,
+          "score": 0.0022827032953500748,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 29,
+          "score": 0.0019345399923622608,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 30,
+          "score": 0.002301126020029187,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 31,
+          "score": 0.0022095374297350645,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 32,
+          "score": 0.001906217192299664,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 33,
+          "score": 0.0019101450452581048,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 34,
+          "score": 0.019287506118416786,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 35,
+          "score": 0.0019989830907434225,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 36,
+          "score": 0.0019112199079245329,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 37,
+          "score": 0.002366040600463748,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 38,
+          "score": 0.012996185570955276,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 39,
+          "score": 0.0018261082004755735,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 40,
+          "score": 0.002090421738103032,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 41,
+          "score": 0.0019359961152076721,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 42,
+          "score": 0.00185708561912179,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 43,
+          "score": 0.002884472021833062,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 44,
+          "score": 0.0021950763184577227,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 45,
+          "score": 0.0017205191543325782,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 46,
+          "score": 0.0021250713616609573,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 47,
+          "score": 0.0021281850058585405,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 48,
+          "score": 0.002112277317792177,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 49,
+          "score": 0.0030376345384866,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 50,
+          "score": 0.002010640688240528,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 51,
+          "score": 0.0028148337733000517,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 52,
+          "score": 0.001818169141188264,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 53,
+          "score": 0.0018311614403501153,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 54,
+          "score": 0.0026907518040388823,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 55,
+          "score": 0.002074318937957287,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 56,
+          "score": 0.0022170066367834806,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 57,
+          "score": 0.0019047083333134651,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 58,
+          "score": 0.0019147031707689166,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 59,
+          "score": 0.06279608607292175,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 60,
+          "score": 0.038593269884586334,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 61,
+          "score": 0.042105063796043396,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 62,
+          "score": 0.040433041751384735,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 63,
+          "score": 0.035847801715135574,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 64,
+          "score": 0.0464104488492012,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 65,
+          "score": 0.043081194162368774,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 66,
+          "score": 0.03431134670972824,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 67,
+          "score": 0.05867227539420128,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 68,
+          "score": 0.02981404960155487,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 69,
+          "score": 0.0459226593375206,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 70,
+          "score": 0.04779258370399475,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 71,
+          "score": 0.04921586439013481,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 72,
+          "score": 0.048277683556079865,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 73,
+          "score": 0.0472196526825428,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 74,
+          "score": 0.034196607768535614,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 75,
+          "score": 0.9983793497085571,
+          "flagged": true,
+          "class_id": 4
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 76,
+          "score": 0.04139823094010353,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 77,
+          "score": 0.034716490656137466,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 78,
+          "score": 0.031476594507694244,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 79,
+          "score": 0.03917376324534416,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 80,
+          "score": 0.04014043137431145,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 81,
+          "score": 0.05294306203722954,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 82,
+          "score": 0.039794642478227615,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 83,
+          "score": 0.062032680958509445,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 84,
+          "score": 0.05823131650686264,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 85,
+          "score": 0.03807446360588074,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 86,
+          "score": 0.039728906005620956,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 87,
+          "score": 0.03875304013490677,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 88,
+          "score": 0.06114737689495087,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 89,
+          "score": 0.042100872844457626,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 90,
+          "score": 0.03971308469772339,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 91,
+          "score": 0.06305824965238571,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 92,
+          "score": 0.03930759057402611,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 93,
+          "score": 0.04184388369321823,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 94,
+          "score": 0.04212196171283722,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 95,
+          "score": 0.04105489328503609,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 96,
+          "score": 0.03611932694911957,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 97,
+          "score": 0.0374356284737587,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 98,
+          "score": 0.04147395119071007,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 99,
+          "score": 0.042952150106430054,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 100,
+          "score": 0.047419123351573944,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 101,
+          "score": 0.06650424003601074,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 102,
+          "score": 0.052442438900470734,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 103,
+          "score": 0.04225625470280647,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 104,
+          "score": 0.0801662802696228,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 105,
+          "score": 0.05216551199555397,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 106,
+          "score": 0.05116730555891991,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 107,
+          "score": 0.06823378056287766,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 108,
+          "score": 0.08717259019613266,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 109,
+          "score": 0.12202826887369156,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 110,
+          "score": 0.08211203664541245,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 111,
+          "score": 0.08383534103631973,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 112,
+          "score": 0.035631027072668076,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 113,
+          "score": 0.1227266937494278,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 114,
+          "score": 0.07434917986392975,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 115,
+          "score": 0.9994480013847351,
+          "flagged": true,
+          "class_id": 4
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 116,
+          "score": 0.08253815770149231,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 117,
+          "score": 0.08531355857849121,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 118,
+          "score": 0.06602613627910614,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 119,
+          "score": 0.13175919651985168,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 120,
+          "score": 0.1370764970779419,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 121,
+          "score": 0.11460185050964355,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 122,
+          "score": 0.08674236387014389,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 123,
+          "score": 0.11918800324201584,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 124,
+          "score": 0.11615510284900665,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 125,
+          "score": 0.0727110207080841,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 126,
+          "score": 0.07126688212156296,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_115902_HTTPFlood",
+          "row": 127,
+          "score": 0.9954848289489746,
+          "flagged": true,
+          "class_id": 4
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 0,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 1,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 2,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 3,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 4,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 5,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 6,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 7,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 8,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 9,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 10,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 11,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 12,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 13,
+          "score": 0.0,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 14,
+          "score": 0.004740832839161158,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_120751_ConnectionExhaustion",
+          "row": 15,
+          "score": 0.005268036387860775,
+          "flagged": false,
+          "class_id": 0
+        },
+        {
+          "case": "20261121_121909_XSS",
+          "row": 0,
+          "score": 0.7215051651000977,
+          "flagged": true,
+          "class_id": 7
+        }
+      ]
+    }
+  },
+  "native_parity": {
+    "binary_flips": 0,
+    "type_flips": 0,
+    "maximum_gate_probability_error": 2.384185791015625e-07
+  }
+}

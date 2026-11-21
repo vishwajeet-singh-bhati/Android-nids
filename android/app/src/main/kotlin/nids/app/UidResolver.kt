@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit
 class UidResolver(private val ctx: Context) {
     private data class Seen(val uids: Set<Int>, val at: Long)
     private val owners = HashMap<String, Seen>()
+    private val listeners = HashMap<String, Seen>()
     private var localIps=emptySet<String>()
     private var observedAddresses=emptySet<String>()
     @Synchronized fun watchedAddresses(): Set<String> = observedAddresses.toSet()
@@ -32,7 +33,7 @@ class UidResolver(private val ctx: Context) {
     fun refresh() {
         android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_BACKGROUND)
         val now = SystemClock.elapsedRealtime()
-        val updates=HashMap<String,Seen>();val ips=HashSet<String>();val addresses=HashSet<String>()
+        val updates=HashMap<String,Seen>();val bound=HashMap<String,Seen>();val ips=HashSet<String>();val addresses=HashSet<String>()
         var p: Process? = null
         try {
             val command=listOf("/proc/net/tcp","/proc/net/tcp6","/proc/net/udp","/proc/net/udp6").joinToString("; ") { "echo FILE:$it; cat $it" }+"; echo LOCAL_IPS; ip -o addr show"
@@ -54,7 +55,19 @@ class UidResolver(private val ctx: Context) {
                 val c = line.trim().split(Regex("\\s+"))
                 if (c.size < 10 || !c[0].endsWith(':') || c[0] == "sl") continue
                 val uid = c[7].toIntOrNull() ?: continue
-                if (c[2].substringBefore(':').all { it == '0' }) continue
+                val inode=c[9].toLongOrNull() ?: continue
+                // TIME_WAIT/unowned kernel entries can report UID0/inode0.
+                // They do not identify an owning root application.
+                if(!NetworkObservationPolicy.liveSocketOwner(proto,c[3],uid,inode))continue
+                if (c[2].substringBefore(':').all { it == '0' }) {
+                    // A listener identifies a receiving port's owner, not proof
+                    // that any particular connection reached the application.
+                    if((proto==6 && c[3]=="0A" || proto==17) && c[1].substringAfter(':').toInt(16)>0){
+                        val key="$proto|${address(c[1])}";val previous=bound[key]
+                        bound[key]=Seen((previous?.uids ?: emptySet())+uid,now)
+                    }
+                    continue
+                }
                 val key = "$proto|${address(c[1])}|${address(c[2])}"
                 val prev = updates[key]
                 updates[key] = Seen((prev?.uids ?: emptySet()) + uid, now)
@@ -63,6 +76,7 @@ class UidResolver(private val ctx: Context) {
             synchronized(this){
                 owners.entries.removeAll{now-it.value.at>10000}
                 for((key,value) in updates){val old=owners[key];owners[key]=Seen((old?.uids ?: emptySet())+value.uids,now)}
+                listeners.clear();listeners.putAll(bound)
                 while(owners.size>4096)owners.remove(owners.minBy{it.value.at}.key)
                 localIps=ips
                 observedAddresses=addresses
@@ -83,14 +97,22 @@ class UidResolver(private val ctx: Context) {
             out.put("local_endpoint",if(aLocal)initiator else if(bLocal)responder else "unknown")
             out.put("remote_endpoint",if(aLocal && !bLocal)responder else if(bLocal && !aLocal)initiator else "unknown")
             val now=SystemClock.elapsedRealtime()
-            val hits=listOfNotNull(owners["$proto|$a|$b"],owners["$proto|$b|$a"]).filter{now-it.at<=10000}
+            var hits=listOfNotNull(owners["$proto|$a|$b"],owners["$proto|$b|$a"]).filter{now-it.at<=10000}
+            out.put("match_kind","connected")
+            if(hits.isEmpty() && direction=="incoming"){
+                val local=b;val ip=local.substringBeforeLast(':');val port=local.substringAfterLast(':')
+                val wildcard="0".repeat(ip.length)
+                hits=listOfNotNull(listeners["$proto|$local"],listeners["$proto|$wildcard:$port"]).filter{now-it.at<=3000}
+                if(hits.isNotEmpty())out.put("match_kind","listener").put("method","root_receiving_port_snapshot")
+            }
             val uids=hits.flatMap{it.uids}.toSet()
             if(uids.size==1){
                 val uid=uids.first();val packages=ctx.packageManager.getPackagesForUid(uid)?.toList() ?: emptyList()
                 val labels=packages.map{pkg -> try{ctx.packageManager.getApplicationLabel(ctx.packageManager.getApplicationInfo(pkg,0)).toString().replace(Regex("[\\p{Cc}\\p{Cf}]"),"").take(80)}catch(_: Exception){pkg}}
                 out.put("status",if(packages.size==1)"best_effort" else "shared_or_system_uid").put("uid",uid).put("packages",JSONArray(packages)).put("labels",JSONArray(labels)).put("app_label",if(labels.size==1)labels[0] else if(uid==0)"System/root process" else "Shared or system UID $uid").put("snapshot_age_ms",hits.minOf{now-it.at})
-            }else out.put("reason",if(uids.isEmpty())"No connected-socket match; short-lived connections may be missed" else "Ambiguous socket ownership")
-            out.put("ownership_note",if(direction=="incoming")"A socket owner, if shown, received this traffic; it is not identified as the attacker." else "A socket match associates traffic with an app; it does not prove malicious intent.")
+            }else out.put("reason",if(uids.isEmpty())"No connected-socket or receiving-port match; closed ports and short-lived connections may have no app owner" else "Ambiguous socket ownership")
+            out.put("ownership_note",if(out.optString("match_kind")=="listener")"The named app owned a receiving port when checked; delivery of this connection is not established. It is not identified as the attacker."
+                else if(direction=="incoming")"A socket owner, if shown, received this traffic; it is not identified as the attacker." else "A socket match associates traffic with an app; it does not prove malicious intent.")
         }catch(_: Exception){out.put("reason","Socket ownership unavailable")}
     }
 }

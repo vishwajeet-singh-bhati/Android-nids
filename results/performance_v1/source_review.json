@@ -1,0 +1,49 @@
+{
+  "local_sources": {
+    "e8_quant.py": {
+      "sha256": "12fc3893f415791efcf4442bbb36015574b9cca065618735f33e0eb608b7b0ee",
+      "bytes": 21627,
+      "lines": 424
+    },
+    "pii_infer.cpp": {
+      "sha256": "1d4da95fb3fff4b3e57d615700f8c1efb20183a4d1e867e9dcf7d341b228c969",
+      "bytes": 20776,
+      "lines": 467
+    },
+    "pii_infer_v1.cpp": {
+      "sha256": "ee6853f2eed4e75ae9db34db3440b8cf44d3eb5569777fcd1b46c15ea64651e8",
+      "bytes": 37959,
+      "lines": 783
+    },
+    "pii_infer_v2.cpp": {
+      "sha256": "f7e0b4824917be8895aebe525963aa90ed10889fbed0158d9b2c0e07a59bd99e",
+      "bytes": 39851,
+      "lines": 823
+    },
+    "pii_infer_v3.cpp": {
+      "sha256": "b0eb0ea8f47f77d66da9a166df9bbe760ba34f8633b28491af0af8bb06b92f37",
+      "bytes": 42388,
+      "lines": 877
+    }
+  },
+  "python_codebook_shape": [
+    256,
+    8
+  ],
+  "architecture_in_cpp": "BERT encoder, 12 layers/hidden768 by default; not an autoregressive Llama runner",
+  "useful_ideas": [
+    "reused thread-local scratch",
+    "shared QKV lookup work",
+    "ARM NEON",
+    "measure serial latency separately from multi-request throughput",
+    "trim genuine token padding"
+  ],
+  "constraints": [
+    "32 detector features are ordered scalar features, not token padding; do not trim them",
+    "8 simultaneous encoder samples are not 8-way acceleration of one causal Llama generation",
+    "E8 Python QAT forward reconstructs FP32 weights and uses F.linear",
+    "packed C++ E8 LUT math is not an operator supplied by the stock ExecuTorch Android AAR"
+  ],
+  "source_edits": false,
+  "training_performed": false
+}

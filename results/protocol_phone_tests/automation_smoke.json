@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "preview_profiles": [
+    "Benign",
+    "FTPBruteForce",
+    "SSHBruteForce",
+    "BotBehavior",
+    "DoS",
+    "DDoS"
+  ],
+  "real_ftp_ssh_dummy_auth": true,
+  "dummy_capacity_recovery": true,
+  "emulator_unapproved_command_rejected": true,
+  "powershell_source_jobs_and_results": true,
+  "actual_controller_http_helper_statuses": [
+    200,
+    503,
+    202
+  ],
+  "phone_actions": 0,
+  "remote_pc_actions": 0,
+  "phone_attack_requests": 0,
+  "protocol_capture_packet_limit": 2000000,
+  "dataset_capture_default_unchanged": 100000,
+  "phone_and_pc_storage_guards": true,
+  "stopped_capture_detected_before_wait": true,
+  "capture_policy_checks_use_mock_transport": true
+}

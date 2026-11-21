@@ -1,0 +1,91 @@
+{
+  "run_id": "20261121_105054_PortScan",
+  "profile": "PortScan",
+  "passed": true,
+  "captured_packets": 1028,
+  "native_segments": 512,
+  "unique_tcp_tuples": 129,
+  "all_per_tuple_packet_counts_exact": true,
+  "all_segment_starts_match_packet_timestamp": true,
+  "maximum_start_timestamp_error_seconds": 0.0,
+  "input_dimensions": 147,
+  "inputs_finite": true,
+  "frozen_gate_threshold_consistent": true,
+  "native_class_counts": {
+    "0": 2,
+    "7": 68,
+    "1": 5,
+    "5": 437
+  },
+  "connections_with_at_least_one_flag": 128,
+  "connections_with_at_least_one_port_scan_label": 122,
+  "target_behavior_verified": true,
+  "beacon_ping_pong_events": null,
+  "beacon_pc_pong_replies": null,
+  "notification_snapshot_count": 7,
+  "activity_explanations": [
+    {
+      "type": "Unclassified",
+      "count": 17,
+      "explanation_status": "complete",
+      "generated_text_accepted": false,
+      "display_source": "evidence_based_fallback",
+      "app_ownership_status": "unknown"
+    },
+    {
+      "type": "Bot",
+      "count": 5,
+      "explanation_status": "complete",
+      "generated_text_accepted": false,
+      "display_source": "evidence_based_fallback",
+      "app_ownership_status": "unknown"
+    },
+    {
+      "type": "Port Scan",
+      "count": 1,
+      "explanation_status": "complete",
+      "generated_text_accepted": false,
+      "display_source": "evidence_based_fallback",
+      "app_ownership_status": "unknown"
+    },
+    {
+      "type": "Unclassified",
+      "count": 49,
+      "explanation_status": "complete",
+      "generated_text_accepted": false,
+      "display_source": "evidence_based_fallback",
+      "app_ownership_status": "unknown"
+    },
+    {
+      "type": "Unclassified",
+      "count": 2,
+      "explanation_status": "complete",
+      "generated_text_accepted": false,
+      "display_source": "evidence_based_fallback",
+      "app_ownership_status": "unknown"
+    },
+    {
+      "type": "Port Scan",
+      "count": 428,
+      "explanation_status": "complete",
+      "generated_text_accepted": false,
+      "display_source": "evidence_based_fallback",
+      "app_ownership_status": "unknown"
+    },
+    {
+      "type": "Port Scan",
+      "count": 8,
+      "explanation_status": "complete",
+      "generated_text_accepted": false,
+      "display_source": "evidence_based_fallback",
+      "app_ownership_status": "unknown"
+    }
+  ],
+  "artifact_sha256": {
+    "run.json": "bc1e1384a0595d3a4ff3bc8746383865aa0a1a7d54ada66dc63e8069682229eb",
+    "check.json": "55e17d172f6519e8434a9f3a07b2a776a3d9056212ab9442dc4b5f3f7ad9e5d3",
+    "traffic.pcap": "a236e9f80cf1da94ac20529e02778f2d7d09d2d5995b293ab77dfce9c3bf08f1",
+    "nids_numeric_trace.jsonl": "6891017ae1ab81a3eb6ae0744a1c2949567fc1f635c7f065d966cc58a4bb844b",
+    "target_events.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+  }
+}

@@ -10,7 +10,7 @@ import org.pytorch.executorch.Tensor
 import java.io.File
 import kotlin.math.abs
 
-/** Exact preserved v2 weights, embedded normalization, frozen gate/type cutoffs. */
+/** Attested aligned models, embedded normalization and frozen gate/type cutoffs. */
 class AlignedV2Scorer(private val context: Context): AutoCloseable{
     val gateManifest=json("aligned_v2_gate_manifest.json")
     val diagnosisManifest=json("aligned_v2_diagnosis_manifest.json")
@@ -29,7 +29,19 @@ class AlignedV2Scorer(private val context: Context): AutoCloseable{
             require(m.getBoolean("diagnosis_never_vetoes_gate"))
             require(m.getString("feature_contract_sha256")==gateManifest.getString("feature_contract_sha256"))
         }
-        require(gateManifest.getString("job")=="gate_s0" && diagnosisManifest.getString("job")=="diagnosis64_s1")
+        val family=gateManifest.optString("model_family","preserved-v2")
+        require(family==diagnosisManifest.optString("model_family","preserved-v2"))
+        require(gateManifest.getString("job")=="gate_s0")
+        when(family){
+            "preserved-v2"->require(diagnosisManifest.getString("job")=="diagnosis64_s1")
+            "real-phone-augmented-v1"->{
+                require(diagnosisManifest.getString("job")=="diagnosis_s1")
+                require(gateManifest.getString("checkpoint_variant")=="final")
+                require(diagnosisManifest.getString("checkpoint_variant")=="best")
+                require(gateManifest.getBoolean("controlled_trial_only") && diagnosisManifest.getBoolean("controlled_trial_only"))
+            }
+            else->error("Unsupported aligned model family")
+        }
         require(gateManifest.getDouble("gate_threshold")==diagnosisManifest.getDouble("gate_threshold"))
         require(gateManifest.getDouble("type_score_cutoff")==diagnosisManifest.getDouble("type_score_cutoff"))
         gate=load("gate",gateManifest)

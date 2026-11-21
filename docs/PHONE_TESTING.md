@@ -37,3 +37,8 @@ The original manual-test companion captures are 96-byte/filtered packet evidence
 If Beacon records connection timeouts/no PING/PONG, mark it inconclusive. Check listener reachability and your administrator-approved firewall policy. An explicit inbound Block can override an Allow. The harness does not disable firewalls or managed restrictions. Encrypted application semantics remain outside the current cleartext indicators.
 
 The new DatasetLab also records password spraying across dummy accounts, varied SQL/XSS forms, legitimate bursts and normal error/code-text controls. Those dataset actions and labels are implemented in `experiments/phone_capture_v1/collect.py` and `quality.py`; they do not depend on detector scores.
+
+
+## Current release clarification
+
+Current source is code40 with the augmented-v1 detector, not the historical code36 weights. Read [current pipeline](CURRENT_PIPELINE.md), [status](../STATUS.md), [completed training](../results/phone_capture_training_v1/RESULTS.md) and [protocol testing](PROTOCOL_TESTING.md). All six training jobs completed; readiness remains false. The old v2 reference is kept only for comparison. New cases must be kept separate from already examined development cohorts.

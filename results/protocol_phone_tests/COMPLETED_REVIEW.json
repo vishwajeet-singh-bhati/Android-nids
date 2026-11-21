@@ -1,0 +1,487 @@
+{
+  "cases": [
+    {
+      "run_id": "20261121_161452_Benign_9641f2",
+      "profile": "Benign",
+      "primary": {
+        "connections": 9,
+        "flagged": 3,
+        "class_counts": {
+          "Benign": 6,
+          "Unclassified": 3
+        }
+      },
+      "expected_family": null,
+      "correctly_typed_primary": null,
+      "all_test_connections": {
+        "connections": 9,
+        "flagged": 3,
+        "class_counts": {
+          "Benign": 6,
+          "Unclassified": 3
+        }
+      },
+      "by_target_event": {
+        "ftp_login_failure": {
+          "connections": 1,
+          "flagged": 0,
+          "class_counts": {
+            "Benign": 1
+          }
+        },
+        "ftp_login_success": {
+          "connections": 1,
+          "flagged": 1,
+          "class_counts": {
+            "Unclassified": 1
+          }
+        },
+        "ssh_login_failure": {
+          "connections": 1,
+          "flagged": 1,
+          "class_counts": {
+            "Unclassified": 1
+          }
+        },
+        "ssh_login_success": {
+          "connections": 1,
+          "flagged": 1,
+          "class_counts": {
+            "Unclassified": 1
+          }
+        },
+        "probe_available": {
+          "connections": 5,
+          "flagged": 0,
+          "class_counts": {
+            "Benign": 5
+          }
+        }
+      },
+      "matched_test_packets": 118,
+      "maximum_start_error_seconds": 0,
+      "pcap_sha256_verified": "1a24569056fce9fd211ed29030226e6d63d69dd567ac22dfdd564640e23da491",
+      "native_features_finite_and_frozen_decisions_verified": true,
+      "source_effects_verified": true,
+      "visible_notification_groups_at_snapshot": 2,
+      "explanations": [
+        {
+          "type": "Unclassified",
+          "grouped_flags": 1,
+          "visible_notification": true,
+          "explanation_status": "complete",
+          "display_source": "evidence_based_fallback",
+          "generated_text_accepted": false
+        },
+        {
+          "type": "Unclassified",
+          "grouped_flags": 2,
+          "visible_notification": true,
+          "explanation_status": "complete",
+          "display_source": "evidence_based_fallback",
+          "generated_text_accepted": false
+        }
+      ],
+      "scope": "Primary counts exclude availability probes and the emulator trigger; normal controls are separate."
+    },
+    {
+      "run_id": "20261121_163023_FTPBruteForce_8c74df",
+      "profile": "FTPBruteForce",
+      "primary": {
+        "connections": 32,
+        "flagged": 29,
+        "class_counts": {
+          "Benign": 3,
+          "Unclassified": 29
+        }
+      },
+      "expected_family": "Brute Force",
+      "correctly_typed_primary": 0,
+      "all_test_connections": {
+        "connections": 32,
+        "flagged": 29,
+        "class_counts": {
+          "Benign": 3,
+          "Unclassified": 29
+        }
+      },
+      "by_target_event": {
+        "ftp_login_failure": {
+          "connections": 32,
+          "flagged": 29,
+          "class_counts": {
+            "Benign": 3,
+            "Unclassified": 29
+          }
+        }
+      },
+      "matched_test_packets": 418,
+      "maximum_start_error_seconds": 0,
+      "pcap_sha256_verified": "9e65ab8199ee0534c6099024c5622f8c57a862a0601a8aaf36719260cb566f0b",
+      "native_features_finite_and_frozen_decisions_verified": true,
+      "source_effects_verified": true,
+      "visible_notification_groups_at_snapshot": 1,
+      "explanations": [
+        {
+          "type": "Unclassified",
+          "grouped_flags": 29,
+          "visible_notification": true,
+          "explanation_status": "complete",
+          "display_source": "evidence_based_fallback",
+          "generated_text_accepted": false
+        }
+      ],
+      "scope": "Primary counts exclude availability probes and the emulator trigger; normal controls are separate."
+    },
+    {
+      "run_id": "20261121_163908_SSHBruteForce_737391",
+      "profile": "SSHBruteForce",
+      "primary": {
+        "connections": 32,
+        "flagged": 32,
+        "class_counts": {
+          "Unclassified": 26,
+          "Brute Force": 6
+        }
+      },
+      "expected_family": "Brute Force",
+      "correctly_typed_primary": 6,
+      "all_test_connections": {
+        "connections": 32,
+        "flagged": 32,
+        "class_counts": {
+          "Unclassified": 26,
+          "Brute Force": 6
+        }
+      },
+      "by_target_event": {
+        "ssh_login_failure": {
+          "connections": 32,
+          "flagged": 32,
+          "class_counts": {
+            "Unclassified": 26,
+            "Brute Force": 6
+          }
+        }
+      },
+      "matched_test_packets": 663,
+      "maximum_start_error_seconds": 0,
+      "pcap_sha256_verified": "2e3af2cfc40243576849ecae9c71a4d380113322bc18afdcc4491198aa21db15",
+      "native_features_finite_and_frozen_decisions_verified": true,
+      "source_effects_verified": true,
+      "visible_notification_groups_at_snapshot": 3,
+      "explanations": [
+        {
+          "type": "Unclassified",
+          "grouped_flags": 26,
+          "visible_notification": true,
+          "explanation_status": "complete",
+          "display_source": "evidence_based_fallback",
+          "generated_text_accepted": false
+        },
+        {
+          "type": "Brute Force",
+          "grouped_flags": 2,
+          "visible_notification": true,
+          "explanation_status": "complete",
+          "display_source": "evidence_based_fallback",
+          "generated_text_accepted": false
+        },
+        {
+          "type": "Brute Force",
+          "grouped_flags": 4,
+          "visible_notification": true,
+          "explanation_status": "complete",
+          "display_source": "evidence_based_fallback",
+          "generated_text_accepted": false
+        }
+      ],
+      "scope": "Primary counts exclude availability probes and the emulator trigger; normal controls are separate."
+    },
+    {
+      "run_id": "20261121_164814_BotBehavior_368522",
+      "profile": "BotBehavior",
+      "primary": {
+        "connections": 12,
+        "flagged": 0,
+        "class_counts": {
+          "Benign": 12
+        }
+      },
+      "expected_family": "Bot",
+      "correctly_typed_primary": 0,
+      "all_test_connections": {
+        "connections": 13,
+        "flagged": 0,
+        "class_counts": {
+          "Benign": 13
+        }
+      },
+      "by_target_event": {
+        "bot_trigger": {
+          "connections": 1,
+          "flagged": 0,
+          "class_counts": {
+            "Benign": 1
+          }
+        },
+        "bot_exchange": {
+          "connections": 12,
+          "flagged": 0,
+          "class_counts": {
+            "Benign": 12
+          }
+        }
+      },
+      "matched_test_packets": 130,
+      "maximum_start_error_seconds": 0,
+      "pcap_sha256_verified": "7e213eebdf51e43a2e326af19dbc685569b3e293efce9a931829f6aad5a12b52",
+      "native_features_finite_and_frozen_decisions_verified": true,
+      "source_effects_verified": true,
+      "visible_notification_groups_at_snapshot": 0,
+      "explanations": [],
+      "scope": "Primary counts exclude availability probes and the emulator trigger; normal controls are separate."
+    },
+    {
+      "run_id": "20261121_171054_DoS_014602",
+      "profile": "DoS",
+      "primary": {
+        "connections": 96,
+        "flagged": 18,
+        "class_counts": {
+          "Unclassified": 18,
+          "Benign": 78
+        }
+      },
+      "expected_family": "DoS",
+      "correctly_typed_primary": 0,
+      "all_test_connections": {
+        "connections": 139,
+        "flagged": 19,
+        "class_counts": {
+          "Benign": 120,
+          "Unclassified": 19
+        }
+      },
+      "by_target_event": {
+        "probe_available": {
+          "connections": 7,
+          "flagged": 1,
+          "class_counts": {
+            "Benign": 6,
+            "Unclassified": 1
+          }
+        },
+        "resource_held": {
+          "connections": 18,
+          "flagged": 18,
+          "class_counts": {
+            "Unclassified": 18
+          }
+        },
+        "resource_denied": {
+          "connections": 78,
+          "flagged": 0,
+          "class_counts": {
+            "Benign": 78
+          }
+        },
+        "probe_denied": {
+          "connections": 36,
+          "flagged": 0,
+          "class_counts": {
+            "Benign": 36
+          }
+        }
+      },
+      "matched_test_packets": 1389,
+      "maximum_start_error_seconds": 0,
+      "pcap_sha256_verified": "4b01a82566083b20981296d53bbebcad4697addcc003d0848bb08b65653e09ac",
+      "native_features_finite_and_frozen_decisions_verified": true,
+      "source_effects_verified": true,
+      "visible_notification_groups_at_snapshot": 2,
+      "explanations": [
+        {
+          "type": "Unclassified",
+          "grouped_flags": 12,
+          "visible_notification": true,
+          "explanation_status": "complete",
+          "display_source": "evidence_based_fallback",
+          "generated_text_accepted": false
+        },
+        {
+          "type": "Unclassified",
+          "grouped_flags": 7,
+          "visible_notification": true,
+          "explanation_status": "complete",
+          "display_source": "evidence_based_fallback",
+          "generated_text_accepted": false
+        }
+      ],
+      "scope": "Primary counts exclude availability probes and the emulator trigger; normal controls are separate."
+    },
+    {
+      "run_id": "20261121_171906_DDoS_a4333b",
+      "profile": "DDoS",
+      "primary": {
+        "connections": 96,
+        "flagged": 0,
+        "class_counts": {
+          "Benign": 96
+        }
+      },
+      "expected_family": "DDoS",
+      "correctly_typed_primary": 0,
+      "all_test_connections": {
+        "connections": 143,
+        "flagged": 1,
+        "class_counts": {
+          "Benign": 142,
+          "Unclassified": 1
+        }
+      },
+      "by_target_event": {
+        "probe_available": {
+          "connections": 9,
+          "flagged": 1,
+          "class_counts": {
+            "Benign": 8,
+            "Unclassified": 1
+          }
+        },
+        "resource_held": {
+          "connections": 20,
+          "flagged": 0,
+          "class_counts": {
+            "Benign": 20
+          }
+        },
+        "probe_denied": {
+          "connections": 38,
+          "flagged": 0,
+          "class_counts": {
+            "Benign": 38
+          }
+        },
+        "resource_denied": {
+          "connections": 76,
+          "flagged": 0,
+          "class_counts": {
+            "Benign": 76
+          }
+        }
+      },
+      "matched_test_packets": 1433,
+      "maximum_start_error_seconds": 0,
+      "pcap_sha256_verified": "fdabd0d7ef26b0e3705ee89f3d67142b2459cc679ee9cc7171b10180f5c124ea",
+      "native_features_finite_and_frozen_decisions_verified": true,
+      "source_effects_verified": true,
+      "visible_notification_groups_at_snapshot": 1,
+      "explanations": [
+        {
+          "type": "Unclassified",
+          "grouped_flags": 1,
+          "visible_notification": true,
+          "explanation_status": "complete",
+          "display_source": "evidence_based_fallback",
+          "generated_text_accepted": false
+        }
+      ],
+      "scope": "Primary counts exclude availability probes and the emulator trigger; normal controls are separate."
+    },
+    {
+      "run_id": "20261121_172724_Benign_fea5e0",
+      "profile": "Benign",
+      "primary": {
+        "connections": 9,
+        "flagged": 4,
+        "class_counts": {
+          "Unclassified": 4,
+          "Benign": 5
+        }
+      },
+      "expected_family": null,
+      "correctly_typed_primary": null,
+      "all_test_connections": {
+        "connections": 9,
+        "flagged": 4,
+        "class_counts": {
+          "Unclassified": 4,
+          "Benign": 5
+        }
+      },
+      "by_target_event": {
+        "ftp_login_failure": {
+          "connections": 1,
+          "flagged": 1,
+          "class_counts": {
+            "Unclassified": 1
+          }
+        },
+        "ftp_login_success": {
+          "connections": 1,
+          "flagged": 1,
+          "class_counts": {
+            "Unclassified": 1
+          }
+        },
+        "ssh_login_failure": {
+          "connections": 1,
+          "flagged": 1,
+          "class_counts": {
+            "Unclassified": 1
+          }
+        },
+        "ssh_login_success": {
+          "connections": 1,
+          "flagged": 1,
+          "class_counts": {
+            "Unclassified": 1
+          }
+        },
+        "probe_available": {
+          "connections": 5,
+          "flagged": 0,
+          "class_counts": {
+            "Benign": 5
+          }
+        }
+      },
+      "matched_test_packets": 119,
+      "maximum_start_error_seconds": 0,
+      "pcap_sha256_verified": "a73a14c885c0de734628d3cfcaf7d8320a2b6985c22864fd3c9d1cf6ae4b4cf3",
+      "native_features_finite_and_frozen_decisions_verified": true,
+      "source_effects_verified": true,
+      "visible_notification_groups_at_snapshot": 2,
+      "explanations": [
+        {
+          "type": "Unclassified",
+          "grouped_flags": 2,
+          "visible_notification": true,
+          "explanation_status": "complete",
+          "display_source": "evidence_based_fallback",
+          "generated_text_accepted": false
+        },
+        {
+          "type": "Unclassified",
+          "grouped_flags": 2,
+          "visible_notification": true,
+          "explanation_status": "complete",
+          "display_source": "evidence_based_fallback",
+          "generated_text_accepted": false
+        }
+      ],
+      "scope": "Primary counts exclude availability probes and the emulator trigger; normal controls are separate."
+    }
+  ],
+  "completed_cases": 7,
+  "matched_test_connections": 377,
+  "matched_test_packets": 4270,
+  "all_checks_passed": true,
+  "model_sha256": {
+    "gate": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+    "diagnosis": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e"
+  },
+  "phone_or_remote_actions": 0,
+  "limits": "Small controlled development runs. BotBehavior is a restricted emulator; DoS/DDoS affect only the disposable application resource. No general class recall or everyday false-positive estimate."
+}
