@@ -1,5 +1,12 @@
 # Changelog
 
+## Current-source repository refresh ? 21 November 2026
+
+- Published current code40 Android/model source, five paper-to-current research stages, manual HTTP/protocol/multi-source test tools, aggregate results and readable setup/history guides.
+- Updated the self-contained report to73pages through the latest normal SSH false positives; preserved paper assumptions, matched controls, classwise comparisons, failed readiness and rejected experiments.
+- Six model/package/preview tests, fresh CPU paper/context smokes, all Android/protocol modules and clean-checkout contracts pass. Fresh hosted CI passed: [run44934776454](https://github.com/vishwajeet-singh-bhati/Android-nids/actions/runs/44934776454).
+- Dataset/raw-capture/key/credential/large-Llama/ZIP exclusions remain; no phone or model changes during publication. Build logs remain generated outputs, outside the current source tree.
+
 ## 0.14.2 / code40 — 2026-11-21
 
 - Observe on-device loopback separately from default external-network assessment, stopping recurring idle-loopback alerts. Add coverage counter and experimental opt-in. This narrows default scope; it does not establish local safety or improve the model's classification accuracy. External inputs/models/Llama unchanged.

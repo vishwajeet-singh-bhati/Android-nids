@@ -1,5 +1,5 @@
 {
-  "validated_at_utc": "2026-11-21T18:15:47.946426+00:00",
+  "validated_at_utc": "2026-11-21T18:23:13.256164+00:00",
   "scope": "Current code40 curated source and updated report; technical checks, no new model fitting/phone traffic/accuracy study.",
   "app_version": "0.14.2-network-scope",
   "version_code": 40,
@@ -154,8 +154,14 @@
     }
   },
   "hosted_ci": {
-    "status": "pending_publication",
-    "for_current_snapshot": true
+    "status": "success",
+    "run_id": 44934776454,
+    "url": "https://github.com/vishwajeet-singh-bhati/Android-nids/actions/runs/44934776454",
+    "validated_source_commit": "2cbfcacdd6bfe70259939f2d945312dce676bc55",
+    "python_contracts_and_paper_context_smokes": "success",
+    "android_all_current_modules": "success",
+    "environment": "Fresh GitHub Ubuntu24.04 runner; pinned Python3.12/Java21 and API34 SDK",
+    "following_changes": "Documentation/manifest validation record only; no executable/model changes."
   },
   "zip_created": false
 }
