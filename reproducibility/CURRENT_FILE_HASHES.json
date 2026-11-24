@@ -22,9 +22,9 @@
       "bytes": 511
     },
     "CHANGELOG.md": {
-      "git_blob": "1a34033272192efacb528f852501f39c02718cbd",
-      "sha256": "820e6b0d4b31cf7405fc6677aa8f1aa2ec983abd7a786055c4518417ff64b600",
-      "bytes": 58753
+      "git_blob": "2a9da51083cbbbdaf06bfd9310a9e6d32e38a755",
+      "sha256": "d55376b82906be7dd349f1360f30ccb30c7499410927084026227a8de878d1f3",
+      "bytes": 59191
     },
     "NOTICE.md": {
       "git_blob": "bf18b7228a1410bf9e6bf98a2cd9f155587e5d94",
@@ -32,14 +32,14 @@
       "bytes": 1926
     },
     "README.md": {
-      "git_blob": "bc6ab4f842c129e3d389dba52902762c00e60540",
-      "sha256": "469b767e48547b2a645a48d0d24e9d4f12b43644b8228c36a23e198d3c90610a",
-      "bytes": 6529
+      "git_blob": "5c1e498f5d4c16ee713927a46bff8ea4fe974fdf",
+      "sha256": "0638e88806c93f314c46ab79b9ee75fefdfeb106fd51e16060f89475534b9c9e",
+      "bytes": 6772
     },
     "STATUS.md": {
-      "git_blob": "8935d154ae341ad86a0a599dafc62163eb6324bc",
-      "sha256": "3ca5fbf49ccc961624f0350e45c1a758f32f98f774c7e82f252717dd23f00303",
-      "bytes": 1349
+      "git_blob": "e29ce8bcd0273bd67df3b6e88aa87879abc7728d",
+      "sha256": "b1f7c167bbdbe013f4ed6dd2eacdb60ff7788f99caece1da8b04a6b662c9618c",
+      "bytes": 1592
     },
     "SUBMISSION_CHECKPOINTS.md": {
       "git_blob": "2d7a6fd52f98fff328e623abf430ded28f4dd142",
@@ -52,9 +52,9 @@
       "bytes": 1525
     },
     "android/app/build.gradle.kts": {
-      "git_blob": "6d34fb54c83c3dc8bdcefebe311e31f87d8213c7",
-      "sha256": "c8cce8bb76d036b2280711191b03d77f37709492464ab586dcddfa7234c68196",
-      "bytes": 838
+      "git_blob": "92792a5b65cec383325e3a54cddec193a4fdf802",
+      "sha256": "36754e194d38e06280d30f17355fbe9458daf90a39a5f2c64f0e617c9d214fbd",
+      "bytes": 831
     },
     "android/app/src/androidTest/assets/rakshak/benchmark_suite.json": {
       "git_blob": "7b86415f8cb328672be951456b0043f97c39d168",
@@ -187,9 +187,9 @@
       "bytes": 24401
     },
     "android/app/src/main/AndroidManifest.xml": {
-      "git_blob": "7fe5688a3060fe4ba5d59596756e2c731a1c03b3",
-      "sha256": "08f03677617b7940a03302e5474bdb06402d00a8f810acbb675969d8b9d44539",
-      "bytes": 3245
+      "git_blob": "872b79261c470b2c989a10607c36b5643900f294",
+      "sha256": "c220746d7268b872fb50dd425fc6f7a997566dce80b0421f59fe7053073fc041",
+      "bytes": 3287
     },
     "android/app/src/main/assets/aligned_v2_contract.json": {
       "git_blob": "d6baeb80ef5f6b2c12adde6d2106775286639cb1",
@@ -402,9 +402,9 @@
       "bytes": 9287
     },
     "android/app/src/main/kotlin/nids/app/LearnedNetworkActivity.kt": {
-      "git_blob": "28fb8e85c063025b181e4adbbe927791e48ef218",
-      "sha256": "eac4c206b98b69563c5f6954db11e720844406c25aaf291af575b076273fbf1f",
-      "bytes": 29998
+      "git_blob": "f7a3ecf2af71b1fe63dc4edfe20552b0e0d32772",
+      "sha256": "eb57bd1d7739774aea8bdff0928503c1f888bbc16b128ba1083ea80c71a4f417",
+      "bytes": 30326
     },
     "android/app/src/main/kotlin/nids/app/LinkDetector.kt": {
       "git_blob": "cc22c46cf499e7e71ee34005e7c030041dc71109",
@@ -541,10 +541,60 @@
       "sha256": "d6f74810d63cec68bb84082a009da9398c403453fb01d23500cbcb9c4713772f",
       "bytes": 8322
     },
+    "android/app/src/main/res/drawable-nodpi/rakshak_foreground.png": {
+      "git_blob": "259d8f55b33d970ab9a9816ff91d80aef5559add",
+      "sha256": "c09e8131af1b8c6d73f0188b157bbe3de37582a69144d6fb807859b5fd7a1084",
+      "bytes": 34277
+    },
+    "android/app/src/main/res/drawable-nodpi/rakshak_logo.png": {
+      "git_blob": "ed7db92e360c0c53cd16dfd29dfdfbdfbf12611f",
+      "sha256": "799b023c2ed25b4dfcef01ce53492eeecdf44ff627d1410b33b26e843542d37e",
+      "bytes": 26719
+    },
+    "android/app/src/main/res/drawable-nodpi/rakshak_monochrome.png": {
+      "git_blob": "3423688b2331e653e4f3868506888dcfbe912ecc",
+      "sha256": "063ccb1fc8148a112390a96a229d46e868284a456f733c9d016d324109e9242a",
+      "bytes": 15672
+    },
     "android/app/src/main/res/drawable/ic_nids.xml": {
       "git_blob": "4f733b8035dee4f86a5d12972f2f8fd2f5b80d37",
       "sha256": "2e30622af9f1862925a4d2d4cc7192b92e2ef375052b39f69f645c33cc558279",
       "bytes": 458
+    },
+    "android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml": {
+      "git_blob": "62e7c0739f4281904f865b3bf4037c8b00d88006",
+      "sha256": "dab94ab323673d41fae11ef8ea95b631f12bcc45418621d9268dd1f3100cbe8c",
+      "bytes": 257
+    },
+    "android/app/src/main/res/mipmap-anydpi-v33/ic_launcher.xml": {
+      "git_blob": "52a1599ed8925068fbd8feedceb1747ee8416d4e",
+      "sha256": "39157e8d38c1b0eb0c8e12c48c5796123c5f8c48f974ccc93b3d277bc91d184a",
+      "bytes": 324
+    },
+    "android/app/src/main/res/mipmap-hdpi/ic_launcher.png": {
+      "git_blob": "0010be09b5c4bc2dfcddbaf096ffbdf1d5e849d1",
+      "sha256": "7f284c5e78204bcb26f745d0b467bb7ba8a320c4c4f85dc4eccb91abd5550d54",
+      "bytes": 3384
+    },
+    "android/app/src/main/res/mipmap-mdpi/ic_launcher.png": {
+      "git_blob": "46efbdb98fdc26e745d802674a12cf97eb068490",
+      "sha256": "538e5fb8738c9dc8a65ace37de72814ba5d79b996c8ac24b0cd1d62e8628e693",
+      "bytes": 1910
+    },
+    "android/app/src/main/res/mipmap-xhdpi/ic_launcher.png": {
+      "git_blob": "0eec1c1a21d376b34a71c2074fb0ddc6cb2fe230",
+      "sha256": "8fce88cbed1fba6160af057acda622ec9b0bc24c8a85f12d56cd315d4a908bc6",
+      "bytes": 4968
+    },
+    "android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png": {
+      "git_blob": "fd9d6603a48fa773053557d67ffbf0bbbfec2766",
+      "sha256": "0fc774640ffac2e4a9805e60d954002c177d118b4ef5a4342691932f7c976c93",
+      "bytes": 8662
+    },
+    "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png": {
+      "git_blob": "168b45989fdb465ed71ba44acc233cf04193cda4",
+      "sha256": "242e0217433335cd1a3c449b957eaddaf3151cbf050b29d7b80755c5f5571a94",
+      "bytes": 12833
     },
     "android/app/src/main/res/values/styles.xml": {
       "git_blob": "a3d3fc443f01a40309a2d46b3b068b679cf48381",
@@ -2066,6 +2116,21 @@
       "sha256": "5d2185d519eb01d32cd17ef752266ac42a79731a6605a1b6266ef382bb798016",
       "bytes": 3594
     },
+    "docs/branding/README.md": {
+      "git_blob": "3c313bd07f3ec7891a0bde1f3496ee3ebcc72857",
+      "sha256": "d09e413e8c903c7da1e0a8a7c059b9c0e5ac2351baef39b0e3884d186a44fcae",
+      "bytes": 2033
+    },
+    "docs/branding/android-icon-preview.png": {
+      "git_blob": "901da40888a55c21c7d8c16252883f7277d0c45f",
+      "sha256": "950395ae1483774b642fb96321506d310bcf6cc01e091c33af261ca869ecd62d",
+      "bytes": 33373
+    },
+    "docs/branding/rakshak-logo.png": {
+      "git_blob": "226a3e60e8a2e2107350297402415ebcb242c170",
+      "sha256": "baafb42a06d1f4447ad74ea5b1335f61c872c820b2e6b3019a3f9ae40fedb2f0",
+      "bytes": 477141
+    },
     "docs/hybrid_guidance_v1/README.md": {
       "git_blob": "eac33766740a0b1df476c6c831df565823e934d2",
       "sha256": "ee136ae17357a3189cb45e5d5fb230bbab856cb9a17f6244c6fc823b4a605aab",
@@ -2107,9 +2172,9 @@
       "bytes": 1089
     },
     "docs/rakshak/README.md": {
-      "git_blob": "dd0c2b90abd94b00ec6161f9ef7011cfe6ca4c4b",
-      "sha256": "8f83040fe80fa83d42339fa5018ce67f8be5ed6e84ee11e450ed2c0561439ab7",
-      "bytes": 3882
+      "git_blob": "1d00f50abacf060a2db1557de7eb45317ab24cd9",
+      "sha256": "00e5b362a559a4e25864c853d81a209d99328b08f24a4b6c43725eb5e59645ea",
+      "bytes": 4043
     },
     "docs/rakshak/architecture/README.md": {
       "git_blob": "917c83da4b0b55752c45d90a732cc6998b152850",
@@ -3420,6 +3485,11 @@
       "git_blob": "a975b67eb2c2596e3418c596e10c8c0d686c5ea8",
       "sha256": "b175a63e35db6c720ad8c9f3385a1a750715999fc54b0edfe58518cb5013be74",
       "bytes": 3466
+    },
+    "tools/branding/generate_android_icons.py": {
+      "git_blob": "ed42e64c6b225a73f17475bd08aa248c3f788fcc",
+      "sha256": "586cd22d661f5ed0b82403d0982b9d8cbba87c772a8b93fcefa93b453bf2c1a2",
+      "bytes": 1748
     },
     "tools/report/addon_models_chapters.tex": {
       "git_blob": "d14526d2b2c1d3dcdcc0602d9361d1f09fdc549c",

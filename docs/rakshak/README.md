@@ -1,6 +1,6 @@
 # Rakshak current app guide
 
-Current source: **0.17.3-link-extraction / code46**. This public checkout is a reproducible development snapshot; [submission gates](../../SUBMISSION_CHECKPOINTS.md) remain separate.
+Current source: **0.17.4-branding / code47**. This public checkout is a reproducible development snapshot; [submission gates](../../SUBMISSION_CHECKPOINTS.md) remain separate.
 
 ## Use the app
 
@@ -44,3 +44,5 @@ The service check creates/removes three marked test events, verifies notificatio
 - [Complete report](../project_report/README.md)
 
 Native/reference/synthetic checks do not establish universal scam coverage or production readiness. The report distinguishes archived classifier results, reused benchmarks, actual carrier observations and remaining false positives/misses.
+
+Code47 adds the original [logo](../branding/README.md); measured model results retain their original code46 identities. Phone branding deployment awaits reconnection.

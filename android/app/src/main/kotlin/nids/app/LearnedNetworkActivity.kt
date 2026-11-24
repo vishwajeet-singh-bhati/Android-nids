@@ -57,7 +57,9 @@ class LearnedNetworkActivity : Activity() {
   selectedId=intent.getStringExtra("observation_id") ?: "";if(selectedId.isNotEmpty())tab=2
   if(android.os.Build.VERSION.SDK_INT>=33)requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS),1)
   val root=column().apply{setBackgroundColor(bg);fitsSystemWindows=true;setPadding(dp(18),dp(12),dp(18),dp(8))}
-  root.addView(text("Rakshak",26f,ink,true))
+  val brand=LinearLayout(this).apply{gravity=android.view.Gravity.CENTER_VERTICAL}
+  brand.addView(ImageView(this).apply{setImageResource(R.drawable.rakshak_logo);contentDescription="Rakshak logo";scaleType=ImageView.ScaleType.FIT_CENTER},LinearLayout.LayoutParams(dp(44),dp(44)).apply{rightMargin=dp(10)})
+  brand.addView(text("Rakshak",26f,ink,true));root.addView(brand)
   body=column().apply{setPadding(0,dp(16),0,dp(12))}
   root.addView(ScrollView(this).apply{isFillViewport=true;addView(body)},LinearLayout.LayoutParams(-1,0,1f))
   val nav=LinearLayout(this)

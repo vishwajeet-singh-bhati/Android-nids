@@ -2,7 +2,7 @@
 
 [![Reproducibility checks](https://github.com/vishwajeet-singh-bhati/rakshak/actions/workflows/checks.yml/badge.svg)](https://github.com/vishwajeet-singh-bhati/rakshak/actions/workflows/checks.yml)
 
-An Android research app for **network intrusion, SMS scams and phishing links**, with immediate factual warnings and checked local Llama guidance. Current source: **0.17.3-link-extraction / code46**. This is a development/submission draft, not a claim of complete protection or final mentor approval.
+An Android research app for **network intrusion, SMS scams and phishing links**, with immediate factual warnings and checked local Llama guidance. Current source: **0.17.4-branding / code47**. This is a development/submission draft, not a claim of complete protection or final mentor approval.
 
 ## Start here
 
@@ -70,3 +70,5 @@ See [URL evidence](results/url_benchmark_20261124/README.md), [SMS archive prove
     SUBMISSION_CHECKPOINTS.md Draft-to-review-to-submission gates
 
 Run python -m pytest tests -q and python -m unittest validation.test_url_benchmark_metrics for dataset-free checks. Earlier network and SMS results retain their original cohorts; do not combine them into one app-accuracy percentage. Source licenses and missing provenance limits are documented per component.
+
+Branding update: code47 adds the original [Rakshak logo](docs/branding/README.md). Historical model/device measurements remain from their explicitly stated builds, including code46. Device installation of the branding build is pending reconnection.

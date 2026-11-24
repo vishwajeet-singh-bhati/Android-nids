@@ -7,7 +7,7 @@
 
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <application android:label="Rakshak" android:icon="@drawable/ic_nids" android:theme="@style/AppTheme" android:allowBackup="false">
+    <application android:label="Rakshak" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher" android:theme="@style/AppTheme" android:allowBackup="false">
         <activity android:name=".LearnedNetworkActivity" android:screenOrientation="portrait" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

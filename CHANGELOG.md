@@ -1,5 +1,11 @@
 # Changelog
 
+##0.17.4-branding / code47 -24 November2026
+
+- Create an original Rakshak logo inspired by the supplied protection/care theme. Add adaptive, round, density-specific and themed launcher assets plus the home header logo. Preserve model weights, thresholds, detection policy and explanation behavior.
+- Code46 measurement history remains valid for its stated builds. Phone deployment of this branding build is pending device reconnection.
+
+
 ## Public build validation fix - 24 November 2026
 
 - Include shared safety-note/result types in the isolated Android contract-check module. Move the unchanged result formatter into its own source file so the complete CI module set builds. App version and learned weights are unchanged.

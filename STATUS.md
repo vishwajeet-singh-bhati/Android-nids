@@ -1,6 +1,6 @@
 # Current Rakshak status -24 November2026
 
-Current source/app: **0.17.3-link-extraction / code46**. The prior network-only code40 source remains in Git history. Network weights and thresholds are unchanged. SMS/URL models and the source recovered from the full SMS archive are included.
+Current source/app: **0.17.4-branding / code47**. The prior network-only code40 source remains in Git history. Network weights and thresholds are unchanged. SMS/URL models and the source recovered from the full SMS archive are included.
 
 The original Pixel used a populated dated offline feed. This public build has an empty/stale database; populate it locally from permitted sources if desired. All three learned pipelines are present. The selected SMS training checkpoint, PTQ/QAT scripts and checked split hashes are included; datasets and raw/private content are excluded.
 
@@ -9,3 +9,5 @@ Publication is a development snapshot. Improvements, user candidate selection, f
 Known limits: network false positives/protocol misses; limited SMS language/real-message evaluation; strict native numerical drift; URL unknown labels and reference reuse; feed freshness; no automatic inbox/RCS/chat/browser interception; best-effort network app attribution; no proof of compromise from a flag. Llama advice does not repair detection.
 
 Read the [components](components/README.md), [improvement plan](docs/MODEL_IMPROVEMENT_PLAN.md), [report](docs/project_report/README.md) and [changelog](CHANGELOG.md).
+
+Branding update: code47 adds the original [Rakshak logo](docs/branding/README.md). Historical model/device measurements remain from their explicitly stated builds, including code46. Device installation of the branding build is pending reconnection.
