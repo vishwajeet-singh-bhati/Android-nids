@@ -96,3 +96,5 @@ After a user-requested factory reset, verified code47 and local models/capture b
 ## Network idle-alert review -24 November2026
 
 SMS repair is on hold at user request pending a later carrier-message test. Code49 corrects rejected-handshake wording/grouping and stale notification titles without changing binary/model decisions. A candidate that reduced legacy FP by340 also lost212 positive-labelled detections and was rejected. Saved comparisons cover2,288,325 regression rows, not fresh holdouts. See [audit](results/idle_network_repair_20261124/README.md). This is not a final model selection or proof of eliminated false positives.
+
+Code49 publication verification: [hosted CI](https://github.com/vishwajeet-singh-bhati/rakshak/actions/runs/45372448209) passed Python and Android jobs on `3d53e17`;91-page report regenerates identically. Four actual notification titles/current Llama notes verified. Model improvement and submission gates remain pending.

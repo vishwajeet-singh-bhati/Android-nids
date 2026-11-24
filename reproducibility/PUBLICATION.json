@@ -3,18 +3,18 @@
   "repository": "https://github.com/vishwajeet-singh-bhati/rakshak",
   "public": true,
   "account": "vishwajeet-singh-bhati",
-  "validated_code_commit": "97a47c3b368b370cb09db8641e56df5b81916125",
+  "validated_code_commit": "3d53e17e066f96560780ab1dc2499069f1355bd9",
   "hosted_ci": {
-    "url": "https://github.com/vishwajeet-singh-bhati/rakshak/actions/runs/45357630278",
-    "commit": "97a47c3b368b370cb09db8641e56df5b81916125",
+    "url": "https://github.com/vishwajeet-singh-bhati/rakshak/actions/runs/45372448209",
+    "commit": "3d53e17e066f96560780ab1dc2499069f1355bd9",
     "conclusion": "success",
     "jobs": [
       {
-        "name": "python-contracts",
+        "name": "android-build",
         "conclusion": "success"
       },
       {
-        "name": "android-build",
+        "name": "python-contracts",
         "conclusion": "success"
       }
     ]
@@ -35,21 +35,21 @@
     "validated_on": "24 November 2026",
     "compiler": "Tectonic 0.17.0 (XeTeX-based local validation)",
     "compiler_exit_code": 0,
-    "pages": 89,
+    "pages": 91,
     "main_file": "Rakshak_Project_Report.tex",
-    "source_sha256": "bc31b7ef37e0aa5ad6f191e5ab160b771d4ab08ea3db101c257ab310b1a98279",
-    "pdf_sha256": "7d086580041fd08ae706502dc67e7a59021b8393d848d900da3717dd36de7092",
+    "source_sha256": "41ed1beeb3d69ae676537ecbf3fd9b3a6953ff3b59a9f52f74b8f2d5f88d2a11",
+    "pdf_sha256": "abbe0226038b44735e7e918f11c28e469396cf745c47ca6b60b94849046b93e1",
     "evidence_sha256": "6fc5dbb38baecce5f53962f4bc5c242808d26234aa4a5c6f9c5fdb58613094c3",
     "addon_evidence_sha256": "2e8d5b25f4b18bc0062a6508602ab1127b76e578698c9394e482b411a8cbd712",
     "self_contained": true,
     "overfull_boxes": 0,
     "undefined_references_or_commands": false,
     "layout_visually_reviewed": true,
-    "review_scope": "Cover and new SMS/URL pages rendered; historical report layout retained. Final PDF needs mentor/user review.",
+    "review_scope": "Previous report pages reviewed; new network chapter rendered for review. Draft remains pending user/mentor approval.",
     "numerical_count_checks_passed": true,
     "zip_created": false,
     "final_submission_approved": false,
-    "coverage": "Paper/network history through current code46; recovered SMS training/PTQ/QAT source, archived classwise scores, SMS/URL integration and2,048-URL labeling limits."
+    "coverage": "Historical paper/network/SMS/URL evidence plus code49 idle network review, rejected suppression comparison and factual title/grouping correction."
   },
   "public_feed": "Empty valid schema; restricted populated snapshot not redistributed.",
   "zip_created": false,
@@ -236,6 +236,30 @@
       "posted_notification_titles_verified": 4,
       "raw_binary_flags_preserved": true,
       "note": "Verified with NotificationManager active notifications and final Android notification dump; no visual screenshot claim."
+    },
+    "hosted_ci": {
+      "url": "https://github.com/vishwajeet-singh-bhati/rakshak/actions/runs/45372448209",
+      "commit": "3d53e17e066f96560780ab1dc2499069f1355bd9",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "android-build",
+          "conclusion": "success"
+        },
+        {
+          "name": "python-contracts",
+          "conclusion": "success"
+        }
+      ]
+    },
+    "report_regeneration_byte_identical": true,
+    "last_health_snapshot": {
+      "packets": 865,
+      "inferences": 35,
+      "queue_drops": 0,
+      "queue_depth": 3,
+      "runtime_errors": 0,
+      "scope": "Single current-session heartbeat; not an accuracy cohort."
     }
   }
 }
