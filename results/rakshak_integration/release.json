@@ -1,0 +1,98 @@
+{
+  "version_code": 43,
+  "version_name": "0.17.0-rakshak",
+  "application_id": "nids.app",
+  "built_at_utc": "2026-11-23T16:18:35.429704+00:00",
+  "apk": "artifacts/releases/rakshak-0.17.0.apk",
+  "apk_sha256": "d3630ff5b7499fcc448c951de4e7496f1b0a0b3d4e0a6e45f2af22f680cedffa",
+  "apk_bytes": 102871307,
+  "source_base_commit": "a85e2051281ac39bceb64033fa9c54cb6d209f45",
+  "runtime_source_snapshot_sha256": "b74478c33acf4357c3b352189d56d668dcf7eca0028b317402d164a69daf36c8",
+  "build": {
+    "passed": true,
+    "jdk": 21,
+    "min_sdk": 26,
+    "target_sdk": 34,
+    "compile_sdk": 34,
+    "build_type": "debug"
+  },
+  "handoff_files_verified": 192,
+  "embedded_assets_verified": {
+    "sms/manifest.json": {
+      "bytes": 273,
+      "sha256": "6fda84eacd467587df61a0e7de0bd6931be578d584292d60523360ffcecad173"
+    },
+    "sms/portable_model.json": {
+      "bytes": 1385777,
+      "sha256": "39fc6e68b5270a828b3c52d02de6a46ac9e0443f8fa0dd07c2ab0119a421b997"
+    },
+    "sms/ptq_int8_b1.pte": {
+      "bytes": 37250700,
+      "sha256": "e71c4652cb464651a1153400ac0750a9b00a0282db04a2f470f3298b3de67191"
+    },
+    "sms/vocab.txt": {
+      "bytes": 231508,
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    "url/MANIFEST.json": {
+      "bytes": 1347,
+      "sha256": "38dc79c2455c73d98641082c36794e63ec33475dc9fef9b08d0672d24c8d5846"
+    },
+    "url/ngram_lr.bin": {
+      "bytes": 6391214,
+      "sha256": "32d5e2d5a888b67e5c93fc8d30d0ee7cdf0335e284f833b250bfe30e1c1f40a8"
+    },
+    "url/popular.txt": {
+      "bytes": 13532,
+      "sha256": "5c459641d0af83a28de0a9cf5dfb55d04f99d5c908accc2a608e85f6625bee4d"
+    },
+    "url/public_suffix_list.dat": {
+      "bytes": 318581,
+      "sha256": "b69315c085d53972724b8f2df111ffc329b0c84fe0a47d62c8c91655cc774a38"
+    },
+    "url/redirectors.txt": {
+      "bytes": 14177,
+      "sha256": "519372bce780547a81d0a8142a7502c0ddd5a0077f79cb3b7d51d9a66f92b888"
+    },
+    "url/threat_intel.sqlite3": {
+      "bytes": 16719872,
+      "sha256": "d71a61f47f7d6ec6a39605a77df4eb7e933657262e6ccf4d0772f61486eae9bb"
+    },
+    "url/url_cnn.pte": {
+      "bytes": 381444,
+      "sha256": "e6f528b630c96a5a95630a75167f80cd7df049f4afa6036a33bacd4925a5ae30"
+    },
+    "url/url_model.json": {
+      "bytes": 9288,
+      "sha256": "e794e6ef1c23be8eaa7b3b7414a2e477672ca46dcc48e97f3b8db08797232858"
+    }
+  },
+  "network_model_sha256": {
+    "gate": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+    "diagnosis": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e"
+  },
+  "permissions": [
+    "package: nids.app",
+    "uses-permission: name='android.permission.FOREGROUND_SERVICE'",
+    "uses-permission: name='android.permission.FOREGROUND_SERVICE_SPECIAL_USE'",
+    "uses-permission: name='android.permission.POST_NOTIFICATIONS'",
+    "uses-permission: name='android.permission.RECEIVE_BOOT_COMPLETED'",
+    "uses-permission: name='android.permission.QUERY_ALL_PACKAGES'",
+    "uses-permission: name='android.permission.RECEIVE_SMS'",
+    "permission: nids.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+    "uses-permission: name='nids.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'"
+  ],
+  "internet_permission": false,
+  "read_sms_permission": false,
+  "android_emulator_validation_passed": true,
+  "pixel_deployed": true,
+  "llama_embedded": false,
+  "scope": "Integration preview. Synthetic and reference checks, not independent accuracy or phone performance.",
+  "android_test_apk_sha256": "9ef5ee8ce90c6b1d7a5bd4b3fd71e067ffee3f82b77061cc606102947e0754dc",
+  "validator_sha256": "50d106bee4650546546f42904eac53b647bf108999cbac384a6d551d59fdce0c",
+  "deployment_script_sha256": "ddc6aa381cb71f2f29dbb295988ddfa229fc6820e37dcb64762cb80d1baaf733",
+  "installer_smoke_passed_on_emulator": true,
+  "pixel_native_functional_checks_passed": true,
+  "pixel_sms_strict_logit_tolerance_passed": false,
+  "pixel_deployment_record": "validation/reports/rakshak_integration/pixel_deployment.json"
+}

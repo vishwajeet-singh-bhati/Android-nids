@@ -1,0 +1,89 @@
+{
+  "format_version": 2,
+  "mode": "full_url",
+  "model_version": "full_url-edb8f2cc8642",
+  "created_at": "2026-11-20T19:00:51+00:00",
+  "candidate": "full_url_hybrid+char_ngram_lr",
+  "members": {
+    "full_url_hybrid": {
+      "kind": "char_cnn",
+      "file": "cnn.pt",
+      "sha256": "74ad76f04ec70019cb277a338de0bfde0b89db49204c20c2d808b983936a0cf1"
+    },
+    "char_ngram_lr": {
+      "kind": "char_ngram_lr",
+      "file": "ngram.npz",
+      "sha256": "95c63dd21ddb8a6a36ff541f64b7fc46da49ed9f244fb448a9768e0943831ca2"
+    }
+  },
+  "calibrator": {
+    "format_version": 1,
+    "type": "stacked_three_outcome",
+    "members": [
+      "full_url_hybrid",
+      "char_ngram_lr"
+    ],
+    "weights": [
+      0.33173988143068883,
+      0.3910867426897558
+    ],
+    "bias": 0.03739390786155221,
+    "t_phishing": 0.6831367398836174,
+    "t_safe": 0.09537270819287022
+  },
+  "budgets": {
+    "max_false_alarm": 0.005,
+    "max_missed": 0.05
+  },
+  "unit": "website",
+  "validation_crossfit": {
+    "pr_auc": 0.9379510880826468,
+    "roc_auc": 0.9758677030341405,
+    "ece": 0.005596055539122338,
+    "outcomes": {
+      "false_alarm_rate": 0.005026114601468476,
+      "phishing_caught_rate": 0.8357811767396806,
+      "missed_rate": 0.053579236800263164,
+      "projected_by_phishing_base_rate": {
+        "0.01": {
+          "precision_of_PHISHING": 0.6268202799237518,
+          "phishing_among_LIKELY_SAFE": 0.0006656126411358973,
+          "uncertain_share": 0.18170510824713892
+        },
+        "0.05": {
+          "precision_of_PHISHING": 0.8974567812687125,
+          "phishing_among_LIKELY_SAFE": 0.003458499462921225,
+          "uncertain_share": 0.1788337740335194
+        }
+      }
+    }
+  },
+  "fitted_on": {
+    "split": "val",
+    "sha256": "72fd08bb56b2db5e53a45d6d08dfa2954a97919bb6775b27859f5c867536760f",
+    "rows": 12338
+  },
+  "redirectors": {
+    "file": "redirectors.txt",
+    "sha256": "519372bce780547a81d0a8142a7502c0ddd5a0077f79cb3b7d51d9a66f92b888",
+    "count": 1458
+  },
+  "popular": {
+    "file": "popular.txt",
+    "sha256": "5c459641d0af83a28de0a9cf5dfb55d04f99d5c908accc2a608e85f6625bee4d",
+    "count": 1000,
+    "top_n": 1000,
+    "list": "tranco_20261120T184535Z.csv.zip"
+  },
+  "built_from": {
+    "ensemble": "artifacts/runs/full_url_hybrid_ensemble/ensemble.json",
+    "full_url_hybrid": "artifacts/runs/full_url_hybrid/best.pt",
+    "char_ngram_lr": "artifacts/runs/full_url_ngram/model.npz"
+  },
+  "versions": {
+    "python": "3.11.16",
+    "torch": "2.15.0+cpu",
+    "sklearn": "1.9.1",
+    "numpy": "2.4.6"
+  }
+}

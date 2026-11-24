@@ -1,0 +1,645 @@
+{
+  "source_archive": "bharat_ai_2026_full_2026-11-23.zip",
+  "source_members_sha256": {
+    "comparison": "efb51b5020cd5531f198d6b5ca15cae6d6003cffae9141ca063188048cb78ae4",
+    "training": "eb0934bad5813e3a54ce5c45ea0f22268af9c8726fd52d417682de2229a81f59",
+    "training_summary": "fedfa16e9ed8543e9f0ddb0b79e475dc76dff5a79d59c5fd2638fe1db222eb05",
+    "split": "8bf3233cacd05e83e2921806df6fe2fca7ab65566f38a1ac10eb910e4b4a64b0",
+    "export_provenance": "bf396d7b15da08025b1835eae0400fe8e7b2d809b96bfd33b19ebdfcef536087"
+  },
+  "training": {
+    "created_utc": "2026-11-07T07:14:40.521305+00:00",
+    "experiment": "mobilebert_22_layer_stability_variant",
+    "run_name": "mobilebert22_lr5e5_bs16_e4",
+    "model_name": "google/mobilebert-uncased",
+    "model_num_hidden_layers": 22,
+    "stability_note": "The published 24-layer checkpoint produces extreme final-layer activations in the Hugging Face implementation. The first 22 layers are stable; the final two encoder layers are omitted. This is not a standard 24-layer MobileBERT result.",
+    "classifier_dropout": 0.1,
+    "max_length": 128,
+    "batch_size": 16,
+    "eval_batch_size": 32,
+    "epochs": 4,
+    "learning_rate": 5e-05,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "warmup_steps": 101,
+    "total_steps": 1016,
+    "patience": 2,
+    "seed": 42,
+    "labels": [
+      "ham",
+      "spam",
+      "smishing"
+    ],
+    "class_weights": [
+      0.4084819257259369,
+      2.507730484008789,
+      6.529790878295898
+    ],
+    "train_rows": 4055,
+    "val_rows": 869,
+    "train_label_counts": {
+      "ham": 3309,
+      "spam": 539,
+      "smishing": 207
+    },
+    "val_label_counts": {
+      "ham": 709,
+      "spam": 113,
+      "smishing": 47
+    },
+    "input_preprocessing": "sms_detection.preprocessing.normalize.normalize_text(...).model_text",
+    "test_split_loaded": false,
+    "model_summary": {
+      "total_parameters": 22898947,
+      "trainable_parameters": 22898947,
+      "dtype": "torch.float32"
+    },
+    "torch": "2.15.0+cpu",
+    "cuda_available": false,
+    "threads": 8,
+    "hash_train_csv": "d1b95dd573c62abd055a436896d4e60ce57d373d8b58a6c6979411b701158b36",
+    "hash_val_csv": "24c532ef325de490f75954e809b36e82c7920bfce2aa1f13fb9d9b977a758d8b",
+    "hash_test_csv_not_evaluated": "603a2ae34179388c7e66bac757859f1719830434c00f3f8658b7a3c2242e7fcf"
+  },
+  "training_summary": {
+    "best_epoch": 3,
+    "best_val_macro_f1": 0.8771772336859867,
+    "epochs_completed": 4,
+    "early_stopped": false,
+    "test_split_loaded": false
+  },
+  "split": {
+    "created_utc": "2026-11-02T12:12:10.464731+00:00",
+    "seed": 42,
+    "policy": {
+      "main_sources": [
+        "lsdst_2022",
+        "uci_sms_spam"
+      ],
+      "external_source": "ncsu_sms_phishing",
+      "seed_source": "hinglish_scam",
+      "external_holdout_fraction": 0.1,
+      "train_val_test": {
+        "train": 0.7,
+        "val": 0.15,
+        "test": 0.15
+      },
+      "group_key": "split_group (exact text + masked template + MinHash near-duplicate + NCSU campaign)",
+      "no_group_overlap": true
+    },
+    "duplicates": {
+      "exact_duplicate_rows": 16763,
+      "exact_duplicate_groups": 12530,
+      "template_groups": 19244,
+      "near_duplicate_clusters": 8621,
+      "near_duplicate_pairs": 21369,
+      "largest_cluster": 3098,
+      "dropped_exact_rows": 16763,
+      "dropped_external_leakage_rows": 19
+    },
+    "splits": {
+      "train": {
+        "rows": 4055,
+        "labels": {
+          "ham": 3309,
+          "spam": 539,
+          "smishing": 207
+        },
+        "sources": {
+          "uci_sms_spam": 3259,
+          "lsdst_2022": 796
+        },
+        "groups": 3755
+      },
+      "val": {
+        "rows": 869,
+        "labels": {
+          "ham": 709,
+          "spam": 113,
+          "smishing": 47
+        },
+        "sources": {
+          "uci_sms_spam": 685,
+          "lsdst_2022": 184
+        },
+        "groups": 802
+      },
+      "test": {
+        "rows": 869,
+        "labels": {
+          "ham": 709,
+          "spam": 111,
+          "smishing": 49
+        },
+        "sources": {
+          "uci_sms_spam": 687,
+          "lsdst_2022": 182
+        },
+        "groups": 803
+      },
+      "external": {
+        "rows": 27885,
+        "labels": {
+          "smishing": 27233,
+          "ham": 570,
+          "spam": 82
+        },
+        "sources": {
+          "ncsu_sms_phishing": 27157,
+          "uci_sms_spam": 513,
+          "lsdst_2022": 123,
+          "hinglish_scam": 92
+        },
+        "groups": 27847
+      }
+    }
+  },
+  "comparison": {
+    "test": {
+      "split": "locked test",
+      "rows": 869,
+      "label_counts": {
+        "ham": 709,
+        "spam": 111,
+        "smishing": 49
+      },
+      "sha256": "603a2ae34179388c7e66bac757859f1719830434c00f3f8658b7a3c2242e7fcf",
+      "loaded_for_training": false,
+      "loaded_for_model_selection": false,
+      "prior_use": "FP32 final evaluation was already performed once; this is a repeated final comparison."
+    },
+    "models": {
+      "fp32": {
+        "rows": 869,
+        "accuracy": 0.9723820483314154,
+        "macro_f1": 0.9142241429713295,
+        "weighted_f1": 0.9723811237565734,
+        "per_class": {
+          "ham": {
+            "precision": 0.988795518207283,
+            "recall": 0.995768688293371,
+            "f1": 0.9922698524244554,
+            "support": 709
+          },
+          "spam": {
+            "precision": 0.96875,
+            "recall": 0.8378378378378378,
+            "f1": 0.8985507246376812,
+            "support": 111
+          },
+          "smishing": {
+            "precision": 0.7796610169491526,
+            "recall": 0.9387755102040817,
+            "f1": 0.8518518518518519,
+            "support": 49
+          }
+        },
+        "confusion_matrix": [
+          [
+            706,
+            0,
+            3
+          ],
+          [
+            8,
+            93,
+            10
+          ],
+          [
+            0,
+            3,
+            46
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "ham",
+          "spam",
+          "smishing"
+        ],
+        "smishing_recall": 0.9387755102040817,
+        "smishing_precision": 0.7796610169491526,
+        "ham_false_positive_rate": 0.004231311706629055,
+        "ham_support": 709,
+        "predicted_counts": {
+          "ham": 714,
+          "spam": 96,
+          "smishing": 59
+        }
+      },
+      "ptq": {
+        "rows": 869,
+        "accuracy": 0.9712313003452244,
+        "macro_f1": 0.905372381070972,
+        "weighted_f1": 0.9712479028104849,
+        "per_class": {
+          "ham": {
+            "precision": 0.9901823281907434,
+            "recall": 0.995768688293371,
+            "f1": 0.9929676511954993,
+            "support": 709
+          },
+          "spam": {
+            "precision": 0.9405940594059405,
+            "recall": 0.8558558558558559,
+            "f1": 0.8962264150943396,
+            "support": 111
+          },
+          "smishing": {
+            "precision": 0.7818181818181819,
+            "recall": 0.8775510204081632,
+            "f1": 0.8269230769230769,
+            "support": 49
+          }
+        },
+        "confusion_matrix": [
+          [
+            706,
+            0,
+            3
+          ],
+          [
+            7,
+            95,
+            9
+          ],
+          [
+            0,
+            6,
+            43
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "ham",
+          "spam",
+          "smishing"
+        ],
+        "smishing_recall": 0.8775510204081632,
+        "smishing_precision": 0.7818181818181819,
+        "ham_false_positive_rate": 0.004231311706629055,
+        "ham_support": 709,
+        "predicted_counts": {
+          "ham": 713,
+          "spam": 101,
+          "smishing": 55
+        }
+      },
+      "qat": {
+        "rows": 869,
+        "accuracy": 0.9666283084004603,
+        "macro_f1": 0.8899315778895652,
+        "weighted_f1": 0.9659819613085584,
+        "per_class": {
+          "ham": {
+            "precision": 0.9874125874125874,
+            "recall": 0.995768688293371,
+            "f1": 0.9915730337078652,
+            "support": 709
+          },
+          "spam": {
+            "precision": 0.8738738738738738,
+            "recall": 0.8738738738738738,
+            "f1": 0.8738738738738738,
+            "support": 111
+          },
+          "smishing": {
+            "precision": 0.8604651162790697,
+            "recall": 0.7551020408163265,
+            "f1": 0.8043478260869565,
+            "support": 49
+          }
+        },
+        "confusion_matrix": [
+          [
+            706,
+            2,
+            1
+          ],
+          [
+            9,
+            97,
+            5
+          ],
+          [
+            0,
+            12,
+            37
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "ham",
+          "spam",
+          "smishing"
+        ],
+        "smishing_recall": 0.7551020408163265,
+        "smishing_precision": 0.8604651162790697,
+        "ham_false_positive_rate": 0.004231311706629055,
+        "ham_support": 709,
+        "predicted_counts": {
+          "ham": 715,
+          "spam": 111,
+          "smishing": 43
+        }
+      },
+      "qat_pte_b16": {
+        "rows": 869,
+        "accuracy": 0.9677790563866513,
+        "macro_f1": 0.8914855273799951,
+        "weighted_f1": 0.9670644131752242,
+        "per_class": {
+          "ham": {
+            "precision": 0.9874301675977654,
+            "recall": 0.997179125528914,
+            "f1": 0.992280701754386,
+            "support": 709
+          },
+          "spam": {
+            "precision": 0.8818181818181818,
+            "recall": 0.8738738738738738,
+            "f1": 0.8778280542986425,
+            "support": 111
+          },
+          "smishing": {
+            "precision": 0.8604651162790697,
+            "recall": 0.7551020408163265,
+            "f1": 0.8043478260869565,
+            "support": 49
+          }
+        },
+        "confusion_matrix": [
+          [
+            707,
+            1,
+            1
+          ],
+          [
+            9,
+            97,
+            5
+          ],
+          [
+            0,
+            12,
+            37
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "ham",
+          "spam",
+          "smishing"
+        ],
+        "smishing_recall": 0.7551020408163265,
+        "smishing_precision": 0.8604651162790697,
+        "ham_false_positive_rate": 0.0028208744710860366,
+        "ham_support": 709,
+        "predicted_counts": {
+          "ham": 716,
+          "spam": 110,
+          "smishing": 43
+        }
+      },
+      "qat_pte_b1": {
+        "rows": 869,
+        "accuracy": 0.9677790563866513,
+        "macro_f1": 0.8914855273799951,
+        "weighted_f1": 0.9670644131752242,
+        "per_class": {
+          "ham": {
+            "precision": 0.9874301675977654,
+            "recall": 0.997179125528914,
+            "f1": 0.992280701754386,
+            "support": 709
+          },
+          "spam": {
+            "precision": 0.8818181818181818,
+            "recall": 0.8738738738738738,
+            "f1": 0.8778280542986425,
+            "support": 111
+          },
+          "smishing": {
+            "precision": 0.8604651162790697,
+            "recall": 0.7551020408163265,
+            "f1": 0.8043478260869565,
+            "support": 49
+          }
+        },
+        "confusion_matrix": [
+          [
+            707,
+            1,
+            1
+          ],
+          [
+            9,
+            97,
+            5
+          ],
+          [
+            0,
+            12,
+            37
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "ham",
+          "spam",
+          "smishing"
+        ],
+        "smishing_recall": 0.7551020408163265,
+        "smishing_precision": 0.8604651162790697,
+        "ham_false_positive_rate": 0.0028208744710860366,
+        "ham_support": 709,
+        "predicted_counts": {
+          "ham": 716,
+          "spam": 110,
+          "smishing": 43
+        }
+      },
+      "ptq_pte_b16": {
+        "rows": 869,
+        "accuracy": 0.9712313003452244,
+        "macro_f1": 0.9085343952525963,
+        "weighted_f1": 0.9711823021945158,
+        "per_class": {
+          "ham": {
+            "precision": 0.988795518207283,
+            "recall": 0.995768688293371,
+            "f1": 0.9922698524244554,
+            "support": 709
+          },
+          "spam": {
+            "precision": 0.9494949494949495,
+            "recall": 0.8468468468468469,
+            "f1": 0.8952380952380953,
+            "support": 111
+          },
+          "smishing": {
+            "precision": 0.7857142857142857,
+            "recall": 0.8979591836734694,
+            "f1": 0.8380952380952381,
+            "support": 49
+          }
+        },
+        "confusion_matrix": [
+          [
+            706,
+            0,
+            3
+          ],
+          [
+            8,
+            94,
+            9
+          ],
+          [
+            0,
+            5,
+            44
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "ham",
+          "spam",
+          "smishing"
+        ],
+        "smishing_recall": 0.8979591836734694,
+        "smishing_precision": 0.7857142857142857,
+        "ham_false_positive_rate": 0.004231311706629055,
+        "ham_support": 709,
+        "predicted_counts": {
+          "ham": 714,
+          "spam": 99,
+          "smishing": 56
+        }
+      },
+      "ptq_pte_b1": {
+        "rows": 869,
+        "accuracy": 0.9712313003452244,
+        "macro_f1": 0.9085343952525963,
+        "weighted_f1": 0.9711823021945158,
+        "per_class": {
+          "ham": {
+            "precision": 0.988795518207283,
+            "recall": 0.995768688293371,
+            "f1": 0.9922698524244554,
+            "support": 709
+          },
+          "spam": {
+            "precision": 0.9494949494949495,
+            "recall": 0.8468468468468469,
+            "f1": 0.8952380952380953,
+            "support": 111
+          },
+          "smishing": {
+            "precision": 0.7857142857142857,
+            "recall": 0.8979591836734694,
+            "f1": 0.8380952380952381,
+            "support": 49
+          }
+        },
+        "confusion_matrix": [
+          [
+            706,
+            0,
+            3
+          ],
+          [
+            8,
+            94,
+            9
+          ],
+          [
+            0,
+            5,
+            44
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "ham",
+          "spam",
+          "smishing"
+        ],
+        "smishing_recall": 0.8979591836734694,
+        "smishing_precision": 0.7857142857142857,
+        "ham_false_positive_rate": 0.004231311706629055,
+        "ham_support": 709,
+        "predicted_counts": {
+          "ham": 714,
+          "spam": 99,
+          "smishing": 56
+        }
+      }
+    }
+  },
+  "export_artifacts": {
+    "qat_int8_b16.pte": {
+      "bytes": 37260556,
+      "sha256": "cc575fb37fe302a56e23fd830374e6114d7a696793e8707e9ca0c54b95e6145e"
+    },
+    "qat_int8_b1.pte": {
+      "bytes": 37250700,
+      "sha256": "5dca9e26c8fc863462267195fea833dd7c56fde0041c2b94d232921b42e9a680"
+    },
+    "ptq_int8_b16.pte": {
+      "bytes": 37260556,
+      "sha256": "ed821d99089b8ea389279e3af9d3d0a1f18fa01420cacde3360aab7a4569ab1c"
+    },
+    "ptq_int8_b1.pte": {
+      "bytes": 37250700,
+      "sha256": "e71c4652cb464651a1153400ac0750a9b00a0282db04a2f470f3298b3de67191"
+    }
+  },
+  "scope": "Archived upstream results, not newly rerun. Deployed PTQ PTE hash matches the archived provenance. Raw datasets and private messages excluded.",
+  "checkpoint_tensor_elements": 22898947,
+  "best_checkpoint_sha256": "f9ed95a3d5ef333051a9005ce9b4f9b27c617d83fc73de57319a3087bec6fbf9",
+  "archive_data_verification": {
+    "train": {
+      "rows": 4055,
+      "sha256": "d1b95dd573c62abd055a436896d4e60ce57d373d8b58a6c6979411b701158b36",
+      "label_counts": {
+        "ham": 3309,
+        "smishing": 207,
+        "spam": 539
+      },
+      "group_column_present": true
+    },
+    "val": {
+      "rows": 869,
+      "sha256": "24c532ef325de490f75954e809b36e82c7920bfce2aa1f13fb9d9b977a758d8b",
+      "label_counts": {
+        "ham": 709,
+        "smishing": 47,
+        "spam": 113
+      },
+      "group_column_present": true
+    },
+    "test": {
+      "rows": 869,
+      "sha256": "603a2ae34179388c7e66bac757859f1719830434c00f3f8658b7a3c2242e7fcf",
+      "label_counts": {
+        "ham": 709,
+        "smishing": 49,
+        "spam": 111
+      },
+      "group_column_present": true
+    },
+    "external": {
+      "rows": 27885,
+      "sha256": "9a745dcb87a6a5fe41a232cbba0ee9a1472b3429758ee16bb7a6316c7a933ab0",
+      "label_counts": {
+        "ham": 570,
+        "smishing": 27233,
+        "spam": 82
+      },
+      "group_column_present": true
+    },
+    "group_overlaps": {
+      "train_val": 0,
+      "test_train": 0,
+      "test_val": 0,
+      "external_train": 0,
+      "external_val": 0,
+      "external_test": 0
+    }
+  }
+}

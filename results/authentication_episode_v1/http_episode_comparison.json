@@ -1,0 +1,196 @@
+{
+  "selected_on_validation": "peer_30s",
+  "session_counts": {
+    "train": 14,
+    "validation": 3,
+    "test": 3
+  },
+  "results": {
+    "code40_rescored": {
+      "train": {
+        "normal_episodes": 4,
+        "false_normal_episodes": 1,
+        "positive_episodes": 10,
+        "premature_alerts": 0,
+        "alerts_before_first_attack_start": 0,
+        "detected_episodes": 10,
+        "episodes_with_flag_at_or_after_attack_prefix": 10,
+        "first_alert_delay_s": [
+          2.04,
+          1.561,
+          2.267,
+          2.331,
+          2.053,
+          2.003,
+          1.986,
+          1.895,
+          2.469,
+          1.817
+        ]
+      },
+      "validation": {
+        "normal_episodes": 1,
+        "false_normal_episodes": 1,
+        "positive_episodes": 2,
+        "premature_alerts": 0,
+        "alerts_before_first_attack_start": 0,
+        "detected_episodes": 2,
+        "episodes_with_flag_at_or_after_attack_prefix": 2,
+        "first_alert_delay_s": [
+          2.786,
+          2.097
+        ]
+      },
+      "test": {
+        "normal_episodes": 1,
+        "false_normal_episodes": 0,
+        "positive_episodes": 2,
+        "premature_alerts": 1,
+        "alerts_before_first_attack_start": 0,
+        "detected_episodes": 1,
+        "episodes_with_flag_at_or_after_attack_prefix": 2,
+        "first_alert_delay_s": [
+          2.434
+        ]
+      }
+    },
+    "peer_four_in_30s": {
+      "train": {
+        "normal_episodes": 4,
+        "false_normal_episodes": 4,
+        "positive_episodes": 10,
+        "premature_alerts": 0,
+        "alerts_before_first_attack_start": 0,
+        "detected_episodes": 10,
+        "episodes_with_flag_at_or_after_attack_prefix": 10,
+        "first_alert_delay_s": [
+          4.562,
+          3.599,
+          4.424,
+          5.527,
+          3.087,
+          2.934,
+          3.937,
+          5.33,
+          3.094,
+          4.906
+        ]
+      },
+      "validation": {
+        "normal_episodes": 1,
+        "false_normal_episodes": 1,
+        "positive_episodes": 2,
+        "premature_alerts": 0,
+        "alerts_before_first_attack_start": 0,
+        "detected_episodes": 2,
+        "episodes_with_flag_at_or_after_attack_prefix": 2,
+        "first_alert_delay_s": [
+          7.301,
+          7.747
+        ]
+      },
+      "test": {
+        "normal_episodes": 1,
+        "false_normal_episodes": 1,
+        "positive_episodes": 2,
+        "premature_alerts": 0,
+        "alerts_before_first_attack_start": 0,
+        "detected_episodes": 2,
+        "episodes_with_flag_at_or_after_attack_prefix": 2,
+        "first_alert_delay_s": [
+          6.464,
+          4.266
+        ]
+      }
+    },
+    "peer_30s": {
+      "threshold": 0.9833389473281887,
+      "validation": {
+        "normal_episodes": 1,
+        "false_normal_episodes": 0,
+        "positive_episodes": 2,
+        "premature_alerts": 0,
+        "alerts_before_first_attack_start": 0,
+        "detected_episodes": 2,
+        "episodes_with_flag_at_or_after_attack_prefix": 2,
+        "first_alert_delay_s": [
+          2.786,
+          2.097
+        ]
+      },
+      "test": {
+        "normal_episodes": 1,
+        "false_normal_episodes": 1,
+        "positive_episodes": 2,
+        "premature_alerts": 0,
+        "alerts_before_first_attack_start": 0,
+        "detected_episodes": 2,
+        "episodes_with_flag_at_or_after_attack_prefix": 2,
+        "first_alert_delay_s": [
+          37.07,
+          2.434
+        ]
+      }
+    },
+    "peer_multi_window": {
+      "threshold": 0.9979377076172117,
+      "validation": {
+        "normal_episodes": 1,
+        "false_normal_episodes": 0,
+        "positive_episodes": 2,
+        "premature_alerts": 0,
+        "alerts_before_first_attack_start": 0,
+        "detected_episodes": 2,
+        "episodes_with_flag_at_or_after_attack_prefix": 2,
+        "first_alert_delay_s": [
+          2.786,
+          2.097
+        ]
+      },
+      "test": {
+        "normal_episodes": 1,
+        "false_normal_episodes": 0,
+        "positive_episodes": 2,
+        "premature_alerts": 0,
+        "alerts_before_first_attack_start": 0,
+        "detected_episodes": 2,
+        "episodes_with_flag_at_or_after_attack_prefix": 2,
+        "first_alert_delay_s": [
+          31.407,
+          2.434
+        ]
+      }
+    },
+    "peer_and_service_multi_window": {
+      "threshold": 0.9994729358428919,
+      "validation": {
+        "normal_episodes": 1,
+        "false_normal_episodes": 0,
+        "positive_episodes": 2,
+        "premature_alerts": 0,
+        "alerts_before_first_attack_start": 0,
+        "detected_episodes": 2,
+        "episodes_with_flag_at_or_after_attack_prefix": 2,
+        "first_alert_delay_s": [
+          2.786,
+          2.097
+        ]
+      },
+      "test": {
+        "normal_episodes": 1,
+        "false_normal_episodes": 0,
+        "positive_episodes": 2,
+        "premature_alerts": 0,
+        "alerts_before_first_attack_start": 0,
+        "detected_episodes": 2,
+        "episodes_with_flag_at_or_after_attack_prefix": 2,
+        "first_alert_delay_s": [
+          33.274,
+          2.434
+        ]
+      }
+    }
+  },
+  "scope": "Existing single-phone HTTP sessions, previously inspected in earlier work. No live alert changes.",
+  "selection": "No validation normal or premature alert required, then most detected episodes and earliest mean warning."
+}

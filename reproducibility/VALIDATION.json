@@ -1,167 +1,20 @@
 {
-  "validated_at_utc": "2026-11-21T18:23:13.256164+00:00",
-  "scope": "Current code40 curated source and updated report; technical checks, no new model fitting/phone traffic/accuracy study.",
-  "app_version": "0.14.2-network-scope",
-  "version_code": 40,
+  "app_version": "0.17.3-link-extraction",
+  "version_code": 46,
+  "scope": "Curated code46 draft with empty public threat database; no new model promotion or final submission.",
   "checks": {
-    "python_contracts": {
-      "passed": true,
-      "tests": 6,
-      "includes": "Current CPU reference versus native export fixtures; zero-action protocol preview"
-    },
-    "fresh_paper_cpu_smoke": {
-      "passed": true,
-      "fixture_only": true,
-      "directory": "runs/publication_update_paper_smoke"
-    },
-    "fresh_context_cpu_smoke": {
-      "passed": true,
-      "fixture_only": true,
-      "directory": "runs/publication_update_context_smoke"
-    },
-    "android_assembly": {
-      "passed": true,
-      "modules": [
-        "app",
-        "app AndroidTest",
-        "trafficlab",
-        "datasetlab",
-        "datasettools",
-        "contractcheck",
-        "protocolcore installDist",
-        "protocollab"
-      ],
-      "offline_cached_dependencies": true
-    },
-    "offline_pr_evidence_audit": {
-      "passed": true
-    },
-    "offline_controller_failure_smoke": {
-      "passed": true,
-      "fresh_directory_bug_fixed": true
-    },
-    "report": {
-      "passed": true,
-      "pages": 73,
-      "overfull_boxes": 0,
-      "undefined_references": false,
-      "public_source_compiler_exit": 0
-    },
-    "clean_checkout_model_contracts": {
-      "passed": true,
-      "tests": 6,
-      "fresh_index_checkout": true
-    },
-    "source_and_file_audit": {
-      "passed": true,
-      "tracked_files_checked": 370,
-      "forbidden_files": 0,
-      "broken_links": 0,
-      "private_identity_or_secret_matches": 0
-    }
+    "android_app_and_test_build": true,
+    "python_contract_tests": 10,
+    "metric_contract_tests": 4,
+    "fresh_paper_smoke": true,
+    "fresh_context_smoke": true,
+    "sms_python_reference_inference": true,
+    "local_feed_populate_and_empty_smoke": true,
+    "report_builder_matches_compiled_source": true,
+    "report_pages": 89,
+    "private_dataset_or_messages_published": false
   },
-  "limitations": [
-    "Readiness remains false; normal SSH false positives and missed classes are preserved.",
-    "No phone deployment, attack traffic, retraining or threshold fitting during this publication task.",
-    "Private raw phone cohorts are excluded; exact retraining requires those recordings.",
-    "Large optional Llama weights require the separate pinned download.",
-    "Current hosted CI is recorded after publishing; old hosted success is historical only."
-  ],
-  "previous_snapshot_validation": {
-    "validated_at_utc": "2026-11-20T21:35:12.773844+00:00",
-    "scope": "Isolated curated current-source checkout. Technical software validation, not new detection accuracy.",
-    "checks": {
-      "python_contracts": {
-        "passed": true,
-        "tests": 4
-      },
-      "paper_cpu_smoke": {
-        "passed": true,
-        "fixture_only": true,
-        "fresh_run": true
-      },
-      "context_cpu_smoke": {
-        "passed": true,
-        "fixture_only": true,
-        "fresh_run": true
-      },
-      "aligned_training_evaluation_torchscript_executorch_smoke": {
-        "passed": true,
-        "fixture_only": true
-      },
-      "kotlin_aligned_contract": {
-        "passed": true
-      },
-      "kotlin_gate_policy": {
-        "passed": true
-      },
-      "kotlin_capture_delivery_clock": {
-        "passed": true
-      },
-      "android_assembly": {
-        "passed": true,
-        "modules": [
-          "app",
-          "app AndroidTest",
-          "trafficlab",
-          "datasetlab",
-          "datasettools",
-          "contractcheck"
-        ],
-        "offline_cached_dependencies": true
-      },
-      "windows_cli_doctor_and_no_traffic_previews": {
-        "passed": true
-      },
-      "direct_training_child_help": {
-        "passed": true
-      },
-      "source_and_file_audit": {
-        "passed": true,
-        "datasets_and_raw_phone_captures_included": false,
-        "zip_created": false
-      },
-      "clean_git_checkout": {
-        "passed": true,
-        "model_label_contract_tests": 4
-      }
-    },
-    "limitations": [
-      "No new phone deployment or live traffic was run for this repository preparation.",
-      "Optional large Llama weights are not bundled; pinned upstream metadata and hashes were checked.",
-      "Updated-data campaign is still training separately; its candidate performance is not claimed here."
-    ],
-    "hosted_ci": {
-      "initial_run": 44820408638,
-      "initial_results": {
-        "dependency_install": "passed",
-        "model_label_contracts": "passed",
-        "paper_smoke": "passed",
-        "context_smoke": "failed: missing numba dependency",
-        "android_setup": "failed in SDK replacement action"
-      },
-      "corrections": [
-        "Pin measured numba 0.68.1 and llvmlite 0.50.0",
-        "Pin Ubuntu 24.04 and check its preinstalled API 34/build-tools 34 instead of replacing SDK tools"
-      ],
-      "follow_up_status": "success",
-      "validated_source_commit": "b165b9f5dde09dfcb58d2c6acbd0646257242218",
-      "follow_up_run": 44821013266,
-      "python_contracts_and_paper_context_smokes": "success",
-      "android_build": "success",
-      "url": "https://github.com/vishwajeet-singh-bhati/Android-nids/actions/runs/44821013266",
-      "environment": "Ubuntu 24.04; fresh Python dependency installation and Android Gradle build; preinstalled API 34 SDK"
-    }
-  },
-  "hosted_ci": {
-    "status": "success",
-    "run_id": 44934776454,
-    "url": "https://github.com/vishwajeet-singh-bhati/Android-nids/actions/runs/44934776454",
-    "validated_source_commit": "2cbfcacdd6bfe70259939f2d945312dce676bc55",
-    "python_contracts_and_paper_context_smokes": "success",
-    "android_all_current_modules": "success",
-    "environment": "Fresh GitHub Ubuntu24.04 runner; pinned Python3.12/Java21 and API34 SDK",
-    "following_changes": "Documentation/manifest validation record only; no executable/model changes."
-  },
-  "zip_created": false
+  "native_current_work_phone_evidence": "See results/rakshak_integration and results/sms_followup_20261124; public empty-feed APK was not installed over the work phone.",
+  "known_strict_sms_numerical_failure_retained": true,
+  "final_submission_approved": false
 }

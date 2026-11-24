@@ -1,0 +1,260 @@
+{
+  "input_sha256": "4285970866bd6812c27b2d68b18a09049425a63541d71e95d21e5f8ddf045f59",
+  "rows": 2048,
+  "unique_hosts": 1033,
+  "reference_overlap": 2048,
+  "same_as_first_2048_reference_inputs": true,
+  "reference_sha256": "9d451e45ffcde0f6b37f8f099c2f9648353661c701a37934e1b9d08274ed5b9b",
+  "deployed": {
+    "rows": 2048,
+    "decisions": {
+      "LIKELY_SAFE": 1581,
+      "PHISHING": 325,
+      "UNCERTAIN": 142
+    },
+    "sources": {
+      "model": 1777,
+      "threat_intel": 271
+    },
+    "errors": 0,
+    "timing_ms": {
+      "first": 703.793376,
+      "mean": 4.215218967285156,
+      "median": 3.9399825,
+      "p95": 5.307373,
+      "total": 8632.768445
+    },
+    "ground_truth_rows": 218,
+    "metrics": {
+      "phishing_detection": {
+        "n": 218,
+        "tp": 218,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "accuracy": null,
+        "precision": null,
+        "recall": 1.0,
+        "specificity": null,
+        "f1": null,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0,
+        "negative_predictive_value": null,
+        "balanced_accuracy": null,
+        "mcc": null,
+        "limitation": "Single-class labeled subset: no overall accuracy, precision or F1 estimate. Recall refers only to the known-positive subset."
+      },
+      "decisive_only": {
+        "n": 218,
+        "tp": 218,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "accuracy": null,
+        "precision": null,
+        "recall": 1.0,
+        "specificity": null,
+        "f1": null,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0,
+        "negative_predictive_value": null,
+        "balanced_accuracy": null,
+        "mcc": null,
+        "limitation": "Single-class labeled subset: no overall accuracy, precision or F1 estimate. Recall refers only to the known-positive subset."
+      },
+      "scored_coverage": 1.0,
+      "decisive_coverage": 1.0,
+      "interpretation": "Primary: UNCERTAIN counts as not detected. Selective: exclude UNCERTAIN and disclose coverage. Errors excluded and reported separately. Labels must have independent provenance."
+    },
+    "input_sha256": "4285970866bd6812c27b2d68b18a09049425a63541d71e95d21e5f8ddf045f59",
+    "created_unix": 1795472336.3229406,
+    "unique_input_urls": 2048,
+    "limitation": "No accuracy/precision/recall without independent ground-truth labels. Counts are not accuracy."
+  },
+  "forced_model": {
+    "rows": 2048,
+    "decisions": {
+      "LIKELY_SAFE": 1581,
+      "PHISHING": 325,
+      "UNCERTAIN": 142
+    },
+    "sources": {
+      "model": 1777,
+      "threat_intel": 271
+    },
+    "errors": 0,
+    "timing_ms": {
+      "first": 665.828125,
+      "mean": 4.826975967285156,
+      "median": 4.087016,
+      "p95": 5.76241,
+      "total": 9885.646781
+    },
+    "ground_truth_rows": 218,
+    "metrics": {
+      "phishing_detection": {
+        "n": 218,
+        "tp": 218,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "accuracy": null,
+        "precision": null,
+        "recall": 1.0,
+        "specificity": null,
+        "f1": null,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0,
+        "negative_predictive_value": null,
+        "balanced_accuracy": null,
+        "mcc": null,
+        "limitation": "Single-class labeled subset: no overall accuracy, precision or F1 estimate. Recall refers only to the known-positive subset."
+      },
+      "decisive_only": {
+        "n": 218,
+        "tp": 218,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "accuracy": null,
+        "precision": null,
+        "recall": 1.0,
+        "specificity": null,
+        "f1": null,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0,
+        "negative_predictive_value": null,
+        "balanced_accuracy": null,
+        "mcc": null,
+        "limitation": "Single-class labeled subset: no overall accuracy, precision or F1 estimate. Recall refers only to the known-positive subset."
+      },
+      "scored_coverage": 1.0,
+      "decisive_coverage": 1.0,
+      "interpretation": "Primary: UNCERTAIN counts as not detected. Selective: exclude UNCERTAIN and disclose coverage. Errors excluded and reported separately. Labels must have independent provenance."
+    },
+    "raw_model_analysis": {
+      "rows": 2048,
+      "decisions": {
+        "LIKELY_SAFE": 1601,
+        "UNCERTAIN": 177,
+        "PHISHING": 270
+      },
+      "sources": {
+        "model": 1777,
+        "threat_intel": 271
+      },
+      "errors": 0,
+      "timing_ms": {
+        "first": 665.828125,
+        "mean": 4.826975967285156,
+        "median": 4.087016,
+        "p95": 5.76241,
+        "total": 9885.646781
+      },
+      "ground_truth_rows": 218,
+      "metrics": {
+        "phishing_detection": {
+          "n": 218,
+          "tp": 172,
+          "fp": 0,
+          "tn": 0,
+          "fn": 46,
+          "accuracy": null,
+          "precision": null,
+          "recall": 0.7889908256880734,
+          "specificity": null,
+          "f1": null,
+          "false_positive_rate": null,
+          "false_negative_rate": 0.21100917431192662,
+          "negative_predictive_value": null,
+          "balanced_accuracy": null,
+          "mcc": null,
+          "limitation": "Single-class labeled subset: no overall accuracy, precision or F1 estimate. Recall refers only to the known-positive subset."
+        },
+        "decisive_only": {
+          "n": 188,
+          "tp": 172,
+          "fp": 0,
+          "tn": 0,
+          "fn": 16,
+          "accuracy": null,
+          "precision": null,
+          "recall": 0.9148936170212766,
+          "specificity": null,
+          "f1": null,
+          "false_positive_rate": null,
+          "false_negative_rate": 0.0851063829787234,
+          "negative_predictive_value": null,
+          "balanced_accuracy": null,
+          "mcc": null,
+          "limitation": "Single-class labeled subset: no overall accuracy, precision or F1 estimate. Recall refers only to the known-positive subset."
+        },
+        "scored_coverage": 1.0,
+        "decisive_coverage": 0.8623853211009175,
+        "interpretation": "Primary: UNCERTAIN counts as not detected. Selective: exclude UNCERTAIN and disclose coverage. Errors excluded and reported separately. Labels must have independent provenance."
+      }
+    },
+    "input_sha256": "4285970866bd6812c27b2d68b18a09049425a63541d71e95d21e5f8ddf045f59",
+    "created_unix": 1795472336.514413,
+    "unique_input_urls": 2048,
+    "limitation": "No accuracy/precision/recall without independent ground-truth labels. Counts are not accuracy."
+  },
+  "native": {
+    "passed": true,
+    "rows": 2048,
+    "errors": 0,
+    "evaluation_time_utc": "2026-11-23T22:13:18.254162Z",
+    "elapsed_ms": 9417,
+    "model_version": "full_url-edb8f2cc8642",
+    "network_monitor_enabled_before": false,
+    "scope": "Sequential on-device URL inference; no website requests, notifications or ground-truth assumptions.",
+    "device": "Pixel 6a",
+    "abi": "arm64-v8a"
+  },
+  "label_summary": {
+    "input_sha256": "4285970866bd6812c27b2d68b18a09049425a63541d71e95d21e5f8ddf045f59",
+    "rows": 2048,
+    "feed_records": {
+      "openphish": 300,
+      "phishtank": 42758
+    },
+    "exact_feed_confirmed_phishing": 218,
+    "independently_confirmed_benign": 0,
+    "unknown": 1830,
+    "label_coverage": 0.1064453125,
+    "limitation": "No match is UNKNOWN, never benign. Feed matches may overlap the detector threat database; do not call its list-hit rate independent model accuracy."
+  },
+  "feed_provenance": {
+    "openphish": {
+      "url": "https://openphish.com/feed.txt",
+      "status": "downloaded",
+      "bytes": 14762,
+      "sha256": "5711deadfde6e54165863bc1b4caec14de764014ee7a47a649dd4912c53f3bfd",
+      "retrieved_unix": 1795472073.1242692
+    },
+    "phishtank": {
+      "url": "https://data.phishtank.com/data/online-valid.json.bz2",
+      "status": "downloaded",
+      "bytes": 1709885,
+      "sha256": "aaeb3cde2417fc48ea23f5f952c5368eb0d987c5ce4cd7085143df6129b0c622",
+      "retrieved_unix": 1795472076.1489592
+    }
+  },
+  "known_positive_hosts": 184,
+  "known_positive_pipeline_sources": {
+    "threat_intel": 218
+  },
+  "known_positive_raw_outcomes": {
+    "PHISHING": 172,
+    "UNCERTAIN": 30,
+    "LIKELY_SAFE": 16
+  },
+  "production_diagnostic_decision_differences": 0,
+  "scope": "All input rows scored sequentially on physical Pixel. No destination visited. Known-positive subset only; unknown labels are not benign. Original training overlap unknown; all inputs previously appeared in export references.",
+  "model_artifact_sha256": {
+    "url_cnn.pte": "e6f528b630c96a5a95630a75167f80cd7df049f4afa6036a33bacd4925a5ae30",
+    "ngram_lr.bin": "32d5e2d5a888b67e5c93fc8d30d0ee7cdf0335e284f833b250bfe30e1c1f40a8",
+    "url_model.json": "e794e6ef1c23be8eaa7b3b7414a2e477672ca46dcc48e97f3b8db08797232858",
+    "threat_intel.sqlite3": "d71a61f47f7d6ec6a39605a77df4eb7e933657262e6ccf4d0772f61486eae9bb"
+  }
+}

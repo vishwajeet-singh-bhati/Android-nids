@@ -29,3 +29,6 @@ local.properties
 
 # Local compiler/Gradle logs are generated outputs.
 *.log
+
+# Selected learned parameter file; this is not a training dataset.
+!/components/phishing_url/python/models/full_url/ngram.npz

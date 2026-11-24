@@ -1,0 +1,86 @@
+{
+  "created_utc": "2026-11-02T12:12:10.464731+00:00",
+  "seed": 42,
+  "policy": {
+    "main_sources": [
+      "lsdst_2022",
+      "uci_sms_spam"
+    ],
+    "external_source": "ncsu_sms_phishing",
+    "seed_source": "hinglish_scam",
+    "external_holdout_fraction": 0.1,
+    "train_val_test": {
+      "train": 0.7,
+      "val": 0.15,
+      "test": 0.15
+    },
+    "group_key": "split_group (exact text + masked template + MinHash near-duplicate + NCSU campaign)",
+    "no_group_overlap": true
+  },
+  "duplicates": {
+    "exact_duplicate_rows": 16763,
+    "exact_duplicate_groups": 12530,
+    "template_groups": 19244,
+    "near_duplicate_clusters": 8621,
+    "near_duplicate_pairs": 21369,
+    "largest_cluster": 3098,
+    "dropped_exact_rows": 16763,
+    "dropped_external_leakage_rows": 19
+  },
+  "splits": {
+    "train": {
+      "rows": 4055,
+      "labels": {
+        "ham": 3309,
+        "spam": 539,
+        "smishing": 207
+      },
+      "sources": {
+        "uci_sms_spam": 3259,
+        "lsdst_2022": 796
+      },
+      "groups": 3755
+    },
+    "val": {
+      "rows": 869,
+      "labels": {
+        "ham": 709,
+        "spam": 113,
+        "smishing": 47
+      },
+      "sources": {
+        "uci_sms_spam": 685,
+        "lsdst_2022": 184
+      },
+      "groups": 802
+    },
+    "test": {
+      "rows": 869,
+      "labels": {
+        "ham": 709,
+        "spam": 111,
+        "smishing": 49
+      },
+      "sources": {
+        "uci_sms_spam": 687,
+        "lsdst_2022": 182
+      },
+      "groups": 803
+    },
+    "external": {
+      "rows": 27885,
+      "labels": {
+        "smishing": 27233,
+        "ham": 570,
+        "spam": 82
+      },
+      "sources": {
+        "ncsu_sms_phishing": 27157,
+        "uci_sms_spam": 513,
+        "lsdst_2022": 123,
+        "hinglish_scam": 92
+      },
+      "groups": 27847
+    }
+  }
+}

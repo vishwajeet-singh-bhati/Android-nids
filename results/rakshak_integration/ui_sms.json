@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "environment": "dedicated local Android emulator API37 x86_64",
+  "ui_switches_persist": true,
+  "all_detectors_off_check_explicit": true,
+  "sms_permission_prompt_accepted": true,
+  "incoming_disabled_ignored": true,
+  "normal_otp_sms": {
+    "risk_level": "low",
+    "label": "ham",
+    "tier2_status": "not_needed"
+  },
+  "scam_sms": {
+    "risk_level": "high",
+    "label": "smishing",
+    "tier2_status": "completed"
+  },
+  "raw_content_absent_from_saved_results": true,
+  "scope": "Two emulator-delivered SMS fixtures and one disabled-delivery fixture. No carrier SMS sent or independent accuracy claim."
+}

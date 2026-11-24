@@ -1,0 +1,238 @@
+{
+  "started_unix": 1795471337.9021292,
+  "model": "Pixel 6a",
+  "abi": "arm64-v8a",
+  "results": {
+    "rakshak_contract": {
+      "passed": true,
+      "combine_cases": 10,
+      "tidy_cases": 11,
+      "disabled_detectors_explicit": true,
+      "preliminary_final_same_event": true,
+      "history_clear_rejects_late_result": true,
+      "host_only_privacy": true,
+      "threat_rule_independent_of_neural_model": true,
+      "stale_domain_only_uncertain": true,
+      "neural_failure_explicit": true,
+      "unsafe_guidance_rejected": true,
+      "interrupted_preliminary_recovered": true,
+      "uncertain_links_visible_on_quiet_result": true,
+      "device": "Pixel 6a",
+      "abi": "arm64-v8a",
+      "test_wall_seconds": 2.531
+    },
+    "rakshak_sms": {
+      "passed": true,
+      "routing_checks": [
+        {
+          "risk": "low",
+          "route": "fast_path_simple_celebration"
+        },
+        {
+          "risk": "low",
+          "route": "fast_path_simple_celebration"
+        },
+        {
+          "risk": "low",
+          "route": "fast_path_greeting"
+        },
+        {
+          "risk": "low",
+          "route": "fast_path_link_only"
+        },
+        {
+          "risk": "low",
+          "route": "fast_path_link_only"
+        }
+      ],
+      "dangerous_extensions_not_bypassed": 3,
+      "url_email_boundary_cases": 3,
+      "tier1_parity_rows_each": 34,
+      "tier1_fixture_files": 4,
+      "tier2_cases": 14,
+      "tokenization_matches": 14,
+      "class_matches": 14,
+      "maximum_logit_difference": 0.4496471881866455,
+      "strict_logit_tolerance_0_05_passed": false,
+      "benchmark_scenarios": 230,
+      "tier2_routed": 180,
+      "tier2_failures": 0,
+      "benchmark_counts": {
+        "ham->ham/low": 78,
+        "ham->ham/suspicious": 2,
+        "ham->smishing/suspicious": 8,
+        "ham->spam/low": 2,
+        "spam->spam/low": 16,
+        "spam->smishing/high": 4,
+        "spam->smishing/suspicious": 4,
+        "spam->ham/low": 16,
+        "smishing->smishing/high": 38,
+        "smishing->smishing/suspicious": 16,
+        "smishing->spam/suspicious": 4,
+        "smishing->ham/low": 16,
+        "smishing->spam/low": 2,
+        "smishing->ham/suspicious": 8,
+        "uncertain->smishing/suspicious": 8,
+        "uncertain->smishing/high": 4,
+        "uncertain->spam/low": 2,
+        "uncertain->ham/low": 2
+      },
+      "scope": "Bundled synthetic regression cases; no independent SMS accuracy claim.",
+      "device": "Pixel 6a",
+      "abi": "arm64-v8a",
+      "test_wall_seconds": 18.363
+    },
+    "rakshak_service": {
+      "passed": false,
+      "error": "No JSON result. Inspect the saved instrumentation log.",
+      "test_wall_seconds": 31.16
+    }
+  },
+  "installed_apk_sha256": "765b61ca806f87e40856cb9123e2feb741e1beb93f0efc0e53f61b467b7b4cee",
+  "passed": true,
+  "replays": [
+    {
+      "case": "standalone celebration",
+      "risk": "low",
+      "route": "fast_path_simple_celebration",
+      "links": []
+    },
+    {
+      "case": "previous user-reported risky live link, unverified",
+      "risk": "low",
+      "route": "fast_path_link_only",
+      "links": [
+        {
+          "verdict": "likely_safe",
+          "score": 0.002749258339406988
+        }
+      ]
+    },
+    {
+      "case": "normal music link",
+      "risk": "low",
+      "route": "fast_path_link_only",
+      "links": [
+        {
+          "verdict": "uncertain",
+          "score": 0.15134571639869832
+        }
+      ]
+    },
+    {
+      "case": "neutral weather example",
+      "risk": "low",
+      "route": "fast_path_link_only",
+      "links": [
+        {
+          "verdict": "likely_safe",
+          "score": 0.06467511578297883
+        }
+      ]
+    },
+    {
+      "case": "neutral library example",
+      "risk": "low",
+      "route": "fast_path_link_only",
+      "links": [
+        {
+          "verdict": "uncertain",
+          "score": 0.1763477741159066
+        }
+      ]
+    },
+    {
+      "case": "synthetic delivery example",
+      "risk": "low",
+      "route": "fast_path_link_only",
+      "links": [
+        {
+          "verdict": "uncertain",
+          "score": 0.5537486282141812
+        }
+      ]
+    },
+    {
+      "case": "synthetic payment example",
+      "risk": "high",
+      "route": "fast_path_link_only",
+      "links": [
+        {
+          "verdict": "phishing",
+          "score": 0.98564033049258
+        }
+      ]
+    },
+    {
+      "case": "synthetic URL with userinfo @",
+      "risk": "high",
+      "route": "fast_path_link_only",
+      "links": [
+        {
+          "verdict": "phishing",
+          "score": 0.991936457491314
+        }
+      ]
+    },
+    {
+      "case": "synthetic bank example",
+      "risk": "high",
+      "route": "fast_path_link_only",
+      "links": [
+        {
+          "verdict": "phishing",
+          "score": 0.9942975390604804
+        }
+      ]
+    }
+  ],
+  "version": "0.17.3-link-extraction/code46",
+  "existing_230_scenarios_unchanged": true,
+  "apk_sha256": "765b61ca806f87e40856cb9123e2feb741e1beb93f0efc0e53f61b467b7b4cee",
+  "initial_service_attempt": {
+    "passed": false,
+    "error": "No JSON result. Inspect the saved instrumentation log.",
+    "test_wall_seconds": 31.16
+  },
+  "service_retry": {
+    "passed": true,
+    "capture_paused_throughout": true,
+    "llama_model_available": true,
+    "events": [
+      {
+        "domain": "message",
+        "risk_level": "high",
+        "explanation_status": "complete",
+        "llama_guidance_accepted": true,
+        "notification_verified": true,
+        "raw_content_absent": true
+      },
+      {
+        "domain": "url",
+        "risk_level": "high",
+        "explanation_status": "complete",
+        "llama_guidance_accepted": false,
+        "notification_verified": true,
+        "raw_content_absent": true
+      },
+      {
+        "domain": "message",
+        "risk_level": "high",
+        "explanation_status": "complete",
+        "llama_guidance_accepted": false,
+        "notification_verified": true,
+        "raw_content_absent": true
+      }
+    ],
+    "scope": "Marked transient fixtures through the real foreground service. No carrier SMS sent. Missing Llama validates fallback only.",
+    "device": "Pixel 6a",
+    "abi": "arm64-v8a",
+    "test_wall_seconds": 43.847
+  },
+  "original_history_ids_preserved": 8,
+  "final_controls": {
+    "incoming_sms_enabled": "true",
+    "sms_enabled": "true",
+    "url_enabled": "true"
+  }
+}

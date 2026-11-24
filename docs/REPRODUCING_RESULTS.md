@@ -1,3 +1,5 @@
+> Current application is Rakshak code46. This document retains the network-core methodology; use the root component index and Rakshak guide for SMS/URL setup, current controls and the empty public-feed policy.
+
 # Reproducing results
 
 ## Environment and scope
@@ -24,7 +26,7 @@ python reproduce.py context --smoke
 python reproduce.py context
 ```
 
-Uses the same baseline data/split and fixed 10+5 epoch budget for each comparison arm. Historical context adds 78 features (2/5/15 minute windows) to the original 32. Outputs: `runs/tsanet_context_v1` and generated `validation/reports/tsanet_context`. Published references are under `results/tsanet_context`.
+Uses the same baseline data/split and fixed 10+5 epoch budget for each comparison arm. Historical context adds 78 features (2/5/15 minute windows) to the original 32. Outputs: `runs/tsanet_context_v1` and generated `results/tsanet_context`. Published references are under `results/tsanet_context`.
 
 This is the historical random-row/related-campaign benchmark. Its high scores do not establish independent-session or phone accuracy.
 
@@ -68,7 +70,7 @@ python reproduce.py phone collect
 
 Install the training environment inside that WSL virtualenv. On Linux, native training is the default. New train-phone rows receive declared 8-fold exact replay; validation/test are not resampled. Normalization fits only combined training data. Six fixed 40-epoch/3-seed jobs run at most two at a time and retain every epoch/best/last/final checkpoint. Full gate+diagnosis selection happens on validation; final comparison reports original and new-phone cohorts separately.
 
-Outputs: `runs/phone_capture_v1` for private recordings/progress; `runs/phone_capture_training_v1` for checkpoints; generated `validation/reports/phone_capture_training_v1/RESULTS.md` for comparison. No automatic deployment occurs.
+Outputs: `runs/phone_capture_v1` for private recordings/progress; `runs/phone_capture_training_v1` for checkpoints; generated `results/phone_capture_training_v1/RESULTS.md` for comparison. No automatic deployment occurs.
 
 To inspect a running campaign in PowerShell:
 

@@ -1,0 +1,1184 @@
+{
+  "source": "src/integration/sms_bridge.py combine() and tidy_link()",
+  "max_links": 10,
+  "combine_cases": [
+    {
+      "name": "phishing link raises a quiet message",
+      "sms": {
+        "module": "sms_detector",
+        "schema_version": "1.0",
+        "label": "spam",
+        "risk_level": "low",
+        "scores": {
+          "ham": 0.2,
+          "spam": 0.5,
+          "smishing": 0.3
+        },
+        "evidence": [
+          {
+            "code": "URL_PRESENT",
+            "present": true
+          }
+        ],
+        "recommended_action_codes": [
+          "MARK_AS_SPAM",
+          "DO_NOT_INTERACT"
+        ],
+        "model_version": "sms-model-0.1",
+        "explanation_source": "detector_evidence"
+      },
+      "links": [
+        "https://pay-verify.top/login"
+      ],
+      "link_results": [
+        {
+          "decision": "phishing",
+          "risk_score": 0.9,
+          "source": "model",
+          "reasons": [],
+          "threat_types": [],
+          "pending": [],
+          "error": null,
+          "model_version": "full_url-edb8f2cc8642"
+        }
+      ],
+      "not_checked": 0,
+      "error": null,
+      "expected": {
+        "module": "sms_url_bridge",
+        "schema_version": "1.0",
+        "sms": {
+          "module": "sms_detector",
+          "schema_version": "1.0",
+          "label": "spam",
+          "risk_level": "low",
+          "scores": {
+            "ham": 0.2,
+            "spam": 0.5,
+            "smishing": 0.3
+          },
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "MARK_AS_SPAM",
+            "DO_NOT_INTERACT"
+          ],
+          "model_version": "sms-model-0.1",
+          "explanation_source": "detector_evidence"
+        },
+        "links": {
+          "status": "checked",
+          "found": 1,
+          "checked": 1,
+          "not_checked": 0,
+          "error": null,
+          "complete": true,
+          "model_versions": [
+            "full_url-edb8f2cc8642"
+          ],
+          "results": [
+            {
+              "display_url": "https://pay-verify.top/login",
+              "decision": "phishing",
+              "risk_score": 0.9,
+              "source": "model",
+              "reasons": [],
+              "threat_types": [],
+              "pending": [],
+              "error": null
+            }
+          ]
+        },
+        "combined": {
+          "risk_level": "high",
+          "raised_by_links": true,
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            },
+            {
+              "code": "URL_FLAGGED_PHISHING",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "DO_NOT_CLICK",
+            "VERIFY_USING_OFFICIAL_CHANNEL",
+            "REPORT_AS_SCAM"
+          ]
+        }
+      }
+    },
+    {
+      "name": "threat-list match is named",
+      "sms": {
+        "module": "sms_detector",
+        "schema_version": "1.0",
+        "label": "spam",
+        "risk_level": "low",
+        "scores": {
+          "ham": 0.2,
+          "spam": 0.5,
+          "smishing": 0.3
+        },
+        "evidence": [
+          {
+            "code": "URL_PRESENT",
+            "present": true
+          }
+        ],
+        "recommended_action_codes": [
+          "MARK_AS_SPAM",
+          "DO_NOT_INTERACT"
+        ],
+        "model_version": "sms-model-0.1",
+        "explanation_source": "detector_evidence"
+      },
+      "links": [
+        "http://evil.xyz/a"
+      ],
+      "link_results": [
+        {
+          "decision": "phishing",
+          "risk_score": 0.9,
+          "source": "threat_intel",
+          "reasons": [],
+          "threat_types": [
+            "phishing"
+          ],
+          "pending": [],
+          "error": null,
+          "model_version": "full_url-edb8f2cc8642"
+        }
+      ],
+      "not_checked": 0,
+      "error": null,
+      "expected": {
+        "module": "sms_url_bridge",
+        "schema_version": "1.0",
+        "sms": {
+          "module": "sms_detector",
+          "schema_version": "1.0",
+          "label": "spam",
+          "risk_level": "low",
+          "scores": {
+            "ham": 0.2,
+            "spam": 0.5,
+            "smishing": 0.3
+          },
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "MARK_AS_SPAM",
+            "DO_NOT_INTERACT"
+          ],
+          "model_version": "sms-model-0.1",
+          "explanation_source": "detector_evidence"
+        },
+        "links": {
+          "status": "checked",
+          "found": 1,
+          "checked": 1,
+          "not_checked": 0,
+          "error": null,
+          "complete": true,
+          "model_versions": [
+            "full_url-edb8f2cc8642"
+          ],
+          "results": [
+            {
+              "display_url": "http://evil.xyz/a",
+              "decision": "phishing",
+              "risk_score": 0.9,
+              "source": "threat_intel",
+              "reasons": [],
+              "threat_types": [
+                "phishing"
+              ],
+              "pending": [],
+              "error": null
+            }
+          ]
+        },
+        "combined": {
+          "risk_level": "high",
+          "raised_by_links": true,
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            },
+            {
+              "code": "URL_FLAGGED_PHISHING",
+              "present": true
+            },
+            {
+              "code": "URL_KNOWN_THREAT",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "DO_NOT_CLICK",
+            "VERIFY_USING_OFFICIAL_CHANNEL",
+            "REPORT_AS_SCAM"
+          ]
+        }
+      }
+    },
+    {
+      "name": "raised suspicious message gets high-risk advice",
+      "sms": {
+        "module": "sms_detector",
+        "schema_version": "1.0",
+        "label": "smishing",
+        "risk_level": "suspicious",
+        "scores": {
+          "ham": 0.2,
+          "spam": 0.5,
+          "smishing": 0.3
+        },
+        "evidence": [
+          {
+            "code": "URL_PRESENT",
+            "present": true
+          }
+        ],
+        "recommended_action_codes": [
+          "DO_NOT_CLICK",
+          "VERIFY_BEFORE_ACTING"
+        ],
+        "model_version": "sms-model-0.1",
+        "explanation_source": "detector_evidence"
+      },
+      "links": [
+        "a.top/x"
+      ],
+      "link_results": [
+        {
+          "decision": "phishing",
+          "risk_score": 0.9,
+          "source": "model",
+          "reasons": [],
+          "threat_types": [],
+          "pending": [],
+          "error": null,
+          "model_version": "full_url-edb8f2cc8642"
+        }
+      ],
+      "not_checked": 0,
+      "error": null,
+      "expected": {
+        "module": "sms_url_bridge",
+        "schema_version": "1.0",
+        "sms": {
+          "module": "sms_detector",
+          "schema_version": "1.0",
+          "label": "smishing",
+          "risk_level": "suspicious",
+          "scores": {
+            "ham": 0.2,
+            "spam": 0.5,
+            "smishing": 0.3
+          },
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "DO_NOT_CLICK",
+            "VERIFY_BEFORE_ACTING"
+          ],
+          "model_version": "sms-model-0.1",
+          "explanation_source": "detector_evidence"
+        },
+        "links": {
+          "status": "checked",
+          "found": 1,
+          "checked": 1,
+          "not_checked": 0,
+          "error": null,
+          "complete": true,
+          "model_versions": [
+            "full_url-edb8f2cc8642"
+          ],
+          "results": [
+            {
+              "display_url": "a.top/x",
+              "decision": "phishing",
+              "risk_score": 0.9,
+              "source": "model",
+              "reasons": [],
+              "threat_types": [],
+              "pending": [],
+              "error": null
+            }
+          ]
+        },
+        "combined": {
+          "risk_level": "high",
+          "raised_by_links": true,
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            },
+            {
+              "code": "URL_FLAGGED_PHISHING",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "DO_NOT_CLICK",
+            "VERIFY_USING_OFFICIAL_CHANNEL",
+            "REPORT_AS_SCAM"
+          ]
+        }
+      }
+    },
+    {
+      "name": "clean link never lowers the risk",
+      "sms": {
+        "module": "sms_detector",
+        "schema_version": "1.0",
+        "label": "smishing",
+        "risk_level": "high",
+        "scores": {
+          "ham": 0.2,
+          "spam": 0.5,
+          "smishing": 0.3
+        },
+        "evidence": [
+          {
+            "code": "URL_PRESENT",
+            "present": true
+          },
+          {
+            "code": "KYC_LANGUAGE",
+            "present": true
+          }
+        ],
+        "recommended_action_codes": [
+          "DO_NOT_CLICK",
+          "DO_NOT_SHARE_OTP",
+          "REPORT_AS_SCAM"
+        ],
+        "model_version": "sms-model-0.1",
+        "explanation_source": "detector_evidence"
+      },
+      "links": [
+        "https://www.sbi.co.in/"
+      ],
+      "link_results": [
+        {
+          "decision": "likely_safe",
+          "risk_score": 0.9,
+          "source": "model",
+          "reasons": [],
+          "threat_types": [],
+          "pending": [],
+          "error": null,
+          "model_version": "full_url-edb8f2cc8642"
+        }
+      ],
+      "not_checked": 0,
+      "error": null,
+      "expected": {
+        "module": "sms_url_bridge",
+        "schema_version": "1.0",
+        "sms": {
+          "module": "sms_detector",
+          "schema_version": "1.0",
+          "label": "smishing",
+          "risk_level": "high",
+          "scores": {
+            "ham": 0.2,
+            "spam": 0.5,
+            "smishing": 0.3
+          },
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            },
+            {
+              "code": "KYC_LANGUAGE",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "DO_NOT_CLICK",
+            "DO_NOT_SHARE_OTP",
+            "REPORT_AS_SCAM"
+          ],
+          "model_version": "sms-model-0.1",
+          "explanation_source": "detector_evidence"
+        },
+        "links": {
+          "status": "checked",
+          "found": 1,
+          "checked": 1,
+          "not_checked": 0,
+          "error": null,
+          "complete": true,
+          "model_versions": [
+            "full_url-edb8f2cc8642"
+          ],
+          "results": [
+            {
+              "display_url": "https://www.sbi.co.in/",
+              "decision": "likely_safe",
+              "risk_score": 0.9,
+              "source": "model",
+              "reasons": [],
+              "threat_types": [],
+              "pending": [],
+              "error": null
+            }
+          ]
+        },
+        "combined": {
+          "risk_level": "high",
+          "raised_by_links": false,
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            },
+            {
+              "code": "KYC_LANGUAGE",
+              "present": true
+            },
+            {
+              "code": "URL_NOT_FLAGGED",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "DO_NOT_CLICK",
+            "DO_NOT_SHARE_OTP",
+            "REPORT_AS_SCAM"
+          ]
+        }
+      }
+    },
+    {
+      "name": "uncertain link changes nothing",
+      "sms": {
+        "module": "sms_detector",
+        "schema_version": "1.0",
+        "label": "spam",
+        "risk_level": "low",
+        "scores": {
+          "ham": 0.2,
+          "spam": 0.5,
+          "smishing": 0.3
+        },
+        "evidence": [
+          {
+            "code": "URL_PRESENT",
+            "present": true
+          }
+        ],
+        "recommended_action_codes": [
+          "MARK_AS_SPAM",
+          "DO_NOT_INTERACT"
+        ],
+        "model_version": "sms-model-0.1",
+        "explanation_source": "detector_evidence"
+      },
+      "links": [
+        "bit.ly/abc"
+      ],
+      "link_results": [
+        {
+          "decision": "uncertain",
+          "risk_score": null,
+          "source": "rule",
+          "reasons": [],
+          "threat_types": [],
+          "pending": [],
+          "error": null,
+          "model_version": "full_url-edb8f2cc8642"
+        }
+      ],
+      "not_checked": 0,
+      "error": null,
+      "expected": {
+        "module": "sms_url_bridge",
+        "schema_version": "1.0",
+        "sms": {
+          "module": "sms_detector",
+          "schema_version": "1.0",
+          "label": "spam",
+          "risk_level": "low",
+          "scores": {
+            "ham": 0.2,
+            "spam": 0.5,
+            "smishing": 0.3
+          },
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "MARK_AS_SPAM",
+            "DO_NOT_INTERACT"
+          ],
+          "model_version": "sms-model-0.1",
+          "explanation_source": "detector_evidence"
+        },
+        "links": {
+          "status": "checked",
+          "found": 1,
+          "checked": 1,
+          "not_checked": 0,
+          "error": null,
+          "complete": true,
+          "model_versions": [
+            "full_url-edb8f2cc8642"
+          ],
+          "results": [
+            {
+              "display_url": "bit.ly/abc",
+              "decision": "uncertain",
+              "risk_score": null,
+              "source": "rule",
+              "reasons": [],
+              "threat_types": [],
+              "pending": [],
+              "error": null
+            }
+          ]
+        },
+        "combined": {
+          "risk_level": "low",
+          "raised_by_links": false,
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            },
+            {
+              "code": "URL_CHECK_UNCERTAIN",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "MARK_AS_SPAM",
+            "DO_NOT_INTERACT"
+          ]
+        }
+      }
+    },
+    {
+      "name": "detector unavailable is not safe",
+      "sms": {
+        "module": "sms_detector",
+        "schema_version": "1.0",
+        "label": "spam",
+        "risk_level": "low",
+        "scores": {
+          "ham": 0.2,
+          "spam": 0.5,
+          "smishing": 0.3
+        },
+        "evidence": [
+          {
+            "code": "URL_PRESENT",
+            "present": true
+          }
+        ],
+        "recommended_action_codes": [
+          "MARK_AS_SPAM",
+          "DO_NOT_INTERACT"
+        ],
+        "model_version": "sms-model-0.1",
+        "explanation_source": "detector_evidence"
+      },
+      "links": [
+        "a.com/x",
+        "b.com/y"
+      ],
+      "link_results": null,
+      "not_checked": 0,
+      "error": "api_unreachable",
+      "expected": {
+        "module": "sms_url_bridge",
+        "schema_version": "1.0",
+        "sms": {
+          "module": "sms_detector",
+          "schema_version": "1.0",
+          "label": "spam",
+          "risk_level": "low",
+          "scores": {
+            "ham": 0.2,
+            "spam": 0.5,
+            "smishing": 0.3
+          },
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "MARK_AS_SPAM",
+            "DO_NOT_INTERACT"
+          ],
+          "model_version": "sms-model-0.1",
+          "explanation_source": "detector_evidence"
+        },
+        "links": {
+          "status": "unavailable",
+          "found": 2,
+          "checked": 0,
+          "not_checked": 2,
+          "error": "api_unreachable",
+          "complete": true,
+          "model_versions": [],
+          "results": [
+            {
+              "display_url": "a.com/x",
+              "decision": null,
+              "risk_score": null,
+              "source": null,
+              "reasons": [],
+              "threat_types": [],
+              "pending": [],
+              "error": "not_checked"
+            },
+            {
+              "display_url": "b.com/y",
+              "decision": null,
+              "risk_score": null,
+              "source": null,
+              "reasons": [],
+              "threat_types": [],
+              "pending": [],
+              "error": "not_checked"
+            }
+          ]
+        },
+        "combined": {
+          "risk_level": "low",
+          "raised_by_links": false,
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            },
+            {
+              "code": "URL_CHECK_UNAVAILABLE",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "MARK_AS_SPAM",
+            "DO_NOT_INTERACT"
+          ]
+        }
+      }
+    },
+    {
+      "name": "unparseable link is not checked",
+      "sms": {
+        "module": "sms_detector",
+        "schema_version": "1.0",
+        "label": "spam",
+        "risk_level": "low",
+        "scores": {
+          "ham": 0.2,
+          "spam": 0.5,
+          "smishing": 0.3
+        },
+        "evidence": [
+          {
+            "code": "URL_PRESENT",
+            "present": true
+          }
+        ],
+        "recommended_action_codes": [
+          "MARK_AS_SPAM",
+          "DO_NOT_INTERACT"
+        ],
+        "model_version": "sms-model-0.1",
+        "explanation_source": "detector_evidence"
+      },
+      "links": [
+        "ok.com/a",
+        "bad"
+      ],
+      "link_results": [
+        {
+          "decision": "likely_safe",
+          "risk_score": 0.9,
+          "source": "model",
+          "reasons": [],
+          "threat_types": [],
+          "pending": [],
+          "error": null,
+          "model_version": "full_url-edb8f2cc8642"
+        },
+        {
+          "decision": null,
+          "risk_score": null,
+          "source": null,
+          "reasons": [],
+          "threat_types": [],
+          "pending": [],
+          "error": "invalid_input:no_host",
+          "model_version": "full_url-edb8f2cc8642"
+        }
+      ],
+      "not_checked": 0,
+      "error": null,
+      "expected": {
+        "module": "sms_url_bridge",
+        "schema_version": "1.0",
+        "sms": {
+          "module": "sms_detector",
+          "schema_version": "1.0",
+          "label": "spam",
+          "risk_level": "low",
+          "scores": {
+            "ham": 0.2,
+            "spam": 0.5,
+            "smishing": 0.3
+          },
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "MARK_AS_SPAM",
+            "DO_NOT_INTERACT"
+          ],
+          "model_version": "sms-model-0.1",
+          "explanation_source": "detector_evidence"
+        },
+        "links": {
+          "status": "partial",
+          "found": 2,
+          "checked": 1,
+          "not_checked": 1,
+          "error": null,
+          "complete": true,
+          "model_versions": [
+            "full_url-edb8f2cc8642"
+          ],
+          "results": [
+            {
+              "display_url": "ok.com/a",
+              "decision": "likely_safe",
+              "risk_score": 0.9,
+              "source": "model",
+              "reasons": [],
+              "threat_types": [],
+              "pending": [],
+              "error": null
+            },
+            {
+              "display_url": "bad",
+              "decision": null,
+              "risk_score": null,
+              "source": null,
+              "reasons": [],
+              "threat_types": [],
+              "pending": [],
+              "error": "invalid_input:no_host"
+            }
+          ]
+        },
+        "combined": {
+          "risk_level": "low",
+          "raised_by_links": false,
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            },
+            {
+              "code": "URL_CHECK_UNAVAILABLE",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "MARK_AS_SPAM",
+            "DO_NOT_INTERACT"
+          ]
+        }
+      }
+    },
+    {
+      "name": "links over the cap",
+      "sms": {
+        "module": "sms_detector",
+        "schema_version": "1.0",
+        "label": "spam",
+        "risk_level": "low",
+        "scores": {
+          "ham": 0.2,
+          "spam": 0.5,
+          "smishing": 0.3
+        },
+        "evidence": [
+          {
+            "code": "URL_PRESENT",
+            "present": true
+          }
+        ],
+        "recommended_action_codes": [
+          "MARK_AS_SPAM",
+          "DO_NOT_INTERACT"
+        ],
+        "model_version": "sms-model-0.1",
+        "explanation_source": "detector_evidence"
+      },
+      "links": [
+        "a.com/1",
+        "a.com/2"
+      ],
+      "link_results": [
+        {
+          "decision": "likely_safe",
+          "risk_score": 0.9,
+          "source": "model",
+          "reasons": [],
+          "threat_types": [],
+          "pending": [],
+          "error": null,
+          "model_version": "full_url-edb8f2cc8642"
+        },
+        {
+          "decision": "likely_safe",
+          "risk_score": 0.9,
+          "source": "model",
+          "reasons": [],
+          "threat_types": [],
+          "pending": [],
+          "error": null,
+          "model_version": "full_url-edb8f2cc8642"
+        }
+      ],
+      "not_checked": 1,
+      "error": null,
+      "expected": {
+        "module": "sms_url_bridge",
+        "schema_version": "1.0",
+        "sms": {
+          "module": "sms_detector",
+          "schema_version": "1.0",
+          "label": "spam",
+          "risk_level": "low",
+          "scores": {
+            "ham": 0.2,
+            "spam": 0.5,
+            "smishing": 0.3
+          },
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "MARK_AS_SPAM",
+            "DO_NOT_INTERACT"
+          ],
+          "model_version": "sms-model-0.1",
+          "explanation_source": "detector_evidence"
+        },
+        "links": {
+          "status": "partial",
+          "found": 3,
+          "checked": 2,
+          "not_checked": 1,
+          "error": null,
+          "complete": true,
+          "model_versions": [
+            "full_url-edb8f2cc8642"
+          ],
+          "results": [
+            {
+              "display_url": "a.com/1",
+              "decision": "likely_safe",
+              "risk_score": 0.9,
+              "source": "model",
+              "reasons": [],
+              "threat_types": [],
+              "pending": [],
+              "error": null
+            },
+            {
+              "display_url": "a.com/2",
+              "decision": "likely_safe",
+              "risk_score": 0.9,
+              "source": "model",
+              "reasons": [],
+              "threat_types": [],
+              "pending": [],
+              "error": null
+            }
+          ]
+        },
+        "combined": {
+          "risk_level": "low",
+          "raised_by_links": false,
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            },
+            {
+              "code": "URL_CHECK_UNAVAILABLE",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "MARK_AS_SPAM",
+            "DO_NOT_INTERACT"
+          ]
+        }
+      }
+    },
+    {
+      "name": "no links",
+      "sms": {
+        "module": "sms_detector",
+        "schema_version": "1.0",
+        "label": "ham",
+        "risk_level": "low",
+        "scores": {
+          "ham": 0.2,
+          "spam": 0.5,
+          "smishing": 0.3
+        },
+        "evidence": [],
+        "recommended_action_codes": [
+          "NO_ACTION"
+        ],
+        "model_version": "sms-model-0.1",
+        "explanation_source": "detector_evidence"
+      },
+      "links": [],
+      "link_results": [],
+      "not_checked": 0,
+      "error": null,
+      "expected": {
+        "module": "sms_url_bridge",
+        "schema_version": "1.0",
+        "sms": {
+          "module": "sms_detector",
+          "schema_version": "1.0",
+          "label": "ham",
+          "risk_level": "low",
+          "scores": {
+            "ham": 0.2,
+            "spam": 0.5,
+            "smishing": 0.3
+          },
+          "evidence": [],
+          "recommended_action_codes": [
+            "NO_ACTION"
+          ],
+          "model_version": "sms-model-0.1",
+          "explanation_source": "detector_evidence"
+        },
+        "links": {
+          "status": "no_links",
+          "found": 0,
+          "checked": 0,
+          "not_checked": 0,
+          "error": null,
+          "complete": true,
+          "model_versions": [],
+          "results": []
+        },
+        "combined": {
+          "risk_level": "low",
+          "raised_by_links": false,
+          "evidence": [],
+          "recommended_action_codes": [
+            "NO_ACTION"
+          ]
+        }
+      }
+    },
+    {
+      "name": "pending online check",
+      "sms": {
+        "module": "sms_detector",
+        "schema_version": "1.0",
+        "label": "spam",
+        "risk_level": "low",
+        "scores": {
+          "ham": 0.2,
+          "spam": 0.5,
+          "smishing": 0.3
+        },
+        "evidence": [
+          {
+            "code": "URL_PRESENT",
+            "present": true
+          }
+        ],
+        "recommended_action_codes": [
+          "MARK_AS_SPAM",
+          "DO_NOT_INTERACT"
+        ],
+        "model_version": "sms-model-0.1",
+        "explanation_source": "detector_evidence"
+      },
+      "links": [
+        "a.com/x"
+      ],
+      "link_results": [
+        {
+          "decision": "likely_safe",
+          "risk_score": 0.9,
+          "source": "model",
+          "reasons": [],
+          "threat_types": [],
+          "pending": [
+            "google_safe_browsing"
+          ],
+          "error": null,
+          "model_version": "full_url-edb8f2cc8642"
+        }
+      ],
+      "not_checked": 0,
+      "error": null,
+      "expected": {
+        "module": "sms_url_bridge",
+        "schema_version": "1.0",
+        "sms": {
+          "module": "sms_detector",
+          "schema_version": "1.0",
+          "label": "spam",
+          "risk_level": "low",
+          "scores": {
+            "ham": 0.2,
+            "spam": 0.5,
+            "smishing": 0.3
+          },
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "MARK_AS_SPAM",
+            "DO_NOT_INTERACT"
+          ],
+          "model_version": "sms-model-0.1",
+          "explanation_source": "detector_evidence"
+        },
+        "links": {
+          "status": "checked",
+          "found": 1,
+          "checked": 1,
+          "not_checked": 0,
+          "error": null,
+          "complete": false,
+          "model_versions": [
+            "full_url-edb8f2cc8642"
+          ],
+          "results": [
+            {
+              "display_url": "a.com/x",
+              "decision": "likely_safe",
+              "risk_score": 0.9,
+              "source": "model",
+              "reasons": [],
+              "threat_types": [],
+              "pending": [
+                "google_safe_browsing"
+              ],
+              "error": null
+            }
+          ]
+        },
+        "combined": {
+          "risk_level": "low",
+          "raised_by_links": false,
+          "evidence": [
+            {
+              "code": "URL_PRESENT",
+              "present": true
+            },
+            {
+              "code": "URL_NOT_FLAGGED",
+              "present": true
+            }
+          ],
+          "recommended_action_codes": [
+            "MARK_AS_SPAM",
+            "DO_NOT_INTERACT"
+          ]
+        }
+      }
+    }
+  ],
+  "tidy_link_cases": [
+    {
+      "raw": "github.com/login.",
+      "expected": "github.com/login"
+    },
+    {
+      "raw": "bit.ly/3xYzAbc,",
+      "expected": "bit.ly/3xYzAbc"
+    },
+    {
+      "raw": "www.indiapost-redelivery.top/pay?id=88213.",
+      "expected": "www.indiapost-redelivery.top/pay?id=88213"
+    },
+    {
+      "raw": "https://en.wikipedia.org/wiki/Python_(language)",
+      "expected": "https://en.wikipedia.org/wiki/Python_(language)"
+    },
+    {
+      "raw": "https://x.com/a)",
+      "expected": "https://x.com/a"
+    },
+    {
+      "raw": "(https://x.com/a)",
+      "expected": "https://x.com/a"
+    },
+    {
+      "raw": "\"https://a.com/x\"!",
+      "expected": "https://a.com/x"
+    },
+    {
+      "raw": "https://a.com/x?!...",
+      "expected": "https://a.com/x"
+    },
+    {
+      "raw": "https://a.com/",
+      "expected": "https://a.com/"
+    },
+    {
+      "raw": "...",
+      "expected": null
+    },
+    {
+      "raw": "   ",
+      "expected": null
+    }
+  ]
+}

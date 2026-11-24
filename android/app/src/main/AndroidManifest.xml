@@ -6,13 +6,25 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
-    <application android:label="NIDS Local" android:icon="@drawable/ic_nids" android:theme="@style/AppTheme" android:allowBackup="false">
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <application android:label="Rakshak" android:icon="@drawable/ic_nids" android:theme="@style/AppTheme" android:allowBackup="false">
         <activity android:name=".LearnedNetworkActivity" android:screenOrientation="portrait" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
         </activity>
+        <receiver android:name=".RakshakSmsReceiver" android:exported="true" android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter><action android:name="android.provider.Telephony.SMS_RECEIVED"/></intent-filter>
+        </receiver>
+        <service android:name=".SafetyAnalysisService" android:exported="false" android:foregroundServiceType="specialUse">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="Local user-enabled SMS and URL analysis and explanations"/>
+        </service>
         <activity android:name=".MainActivity" android:exported="false"/>
         <service android:name=".LlamaWorkerService" android:exported="false" android:process=":llama"/>
         <service android:name=".TsanetCaptureService" android:exported="false" android:foregroundServiceType="specialUse">

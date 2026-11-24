@@ -1,0 +1,44 @@
+{
+  "started_unix": 1795469181.1502452,
+  "model": "Pixel 6a",
+  "abi": "arm64-v8a",
+  "results": {
+    "rakshak_service": {
+      "passed": true,
+      "capture_paused_throughout": true,
+      "llama_model_available": true,
+      "events": [
+        {
+          "domain": "message",
+          "risk_level": "high",
+          "explanation_status": "complete",
+          "llama_guidance_accepted": true,
+          "notification_verified": true,
+          "raw_content_absent": true
+        },
+        {
+          "domain": "url",
+          "risk_level": "high",
+          "explanation_status": "complete",
+          "llama_guidance_accepted": false,
+          "notification_verified": true,
+          "raw_content_absent": true
+        },
+        {
+          "domain": "message",
+          "risk_level": "high",
+          "explanation_status": "complete",
+          "llama_guidance_accepted": false,
+          "notification_verified": true,
+          "raw_content_absent": true
+        }
+      ],
+      "scope": "Marked transient fixtures through the real foreground service. No carrier SMS sent. Missing Llama validates fallback only.",
+      "device": "Pixel 6a",
+      "abi": "arm64-v8a",
+      "test_wall_seconds": 40.965
+    }
+  },
+  "installed_apk_sha256": "9e67d2c2d3e29c0f011070ddc3c189639bcae9cdd49865e4ada60e3d8912035f",
+  "passed": true
+}

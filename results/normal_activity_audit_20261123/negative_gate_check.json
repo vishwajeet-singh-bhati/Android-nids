@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "deployed_network_version": 43,
+  "saved_binary_negative_segments_checked": 583,
+  "negative_segments_with_alert_emitted": 0,
+  "experimental_auth_episode_enabled_in_these_rows": false,
+  "native_negative_gate_policy_check_passed": true,
+  "whatsapp_binary_gate_flagged": true,
+  "whatsapp_gate_score": 0.7810497283935547,
+  "whatsapp_gate_cutoff": 0.5408333333333333,
+  "whatsapp_diagnostic_top_class": "Benign",
+  "whatsapp_diagnostic_benign_score": 0.99999416,
+  "scope": "Saved native trace plus the installed native policy test and current emission branch. Existing/other-pipeline notifications are separate from a new network alert."
+}

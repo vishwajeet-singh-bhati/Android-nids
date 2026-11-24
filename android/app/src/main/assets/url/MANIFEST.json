@@ -1,0 +1,41 @@
+{
+  "model_version": "full_url-edb8f2cc8642",
+  "files": {
+    "ngram_lr.bin": {
+      "sha256": "32d5e2d5a888b67e5c93fc8d30d0ee7cdf0335e284f833b250bfe30e1c1f40a8",
+      "bytes": 6391214
+    },
+    "popular.txt": {
+      "sha256": "5c459641d0af83a28de0a9cf5dfb55d04f99d5c908accc2a608e85f6625bee4d",
+      "bytes": 13532
+    },
+    "pte_selfcheck.json": {
+      "sha256": "7bc4802a391add8cd76fdc3c814ad2eb846e22ee631b7c8242eb06fe6d87f1b5",
+      "bytes": 357
+    },
+    "public_suffix_list.dat": {
+      "sha256": "b69315c085d53972724b8f2df111ffc329b0c84fe0a47d62c8c91655cc774a38",
+      "bytes": 318581
+    },
+    "redirectors.txt": {
+      "sha256": "519372bce780547a81d0a8142a7502c0ddd5a0077f79cb3b7d51d9a66f92b888",
+      "bytes": 14177
+    },
+    "reference.jsonl": {
+      "sha256": "9d451e45ffcde0f6b37f8f099c2f9648353661c701a37934e1b9d08274ed5b9b",
+      "bytes": 4333795
+    },
+    "threat_intel.sqlite3": {
+      "sha256": "6856d18399aa4d0117b2c73028f30574ea510c2a196a0a478fb400a90d5cbdc7",
+      "bytes": 40960
+    },
+    "url_cnn.pte": {
+      "sha256": "e6f528b630c96a5a95630a75167f80cd7df049f4afa6036a33bacd4925a5ae30",
+      "bytes": 381444
+    },
+    "url_model.json": {
+      "sha256": "e794e6ef1c23be8eaa7b3b7414a2e477672ca46dcc48e97f3b8db08797232858",
+      "bytes": 9288
+    }
+  }
+}

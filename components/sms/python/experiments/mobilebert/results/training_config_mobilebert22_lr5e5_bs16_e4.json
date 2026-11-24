@@ -1,0 +1,55 @@
+{
+  "created_utc": "2026-11-07T07:14:40.521305+00:00",
+  "experiment": "mobilebert_22_layer_stability_variant",
+  "run_name": "mobilebert22_lr5e5_bs16_e4",
+  "model_name": "google/mobilebert-uncased",
+  "model_num_hidden_layers": 22,
+  "stability_note": "The published 24-layer checkpoint produces extreme final-layer activations in the Hugging Face implementation. The first 22 layers are stable; the final two encoder layers are omitted. This is not a standard 24-layer MobileBERT result.",
+  "classifier_dropout": 0.1,
+  "max_length": 128,
+  "batch_size": 16,
+  "eval_batch_size": 32,
+  "epochs": 4,
+  "learning_rate": 5e-05,
+  "weight_decay": 0.01,
+  "warmup_ratio": 0.1,
+  "warmup_steps": 101,
+  "total_steps": 1016,
+  "patience": 2,
+  "seed": 42,
+  "labels": [
+    "ham",
+    "spam",
+    "smishing"
+  ],
+  "class_weights": [
+    0.4084819257259369,
+    2.507730484008789,
+    6.529790878295898
+  ],
+  "train_rows": 4055,
+  "val_rows": 869,
+  "train_label_counts": {
+    "ham": 3309,
+    "spam": 539,
+    "smishing": 207
+  },
+  "val_label_counts": {
+    "ham": 709,
+    "spam": 113,
+    "smishing": 47
+  },
+  "input_preprocessing": "sms_detection.preprocessing.normalize.normalize_text(...).model_text",
+  "test_split_loaded": false,
+  "model_summary": {
+    "total_parameters": 22898947,
+    "trainable_parameters": 22898947,
+    "dtype": "torch.float32"
+  },
+  "torch": "2.15.0+cpu",
+  "cuda_available": false,
+  "threads": 8,
+  "hash_train_csv": "d1b95dd573c62abd055a436896d4e60ce57d373d8b58a6c6979411b701158b36",
+  "hash_val_csv": "24c532ef325de490f75954e809b36e82c7920bfce2aa1f13fb9d9b977a758d8b",
+  "hash_test_csv_not_evaluated": "603a2ae34179388c7e66bac757859f1719830434c00f3f8658b7a3c2242e7fcf"
+}

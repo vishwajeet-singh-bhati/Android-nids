@@ -1,4 +1,20 @@
-# Complete Android NIDS development report
+# Rakshak project report
+
+Current89-page **submission draft** through24 November2026 / code46:
+
+- [Compiled PDF](Rakshak_Project_Report.pdf)
+- [Self-contained Overleaf source](Rakshak_Project_Report.tex)
+- [Added-model evidence](ADDON_MODELS_EVIDENCE.json)
+- [Compilation record](VALIDATION.json)
+
+Part I preserves the network paper-to-phone history. Part II separately explains current Rakshak, SMS data/training/FP32/PTQ/QAT, URL architecture, automatic message links, shared Llama/privacy, real fixes, the2,048-URL benchmark and its missing-label/reference-reuse limits. Hardware/runtime/optimization evidence and remaining model-improvement/submission gates are explicit. Archived scores are distinguished from newly executed phone checks.
+
+Upload only Rakshak_Project_Report.tex to Overleaf and select pdfLaTeX. No external figures/bibliography/data are needed. The historical Android_NIDS_Project_Report.tex filename remains as a generated compatibility copy. Regenerate both using python tools/report/build_report.py. Local validation used Tectonic; Overleaf itself was not accessed.
+
+The PDF is a development draft pending candidate selection and faculty review; no final submission is implied. See the root submission checkpoints. The source/evidence are retained for audit, and no raw datasets/messages/captures or project ZIP are included.
+
+## Historical report coverage
+
 
 The self-contained source is [Android_NIDS_Project_Report.tex](Android_NIDS_Project_Report.tex).
 
@@ -21,8 +37,8 @@ The report covers:
 
 [REPORT_EVIDENCE.json](REPORT_EVIDENCE.json) contains aggregate numeric sources/hashes and the executed examples. It is not needed by Overleaf. Real-cohort examples use a few selected feature values from already-opened older data; full dataset rows, raw captures and private endpoint identities are excluded. The complete invented fixture is solely a software explanation, never training data or an accuracy result. New held-out phone-model scores were not inspected for this report.
 
-This is a dated development record through **0.14.2-network-scope / code40**. The augmented-v1 detector was installed for an explicitly requested experimental trial after failing readiness checks; trial deployment does not turn that failed decision into production validation. All earlier measurements retain their original pipeline, cohort and denominators. Normal SSH false positives and missed protocol behaviours remain documented. The later 22:59 normal protocol case still falsely flagged both SSH connections.
+The original network portion was a dated development record through **0.14.2-network-scope / code40**. The augmented-v1 detector was installed for an explicitly requested experimental trial after failing readiness checks; trial deployment does not turn that failed decision into production validation. All earlier measurements retain their original pipeline, cohort and denominators. Normal SSH false positives and missed protocol behaviours remain documented. The later 22:59 normal protocol case still falsely flagged both SSH connections.
 
-Local validation compiled a 73-page PDF with no overflowing boxes or unresolved references. The [validation record](VALIDATION.json) pins the source/evidence hashes. Overleaf itself was not accessed. The compiled preview remains a local generated artifact; this directory publishes the self-contained source and evidence notes.
+The earlier version compiled a 73-page PDF with no overflowing boxes or unresolved references. The [validation record](VALIDATION.json) pins the source/evidence hashes. Overleaf itself was not accessed. The compiled preview remains a local generated artifact; this directory publishes the self-contained source and evidence notes.
 
 Regenerate the LaTeX from the shipped aggregate evidence using `python tools/report/build_report.py` at the repository root. It does not train or contact the phone. The evidence collectors additionally require the original private/local artifacts; they are distinct from the portable report builder. No raw phone recordings or ZIP are created by report generation.

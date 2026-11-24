@@ -1,0 +1,359 @@
+{
+  "comparison": {
+    "code40": {
+      "threshold": 0.5408333333333333,
+      "validation": {
+        "normal": 120,
+        "fp": 11,
+        "attack": 64,
+        "tp": 64,
+        "fn": 0,
+        "recall": 1.0,
+        "benign_fpr": 0.09166666666666666,
+        "precision": 0.8533333333333334,
+        "subtypes": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 24
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 16
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 2
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 9
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 12
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 12
+          }
+        }
+      },
+      "test": {
+        "normal": 120,
+        "fp": 10,
+        "attack": 64,
+        "tp": 62,
+        "fn": 2,
+        "recall": 0.96875,
+        "benign_fpr": 0.08333333333333333,
+        "precision": 0.8611111111111112,
+        "subtypes": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 23
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 16
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 2
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 8
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 12
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 11
+          }
+        }
+      }
+    },
+    "session_balanced": {
+      "threshold": 0.9755248705012592,
+      "validation": {
+        "normal": 120,
+        "fp": 2,
+        "attack": 64,
+        "tp": 28,
+        "fn": 36,
+        "recall": 0.4375,
+        "benign_fpr": 0.016666666666666666,
+        "precision": 0.9333333333333333,
+        "subtypes": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 2
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 5
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 2
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 12
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 9
+          }
+        }
+      },
+      "test": {
+        "normal": 120,
+        "fp": 2,
+        "attack": 64,
+        "tp": 36,
+        "fn": 28,
+        "recall": 0.5625,
+        "benign_fpr": 0.016666666666666666,
+        "precision": 0.9473684210526315,
+        "subtypes": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 6
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 7
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 2
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 11
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 12
+          }
+        }
+      }
+    },
+    "session_balanced_hard_negatives": {
+      "threshold": 0.9746530876883935,
+      "validation": {
+        "normal": 120,
+        "fp": 2,
+        "attack": 64,
+        "tp": 27,
+        "fn": 37,
+        "recall": 0.421875,
+        "benign_fpr": 0.016666666666666666,
+        "precision": 0.9310344827586207,
+        "subtypes": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 1
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 5
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 2
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 12
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 9
+          }
+        }
+      },
+      "test": {
+        "normal": 120,
+        "fp": 3,
+        "attack": 64,
+        "tp": 38,
+        "fn": 26,
+        "recall": 0.59375,
+        "benign_fpr": 0.025,
+        "precision": 0.926829268292683,
+        "subtypes": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 6
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 9
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 3
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 11
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 12
+          }
+        }
+      }
+    }
+  },
+  "selected_on_validation": "session_balanced",
+  "session_counts": [
+    14,
+    3,
+    3
+  ],
+  "training_rows": 848,
+  "training_hard_negatives": 52,
+  "validation_fpr_cap": 0.02,
+  "scope": "Existing same-phone cleartext HTTP dataset and previously opened final split. No model export or deployment."
+}

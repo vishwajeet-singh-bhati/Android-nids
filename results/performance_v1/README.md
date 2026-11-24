@@ -175,8 +175,3 @@ Controller minimum: three valid external resource samples; failed/aborted runs r
 The aborted one-thread-confounded Llama comparison, first detector run with failed telemetry, insufficiently sampled standalone optimized detector, and initial paired-detector readiness failure are excluded from selected claims. All still appear in the evidence ledger. Final production identity and restored monitor: [final_attestation.json](final_attestation.json).
 
 No GitHub push, ZIP, main-app deployment or model promotion was performed. The next deployment comparison must integrate the candidate in the isolated production worker, repeat cold/warm requests with live monitoring and verify immediate notification timing, evidence revision handling, quality rejection and capture health before claiming an end-to-end speedup.
-
-
-## Publication context
-
-This is a dated experiment record. Its original workstation commands may require excluded private recordings, checkpoints or rollback snapshots and are not fresh-device setup instructions. For the current portable entry points use [Android setup](../../docs/ANDROID_SETUP.md), [protocol testing](../../docs/PROTOCOL_TESTING.md), [inference measurements](../../docs/INFERENCE_PERFORMANCE.md) and [current status](../../STATUS.md). Current source is code40; historical version-preservation decisions are not current build restrictions.

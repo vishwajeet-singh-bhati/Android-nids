@@ -1,0 +1,1071 @@
+{
+  "cases": {
+    "20261121_161452_Benign_9641f2": {
+      "capture": {
+        "frames": 28192,
+        "samples": 9,
+        "late_drops": 0,
+        "idle_expired": 0,
+        "capacity_evictions": 0
+      },
+      "matched_pressure_rows": 9,
+      "capture_sha256": "1a24569056fce9fd211ed29030226e6d63d69dd567ac22dfdd564640e23da491",
+      "bot_gap_seconds": [],
+      "connections": 9,
+      "baseline_flags": 3,
+      "candidate_flags": 0,
+      "baseline_brute_force_types": 0,
+      "candidate_brute_force_types": 0,
+      "auth_evidence_connections": 4,
+      "max_repeat_count": 2,
+      "pressure_maxima": {
+        "prior_pending": 0,
+        "prior_established": 0,
+        "prior_active_sources": 0,
+        "starts_5s": 3,
+        "starting_sources_5s": 2
+      },
+      "by_role": {
+        "ftp_login_failure": {
+          "connections": 1,
+          "baseline_flags": 0,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 1,
+          "max_repeat_count": 1,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 1,
+            "starting_sources_5s": 1
+          }
+        },
+        "ftp_login_success": {
+          "connections": 1,
+          "baseline_flags": 1,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 1,
+          "max_repeat_count": 2,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 2,
+            "starting_sources_5s": 1
+          }
+        },
+        "probe_available": {
+          "connections": 5,
+          "baseline_flags": 0,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 0,
+          "max_repeat_count": null,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 3,
+            "starting_sources_5s": 2
+          }
+        },
+        "ssh_login_failure": {
+          "connections": 1,
+          "baseline_flags": 1,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 1,
+          "max_repeat_count": 1,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 1,
+            "starting_sources_5s": 1
+          }
+        },
+        "ssh_login_success": {
+          "connections": 1,
+          "baseline_flags": 1,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 1,
+          "max_repeat_count": 2,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 2,
+            "starting_sources_5s": 1
+          }
+        }
+      },
+      "first_repeat_warning_s_from_first_attack_connection": null
+    },
+    "20261121_163023_FTPBruteForce_8c74df": {
+      "capture": {
+        "frames": 26681,
+        "samples": 32,
+        "late_drops": 0,
+        "idle_expired": 0,
+        "capacity_evictions": 0
+      },
+      "matched_pressure_rows": 32,
+      "capture_sha256": "9e65ab8199ee0534c6099024c5622f8c57a862a0601a8aaf36719260cb566f0b",
+      "bot_gap_seconds": [],
+      "connections": 32,
+      "baseline_flags": 29,
+      "candidate_flags": 29,
+      "baseline_brute_force_types": 0,
+      "candidate_brute_force_types": 29,
+      "auth_evidence_connections": 32,
+      "max_repeat_count": 32,
+      "pressure_maxima": {
+        "prior_pending": 0,
+        "prior_established": 0,
+        "prior_active_sources": 0,
+        "starts_5s": 21,
+        "starting_sources_5s": 1
+      },
+      "by_role": {
+        "ftp_login_failure": {
+          "connections": 32,
+          "baseline_flags": 29,
+          "candidate_flags": 29,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 29,
+          "auth_evidence_connections": 32,
+          "max_repeat_count": 32,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 21,
+            "starting_sources_5s": 1
+          }
+        }
+      },
+      "first_repeat_warning_s_from_first_attack_connection": 3.081
+    },
+    "20261121_163908_SSHBruteForce_737391": {
+      "capture": {
+        "frames": 27045,
+        "samples": 32,
+        "late_drops": 0,
+        "idle_expired": 0,
+        "capacity_evictions": 0
+      },
+      "matched_pressure_rows": 32,
+      "capture_sha256": "2e3af2cfc40243576849ecae9c71a4d380113322bc18afdcc4491198aa21db15",
+      "bot_gap_seconds": [],
+      "connections": 32,
+      "baseline_flags": 32,
+      "candidate_flags": 29,
+      "baseline_brute_force_types": 6,
+      "candidate_brute_force_types": 29,
+      "auth_evidence_connections": 32,
+      "max_repeat_count": 32,
+      "pressure_maxima": {
+        "prior_pending": 0,
+        "prior_established": 0,
+        "prior_active_sources": 0,
+        "starts_5s": 15,
+        "starting_sources_5s": 1
+      },
+      "by_role": {
+        "ssh_login_failure": {
+          "connections": 32,
+          "baseline_flags": 32,
+          "candidate_flags": 29,
+          "baseline_brute_force_types": 6,
+          "candidate_brute_force_types": 29,
+          "auth_evidence_connections": 32,
+          "max_repeat_count": 32,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 15,
+            "starting_sources_5s": 1
+          }
+        }
+      },
+      "first_repeat_warning_s_from_first_attack_connection": 1.696
+    },
+    "20261121_164814_BotBehavior_368522": {
+      "capture": {
+        "frames": 75510,
+        "samples": 1,
+        "late_drops": 0,
+        "idle_expired": 0,
+        "capacity_evictions": 0
+      },
+      "matched_pressure_rows": 1,
+      "capture_sha256": "7e213eebdf51e43a2e326af19dbc685569b3e293efce9a931829f6aad5a12b52",
+      "bot_gap_seconds": [
+        3.041,
+        3.227,
+        3.064,
+        3.187,
+        3.178,
+        3.218,
+        3.126,
+        3.175,
+        3.178,
+        3.17,
+        3.071
+      ],
+      "connections": 13,
+      "baseline_flags": 0,
+      "candidate_flags": 0,
+      "baseline_brute_force_types": 0,
+      "candidate_brute_force_types": 0,
+      "auth_evidence_connections": 0,
+      "max_repeat_count": null,
+      "pressure_maxima": {
+        "prior_pending": 0,
+        "prior_established": 0,
+        "prior_active_sources": 0,
+        "starts_5s": 1,
+        "starting_sources_5s": 1
+      },
+      "by_role": {
+        "bot_exchange": {
+          "connections": 12,
+          "baseline_flags": 0,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 0,
+          "max_repeat_count": null,
+          "pressure_maxima": null
+        },
+        "bot_trigger": {
+          "connections": 1,
+          "baseline_flags": 0,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 0,
+          "max_repeat_count": null,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 1,
+            "starting_sources_5s": 1
+          }
+        }
+      },
+      "first_repeat_warning_s_from_first_attack_connection": null
+    },
+    "20261121_171054_DoS_014602": {
+      "capture": {
+        "frames": 179566,
+        "samples": 139,
+        "late_drops": 0,
+        "idle_expired": 0,
+        "capacity_evictions": 0
+      },
+      "matched_pressure_rows": 139,
+      "capture_sha256": "4b01a82566083b20981296d53bbebcad4697addcc003d0848bb08b65653e09ac",
+      "bot_gap_seconds": [],
+      "connections": 139,
+      "baseline_flags": 19,
+      "candidate_flags": 19,
+      "baseline_brute_force_types": 0,
+      "candidate_brute_force_types": 0,
+      "auth_evidence_connections": 0,
+      "max_repeat_count": null,
+      "pressure_maxima": {
+        "prior_pending": 2,
+        "prior_established": 5,
+        "prior_active_sources": 1,
+        "starts_5s": 106,
+        "starting_sources_5s": 1
+      },
+      "by_role": {
+        "probe_available": {
+          "connections": 7,
+          "baseline_flags": 1,
+          "candidate_flags": 1,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 0,
+          "max_repeat_count": null,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 28,
+            "starting_sources_5s": 1
+          }
+        },
+        "probe_denied": {
+          "connections": 36,
+          "baseline_flags": 0,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 0,
+          "max_repeat_count": null,
+          "pressure_maxima": {
+            "prior_pending": 2,
+            "prior_established": 5,
+            "prior_active_sources": 1,
+            "starts_5s": 106,
+            "starting_sources_5s": 1
+          }
+        },
+        "resource_denied": {
+          "connections": 78,
+          "baseline_flags": 0,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 0,
+          "max_repeat_count": null,
+          "pressure_maxima": {
+            "prior_pending": 2,
+            "prior_established": 5,
+            "prior_active_sources": 1,
+            "starts_5s": 95,
+            "starting_sources_5s": 1
+          }
+        },
+        "resource_held": {
+          "connections": 18,
+          "baseline_flags": 18,
+          "candidate_flags": 18,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 0,
+          "max_repeat_count": null,
+          "pressure_maxima": {
+            "prior_pending": 1,
+            "prior_established": 1,
+            "prior_active_sources": 1,
+            "starts_5s": 104,
+            "starting_sources_5s": 1
+          }
+        }
+      },
+      "first_repeat_warning_s_from_first_attack_connection": null
+    },
+    "20261121_171906_DDoS_a4333b": {
+      "capture": {
+        "frames": 226302,
+        "samples": 143,
+        "late_drops": 0,
+        "idle_expired": 0,
+        "capacity_evictions": 0
+      },
+      "matched_pressure_rows": 143,
+      "capture_sha256": "fdabd0d7ef26b0e3705ee89f3d67142b2459cc679ee9cc7171b10180f5c124ea",
+      "bot_gap_seconds": [],
+      "connections": 143,
+      "baseline_flags": 1,
+      "candidate_flags": 1,
+      "baseline_brute_force_types": 0,
+      "candidate_brute_force_types": 0,
+      "auth_evidence_connections": 0,
+      "max_repeat_count": null,
+      "pressure_maxima": {
+        "prior_pending": 3,
+        "prior_established": 4,
+        "prior_active_sources": 3,
+        "starts_5s": 104,
+        "starting_sources_5s": 3
+      },
+      "by_role": {
+        "probe_available": {
+          "connections": 9,
+          "baseline_flags": 1,
+          "candidate_flags": 1,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 0,
+          "max_repeat_count": null,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 2,
+            "prior_active_sources": 1,
+            "starts_5s": 100,
+            "starting_sources_5s": 3
+          }
+        },
+        "probe_denied": {
+          "connections": 38,
+          "baseline_flags": 0,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 0,
+          "max_repeat_count": null,
+          "pressure_maxima": {
+            "prior_pending": 2,
+            "prior_established": 4,
+            "prior_active_sources": 2,
+            "starts_5s": 104,
+            "starting_sources_5s": 3
+          }
+        },
+        "resource_denied": {
+          "connections": 76,
+          "baseline_flags": 0,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 0,
+          "max_repeat_count": null,
+          "pressure_maxima": {
+            "prior_pending": 3,
+            "prior_established": 4,
+            "prior_active_sources": 3,
+            "starts_5s": 99,
+            "starting_sources_5s": 3
+          }
+        },
+        "resource_held": {
+          "connections": 20,
+          "baseline_flags": 0,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 0,
+          "max_repeat_count": null,
+          "pressure_maxima": {
+            "prior_pending": 1,
+            "prior_established": 2,
+            "prior_active_sources": 1,
+            "starts_5s": 104,
+            "starting_sources_5s": 3
+          }
+        }
+      },
+      "first_repeat_warning_s_from_first_attack_connection": null
+    },
+    "20261121_172724_Benign_fea5e0": {
+      "capture": {
+        "frames": 207599,
+        "samples": 9,
+        "late_drops": 0,
+        "idle_expired": 0,
+        "capacity_evictions": 0
+      },
+      "matched_pressure_rows": 9,
+      "capture_sha256": "a73a14c885c0de734628d3cfcaf7d8320a2b6985c22864fd3c9d1cf6ae4b4cf3",
+      "bot_gap_seconds": [],
+      "connections": 9,
+      "baseline_flags": 4,
+      "candidate_flags": 0,
+      "baseline_brute_force_types": 0,
+      "candidate_brute_force_types": 0,
+      "auth_evidence_connections": 4,
+      "max_repeat_count": 2,
+      "pressure_maxima": {
+        "prior_pending": 0,
+        "prior_established": 0,
+        "prior_active_sources": 0,
+        "starts_5s": 3,
+        "starting_sources_5s": 2
+      },
+      "by_role": {
+        "ftp_login_failure": {
+          "connections": 1,
+          "baseline_flags": 1,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 1,
+          "max_repeat_count": 1,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 1,
+            "starting_sources_5s": 1
+          }
+        },
+        "ftp_login_success": {
+          "connections": 1,
+          "baseline_flags": 1,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 1,
+          "max_repeat_count": 2,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 2,
+            "starting_sources_5s": 1
+          }
+        },
+        "probe_available": {
+          "connections": 5,
+          "baseline_flags": 0,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 0,
+          "max_repeat_count": null,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 3,
+            "starting_sources_5s": 2
+          }
+        },
+        "ssh_login_failure": {
+          "connections": 1,
+          "baseline_flags": 1,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 1,
+          "max_repeat_count": 1,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 1,
+            "starting_sources_5s": 1
+          }
+        },
+        "ssh_login_success": {
+          "connections": 1,
+          "baseline_flags": 1,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 1,
+          "max_repeat_count": 2,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 2,
+            "starting_sources_5s": 1
+          }
+        }
+      },
+      "first_repeat_warning_s_from_first_attack_connection": null
+    },
+    "20261121_201602_Benign_8c1433": {
+      "capture": {
+        "frames": 80974,
+        "samples": 10,
+        "late_drops": 0,
+        "idle_expired": 0,
+        "capacity_evictions": 0
+      },
+      "matched_pressure_rows": 9,
+      "capture_sha256": "dea603a6534405309fb5469543d78fb914067a935202709a165454a1561b694f",
+      "bot_gap_seconds": [],
+      "connections": 9,
+      "baseline_flags": 4,
+      "candidate_flags": 2,
+      "baseline_brute_force_types": 0,
+      "candidate_brute_force_types": 0,
+      "auth_evidence_connections": 4,
+      "max_repeat_count": 2,
+      "pressure_maxima": {
+        "prior_pending": 0,
+        "prior_established": 0,
+        "prior_active_sources": 0,
+        "starts_5s": 4,
+        "starting_sources_5s": 2
+      },
+      "by_role": {
+        "ftp_login_failure": {
+          "connections": 1,
+          "baseline_flags": 0,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 1,
+          "max_repeat_count": 1,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 1,
+            "starting_sources_5s": 1
+          }
+        },
+        "ftp_login_success": {
+          "connections": 1,
+          "baseline_flags": 0,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 1,
+          "max_repeat_count": 2,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 2,
+            "starting_sources_5s": 1
+          }
+        },
+        "probe_available": {
+          "connections": 5,
+          "baseline_flags": 2,
+          "candidate_flags": 2,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 0,
+          "max_repeat_count": null,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 4,
+            "starting_sources_5s": 2
+          }
+        },
+        "ssh_login_failure": {
+          "connections": 1,
+          "baseline_flags": 1,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 1,
+          "max_repeat_count": 1,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 1,
+            "starting_sources_5s": 1
+          }
+        },
+        "ssh_login_success": {
+          "connections": 1,
+          "baseline_flags": 1,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 1,
+          "max_repeat_count": 2,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 2,
+            "starting_sources_5s": 1
+          }
+        }
+      },
+      "first_repeat_warning_s_from_first_attack_connection": null
+    },
+    "20261121_225917_Benign_1d2c1b": {
+      "capture": {
+        "frames": 43599,
+        "samples": 10,
+        "late_drops": 0,
+        "idle_expired": 0,
+        "capacity_evictions": 0
+      },
+      "matched_pressure_rows": 9,
+      "capture_sha256": "e71de40837c5ee153a9940bc5c48318d1b6ae13fd6d592880c3c09a0893d33a5",
+      "bot_gap_seconds": [],
+      "connections": 9,
+      "baseline_flags": 2,
+      "candidate_flags": 0,
+      "baseline_brute_force_types": 0,
+      "candidate_brute_force_types": 0,
+      "auth_evidence_connections": 4,
+      "max_repeat_count": 2,
+      "pressure_maxima": {
+        "prior_pending": 0,
+        "prior_established": 0,
+        "prior_active_sources": 0,
+        "starts_5s": 4,
+        "starting_sources_5s": 2
+      },
+      "by_role": {
+        "ftp_login_failure": {
+          "connections": 1,
+          "baseline_flags": 0,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 1,
+          "max_repeat_count": 1,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 1,
+            "starting_sources_5s": 1
+          }
+        },
+        "ftp_login_success": {
+          "connections": 1,
+          "baseline_flags": 0,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 1,
+          "max_repeat_count": 2,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 2,
+            "starting_sources_5s": 1
+          }
+        },
+        "probe_available": {
+          "connections": 5,
+          "baseline_flags": 0,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 0,
+          "max_repeat_count": null,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 4,
+            "starting_sources_5s": 2
+          }
+        },
+        "ssh_login_failure": {
+          "connections": 1,
+          "baseline_flags": 1,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 1,
+          "max_repeat_count": 1,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 1,
+            "starting_sources_5s": 1
+          }
+        },
+        "ssh_login_success": {
+          "connections": 1,
+          "baseline_flags": 1,
+          "candidate_flags": 0,
+          "baseline_brute_force_types": 0,
+          "candidate_brute_force_types": 0,
+          "auth_evidence_connections": 1,
+          "max_repeat_count": 2,
+          "pressure_maxima": {
+            "prior_pending": 0,
+            "prior_established": 0,
+            "prior_active_sources": 0,
+            "starts_5s": 2,
+            "starting_sources_5s": 1
+          }
+        }
+      },
+      "first_repeat_warning_s_from_first_attack_connection": null
+    }
+  },
+  "partitions": {
+    "Benign": {
+      "connections": 36,
+      "baseline_flags": 13,
+      "candidate_flags": 2,
+      "baseline_brute_force_types": 0,
+      "candidate_brute_force_types": 0,
+      "auth_evidence_connections": 16,
+      "max_repeat_count": 2,
+      "pressure_maxima": {
+        "prior_pending": 0,
+        "prior_established": 0,
+        "prior_active_sources": 0,
+        "starts_5s": 4,
+        "starting_sources_5s": 2
+      }
+    },
+    "FTPBruteForce": {
+      "connections": 32,
+      "baseline_flags": 29,
+      "candidate_flags": 29,
+      "baseline_brute_force_types": 0,
+      "candidate_brute_force_types": 29,
+      "auth_evidence_connections": 32,
+      "max_repeat_count": 32,
+      "pressure_maxima": {
+        "prior_pending": 0,
+        "prior_established": 0,
+        "prior_active_sources": 0,
+        "starts_5s": 21,
+        "starting_sources_5s": 1
+      }
+    },
+    "SSHBruteForce": {
+      "connections": 32,
+      "baseline_flags": 32,
+      "candidate_flags": 29,
+      "baseline_brute_force_types": 6,
+      "candidate_brute_force_types": 29,
+      "auth_evidence_connections": 32,
+      "max_repeat_count": 32,
+      "pressure_maxima": {
+        "prior_pending": 0,
+        "prior_established": 0,
+        "prior_active_sources": 0,
+        "starts_5s": 15,
+        "starting_sources_5s": 1
+      }
+    },
+    "BotBehavior controls": {
+      "connections": 1,
+      "baseline_flags": 0,
+      "candidate_flags": 0,
+      "baseline_brute_force_types": 0,
+      "candidate_brute_force_types": 0,
+      "auth_evidence_connections": 0,
+      "max_repeat_count": null,
+      "pressure_maxima": {
+        "prior_pending": 0,
+        "prior_established": 0,
+        "prior_active_sources": 0,
+        "starts_5s": 1,
+        "starting_sources_5s": 1
+      }
+    },
+    "BotBehavior": {
+      "connections": 12,
+      "baseline_flags": 0,
+      "candidate_flags": 0,
+      "baseline_brute_force_types": 0,
+      "candidate_brute_force_types": 0,
+      "auth_evidence_connections": 0,
+      "max_repeat_count": null,
+      "pressure_maxima": null
+    },
+    "DoS controls": {
+      "connections": 43,
+      "baseline_flags": 1,
+      "candidate_flags": 1,
+      "baseline_brute_force_types": 0,
+      "candidate_brute_force_types": 0,
+      "auth_evidence_connections": 0,
+      "max_repeat_count": null,
+      "pressure_maxima": {
+        "prior_pending": 2,
+        "prior_established": 5,
+        "prior_active_sources": 1,
+        "starts_5s": 106,
+        "starting_sources_5s": 1
+      }
+    },
+    "DoS": {
+      "connections": 96,
+      "baseline_flags": 18,
+      "candidate_flags": 18,
+      "baseline_brute_force_types": 0,
+      "candidate_brute_force_types": 0,
+      "auth_evidence_connections": 0,
+      "max_repeat_count": null,
+      "pressure_maxima": {
+        "prior_pending": 2,
+        "prior_established": 5,
+        "prior_active_sources": 1,
+        "starts_5s": 104,
+        "starting_sources_5s": 1
+      }
+    },
+    "DDoS controls": {
+      "connections": 47,
+      "baseline_flags": 1,
+      "candidate_flags": 1,
+      "baseline_brute_force_types": 0,
+      "candidate_brute_force_types": 0,
+      "auth_evidence_connections": 0,
+      "max_repeat_count": null,
+      "pressure_maxima": {
+        "prior_pending": 2,
+        "prior_established": 4,
+        "prior_active_sources": 2,
+        "starts_5s": 104,
+        "starting_sources_5s": 3
+      }
+    },
+    "DDoS": {
+      "connections": 96,
+      "baseline_flags": 0,
+      "candidate_flags": 0,
+      "baseline_brute_force_types": 0,
+      "candidate_brute_force_types": 0,
+      "auth_evidence_connections": 0,
+      "max_repeat_count": null,
+      "pressure_maxima": {
+        "prior_pending": 3,
+        "prior_established": 4,
+        "prior_active_sources": 3,
+        "starts_5s": 104,
+        "starting_sources_5s": 3
+      }
+    }
+  },
+  "legitimate_http_burst_sessions": {
+    "phone_v1_train_02": {
+      "partition": "train",
+      "normal_connections": 48,
+      "capture": {
+        "frames": 20247,
+        "samples": 72,
+        "late_drops": 0,
+        "idle_expired": 0,
+        "capacity_evictions": 0
+      },
+      "maxima": {
+        "prior_pending": 3,
+        "prior_established": 3,
+        "prior_active_sources": 1,
+        "starts_5s": 55,
+        "starting_sources_5s": 1
+      }
+    },
+    "phone_v1_train_05": {
+      "partition": "train",
+      "normal_connections": 48,
+      "capture": {
+        "frames": 13922,
+        "samples": 72,
+        "late_drops": 0,
+        "idle_expired": 0,
+        "capacity_evictions": 0
+      },
+      "maxima": {
+        "prior_pending": 0,
+        "prior_established": 1,
+        "prior_active_sources": 1,
+        "starts_5s": 59,
+        "starting_sources_5s": 1
+      }
+    },
+    "phone_v1_train_08": {
+      "partition": "train",
+      "normal_connections": 48,
+      "capture": {
+        "frames": 14650,
+        "samples": 72,
+        "late_drops": 0,
+        "idle_expired": 0,
+        "capacity_evictions": 0
+      },
+      "maxima": {
+        "prior_pending": 2,
+        "prior_established": 2,
+        "prior_active_sources": 1,
+        "starts_5s": 60,
+        "starting_sources_5s": 1
+      }
+    },
+    "phone_v1_train_11": {
+      "partition": "train",
+      "normal_connections": 48,
+      "capture": {
+        "frames": 18040,
+        "samples": 72,
+        "late_drops": 0,
+        "idle_expired": 0,
+        "capacity_evictions": 0
+      },
+      "maxima": {
+        "prior_pending": 1,
+        "prior_established": 1,
+        "prior_active_sources": 1,
+        "starts_5s": 58,
+        "starting_sources_5s": 1
+      }
+    },
+    "phone_v1_validation_02": {
+      "partition": "validation",
+      "normal_connections": 48,
+      "capture": {
+        "frames": 12778,
+        "samples": 72,
+        "late_drops": 0,
+        "idle_expired": 0,
+        "capacity_evictions": 0
+      },
+      "maxima": {
+        "prior_pending": 1,
+        "prior_established": 2,
+        "prior_active_sources": 1,
+        "starts_5s": 53,
+        "starting_sources_5s": 1
+      }
+    },
+    "phone_v1_test_02": {
+      "partition": "test",
+      "normal_connections": 48,
+      "capture": {
+        "frames": 13360,
+        "samples": 72,
+        "late_drops": 0,
+        "idle_expired": 0,
+        "capacity_evictions": 0
+      },
+      "maxima": {
+        "prior_pending": 1,
+        "prior_established": 2,
+        "prior_active_sources": 1,
+        "starts_5s": 51,
+        "starting_sources_5s": 1
+      }
+    }
+  },
+  "normal": {
+    "connections": 127,
+    "baseline_flags": 15,
+    "candidate_flags": 4,
+    "baseline_brute_force_types": 0,
+    "candidate_brute_force_types": 0,
+    "auth_evidence_connections": 16,
+    "max_repeat_count": 2,
+    "pressure_maxima": {
+      "prior_pending": 2,
+      "prior_established": 5,
+      "prior_active_sources": 2,
+      "starts_5s": 106,
+      "starting_sources_5s": 3
+    }
+  },
+  "attack": {
+    "connections": 268,
+    "baseline_flags": 79,
+    "candidate_flags": 76,
+    "baseline_brute_force_types": 6,
+    "candidate_brute_force_types": 58,
+    "auth_evidence_connections": 64,
+    "max_repeat_count": 32,
+    "pressure_maxima": {
+      "prior_pending": 3,
+      "prior_established": 5,
+      "prior_active_sources": 3,
+      "starts_5s": 104,
+      "starting_sources_5s": 3
+    }
+  },
+  "order": "Native inference order for completed auth observations. PCAP packet time for inbound pressure.",
+  "auth_window_seconds": 30,
+  "auth_minimum_distinct_connections": 4,
+  "pressure_decision_policy": null,
+  "fit_or_live_alerts": false,
+  "evaluation_scope": "Previously opened development cases. Connection counts are not independent episodes."
+}

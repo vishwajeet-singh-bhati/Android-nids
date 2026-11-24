@@ -1,0 +1,217 @@
+{
+  "training_rows_scanned": 4963458,
+  "query_rows": 579,
+  "errors_audited": 216,
+  "native_gate_max_error": 4.3213367462158203e-07,
+  "by_profile": [
+    {
+      "profile": "Benign",
+      "error": "false positive",
+      "rows": 13,
+      "nearest_benign_l2_median": 10.228421793560535,
+      "nearest_attack_l2_median": 6.812325664828682,
+      "unique_queries_with_exact_opposite_label": 0,
+      "gate_flips_after_mean_replacement": {
+        "flow": 6,
+        "history_5s": 2,
+        "history_30s": 2,
+        "history_300s": 2,
+        "protocol": 7,
+        "history_age": 0
+      }
+    },
+    {
+      "profile": "BotBehavior",
+      "error": "false negative",
+      "rows": 12,
+      "nearest_benign_l2_median": 4.968489566485658,
+      "nearest_attack_l2_median": 6.725287886891062,
+      "unique_queries_with_exact_opposite_label": 0,
+      "gate_flips_after_mean_replacement": {
+        "flow": 0,
+        "history_5s": 0,
+        "history_30s": 0,
+        "history_300s": 4,
+        "protocol": 0,
+        "history_age": 0
+      }
+    },
+    {
+      "profile": "DDoS",
+      "error": "false negative",
+      "rows": 96,
+      "nearest_benign_l2_median": 6.36411113590194,
+      "nearest_attack_l2_median": 11.703768168358575,
+      "unique_queries_with_exact_opposite_label": 0,
+      "gate_flips_after_mean_replacement": {
+        "flow": 4,
+        "history_5s": 13,
+        "history_30s": 0,
+        "history_300s": 0,
+        "protocol": 29,
+        "history_age": 0
+      }
+    },
+    {
+      "profile": "DDoS",
+      "error": "false positive",
+      "rows": 1,
+      "nearest_benign_l2_median": 6.593015818898134,
+      "nearest_attack_l2_median": 6.4014411079019125,
+      "unique_queries_with_exact_opposite_label": 0,
+      "gate_flips_after_mean_replacement": {
+        "flow": 0,
+        "history_5s": 1,
+        "history_30s": 1,
+        "history_300s": 1,
+        "protocol": 0,
+        "history_age": 0
+      }
+    },
+    {
+      "profile": "DoS",
+      "error": "false negative",
+      "rows": 78,
+      "nearest_benign_l2_median": 7.064220605210254,
+      "nearest_attack_l2_median": 11.281930837478598,
+      "unique_queries_with_exact_opposite_label": 0,
+      "gate_flips_after_mean_replacement": {
+        "flow": 0,
+        "history_5s": 0,
+        "history_30s": 0,
+        "history_300s": 0,
+        "protocol": 27,
+        "history_age": 0
+      }
+    },
+    {
+      "profile": "DoS",
+      "error": "false positive",
+      "rows": 1,
+      "nearest_benign_l2_median": 6.05132570882541,
+      "nearest_attack_l2_median": 6.047574997134201,
+      "unique_queries_with_exact_opposite_label": 0,
+      "gate_flips_after_mean_replacement": {
+        "flow": 0,
+        "history_5s": 1,
+        "history_30s": 0,
+        "history_300s": 1,
+        "protocol": 0,
+        "history_age": 0
+      }
+    },
+    {
+      "profile": "FTPBruteForce",
+      "error": "false negative",
+      "rows": 3,
+      "nearest_benign_l2_median": 7.059217328359971,
+      "nearest_attack_l2_median": 8.156903294589286,
+      "unique_queries_with_exact_opposite_label": 0,
+      "gate_flips_after_mean_replacement": {
+        "flow": 0,
+        "history_5s": 0,
+        "history_30s": 3,
+        "history_300s": 2,
+        "protocol": 0,
+        "history_age": 0
+      }
+    },
+    {
+      "profile": "Recorded phone HTTP",
+      "error": "false negative",
+      "rows": 2,
+      "nearest_benign_l2_median": 32.570690642503216,
+      "nearest_attack_l2_median": 32.76277552633408,
+      "unique_queries_with_exact_opposite_label": 0,
+      "gate_flips_after_mean_replacement": {
+        "flow": 0,
+        "history_5s": 1,
+        "history_30s": 0,
+        "history_300s": 0,
+        "protocol": 0,
+        "history_age": 0
+      }
+    },
+    {
+      "profile": "Recorded phone HTTP",
+      "error": "false positive",
+      "rows": 10,
+      "nearest_benign_l2_median": 15.09066985409586,
+      "nearest_attack_l2_median": 10.422108742950858,
+      "unique_queries_with_exact_opposite_label": 0,
+      "gate_flips_after_mean_replacement": {
+        "flow": 0,
+        "history_5s": 5,
+        "history_30s": 3,
+        "history_300s": 5,
+        "protocol": 10,
+        "history_age": 0
+      }
+    }
+  ],
+  "matched_lab_protocol_overlap": {
+    "SSH": {
+      "normal_connections": 8,
+      "guessing_connections": 32,
+      "minimum_opposite_label_l2": 3.3481997439969184,
+      "median_nearest_opposite_label_l2": 5.454653506821539,
+      "exact_opposite_label_pairs": 0,
+      "median_group_rms_to_nearest_opposite_label": {
+        "flow": 0.10600522591721348,
+        "history_5s": 0.5422858880635302,
+        "history_30s": 0.6205440329837568,
+        "history_300s": 0.49202351110518017,
+        "protocol": 0.0,
+        "history_age": 0.0
+      }
+    },
+    "FTP": {
+      "normal_connections": 8,
+      "guessing_connections": 32,
+      "minimum_opposite_label_l2": 2.3231345121530556,
+      "median_nearest_opposite_label_l2": 5.307255300084023,
+      "exact_opposite_label_pairs": 0,
+      "median_group_rms_to_nearest_opposite_label": {
+        "flow": 0.051524321888522906,
+        "history_5s": 0.17521387287332266,
+        "history_30s": 0.6639439631891504,
+        "history_300s": 0.508286364091562,
+        "protocol": 0.0,
+        "history_age": 0.0
+      }
+    }
+  },
+  "phone_training_hard_negatives": {
+    "normal_search_or_code": {
+      "benign_training_rows": 56,
+      "flagged_by_frozen_gate": 11
+    },
+    "ordinary_failed_login": {
+      "benign_training_rows": 56,
+      "flagged_by_frozen_gate": 41
+    },
+    "ordinary_server_error": {
+      "benign_training_rows": 56,
+      "flagged_by_frozen_gate": 0
+    },
+    "successful_login": {
+      "benign_training_rows": 56,
+      "flagged_by_frozen_gate": 0
+    },
+    "normal_page": {
+      "benign_training_rows": 56,
+      "flagged_by_frozen_gate": 0
+    },
+    "normal_http": {
+      "benign_training_rows": 56,
+      "flagged_by_frozen_gate": 0
+    },
+    "legitimate_http_burst": {
+      "benign_training_rows": 192,
+      "flagged_by_frozen_gate": 0
+    }
+  },
+  "source": "Frozen code40 train cache and previously opened phone cases. The legacy train cache includes repeated phone rows.",
+  "method": "Ten nearest training rows per binary label by FP64 L2 in standardized space. Group RMS decomposes their distance. Exact match requires equality of all 147 raw values.",
+  "scope": "Mean replacements are counterfactual sensitivity checks. Distance depends on the chosen metric. No fitting, calibration or prospective accuracy claim."
+}

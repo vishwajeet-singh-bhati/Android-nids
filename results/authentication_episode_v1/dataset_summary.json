@@ -1,0 +1,376 @@
+{
+  "partition_counts": {
+    "train": {
+      "observed_prefixes": 312,
+      "verified_auth_prefixes": 312
+    },
+    "validation": {
+      "observed_prefixes": 64,
+      "verified_auth_prefixes": 64
+    },
+    "test": {
+      "observed_prefixes": 64,
+      "verified_auth_prefixes": 64
+    },
+    "external_development": {
+      "observed_prefixes": 80,
+      "verified_auth_prefixes": 80
+    }
+  },
+  "evaluation": {
+    "train": {
+      "HTTP": {
+        "recorded_gate": {
+          "normal_episodes": 4,
+          "false_normal_episodes": 0,
+          "positive_episodes": 10,
+          "premature_alerts": 0,
+          "alerts_before_first_attack_start": 0,
+          "detected_episodes": 0,
+          "episodes_with_flag_at_or_after_attack_prefix": 0,
+          "first_alert_delay_s": []
+        },
+        "peer_four_in_30s": {
+          "normal_episodes": 4,
+          "false_normal_episodes": 4,
+          "positive_episodes": 10,
+          "premature_alerts": 0,
+          "alerts_before_first_attack_start": 0,
+          "detected_episodes": 10,
+          "episodes_with_flag_at_or_after_attack_prefix": 10,
+          "first_alert_delay_s": [
+            4.562,
+            3.599,
+            4.424,
+            5.527,
+            3.087,
+            2.934,
+            3.937,
+            5.33,
+            3.094,
+            4.906
+          ]
+        }
+      }
+    },
+    "validation": {
+      "HTTP": {
+        "recorded_gate": {
+          "normal_episodes": 1,
+          "false_normal_episodes": 0,
+          "positive_episodes": 2,
+          "premature_alerts": 0,
+          "alerts_before_first_attack_start": 0,
+          "detected_episodes": 0,
+          "episodes_with_flag_at_or_after_attack_prefix": 0,
+          "first_alert_delay_s": []
+        },
+        "peer_four_in_30s": {
+          "normal_episodes": 1,
+          "false_normal_episodes": 1,
+          "positive_episodes": 2,
+          "premature_alerts": 0,
+          "alerts_before_first_attack_start": 0,
+          "detected_episodes": 2,
+          "episodes_with_flag_at_or_after_attack_prefix": 2,
+          "first_alert_delay_s": [
+            7.301,
+            7.747
+          ]
+        }
+      }
+    },
+    "test": {
+      "HTTP": {
+        "recorded_gate": {
+          "normal_episodes": 1,
+          "false_normal_episodes": 0,
+          "positive_episodes": 2,
+          "premature_alerts": 0,
+          "alerts_before_first_attack_start": 0,
+          "detected_episodes": 0,
+          "episodes_with_flag_at_or_after_attack_prefix": 0,
+          "first_alert_delay_s": []
+        },
+        "peer_four_in_30s": {
+          "normal_episodes": 1,
+          "false_normal_episodes": 1,
+          "positive_episodes": 2,
+          "premature_alerts": 0,
+          "alerts_before_first_attack_start": 0,
+          "detected_episodes": 2,
+          "episodes_with_flag_at_or_after_attack_prefix": 2,
+          "first_alert_delay_s": [
+            6.464,
+            4.266
+          ]
+        }
+      }
+    },
+    "external_development": {
+      "FTP": {
+        "recorded_gate": {
+          "normal_episodes": 4,
+          "false_normal_episodes": 2,
+          "positive_episodes": 1,
+          "premature_alerts": 0,
+          "alerts_before_first_attack_start": 0,
+          "detected_episodes": 1,
+          "episodes_with_flag_at_or_after_attack_prefix": 1,
+          "first_alert_delay_s": [
+            3.081
+          ]
+        },
+        "peer_four_in_30s": {
+          "normal_episodes": 4,
+          "false_normal_episodes": 0,
+          "positive_episodes": 1,
+          "premature_alerts": 0,
+          "alerts_before_first_attack_start": 0,
+          "detected_episodes": 1,
+          "episodes_with_flag_at_or_after_attack_prefix": 1,
+          "first_alert_delay_s": [
+            3.081
+          ]
+        }
+      },
+      "SSH": {
+        "recorded_gate": {
+          "normal_episodes": 4,
+          "false_normal_episodes": 4,
+          "positive_episodes": 1,
+          "premature_alerts": 0,
+          "alerts_before_first_attack_start": 0,
+          "detected_episodes": 1,
+          "episodes_with_flag_at_or_after_attack_prefix": 1,
+          "first_alert_delay_s": [
+            0.408
+          ]
+        },
+        "peer_four_in_30s": {
+          "normal_episodes": 4,
+          "false_normal_episodes": 0,
+          "positive_episodes": 1,
+          "premature_alerts": 0,
+          "alerts_before_first_attack_start": 0,
+          "detected_episodes": 1,
+          "episodes_with_flag_at_or_after_attack_prefix": 1,
+          "first_alert_delay_s": [
+            1.696
+          ]
+        }
+      }
+    }
+  },
+  "excluded_episodes": {},
+  "recorded_gate_versions": {
+    "HTTP": "preserved v2 at data collection",
+    "SSH/FTP": "Code40 detector"
+  },
+  "routes": {
+    "train": {
+      "http_password_spraying": {
+        "rows": 80,
+        "semantic_cue": 0,
+        "auth_prefix": 80,
+        "auth_and_semantic_cues": 0
+      },
+      "http_password_guessing": {
+        "rows": 120,
+        "semantic_cue": 0,
+        "auth_prefix": 120,
+        "auth_and_semantic_cues": 0
+      },
+      "normal_search_or_code": {
+        "rows": 56,
+        "semantic_cue": 17,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "sql_injection": {
+        "rows": 60,
+        "semantic_cue": 60,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "xss": {
+        "rows": 60,
+        "semantic_cue": 60,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "ordinary_failed_login": {
+        "rows": 56,
+        "semantic_cue": 0,
+        "auth_prefix": 56,
+        "auth_and_semantic_cues": 0
+      },
+      "ordinary_server_error": {
+        "rows": 56,
+        "semantic_cue": 0,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "successful_login": {
+        "rows": 56,
+        "semantic_cue": 0,
+        "auth_prefix": 56,
+        "auth_and_semantic_cues": 0
+      },
+      "normal_page": {
+        "rows": 56,
+        "semantic_cue": 0,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "normal_http": {
+        "rows": 56,
+        "semantic_cue": 0,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "legitimate_http_burst": {
+        "rows": 192,
+        "semantic_cue": 0,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      }
+    },
+    "validation": {
+      "http_password_spraying": {
+        "rows": 16,
+        "semantic_cue": 0,
+        "auth_prefix": 16,
+        "auth_and_semantic_cues": 0
+      },
+      "xss": {
+        "rows": 12,
+        "semantic_cue": 12,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "sql_injection": {
+        "rows": 12,
+        "semantic_cue": 12,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "http_password_guessing": {
+        "rows": 24,
+        "semantic_cue": 0,
+        "auth_prefix": 24,
+        "auth_and_semantic_cues": 0
+      },
+      "ordinary_server_error": {
+        "rows": 12,
+        "semantic_cue": 0,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "ordinary_failed_login": {
+        "rows": 12,
+        "semantic_cue": 0,
+        "auth_prefix": 12,
+        "auth_and_semantic_cues": 0
+      },
+      "normal_http": {
+        "rows": 12,
+        "semantic_cue": 0,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "normal_search_or_code": {
+        "rows": 12,
+        "semantic_cue": 2,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "normal_page": {
+        "rows": 12,
+        "semantic_cue": 0,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "successful_login": {
+        "rows": 12,
+        "semantic_cue": 0,
+        "auth_prefix": 12,
+        "auth_and_semantic_cues": 0
+      },
+      "legitimate_http_burst": {
+        "rows": 48,
+        "semantic_cue": 0,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      }
+    },
+    "test": {
+      "ordinary_failed_login": {
+        "rows": 12,
+        "semantic_cue": 0,
+        "auth_prefix": 12,
+        "auth_and_semantic_cues": 0
+      },
+      "http_password_guessing": {
+        "rows": 24,
+        "semantic_cue": 0,
+        "auth_prefix": 24,
+        "auth_and_semantic_cues": 0
+      },
+      "sql_injection": {
+        "rows": 12,
+        "semantic_cue": 12,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "http_password_spraying": {
+        "rows": 16,
+        "semantic_cue": 0,
+        "auth_prefix": 16,
+        "auth_and_semantic_cues": 0
+      },
+      "normal_search_or_code": {
+        "rows": 12,
+        "semantic_cue": 3,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "successful_login": {
+        "rows": 12,
+        "semantic_cue": 0,
+        "auth_prefix": 12,
+        "auth_and_semantic_cues": 0
+      },
+      "normal_http": {
+        "rows": 12,
+        "semantic_cue": 0,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "xss": {
+        "rows": 12,
+        "semantic_cue": 12,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "normal_page": {
+        "rows": 12,
+        "semantic_cue": 0,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "ordinary_server_error": {
+        "rows": 12,
+        "semantic_cue": 0,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      },
+      "legitimate_http_burst": {
+        "rows": 48,
+        "semantic_cue": 0,
+        "auth_prefix": 0,
+        "auth_and_semantic_cues": 0
+      }
+    }
+  }
+}

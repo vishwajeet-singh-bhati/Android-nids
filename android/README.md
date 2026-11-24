@@ -1,3 +1,5 @@
+> Current application is Rakshak code46. This document retains the network-core methodology; use the root component index and Rakshak guide for SMS/URL setup, current controls and the empty public-feed policy.
+
 # Android source map
 
 | Module | Role |

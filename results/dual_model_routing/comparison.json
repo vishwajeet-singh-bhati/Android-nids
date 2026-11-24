@@ -1,0 +1,1111 @@
+{
+  "frozen_gate_threshold": 0.5408333333333333,
+  "frozen_diagnosis_type_cutoff": 0.8,
+  "policies_selected_or_tuned_on_test": false,
+  "exports_sha256": {
+    "gate": "0d6179aca935d70880c8d51649d4927d2ebeeace9dc1a6ce547c77f80eabc333",
+    "diagnosis": "17954500e7e4bf89003cdc9285172141dfa17b7810a49fde565969a2821cb53a"
+  },
+  "protocol_saved_cases": 9,
+  "results": {
+    "phone_validation": {
+      "current_gate": {
+        "binary": {
+          "tp": 64,
+          "fp": 11,
+          "fn": 0,
+          "tn": 109,
+          "precision": 0.8533333333333334,
+          "recall": 1.0,
+          "benign_fpr": 0.09166666666666666,
+          "f1": 0.920863309352518
+        },
+        "by_group": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 24,
+            "positive": 24
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 16,
+            "positive": 16
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 2,
+            "positive": 0
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 9,
+            "positive": 0
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          }
+        }
+      },
+      "diagnosis_every_input_argmax": {
+        "binary": {
+          "tp": 64,
+          "fp": 10,
+          "fn": 0,
+          "tn": 110,
+          "precision": 0.8648648648648649,
+          "recall": 1.0,
+          "benign_fpr": 0.08333333333333333,
+          "f1": 0.927536231884058
+        },
+        "by_group": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 24,
+            "positive": 24
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 16,
+            "positive": 16
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 10,
+            "positive": 0
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          }
+        }
+      },
+      "either_model_argmax": {
+        "binary": {
+          "tp": 64,
+          "fp": 12,
+          "fn": 0,
+          "tn": 108,
+          "precision": 0.8421052631578947,
+          "recall": 1.0,
+          "benign_fpr": 0.1,
+          "f1": 0.9142857142857143
+        },
+        "by_group": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 24,
+            "positive": 24
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 16,
+            "positive": 16
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 2,
+            "positive": 0
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 10,
+            "positive": 0
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          }
+        }
+      },
+      "both_models_argmax": {
+        "binary": {
+          "tp": 64,
+          "fp": 9,
+          "fn": 0,
+          "tn": 111,
+          "precision": 0.8767123287671232,
+          "recall": 1.0,
+          "benign_fpr": 0.075,
+          "f1": 0.9343065693430657
+        },
+        "by_group": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 24,
+            "positive": 24
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 16,
+            "positive": 16
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 9,
+            "positive": 0
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          }
+        }
+      },
+      "gate_or_confident_diagnosis": {
+        "binary": {
+          "tp": 64,
+          "fp": 12,
+          "fn": 0,
+          "tn": 108,
+          "precision": 0.8421052631578947,
+          "recall": 1.0,
+          "benign_fpr": 0.1,
+          "f1": 0.9142857142857143
+        },
+        "by_group": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 24,
+            "positive": 24
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 16,
+            "positive": 16
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 2,
+            "positive": 0
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 10,
+            "positive": 0
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          }
+        }
+      },
+      "gate_and_confident_diagnosis": {
+        "binary": {
+          "tp": 63,
+          "fp": 9,
+          "fn": 1,
+          "tn": 111,
+          "precision": 0.875,
+          "recall": 0.984375,
+          "benign_fpr": 0.075,
+          "f1": 0.9264705882352942
+        },
+        "by_group": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 24,
+            "positive": 24
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 15,
+            "positive": 16
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 9,
+            "positive": 0
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          }
+        }
+      }
+    },
+    "phone_test": {
+      "current_gate": {
+        "binary": {
+          "tp": 62,
+          "fp": 10,
+          "fn": 2,
+          "tn": 110,
+          "precision": 0.8611111111111112,
+          "recall": 0.96875,
+          "benign_fpr": 0.08333333333333333,
+          "f1": 0.9117647058823529
+        },
+        "by_group": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 23,
+            "positive": 24
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 16,
+            "positive": 16
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 2,
+            "positive": 0
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 8,
+            "positive": 0
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 11,
+            "positive": 12
+          }
+        }
+      },
+      "diagnosis_every_input_argmax": {
+        "binary": {
+          "tp": 64,
+          "fp": 9,
+          "fn": 0,
+          "tn": 111,
+          "precision": 0.8767123287671232,
+          "recall": 1.0,
+          "benign_fpr": 0.075,
+          "f1": 0.9343065693430657
+        },
+        "by_group": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 24,
+            "positive": 24
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 16,
+            "positive": 16
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 9,
+            "positive": 0
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          }
+        }
+      },
+      "either_model_argmax": {
+        "binary": {
+          "tp": 64,
+          "fp": 11,
+          "fn": 0,
+          "tn": 109,
+          "precision": 0.8533333333333334,
+          "recall": 1.0,
+          "benign_fpr": 0.09166666666666666,
+          "f1": 0.920863309352518
+        },
+        "by_group": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 24,
+            "positive": 24
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 16,
+            "positive": 16
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 2,
+            "positive": 0
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 9,
+            "positive": 0
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          }
+        }
+      },
+      "both_models_argmax": {
+        "binary": {
+          "tp": 62,
+          "fp": 8,
+          "fn": 2,
+          "tn": 112,
+          "precision": 0.8857142857142857,
+          "recall": 0.96875,
+          "benign_fpr": 0.06666666666666667,
+          "f1": 0.9253731343283582
+        },
+        "by_group": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 23,
+            "positive": 24
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 16,
+            "positive": 16
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 8,
+            "positive": 0
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 11,
+            "positive": 12
+          }
+        }
+      },
+      "gate_or_confident_diagnosis": {
+        "binary": {
+          "tp": 64,
+          "fp": 10,
+          "fn": 0,
+          "tn": 110,
+          "precision": 0.8648648648648649,
+          "recall": 1.0,
+          "benign_fpr": 0.08333333333333333,
+          "f1": 0.927536231884058
+        },
+        "by_group": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 24,
+            "positive": 24
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 16,
+            "positive": 16
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 2,
+            "positive": 0
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 8,
+            "positive": 0
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          }
+        }
+      },
+      "gate_and_confident_diagnosis": {
+        "binary": {
+          "tp": 61,
+          "fp": 8,
+          "fn": 3,
+          "tn": 112,
+          "precision": 0.8840579710144928,
+          "recall": 0.953125,
+          "benign_fpr": 0.06666666666666667,
+          "f1": 0.9172932330827067
+        },
+        "by_group": {
+          "http_password_guessing": {
+            "rows": 24,
+            "flagged": 23,
+            "positive": 24
+          },
+          "http_password_spraying": {
+            "rows": 16,
+            "flagged": 15,
+            "positive": 16
+          },
+          "legitimate_http_burst": {
+            "rows": 48,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_http": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_page": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "normal_search_or_code": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "ordinary_failed_login": {
+            "rows": 12,
+            "flagged": 8,
+            "positive": 0
+          },
+          "ordinary_server_error": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "sql_injection": {
+            "rows": 12,
+            "flagged": 12,
+            "positive": 12
+          },
+          "successful_login": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 0
+          },
+          "xss": {
+            "rows": 12,
+            "flagged": 11,
+            "positive": 12
+          }
+        }
+      }
+    },
+    "protocol_development": {
+      "current_gate": {
+        "binary": {
+          "tp": 79,
+          "fp": 13,
+          "fn": 189,
+          "tn": 23,
+          "precision": 0.8586956521739131,
+          "recall": 0.2947761194029851,
+          "benign_fpr": 0.3611111111111111,
+          "f1": 0.4388888888888889
+        },
+        "by_group": {
+          "Benign": {
+            "rows": 36,
+            "flagged": 13,
+            "positive": 0
+          },
+          "BotBehavior": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 12
+          },
+          "DDoS": {
+            "rows": 96,
+            "flagged": 0,
+            "positive": 96
+          },
+          "DoS": {
+            "rows": 96,
+            "flagged": 18,
+            "positive": 96
+          },
+          "FTPBruteForce": {
+            "rows": 32,
+            "flagged": 29,
+            "positive": 32
+          },
+          "SSHBruteForce": {
+            "rows": 32,
+            "flagged": 32,
+            "positive": 32
+          }
+        }
+      },
+      "diagnosis_every_input_argmax": {
+        "binary": {
+          "tp": 27,
+          "fp": 0,
+          "fn": 241,
+          "tn": 36,
+          "precision": 1.0,
+          "recall": 0.10074626865671642,
+          "benign_fpr": 0.0,
+          "f1": 0.18305084745762712
+        },
+        "by_group": {
+          "Benign": {
+            "rows": 36,
+            "flagged": 0,
+            "positive": 0
+          },
+          "BotBehavior": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 12
+          },
+          "DDoS": {
+            "rows": 96,
+            "flagged": 9,
+            "positive": 96
+          },
+          "DoS": {
+            "rows": 96,
+            "flagged": 11,
+            "positive": 96
+          },
+          "FTPBruteForce": {
+            "rows": 32,
+            "flagged": 0,
+            "positive": 32
+          },
+          "SSHBruteForce": {
+            "rows": 32,
+            "flagged": 7,
+            "positive": 32
+          }
+        }
+      },
+      "either_model_argmax": {
+        "binary": {
+          "tp": 96,
+          "fp": 13,
+          "fn": 172,
+          "tn": 23,
+          "precision": 0.8807339449541285,
+          "recall": 0.3582089552238806,
+          "benign_fpr": 0.3611111111111111,
+          "f1": 0.5092838196286472
+        },
+        "by_group": {
+          "Benign": {
+            "rows": 36,
+            "flagged": 13,
+            "positive": 0
+          },
+          "BotBehavior": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 12
+          },
+          "DDoS": {
+            "rows": 96,
+            "flagged": 9,
+            "positive": 96
+          },
+          "DoS": {
+            "rows": 96,
+            "flagged": 26,
+            "positive": 96
+          },
+          "FTPBruteForce": {
+            "rows": 32,
+            "flagged": 29,
+            "positive": 32
+          },
+          "SSHBruteForce": {
+            "rows": 32,
+            "flagged": 32,
+            "positive": 32
+          }
+        }
+      },
+      "both_models_argmax": {
+        "binary": {
+          "tp": 10,
+          "fp": 0,
+          "fn": 258,
+          "tn": 36,
+          "precision": 1.0,
+          "recall": 0.03731343283582089,
+          "benign_fpr": 0.0,
+          "f1": 0.07194244604316546
+        },
+        "by_group": {
+          "Benign": {
+            "rows": 36,
+            "flagged": 0,
+            "positive": 0
+          },
+          "BotBehavior": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 12
+          },
+          "DDoS": {
+            "rows": 96,
+            "flagged": 0,
+            "positive": 96
+          },
+          "DoS": {
+            "rows": 96,
+            "flagged": 3,
+            "positive": 96
+          },
+          "FTPBruteForce": {
+            "rows": 32,
+            "flagged": 0,
+            "positive": 32
+          },
+          "SSHBruteForce": {
+            "rows": 32,
+            "flagged": 7,
+            "positive": 32
+          }
+        }
+      },
+      "gate_or_confident_diagnosis": {
+        "binary": {
+          "tp": 95,
+          "fp": 13,
+          "fn": 173,
+          "tn": 23,
+          "precision": 0.8796296296296297,
+          "recall": 0.35447761194029853,
+          "benign_fpr": 0.3611111111111111,
+          "f1": 0.5053191489361702
+        },
+        "by_group": {
+          "Benign": {
+            "rows": 36,
+            "flagged": 13,
+            "positive": 0
+          },
+          "BotBehavior": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 12
+          },
+          "DDoS": {
+            "rows": 96,
+            "flagged": 8,
+            "positive": 96
+          },
+          "DoS": {
+            "rows": 96,
+            "flagged": 26,
+            "positive": 96
+          },
+          "FTPBruteForce": {
+            "rows": 32,
+            "flagged": 29,
+            "positive": 32
+          },
+          "SSHBruteForce": {
+            "rows": 32,
+            "flagged": 32,
+            "positive": 32
+          }
+        }
+      },
+      "gate_and_confident_diagnosis": {
+        "binary": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 262,
+          "tn": 36,
+          "precision": 1.0,
+          "recall": 0.022388059701492536,
+          "benign_fpr": 0.0,
+          "f1": 0.043795620437956206
+        },
+        "by_group": {
+          "Benign": {
+            "rows": 36,
+            "flagged": 0,
+            "positive": 0
+          },
+          "BotBehavior": {
+            "rows": 12,
+            "flagged": 0,
+            "positive": 12
+          },
+          "DDoS": {
+            "rows": 96,
+            "flagged": 0,
+            "positive": 96
+          },
+          "DoS": {
+            "rows": 96,
+            "flagged": 0,
+            "positive": 96
+          },
+          "FTPBruteForce": {
+            "rows": 32,
+            "flagged": 0,
+            "positive": 32
+          },
+          "SSHBruteForce": {
+            "rows": 32,
+            "flagged": 6,
+            "positive": 32
+          }
+        }
+      }
+    }
+  },
+  "scope": "Six fixed decision rules on previously examined same-phone data. No model fitting, threshold search, device inference benchmark or deployment. Protocol subset includes normal protocol cases and labeled primary attack connections. Availability probes during load and emulator triggers are excluded. Binary flags do not establish correct family diagnosis. No independent generalization claim."
+}

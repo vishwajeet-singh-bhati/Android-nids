@@ -10,6 +10,9 @@ class ValidationInstrumentation: Instrumentation() {
     private var options=Bundle()
     override fun onCreate(arguments: Bundle?) { options=arguments ?: Bundle(); start() }
     override fun onStart() {
+        if(options.getString("mode")?.startsWith("rakshak_")==true){
+            RakshakValidation(this,targetContext).run(options.getString("mode")!!);return
+        }
         if(options.getString("mode") in setOf("hybrid_contract","hybrid_runtime","hybrid_attribution")){
             HybridPipelineValidation(this,targetContext).run(options);return
         }

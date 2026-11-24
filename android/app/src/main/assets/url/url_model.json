@@ -1,0 +1,278 @@
+{
+  "format_version": 1,
+  "model_version": "full_url-edb8f2cc8642",
+  "mode": "full_url",
+  "reference_time": "2026-11-23T14:41:35Z",
+  "validation_crossfit": {
+    "pr_auc": 0.9379510880826468,
+    "roc_auc": 0.9758677030341405,
+    "ece": 0.005596055539122338,
+    "outcomes": {
+      "false_alarm_rate": 0.005026114601468476,
+      "phishing_caught_rate": 0.8357811767396806,
+      "missed_rate": 0.053579236800263164,
+      "projected_by_phishing_base_rate": {
+        "0.01": {
+          "precision_of_PHISHING": 0.6268202799237518,
+          "phishing_among_LIKELY_SAFE": 0.0006656126411358973,
+          "uncertain_share": 0.18170510824713892
+        },
+        "0.05": {
+          "precision_of_PHISHING": 0.8974567812687125,
+          "phishing_among_LIKELY_SAFE": 0.003458499462921225,
+          "uncertain_share": 0.1788337740335194
+        }
+      }
+    }
+  },
+  "normalizer": {
+    "source": "src/preprocessing/url_normalizer.py (follow it exactly; reference.jsonl checks each part)",
+    "max_raw_length": 8192,
+    "allowed_schemes": [
+      "ftp",
+      "http",
+      "https"
+    ],
+    "default_ports": {
+      "http": 80,
+      "https": 443,
+      "ftp": 21
+    },
+    "scheme_when_missing": "http",
+    "unreserved_percent_decoded": "A-Z a-z 0-9 - . _ ~",
+    "idna": "UTS #46, non-transitional (Python idna 3.x, uts46=True)",
+    "public_suffix_list": "public_suffix_list.dat: tldextract 5.4.0 bundled snapshot",
+    "registered_domain": "ICANN section only",
+    "site": "ICANN + PRIVATE sections",
+    "model_string_is_ascii": true
+  },
+  "tokenizer": {
+    "format_version": 1,
+    "type": "char_ascii_head_tail",
+    "max_length": 256,
+    "tail_length": 64,
+    "pad_id": 0,
+    "unk_id": 1,
+    "trunc_id": 2,
+    "charset": "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
+    "vocab_size": 97,
+    "head_length": 191
+  },
+  "features": {
+    "names": [
+      "url_length",
+      "host_length",
+      "path_length",
+      "query_length",
+      "registered_domain_length",
+      "num_host_labels",
+      "num_subdomain_labels",
+      "num_dots",
+      "num_digits",
+      "num_special_chars",
+      "host_hyphens",
+      "longest_host_label",
+      "num_underscores",
+      "num_percent_encoded",
+      "num_query_params",
+      "path_depth",
+      "longest_path_segment",
+      "digit_ratio",
+      "special_char_ratio",
+      "host_digit_ratio",
+      "entropy_url",
+      "entropy_host",
+      "entropy_path_query",
+      "is_ip_host",
+      "has_punycode",
+      "has_userinfo",
+      "has_nondefault_port"
+    ],
+    "log1p_then_zscore": [
+      "url_length",
+      "host_length",
+      "path_length",
+      "query_length",
+      "registered_domain_length",
+      "num_host_labels",
+      "num_subdomain_labels",
+      "num_dots",
+      "num_digits",
+      "num_special_chars",
+      "host_hyphens",
+      "longest_host_label",
+      "num_underscores",
+      "num_percent_encoded",
+      "num_query_params",
+      "path_depth",
+      "longest_path_segment"
+    ],
+    "mean": [
+      3.8295747156267423,
+      2.8630820060161786,
+      2.7544433263927193,
+      0.545367340110213,
+      2.559262588663385,
+      1.3230154859882486,
+      0.4658844816920724,
+      1.0749149246469507,
+      1.14087779532757,
+      2.0563028875947293,
+      0.10894190034926778,
+      2.285900831263062,
+      0.12258936629167821,
+      0.10142329991447342,
+      0.16331330277007994,
+      0.8935590978771292,
+      2.2246420731143197,
+      0.0794097403422379,
+      0.152014915680495,
+      0.023354419477819775,
+      4.114823374176379,
+      3.3417383956576514,
+      2.9616475381081147,
+      0.0005099751132144751,
+      0.0007547631675574232,
+      0.0,
+      0.00044877809962873814
+    ],
+    "std": [
+      0.741971341958472,
+      0.3616210563973853,
+      1.415507146093746,
+      1.3435267090240177,
+      0.311663211746764,
+      0.17624870717196198,
+      0.3521155534776234,
+      0.3021408385920684,
+      1.1953488441192581,
+      0.6617812266884711,
+      0.2911612272766148,
+      0.4605630854692475,
+      0.4092668836910675,
+      0.5265501124297841,
+      0.42840740794622406,
+      0.6299845115942302,
+      1.5313714874298028,
+      0.10703618704946703,
+      0.0408737538278605,
+      0.08097982020179105,
+      0.4912962753620826,
+      0.3958314770101855,
+      1.804599677914062,
+      0.022576869548238485,
+      0.027462583638805865,
+      1.0,
+      0.02117962931322746
+    ],
+    "source": "src/preprocessing/feature_extractor.py compute_features"
+  },
+  "cnn": {
+    "file": "url_cnn.pte",
+    "member": "full_url_hybrid",
+    "inputs": [
+      {
+        "name": "ids",
+        "dtype": "int64",
+        "shape": [
+          1,
+          256
+        ],
+        "note": "token ids, right-padded with 0 (padding is masked: exact)"
+      },
+      {
+        "name": "features",
+        "dtype": "float32",
+        "shape": [
+          1,
+          27
+        ],
+        "note": "scaled features, in `features.names` order"
+      }
+    ],
+    "output": {
+      "dtype": "float32",
+      "shape": [
+        1
+      ],
+      "meaning": "logit of phishing"
+    }
+  },
+  "ngram": {
+    "file": "ngram_lr.bin",
+    "terms": 300000,
+    "analyzer": "char",
+    "ngram_range": [
+      2,
+      5
+    ],
+    "lowercase": false,
+    "sublinear_tf": true,
+    "norm": "l2",
+    "formula": "src/deploy/mobile_export.py ngram_spec_logit"
+  },
+  "calibrator": {
+    "format_version": 1,
+    "type": "stacked_three_outcome",
+    "members": [
+      "full_url_hybrid",
+      "char_ngram_lr"
+    ],
+    "weights": [
+      0.33173988143068883,
+      0.3910867426897558
+    ],
+    "bias": 0.03739390786155221,
+    "t_phishing": 0.6831367398836174,
+    "t_safe": 0.09537270819287022,
+    "formula": "p = sigmoid(sum(weights[i] * logit[members[i]]) + bias)",
+    "outcome": "PHISHING if p > t_phishing; LIKELY_SAFE if p < t_safe; else UNCERTAIN"
+  },
+  "lists": {
+    "redirectors": {
+      "file": "redirectors.txt",
+      "count": 1458,
+      "matches_when": "host, registered_domain or site is in the list"
+    },
+    "popular": {
+      "file": "popular.txt",
+      "count": 1000,
+      "matches_when": "site is in the list (never for IP hosts)"
+    }
+  },
+  "decision_rules": "Combine the model, threat intelligence and a few safety rules into one decision.\n\nRules, in order. Threat intelligence can only raise the risk, never lower it.\n  1. This exact page or this host is listed as PHISHING (local feeds or\n     Google) -> PHISHING, source \"threat_intel\", whatever the model says.\n  2. Link shortener / QR redirector -> UNCERTAIN, source \"rule\": the real\n     destination is hidden, and the model was not trained on such links.\n  3. No model result (domain-only input, for which there is no hostname model\n     yet, or a model failure) -> UNCERTAIN, source \"rule\".\n  4. Otherwise the calibrated model decision, source \"model\". Popular-website\n     guard: on the most popular websites (bundle popular.txt, Tranco top\n     1,000) the model alone may not say PHISHING; it says UNCERTAIN, source\n     \"rule\". Real login pages there look like phishing to a URL-only model\n     (github.com/login: 0.968). Phishing pages listed by a feed or Google are\n     still PHISHING by rule 1. The guard never gives LIKELY_SAFE, so no\n     website is ever marked safe because it is popular.\n  5. Listed as malware / unwanted software / harmful app -> at least\n     UNCERTAIN. Dangerous, but not phishing, so it is not labelled phishing.\n  6. Another host under the same registered domain is listed -> LIKELY_SAFE\n     becomes UNCERTAIN.\n\"no_match\", \"unavailable\" and \"pending\" from a threat-intel source never\nlower the risk; they are reported in `reasons` (\"not listed\" is not evidence\nof safety).\n",
+  "threat_db": {
+    "file": "threat_intel.sqlite3",
+    "schema_version": 1,
+    "time_format": "%Y-%m-%dT%H:%M:%SZ (UTC; text order is time order)",
+    "stale_after_hours": 48.0,
+    "ttl_days": {
+      "phishtank": 7.0,
+      "openphish": 7.0
+    },
+    "queries": {
+      "exact_url": "SELECT ... FROM indicators WHERE url_key = :model_string AND expires_at > :now",
+      "hostname": "... WHERE host = :host AND host_match_ok = 1 AND url_key != :model_string AND expires_at > :now",
+      "registered_domain": "... WHERE site = :site AND host != :host AND host_match_ok = 1 AND expires_at > :now"
+    },
+    "note": "full_url input: all three; domain input: url_key is '' so only hostname and registered_domain. Every match is phishing. No match is never evidence of safety."
+  },
+  "reference": {
+    "file": "reference.jsonl",
+    "rows": 2077,
+    "scored": 2066,
+    "invalid": 7,
+    "domain": 4,
+    "max_abs_difference": {
+      "ngram_spec_vs_sklearn": 2.765516917691002e-07,
+      "fixed_256_vs_service": 1.3824751199376095e-07
+    },
+    "threat_db_included": true,
+    "decisions": {
+      "LIKELY_SAFE": 1582,
+      "PHISHING": 330,
+      "UNCERTAIN": 158,
+      "invalid": 7
+    }
+  }
+}

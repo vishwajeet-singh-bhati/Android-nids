@@ -1,62 +1,72 @@
-# Android NIDS
+# Rakshak
 
-[![Reproducibility checks](https://github.com/vishwajeet-singh-bhati/Android-nids/actions/workflows/checks.yml/badge.svg)](https://github.com/vishwajeet-singh-bhati/Android-nids/actions/workflows/checks.yml)
+[![Reproducibility checks](https://github.com/vishwajeet-singh-bhati/rakshak/actions/workflows/checks.yml/badge.svg)](https://github.com/vishwajeet-singh-bhati/rakshak/actions/workflows/checks.yml)
 
-An Android research prototype: capture phone-visible TCP/UDP traffic, extract connection statistics and recent history, use a lightweight binary detector, diagnose flagged connections, and show immediate facts with checked local Llama guidance.
-
-**Current source: `0.14.2-network-scope` / code 40.** The included detector is the real-phone-augmented v 1 gate/diagnosis, with 147 inputs and cutoffs **0.5408333333 / 0.8**. It is installed for experimental evaluation and **has not passed normal-use readiness**. The old code 36 source remains in Git history; its frozen inference reference is retained only for scientific comparison.
+An Android research app for **network intrusion, SMS scams and phishing links**, with immediate factual warnings and checked local Llama guidance. Current source: **0.17.3-link-extraction / code46**. This is a development/submission draft, not a claim of complete protection or final mentor approval.
 
 ## Start here
 
-| Goal | Guide |
+| Goal | Documentation |
 |---|---|
-| Follow the entire project from the paper | [Complete report and Overleaf source](docs/project_report/README.md) |
-| Understand the latest state and remaining issues | [Status](STATUS.md), [development history](docs/DEVELOPMENT_HISTORY.md) |
-| Understand current inputs, architectures and outputs | [Current pipeline](docs/CURRENT_PIPELINE.md), [model card](models/current/MODEL_CARD.md) |
-| Build/install on an owned rooted phone | [Android setup](docs/ANDROID_SETUP.md) |
-| Reproduce paper, context, aligned and augmented experiments | [Reproduction](docs/REPRODUCING_RESULTS.md), [datasets](docs/DATASETS.md) |
-| Run bounded HTTP/scan tests manually | [Phone testing](docs/PHONE_TESTING.md) |
-| Repeat FTP/SSH, emulator and three-source resource tests | [Protocol testing](docs/PROTOCOL_TESTING.md) |
-| Review measured results and caveats | [Results index](results/README.md) |
-| Reproduce inference experiments | [Inference measurements](docs/INFERENCE_PERFORMANCE.md) |
-| Review change history and software checks | [Changelog](CHANGELOG.md), [validation](reproducibility/VALIDATION.json) |
+| Submission requirements, deadline and remaining gates | [Submission checkpoints](SUBMISSION_CHECKPOINTS.md) |
+| Current state and measured limits | [Status](STATUS.md) |
+| Separate SMS, URL and integration sections | [Component index](components/README.md) |
+| Architecture from input to output | [Model architecture](docs/rakshak/architecture/README.md) |
+| Install and use all three detectors | [Rakshak guide](docs/rakshak/README.md), [Android setup](docs/ANDROID_SETUP.md) |
+| Full methodology, history, results and optimization | [Report PDF and Overleaf source](docs/project_report/README.md) |
+| SMS training, data splits, PTQ/QAT and archived classwise results | [SMS component](components/sms/README.md) |
+| URL training, inference, feed setup and benchmark limits | [URL component](components/phishing_url/README.md) |
+| Shared notifications, Llama and privacy | [Integration](components/integration/README.md) |
+| Network training and controlled phone testing | [Reproduction](docs/REPRODUCING_RESULTS.md), [phone tests](docs/PHONE_TESTING.md), [protocol tests](docs/PROTOCOL_TESTING.md) |
+| Candidate improvement and acceptance plan | [Model improvement plan](docs/MODEL_IMPROVEMENT_PLAN.md) |
 
-## Layout
+## What runs on the phone
 
-```text
-android/          Current app, shared Kotlin features, isolated labs and checks
-experiments/      Paper, context, aligned v2, rejected repair, phone augmentation
-validation/       Manual test controllers, correlation, audits and benchmarks
-models/current/   Current inference references and training configuration
-models/references/ Historical aligned-v2 reference for matched comparisons
-results/          Published aggregate evidence; no raw dataset or packet capture
-docs/             Setup, research methodology, results, full LaTeX report
-tools/report/     Report builders using saved aggregate evidence
-reproducibility/  Portable paths, pinned provenance and validation records
-tests/            Dataset-free model/package/preview checks
-reproduce.py      Common setup and experiment entry point
-```
+- **Network:** rooted packet capture ->147 connection/history features -> binary gate -> diagnostic type -> warning. Known normal-traffic false positives and missed protocol classes remain.
+- **SMS:** consented new carrier SMS -> normalization/evidence/word classifier -> selective INT8 MobileBERT-22 -> risk policy. No inbox/RCS/WhatsApp reader; share/paste supports other messages.
+- **URLs:** links are automatically extracted from incoming SMS and checked before deeper SMS analysis. Character CNN + n-gram model + local rules return phishing, likely safe or uncertain. Bare links do not go through SMS semantics of a placeholder. No link means no URL inference.
+- **Explanations:** immediate What happened / What you can do; optional local Llama rephrases approved guidance. It does not decide risk or receive raw SMS/OTPs/full private URLs.
 
-## Quick checks
+The three detector switches are independent. Enable **Automatically check incoming SMS and links**, grant SMS/notification permissions and leave URL detection enabled for automatic message-link checks. Network root is not required for SMS/URL inference. The APK has no INTERNET permission and does not visit submitted URLs.
 
-Use Python 3.12. Training matches Linux/WSL; build/install can use Windows Python.
+## Reproduce the app
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python reproduce.py doctor
-python -m pytest tests -q
-python reproduce.py paper --smoke
-python reproduce.py context --smoke
-```
+Use Java21 and Android SDK34 with platform-tools on PATH.
 
-Live capture needs an **already-rooted test device** and compatible ARM 64 tcpdump with immediate mode. This is not an unrooted VPN monitor. Small classifiers are included; optional 1.06 GiB Llama weights have a pinned download manifest and separate license. Monitoring needs no Internet inference connection; LAN tests need working local connectivity.
+    ./android/gradlew -p android :app:assembleDebug :app:assembleDebugAndroidTest
+    adb -s YOUR_DEVICE_SERIAL install -r android/app/build/outputs/apk/debug/app-debug.apk
+    python validation/validate_rakshak.py --serial YOUR_DEVICE_SERIAL --install
 
-## What is established
+On Windows use android/gradlew.bat. The public build ships a valid **empty threat database** to avoid redistributing downloaded feeds. Model inference works; to add local list coverage, use the [feed setup instructions](components/phishing_url/README.md). Historical218/218 list hits require the original permitted snapshot and cannot be claimed from the empty public database.
 
-The declared paper 70/30 reconstruction reached 97.03% accuracy; context improved that historical benchmark. Those scores do not establish real-phone accuracy. The augmented model detected 62/64 held-out recorded Web segments but falsely flagged 10/120 normal segments. Later live protocol tests found ordinary SSH false positives, weak family typing and missed emulator/distributed resource-load cases.
+Small deployed model artifacts and the selected SMS FP32 checkpoint are provided with provenance. Optional1.06GiB Llama weights are separately downloaded under their license using the [Android setup](docs/ANDROID_SETUP.md). No dataset, private capture/message, credentials, source archive or project ZIP is included.
 
-Code 40 stops recurring idle-loopback alerts by observing on-device connections separately from default external-network assessment. This narrows scope and does not teach the model that local traffic is safe. Normal SSH false positives remain. Immediate factual notes and short local Llama guidance improve explanation latency, not detection accuracy. Read the denominators and experimental limits in [results](results/README.md).
+## Results without inflated claims
 
-No research datasets, private phone captures/histories, credentials, private keys, full training checkpoints, large Llama weights or ZIP are included. Public-data runs can be regenerated after obtaining the source files. Exact private-phone-cohort retraining requires the excluded recordings; repeating the procedure produces a new cohort. Third-party licenses remain in [notices](NOTICE.md); no project-wide open-source license has been assigned.
+| Evidence | Finding | Limit |
+|---|---|---|
+| Archived869-row SMS PTQ export test | Accuracy97.12%; smishing precision78.57%, recall89.80% | Archived classifier result; reused test, not new Android warning accuracy |
+| Pixel SMS regressions |14/14 neural classes and230 authored scenario checks | Strict logit tolerance still fails; synthetic checks are not real-world accuracy |
+|2,048-URL Pixel benchmark |325 phishing,1,581 likely safe,142 uncertain;0 failures | Inputs duplicate export references;1,830 labels unknown |
+|218 externally supported phishing URLs | Raw model172 detected,30 uncertain,16 likely safe | Conditional positive-subset recall78.90%; no full-file precision/accuracy |
+|Same218 with measured saved lists |218 flagged by list hits | List coverage, not independent learned-model accuracy; public default database is empty |
+|Current network held-out development data |TP62/64, FP10/120 | Limited development cohort; readiness failed and protocol misses remain |
+
+See [URL evidence](results/url_benchmark_20261124/README.md), [SMS archive provenance](components/sms/provenance/ARCHIVED_EVALUATION.json), [phone corrections](results/sms_followup_20261124/README.md) and the report before using these numbers.
+
+## Repository structure
+
+    android/                 Current app, shared network features and isolated labs
+    components/sms/          SMS source, checkpoint, training/export provenance
+    components/phishing_url/ URL source, learned models and local feed setup
+    components/integration/  Combined routing and shared explanations
+    experiments/             Original network paper/context/alignment/augmentation
+    models/                  Network references and optional Llama manifest
+    results/                 Aggregate evidence; no raw datasets/captures
+    docs/                    Setup, architectures, improvement plan and report
+    tools/                   Report generation and local feed preparation
+    validation/              Native checks, URL evaluation and controlled tests
+    reproducibility/         Portable configuration and source/model identities
+    SUBMISSION_CHECKPOINTS.md Draft-to-review-to-submission gates
+
+Run python -m pytest tests -q and python -m unittest validation.test_url_benchmark_metrics for dataset-free checks. Earlier network and SMS results retain their original cohorts; do not combine them into one app-accuracy percentage. Source licenses and missing provenance limits are documented per component.

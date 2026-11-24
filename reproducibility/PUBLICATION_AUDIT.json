@@ -1,18 +1,11 @@
 {
   "passed": true,
-  "checked_at_utc": "2026-11-21T18:16:29.124633+00:00",
-  "tracked_files_checked": 371,
-  "bytes": 10682348,
-  "forbidden_dataset_capture_key_zip_files": 0,
-  "secret_or_private_workstation_identity_matches": 0,
-  "broken_local_markdown_links": 0,
-  "unusually_large_files": 0,
-  "current_android_main_sources_equal_workstation": 27,
-  "report_source_evidence_hashes_verified": true,
-  "all_python_sources_parse": true,
-  "github_account_verified": "vishwajeet-singh-bhati",
-  "push_target": "https://github.com/vishwajeet-singh-bhati/Android-nids.git",
-  "zip_created": false,
-  "datasets_or_private_recordings_included": false,
-  "generated_build_logs_in_current_tree": false
+  "checked_files": 719,
+  "bytes": 165853904,
+  "largest_file_bytes": 91722756,
+  "public_feed_rows": 0,
+  "public_url_fixture_rows": 27,
+  "issues": [],
+  "scope": "Staged curated source; no datasets/raw captures/credentials/archives or restricted feed records.",
+  "zip_created": false
 }

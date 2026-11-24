@@ -34,8 +34,3 @@ The network detector's known false positives and misses remain; this release cha
 Package identity: [package_review.json](package_review.json); installed version/models/monitor: [deployment.json](deployment.json). Existing history/preferences were retained with no schema change or data clearing. Private old-APK/history rollback snapshots and lab logs stay under ignored runs. Original manual attack-test instruction remains; allow300seconds of monitor history after an update/instrumentation restart. No next attack/profile is scheduled.
 
 The later user-requested ForgeSight PR review is separate from this code38 deployment. Any additional candidate must be tested before altering this working release. No GitHub push or ZIP.
-
-
-## Publication context
-
-This is a dated experiment record. Its original workstation commands may require excluded private recordings, checkpoints or rollback snapshots and are not fresh-device setup instructions. For the current portable entry points use [Android setup](../../docs/ANDROID_SETUP.md), [protocol testing](../../docs/PROTOCOL_TESTING.md), [inference measurements](../../docs/INFERENCE_PERFORMANCE.md) and [current status](../../STATUS.md). Current source is code40; historical version-preservation decisions are not current build restrictions.

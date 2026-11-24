@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "environment": "Dedicated local emulator, API37 x86_64",
+  "apk_sha256": "d3630ff5b7499fcc448c951de4e7496f1b0a0b3d4e0a6e45f2af22f680cedffa",
+  "installed_version_code": 43,
+  "existing_llama_hash_verified_after_upgrade": "8715cdba9e91f6bede00cc5f2d6b12397b95225da5630c4972a8da03001cda3b",
+  "pixel_deployed": false,
+  "scope": "Actual PowerShell5.1 release installer, previous APK backup, install-r, installed hash verification, subsequent local Llama service validation."
+}

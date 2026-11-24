@@ -1,18 +1,20 @@
-* text=auto whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-*.py text eol=lf
-*.md text eol=lf
-*.sh text eol=lf
-*.yml text eol=lf
-*.bat text eol=crlf
-android/gradlew text eol=lf
-# Preserve attested model/contract/core bytes through Windows and Linux checkouts.
-android/app/src/main/assets/** -text
-android/core/src/main/kotlin/** -text
-models/current/extractor/** -text
-*.pte -text
-*.pt -text
-*.jar -text
+# Keep frozen WSL training code byte-stable across Windows Git checkouts.
+/experiments/network_v5/*.py text eol=lf
+/experiments/network_v5/*.sh text eol=lf
 
-# Keep the report source and validation hashes stable across platforms.
-*.tex text eol=lf
+# Reproducible report source and recorded byte hashes.
+docs/project_report/*.tex text eol=lf
 docs/project_report/*.json text eol=lf
+
+# Preserve attested detector assets and reference-fixture bytes on every platform.
+/android/app/src/main/assets/sms/** -text -whitespace
+/android/app/src/main/assets/url/** -text -whitespace
+/android/app/src/androidTest/assets/rakshak/** -text -whitespace
+
+/components/**/*.npz -text -whitespace
+/components/**/*.pt -text -whitespace
+/components/**/*.joblib -text -whitespace
+/components/sms/python/experiments/mobilebert/checkpoints/** -text -whitespace
+
+# Preserve imported upstream Markdown hard breaks and source formatting.
+/components/** -whitespace

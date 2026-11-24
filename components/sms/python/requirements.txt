@@ -1,0 +1,11 @@
+# Baseline runtime (pin exact versions after `pip freeze` for a release).
+numpy
+pandas
+scipy
+scikit-learn
+joblib
+
+# Development / reports / dataset acquisition
+pytest
+requests
+matplotlib

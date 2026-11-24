@@ -26,7 +26,7 @@ object LlamaClient {
   finish=null;pending=null;ui.removeCallbacks(timeout);LlamaLive.running=false;LlamaLive.stopAction=null
   LlamaLive.stage=if(keepWarm)"Warm local model ready" else "Ready on device"
   ResourceMonitor.release("llama-client")
-  if(keepWarm && LearnedLive.running){LlamaLive.workerResident=true;ui.postDelayed(idleRelease,120000)}else closeConnection()
+  if(keepWarm){LlamaLive.workerResident=true;ui.postDelayed(idleRelease,120000)}else closeConnection()
   callback(result,error)
  }
  private val replies=Messenger(Handler(Looper.getMainLooper()){message ->

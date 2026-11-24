@@ -1,0 +1,22 @@
+# ExecuTorch verification environment
+#
+# Install the training requirements first:
+#   pip install -r requirements.txt
+#
+# ExecuTorch 1.6.0 declares hydra-core, whose pinned
+# antlr4-python3-runtime==4.9.* has no CPython 3.14 wheel in this environment.
+# The basic export/runtime path imports successfully without hydra, so install
+# the core wheel without dependency resolution:
+#   pip install --no-deps executorch==1.6.0
+#   pip install -r requirements-executorch.txt
+#
+executorch==1.6.0
+flatbuffers==25.12.19
+py-cpuinfo==9.0.0
+pytorch-tokenizers==1.6.0
+torchao==0.18.0
+ruamel.yaml==0.19.1
+tabulate==0.10.0
+omegaconf==2.4.0
+sentencepiece==0.2.3
+tiktoken==0.14.0

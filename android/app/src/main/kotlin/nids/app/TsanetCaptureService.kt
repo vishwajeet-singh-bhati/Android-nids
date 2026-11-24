@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.IBinder
 import android.os.SystemClock
+import nids.authentication.AuthenticationEpisodePolicy
 import nids.core.*
 import org.json.JSONArray
 import org.json.JSONObject
@@ -30,7 +31,7 @@ class TsanetCaptureService: Service(){
         val manager=getSystemService(NotificationManager::class.java)
         manager.createNotificationChannel(NotificationChannel("context_monitor_v1","Background network monitor",NotificationManager.IMPORTANCE_LOW))
         val open=PendingIntent.getActivity(this,0,Intent(this,LearnedNetworkActivity::class.java),PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
-        startForeground(2,Notification.Builder(this,"context_monitor_v1").setContentTitle("NIDS is monitoring locally")
+        startForeground(2,Notification.Builder(this,"context_monitor_v1").setContentTitle("Rakshak is monitoring locally")
             .setContentText("Connection history and automatic local explanations").setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
             .setContentIntent(open).setOngoing(true).build())
         stopRequested=false;stopping=false;LearnedLive.running=true
@@ -54,6 +55,9 @@ class TsanetCaptureService: Service(){
             if(addresses.isNotEmpty()){watched.clear();watched.addAll(addresses)}
         }
         val collector=AlignedTsanetCollector(watched)
+        val preferences=getSharedPreferences("background_monitor",Context.MODE_PRIVATE)
+        val authEpisodes=AuthenticationEpisodePolicy()
+        var authWasEnabled=false
         val cachedOwners=LinkedHashMap<String,JSONObject>();val refreshed=HashMap<String,Double>()
         val orientations=HashMap<String,Pair<String,String>>()
         val pending=LinkedHashMap<String,Pair<Long,JSONObject>>()
@@ -119,18 +123,30 @@ class TsanetCaptureService: Service(){
                         if(!includeLocal)return
                     }
                     val decision=scorer.score(view);LearnedLive.inferences++
-                    val category=decision.classId
-                    if(getSharedPreferences("background_monitor",Context.MODE_PRIVATE).getBoolean("validation_trace",false) && diagnosticRows++<2000){
+                    val observedAt=SystemClock.elapsedRealtime()
+                    val authEnabled=preferences.getBoolean(AuthenticationEpisodePolicy.PREF,false)
+                    val captureHealthy=observedAt>=unhealthyUntil && drops.get()==appliedDrops && collector.late==appliedLate
+                    val authReady=authEnabled && captureHealthy
+                    if(authReady!=authWasEnabled){authEpisodes.clear();authWasEnabled=authReady}
+                    val policy=if(authReady && !localOnly)authEpisodes.apply(decision.classId,observedAt/1000.0,
+                        snapshot.start,view.watched,snapshot.source,snapshot.destination,snapshot.sourcePort,
+                        snapshot.destinationPort,snapshot.protocol,view.context[112]>0,view.context[113]>0,snapshot.flow[29]>0)
+                        else AuthenticationEpisodePolicy.Result(decision.classId,decision.flagged)
+                    val category=policy.classId
+                    val episodeWarning=policy.protocol!=null && policy.emit
+                    if(preferences.getBoolean("validation_trace",false) && diagnosticRows++<2000){
                         File(filesDir,"tsanet_validation_trace.jsonl").appendText(JSONObject()
                             .put("time_ms",System.currentTimeMillis()).put("start",snapshot.start).put("end",snapshot.end)
                             .put("source",snapshot.source).put("sport",snapshot.sourcePort).put("destination",snapshot.destination)
-                            .put("dport",snapshot.destinationPort).put("protocol",snapshot.protocol).put("class_id",category)
+                            .put("dport",snapshot.destinationPort).put("protocol",snapshot.protocol).put("class_id",decision.classId)
+                            .put("alert_category",category).put("alert_emitted",policy.emit)
+                            .put("auth_episode_connections",policy.connections).put("auth_episode_enabled",authReady)
                             .put("schema","phone-aligned-v2").put("watched",view.watched)
                             .put("flow",JSONArray(snapshot.flow.toList())).put("context",JSONArray(view.context.toList()))
                             .put("gate_score",decision.gateScore.toDouble()).put("flagged",decision.flagged)
                             .put("diagnosis_scores",JSONArray(decision.diagnosisScores.toList())).toString()+"\n")
                     }
-                    if(!decision.flagged)return
+                    if(!policy.emit)return
                     LearnedLive.warnings++
                     val fresh=owners.lookupFlow(snapshot.protocol,"${snapshot.source}:${snapshot.sourcePort}","${snapshot.destination}:${snapshot.destinationPort}")
                     val owner=if(snapshot.closeReason=="tuple_reused")JSONObject().put("status","unknown").put("direction",fresh.optString("direction","unknown"))
@@ -150,21 +166,28 @@ class TsanetCaptureService: Service(){
                         .put("feature_schema","phone-aligned-v2").put("binary_flag",true)
                         .put("diagnosis_model_sha256",scorer.diagnosisManifest.getString("model_sha256"))
                         .put("gate_score",decision.gateScore.toDouble()).put("gate_threshold",scorer.policy.gateThreshold)
+                        .put("gate_flagged",decision.flagged).put("baseline_class_id",decision.classId)
                         .put("diagnosis_scores",JSONArray(decision.diagnosisScores.toList()))
                         .put("diagnosis_confidence",decision.diagnosisConfidence.toDouble()).put("type_score_cutoff",scorer.policy.typeCutoff)
-                        .put("diagnosis_error",decision.diagnosisError).put("diagnosis_available",decision.diagnosisError.isEmpty())
-                        .put("type_established",category in 1..6).put("diagnosis_never_vetoes_gate",true)
+                        .put("diagnosis_error",decision.diagnosisError).put("diagnosis_available",decision.diagnosisScores.isNotEmpty())
+                        .put("type_established",!episodeWarning && category in 1..6).put("diagnosis_never_vetoes_gate",true)
                         .put("prior_connections_5m",count(64+role))
                         .put("target_ports_5m",count(64+role+if(incoming)7 else 6))
                         .put("history_age_seconds",historyAge.toInt()).put("history_window_seconds",300)
                         .put("history_complete",historyAge>=299.9)
-                        .put("capture_healthy",SystemClock.elapsedRealtime()>=unhealthyUntil)
+                        .put("capture_healthy",captureHealthy)
                         .put("flow_end_time_ms",(snapshot.end*1000).toLong()).put("flow_close_reason",snapshot.closeReason)
                         .put("decision_time_ms",(view.decisionTime*1000).toLong()).put("flow_features",JSONArray(snapshot.flow.toList()))
                         .put("context_features",JSONArray(view.context.toList()))
                         .put("remote_endpoints_sample",JSONArray().put(owner.optString("remote_endpoint","unknown")))
-                    val key="aligned-v2|$category|${owner.optInt("uid",-1)}|${owner.optString("direction","unknown")}|${System.currentTimeMillis()/60000}"+(if(localOnly)"|local-experimental" else "")
-                    evidence.put("fingerprint",key).put("detector","phone_aligned_v2_gate_diagnosis")
+                    val key=if(episodeWarning){
+                        val start=checkNotNull(policy.firstStart)
+                        evidence.put("authentication_episode",JSONObject().put("protocol",policy.protocol)
+                            .put("connections_in_window",policy.connections).put("window_seconds",AuthenticationEpisodePolicy.WINDOW_SECONDS)
+                            .put("first_observed_connection_ms",(start*1000).toLong()).put("authentication_outcome_verified",false))
+                        "auth-episode|${policy.protocol}|${snapshot.source}|${snapshot.destination}|${snapshot.destinationPort}|$start"
+                    }else "aligned-v2|$category|${owner.optInt("uid",-1)}|${owner.optString("direction","unknown")}|${System.currentTimeMillis()/60000}"+(if(localOnly)"|local-experimental" else "")
+                    evidence.put("fingerprint",key).put("detector",if(episodeWarning)"authentication_episode_preview" else "phone_aligned_v2_gate_diagnosis")
                     val previous=pending[key]
                     pending[key]=Pair((previous?.first ?: 0)+1,evidence)
                     log(JSONObject().put("event","model_flag").put("time_ms",System.currentTimeMillis()).put("evidence",evidence))
@@ -192,7 +215,7 @@ class TsanetCaptureService: Service(){
                     if(collector.late!=appliedLate){appliedLate=collector.late;unhealthyUntil=now+300000}
                     if(now-lastFlush>=5000){
                         for((count,evidence) in pending.values){
-                            val row=ObservationStore.record(this,"tsanet_pattern",count,evidence)
+                            val row=ObservationStore.recordCurrent(this,"tsanet_pattern",count,evidence) ?: continue
                             LearnedLive.lastEvidence=row.toString();ObservationNotifications.show(this,row)
                         }
                         pending.clear();AutomaticExplanations.pump(applicationContext);lastFlush=now
@@ -206,6 +229,7 @@ class TsanetCaptureService: Service(){
                             .put("packets",packets.get()).put("inferences",LearnedLive.inferences).put("flags",LearnedLive.warnings)
                             .put("local_only_flows",LearnedLive.localOnlyFlows).put("local_only_alerts_enabled",getSharedPreferences("background_monitor",Context.MODE_PRIVATE).getBoolean("include_device_local_alerts",false))
                             .put("schema","phone-aligned-v2").put("diagnosis_inferences",scorer.diagnosisInferences)
+                            .put("auth_episode_enabled",preferences.getBoolean(AuthenticationEpisodePolicy.PREF,false))
                             .put("active_flows",collector.activeFlows).put("history_window_seconds",300)
                             .put("invalid_rate_flows",collector.invalidFlows).put("evictions",collector.flowEvictions)
                             .put("history_evictions",collector.historyEvictions).put("forced_reorder",collector.forcedReorder)
@@ -223,7 +247,7 @@ class TsanetCaptureService: Service(){
             val retry=!stopRequested && getSharedPreferences("background_monitor",Context.MODE_PRIVATE).getBoolean("enabled",false)
             stopping=true;capture?.destroy();try{capture?.inputStream?.close()}catch(_: Exception){}
             ownerThread?.interrupt();reader?.join(1000)
-            for((count,evidence) in pending.values)try{ObservationStore.record(this,"tsanet_pattern",count,evidence)}catch(_: Exception){}
+            for((count,evidence) in pending.values)try{ObservationStore.recordCurrent(this,"tsanet_pattern",count,evidence)}catch(_: Exception){}
             LearnedLive.running=false;LearnedLive.quality="Not monitoring"
             log(JSONObject().put("event","session_end").put("time_ms",System.currentTimeMillis())
                 .put("packets",packets.get()).put("inferences",LearnedLive.inferences).put("flags",LearnedLive.warnings)

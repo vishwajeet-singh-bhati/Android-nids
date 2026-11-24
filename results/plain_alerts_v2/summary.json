@@ -1,0 +1,28 @@
+{
+  "version": "0.16.0-plain-alerts",
+  "version_code": 42,
+  "apk_sha256": "a5809a1c50073c4aaba1dbeeab7dd7988fb1397d9048188a8ed51192ad6a09f7",
+  "installed_apk_verified": true,
+  "content_fixture_cases": 14,
+  "clear_history_late_callback_check": true,
+  "native_selfchecks": 21,
+  "native_decision_flips": 0,
+  "llama_requests": 8,
+  "generated_guidance_accepted": 6,
+  "default_guidance_retained": 2,
+  "immediate_notification_before_llama_verified": true,
+  "fixture_notification_post_and_query_ms": 14,
+  "warm_request_wall_median_ms": 3599,
+  "maximum_capture_queue_drops": 0,
+  "screen_checks": {
+    "passed": true,
+    "clear_confirmation_and_cancel": true,
+    "structured_existing_activity": true,
+    "settings_and_monitor_accessible": true,
+    "actual_history_deleted_during_validation": false
+  },
+  "monitor_enabled": true,
+  "monitor_foreground": true,
+  "video_review_scope": "YouTube title and description retrieved; caption request returned no content. Official Arm PS3 brief consulted.",
+  "scope": "Content, history, screen and runtime validation. Transient fixture notification removed. Actual history retained. No new attack or accuracy test."
+}

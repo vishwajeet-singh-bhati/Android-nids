@@ -1,0 +1,185 @@
+{
+  "scope": "Retrospective development audit. No new holdout, fitting or deployment decision.",
+  "gate_threshold": 0.5408333333333333,
+  "type_cutoff": 0.8,
+  "exports_sha256": {
+    "gate": "0d6179aca935d70880c8d51649d4927d2ebeeace9dc1a6ce547c77f80eabc333",
+    "diagnosis": "17954500e7e4bf89003cdc9285172141dfa17b7810a49fde565969a2821cb53a"
+  },
+  "saved_activity_replay": {
+    "activities": 27,
+    "max_gate_error": 1.8477439880371094e-06,
+    "native_decision_mismatches": 0,
+    "original_snapshot_expected_selections": 1,
+    "withdrawn_expected_selections": 1,
+    "user_expected_activities": 0,
+    "candidate_held_activities": {
+      "terminal_only_hold": 1,
+      "terminal_and_confident_benign_hold": 1
+    },
+    "candidate_held_user_expected": {
+      "terminal_only_hold": 0,
+      "terminal_and_confident_benign_hold": 0
+    },
+    "caution": "Alert-only records cannot estimate FPR. User feedback, including Expected, is not verified traffic ground truth."
+  },
+  "phone_validation": {
+    "rows": 184,
+    "baseline": {
+      "tp": 64,
+      "fn": 0,
+      "fp": 11,
+      "tn": 109
+    },
+    "candidates": {
+      "terminal_only_hold": {
+        "binary": {
+          "tp": 64,
+          "fn": 0,
+          "fp": 11,
+          "tn": 109
+        },
+        "removed_true_positives": 0,
+        "removed_false_positives": 0
+      },
+      "terminal_and_confident_benign_hold": {
+        "binary": {
+          "tp": 64,
+          "fn": 0,
+          "fp": 11,
+          "tn": 109
+        },
+        "removed_true_positives": 0,
+        "removed_false_positives": 0
+      }
+    }
+  },
+  "phone_test": {
+    "rows": 184,
+    "baseline": {
+      "tp": 62,
+      "fn": 2,
+      "fp": 10,
+      "tn": 110
+    },
+    "candidates": {
+      "terminal_only_hold": {
+        "binary": {
+          "tp": 62,
+          "fn": 2,
+          "fp": 10,
+          "tn": 110
+        },
+        "removed_true_positives": 0,
+        "removed_false_positives": 0
+      },
+      "terminal_and_confident_benign_hold": {
+        "binary": {
+          "tp": 62,
+          "fn": 2,
+          "fp": 10,
+          "tn": 110
+        },
+        "removed_true_positives": 0,
+        "removed_false_positives": 0
+      }
+    }
+  },
+  "protocol_development": {
+    "rows": 304,
+    "baseline": {
+      "tp": 79,
+      "fn": 189,
+      "fp": 13,
+      "tn": 23
+    },
+    "candidates": {
+      "terminal_only_hold": {
+        "binary": {
+          "tp": 79,
+          "fn": 189,
+          "fp": 13,
+          "tn": 23
+        },
+        "removed_true_positives": 0,
+        "removed_false_positives": 0
+      },
+      "terminal_and_confident_benign_hold": {
+        "binary": {
+          "tp": 79,
+          "fn": 189,
+          "fp": 13,
+          "tn": 23
+        },
+        "removed_true_positives": 0,
+        "removed_false_positives": 0
+      }
+    }
+  },
+  "legacy_scoring_method": "Rescore only candidate-eligible rows; apply their confusion-count deltas to the frozen reported baseline. Noneligible decisions are unchanged by construction.",
+  "legacy_train": {
+    "rows": 4956674,
+    "appended_phone_rows_excluded": 6784,
+    "eligible_terminal_fragments": {
+      "Benign": 229730,
+      "Brute Force": 3432,
+      "DDoS": 112,
+      "DoS": 167232,
+      "Port Scan": 2
+    }
+  },
+  "legacy_test": {
+    "rows": 1098929,
+    "appended_phone_rows_excluded": 184,
+    "eligible_terminal_fragments": {
+      "Benign": 45238,
+      "Brute Force": 744,
+      "DDoS": 16,
+      "DoS": 35504
+    },
+    "baseline": {
+      "tp": 158724,
+      "fp": 965,
+      "fn": 110,
+      "tn": 939130,
+      "recall": 0.9993074530642054,
+      "precision": 0.9939570039263819,
+      "benign_fpr": 0.0010264920034677347
+    },
+    "candidate_inference_rows": 81502,
+    "candidates": {
+      "terminal_only_hold": {
+        "binary": {
+          "tp": 122462,
+          "fn": 36372,
+          "fp": 953,
+          "tn": 939142
+        },
+        "removed_true_positives": 36262,
+        "removed_false_positives": 12,
+        "lost_by_attack_class": {
+          "Brute Force": 742,
+          "DDoS": 16,
+          "DoS": 35504
+        }
+      },
+      "terminal_and_confident_benign_hold": {
+        "binary": {
+          "tp": 158724,
+          "fn": 110,
+          "fp": 964,
+          "tn": 939131
+        },
+        "removed_true_positives": 0,
+        "removed_false_positives": 1,
+        "lost_by_attack_class": {
+          "Brute Force": 0,
+          "DDoS": 0,
+          "DoS": 0
+        }
+      }
+    }
+  },
+  "regression_cohorts_evaluated": true,
+  "complete": true
+}

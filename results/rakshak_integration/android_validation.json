@@ -1,0 +1,237 @@
+{
+  "started_unix": 1795450546.451517,
+  "model": "sdk_gphone64_x86_64",
+  "abi": "x86_64",
+  "results": {
+    "rakshak_contract": {
+      "passed": true,
+      "combine_cases": 10,
+      "tidy_cases": 11,
+      "disabled_detectors_explicit": true,
+      "preliminary_final_same_event": true,
+      "history_clear_rejects_late_result": true,
+      "host_only_privacy": true,
+      "threat_rule_independent_of_neural_model": true,
+      "stale_domain_only_uncertain": true,
+      "neural_failure_explicit": true,
+      "unsafe_guidance_rejected": true,
+      "interrupted_preliminary_recovered": true,
+      "uncertain_links_visible_on_quiet_result": true,
+      "device": "sdk_gphone64_x86_64",
+      "abi": "x86_64",
+      "test_wall_seconds": 1.334
+    },
+    "rakshak_urls": {
+      "passed": true,
+      "reference_rows": 2077,
+      "scored_rows": 2066,
+      "decision_source_matches": 2077,
+      "max_absolute_errors": {
+        "features_raw": 2.382142900714257e-07,
+        "features_scaled": 0,
+        "cnn_logit": 5.7220458984375e-06,
+        "ngram_logit": 2.765516917691002e-07,
+        "probability": 3.026866473021528e-07
+      },
+      "elapsed_ms": 3243.422493,
+      "failures": [],
+      "device": "sdk_gphone64_x86_64",
+      "abi": "x86_64",
+      "test_wall_seconds": 3.814
+    },
+    "rakshak_sms": {
+      "passed": true,
+      "tier1_parity_rows_each": 34,
+      "tier1_fixture_files": 4,
+      "tier2_cases": 14,
+      "tokenization_matches": 14,
+      "class_matches": 14,
+      "maximum_logit_difference": 0,
+      "strict_logit_tolerance_0_05_passed": true,
+      "benchmark_scenarios": 230,
+      "tier2_routed": 180,
+      "tier2_failures": 0,
+      "benchmark_counts": {
+        "ham->ham/low": 78,
+        "ham->ham/suspicious": 2,
+        "ham->smishing/suspicious": 8,
+        "ham->spam/low": 2,
+        "spam->spam/low": 16,
+        "spam->smishing/high": 4,
+        "spam->smishing/suspicious": 4,
+        "spam->ham/low": 16,
+        "smishing->smishing/high": 38,
+        "smishing->smishing/suspicious": 16,
+        "smishing->spam/suspicious": 4,
+        "smishing->ham/low": 16,
+        "smishing->spam/low": 2,
+        "smishing->ham/suspicious": 8,
+        "uncertain->smishing/suspicious": 8,
+        "uncertain->smishing/high": 4,
+        "uncertain->spam/low": 2,
+        "uncertain->ham/low": 2
+      },
+      "scope": "Bundled synthetic regression cases; no independent SMS accuracy claim.",
+      "device": "sdk_gphone64_x86_64",
+      "abi": "x86_64",
+      "test_wall_seconds": 11.957
+    },
+    "hybrid_contract": {
+      "passed": true,
+      "notes": [
+        {
+          "class": 1,
+          "known_receiver": false,
+          "display": "What happened\nSome background connections look automated. We could not identify the app for this connection.\n\nThis may be normal activity. An attack has not been confirmed. Some traffic was missed.\n\nWhat you can do\nCheck whether an app is syncing in the background, and review apps you do not recognise."
+        },
+        {
+          "class": 1,
+          "known_receiver": true,
+          "display": "What happened\nSome background connections look automated. Protocol Lab received the connection.\n\nThis may be normal activity. An attack has not been confirmed. Some traffic was missed.\n\nWhat you can do\nCheck whether an app is syncing in the background, and review apps you do not recognise."
+        },
+        {
+          "class": 2,
+          "known_receiver": false,
+          "display": "What happened\nRepeated connections may be sign-in attempts. We could not identify the app for this connection.\n\nThis may be normal activity. An attack has not been confirmed. Some traffic was missed.\n\nWhat you can do\nCheck recent account activity and review apps making unexpected repeated connections."
+        },
+        {
+          "class": 2,
+          "known_receiver": true,
+          "display": "What happened\nRepeated connections may be sign-in attempts. Protocol Lab received the connection.\n\nThis may be normal activity. An attack has not been confirmed. Some traffic was missed.\n\nWhat you can do\nCheck recent account activity and review apps making unexpected repeated connections."
+        },
+        {
+          "class": 3,
+          "known_receiver": false,
+          "display": "What happened\nConnections from several devices may be putting a service on your phone under pressure. We could not identify the app for this connection.\n\nThis may be normal activity. An attack has not been confirmed. Some traffic was missed.\n\nWhat you can do\nCheck for unexpected downloads or repeated connection attempts, and pause unfamiliar app activity."
+        },
+        {
+          "class": 3,
+          "known_receiver": true,
+          "display": "What happened\nConnections from several devices may be putting a service on your phone under pressure. Protocol Lab received the connection.\n\nThis may be normal activity. An attack has not been confirmed. Some traffic was missed.\n\nWhat you can do\nCheck for unexpected downloads or repeated connection attempts, and pause unfamiliar app activity."
+        },
+        {
+          "class": 4,
+          "known_receiver": false,
+          "display": "What happened\nRepeated connections may be putting a service on your phone under pressure. We could not identify the app for this connection.\n\nThis may be normal activity. An attack has not been confirmed. Some traffic was missed.\n\nWhat you can do\nCheck for unexpected downloads or repeated connection attempts, and pause unfamiliar app activity."
+        },
+        {
+          "class": 4,
+          "known_receiver": true,
+          "display": "What happened\nRepeated connections may be putting a service on your phone under pressure. Protocol Lab received the connection.\n\nThis may be normal activity. An attack has not been confirmed. Some traffic was missed.\n\nWhat you can do\nCheck for unexpected downloads or repeated connection attempts, and pause unfamiliar app activity."
+        },
+        {
+          "class": 5,
+          "known_receiver": false,
+          "display": "What happened\nSomeone may be checking which connections your phone accepts. We could not identify the app for this connection.\n\nThis may be normal activity. An attack has not been confirmed. Some traffic was missed.\n\nWhat you can do\nCheck whether you started a device search, and review any app activity you do not recognise."
+        },
+        {
+          "class": 5,
+          "known_receiver": true,
+          "display": "What happened\nSomeone may be checking which connections your phone accepts. Protocol Lab received the connection.\n\nThis may be normal activity. An attack has not been confirmed. Some traffic was missed.\n\nWhat you can do\nCheck whether you started a device search, and review any app activity you do not recognise."
+        },
+        {
+          "class": 6,
+          "known_receiver": false,
+          "display": "What happened\nA web connection looked unusual and may need your attention. We could not identify the app for this connection.\n\nThis may be normal activity. An attack has not been confirmed. Some traffic was missed.\n\nWhat you can do\nReview recent web activity and avoid entering passwords into unexpected prompts."
+        },
+        {
+          "class": 6,
+          "known_receiver": true,
+          "display": "What happened\nA web connection looked unusual and may need your attention. Protocol Lab received the connection.\n\nThis may be normal activity. An attack has not been confirmed. Some traffic was missed.\n\nWhat you can do\nReview recent web activity and avoid entering passwords into unexpected prompts."
+        },
+        {
+          "class": 7,
+          "known_receiver": false,
+          "display": "What happened\nA connection looked different from the usual pattern. We could not identify the app for this connection.\n\nThis may be normal activity. An attack has not been confirmed. Some traffic was missed.\n\nWhat you can do\nCheck whether you expected this app or network activity."
+        },
+        {
+          "class": 7,
+          "known_receiver": true,
+          "display": "What happened\nA connection looked different from the usual pattern. Protocol Lab received the connection.\n\nThis may be normal activity. An attack has not been confirmed. Some traffic was missed.\n\nWhat you can do\nCheck whether you expected this app or network activity."
+        }
+      ],
+      "contract_cases": 14,
+      "history_clear_and_late_callback_rejected": true,
+      "stale_revision_rejected": true,
+      "dismissed_result_rejected": true,
+      "fresh_facts_before_llama": true,
+      "listener_is_not_confirmed_delivery": true,
+      "live_incidents_or_notifications_inserted": false,
+      "device_local_scope_and_history": true,
+      "external_traffic_not_exempted": true,
+      "closed_socket_not_app_owner": true,
+      "external_147_features_bit_identical_with_loopback": true,
+      "test_wall_seconds": 0.394
+    },
+    "aligned_v2_native": {
+      "passed": true,
+      "schema": "phone-aligned-v2",
+      "gate_model_sha256": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+      "diagnosis_model_sha256": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e",
+      "contract_sha256": "0a6f7c956c3fe8cc8329395c62098eefd735d9f49b82176ebcce42c7f609993c",
+      "feature_checks": {
+        "passed": true,
+        "rapid_history": true,
+        "phone_visibility": true,
+        "zero_duration": true,
+        "http_reassembly": true,
+        "payload_duplicate": true,
+        "sql_negative_control": true,
+        "encrypted_scope": true,
+        "expiry": true
+      },
+      "policy_checks": {
+        "passed": true,
+        "binary_warning_never_vetoed": true,
+        "unknown_type_retains_alert": true,
+        "negative_gate_skips_diagnosis": true
+      },
+      "delivery_clock_checks": {
+        "passed": true,
+        "wall_clock_offset_independent": true,
+        "backlogged_packets_not_skipped": true,
+        "matching_flow_context_and_decision_times": true,
+        "rows": 21,
+        "late_packets": 0
+      },
+      "selfcheck_rows": 21,
+      "pipeline_decision_flips": 0,
+      "device": "sdk_gphone64_x86_64",
+      "attack_detection_test": false,
+      "test_wall_seconds": 0.459
+    },
+    "rakshak_service": {
+      "passed": true,
+      "capture_paused_throughout": true,
+      "llama_model_available": true,
+      "events": [
+        {
+          "domain": "message",
+          "risk_level": "high",
+          "explanation_status": "complete",
+          "llama_guidance_accepted": true,
+          "notification_verified": true,
+          "raw_content_absent": true
+        },
+        {
+          "domain": "url",
+          "risk_level": "high",
+          "explanation_status": "complete",
+          "llama_guidance_accepted": true,
+          "notification_verified": true,
+          "raw_content_absent": true
+        }
+      ],
+      "scope": "Marked transient fixtures through the real foreground service. No carrier SMS sent. Missing Llama validates fallback only.",
+      "device": "sdk_gphone64_x86_64",
+      "abi": "x86_64",
+      "test_wall_seconds": 10.665
+    }
+  },
+  "installed_apk_sha256": "d3630ff5b7499fcc448c951de4e7496f1b0a0b3d4e0a6e45f2af22f680cedffa",
+  "passed": true,
+  "environment": "Dedicated work-PC Android emulator",
+  "android_api": 37,
+  "pixel_deployed": false,
+  "live_attacks_run": false
+}

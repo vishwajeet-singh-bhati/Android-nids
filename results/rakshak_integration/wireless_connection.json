@@ -1,0 +1,17 @@
+{
+  "attempted_at_ist": "2026-11-23T22:08:28.448033+05:30",
+  "wireless_mdns_discovered": true,
+  "wireless_adb_tcp_reachable": true,
+  "tls_error": "SSLV3_ALERT_CERTIFICATE_UNKNOWN",
+  "diagnosis": "Pixel rejects the work PC ADB certificate; fresh wireless pairing required.",
+  "pairing_port_code_requested": true,
+  "existing_host_keys_preserved": true,
+  "normal_adb_server_restored": true,
+  "apk_checksum_verified": true,
+  "test_apk_checksum_verified": true,
+  "pixel_deployed": true,
+  "device_data_modified": "User-authorized in-place APK upgrade; all 27 original observation IDs and five feedback rows preserved.",
+  "initial_adb_connection_succeeded": false,
+  "adb_connection_succeeded": true,
+  "resolution": "Renewed user-provided wireless pairing, then connected and verified Pixel identity. Pairing code not saved."
+}

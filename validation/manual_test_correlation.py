@@ -78,12 +78,12 @@ def correlate(flags,meta,path):
 def smoke():
     # A co-occurring localhost flag must never become a claimed remote SQL hit.
     from unittest.mock import patch
-    meta={'phone':'192.0.2.10','controller':'192.0.2.20'}
-    actual=key(6,('192.0.2.10',43190),('192.0.2.20',53017))
+    meta={'phone':'172.16.89.83','controller':'172.16.88.233'}
+    actual=key(6,('172.16.89.83',43190),('172.16.88.233',53017))
     rows=[{'attribution':{'initiator':'127.0.0.1:46094','responder':'127.0.0.1:27042','transport':'TCP'}},
-          {'attribution':{'initiator':'192.0.2.20:53017','responder':'192.0.2.10:43190','transport':'TCP'}},
-          {'attribution':{'initiator':'192.0.2.10:43190','responder':'192.0.2.20:53017','transport':'TCP'}},
-          {'attribution':{'initiator':'192.0.2.20:1','responder':'192.0.2.10:2','transport':'TCP'}},{}]
+          {'attribution':{'initiator':'172.16.88.233:53017','responder':'172.16.89.83:43190','transport':'TCP'}},
+          {'attribution':{'initiator':'172.16.89.83:43190','responder':'172.16.88.233:53017','transport':'TCP'}},
+          {'attribution':{'initiator':'172.16.88.233:1','responder':'172.16.89.83:2','transport':'TCP'}},{}]
     import sys
     with patch.object(sys.modules[__name__],'captured_tcp_tuples',return_value=({actual},'fixture')):
         result=correlate(rows,meta,'unused')

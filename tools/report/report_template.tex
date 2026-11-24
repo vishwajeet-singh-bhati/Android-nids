@@ -14,9 +14,9 @@
 \usetikzlibrary{arrows.meta,positioning,fit}
 \usepackage{hyperref}
 \usepackage{xurl}
-\hypersetup{colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!55!black,citecolor=blue!45!black,pdftitle={Android NIDS: Complete Project Development Report}}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!55!black,citecolor=blue!45!black,pdftitle={Rakshak: Complete Project Development Report}}
 \usepackage{fancyhdr}
-\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Android NIDS development record}\fancyfoot[C]{\thepage}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Rakshak development record}\fancyfoot[C]{\thepage}
 \setlength{\headheight}{14pt}
 \setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
 \setlist{itemsep=3pt,topsep=4pt}
@@ -34,19 +34,19 @@
 \hypersetup{pageanchor=false}
 \begin{titlepage}
 \centering\vspace*{17mm}
-{\Huge\bfseries Android NIDS\par}\vspace{7mm}
-{\LARGE From paper reconstruction to\par an on-device intrusion-detection pipeline\par}\vspace{12mm}
+{\Huge\bfseries Rakshak\par}\vspace{7mm}
+{\LARGE From paper reconstruction to\par local network, SMS and URL protection\par}\vspace{12mm}
 {\Large Complete development and experimental report\par}\vspace{10mm}
 \begin{minipage}{0.88\textwidth}
 This report explains the problem, network basics, datasets, preprocessing, model architectures, experiments, actual phone tests, failures, repairs, reproducibility checks and next steps. It is written for a reader with no prior network-security or machine-learning knowledge.
 
-The main narrative starts with the TSANet paper reconstruction and continues through completed phone-data training, protocol tests, inference improvements and code40. A historical appendix explains the earlier RC4, v5 and v6 work. Measured results, illustrative calculations and proposed repairs are identified separately.
+The main narrative starts with the TSANet paper reconstruction and continues through completed phone-data training, protocol tests, inference improvements and code40. A separate second part covers Rakshak through code46, SMS/URL source, training, integration and measured limits. A historical appendix explains the earlier RC4, v5 and v6 work. Measured results, illustrative calculations and proposed repairs are identified separately.
 \end{minipage}
 \vfill
 \textbf{Evidence cutoff:} @@AS_OF@@\par
 \textbf{Current installed detector:} augmented v1, experimental phone trial\par
-\textbf{App version:} \code{0.14.2-network-scope}, version code 40\par
-\textbf{Repository:} \url{https://github.com/vishwajeet-singh-bhati/Android-nids}\par
+\textbf{App version:} \code{0.17.3-link-extraction}, version code 46\par
+\textbf{Repository:} \url{https://github.com/vishwajeet-singh-bhati/rakshak}\par
 \vspace{8mm}
 {\small Self-contained source: upload this single \code{.tex} file to Overleaf and select pdfLaTeX. No external figures, data files, bibliography file or shell escape are required.}
 \end{titlepage}
@@ -63,6 +63,9 @@ Throughout the report, \textbf{measured} means a result saved by an actual exper
 Numbers in percentage tables are percentages unless stated otherwise. A change from 90\% to 95\% is 5 \emph{percentage points}, abbreviated pp. A row, flow segment, endpoint view, request, attack episode, activity card and notification are different units.
 \tableofcontents\clearpage
 \pagenumbering{arabic}
+
+\part{Network intrusion detection: paper to device}
+Part I preserves the network experiments at their original measurement dates. Statements about the then-current app refer to those dated stages; Part II records the current Rakshak application and added models.
 
 \chapter{The problem, explained from the beginning}
 \section{What we are building}
@@ -670,7 +673,7 @@ Epoch checkpoints include optimizer and random-generator state as required by ea
 Rollback snapshots preserved earlier model bundles before repair/deployment. The current gate and diagnosis hashes are recorded in Appendix F. No report-building operation changes a model, threshold, training split or running training source. Temporary file-access/session issues discussed in the conversation were operational interruptions; conclusions here are anchored to saved artifacts rather than assuming that an inaccessible file implied failed training. No definitive universal root cause is invented for every historical access issue.
 
 \section{GitHub submission and what is excluded}
-The user supplied \url{https://github.com/vishwajeet-singh-bhati/Android-nids} and authorized terminal publication under their account. We prepared an isolated current-source snapshot with readable directories for Android, four paper-to-current experiment stages, validation tools, models, results and documentation. A clean source root was used instead of pushing the entire older workstation history. The original source submission and first report remain in Git history; this update synchronizes the current code40 source and its evidence. Public source commits are separate from local workstation commits.
+The user supplied \url{https://github.com/vishwajeet-singh-bhati/rakshak} and authorized terminal publication under their account. We prepared an isolated current-source snapshot with readable directories for Android, four paper-to-current experiment stages, validation tools, models, results and documentation. A clean source root was used instead of pushing the entire older workstation history. The original source submission and first report remain in Git history; this update synchronizes the current code40 source and its evidence. Public source commits are separate from local workstation commits.
 
 The source snapshot contains the current small inference models and a pinned optional Llama download manifest, not the large language-model weights. Research datasets, raw phone recordings, app histories, credentials, old packet fixtures, unused legacy weights, caches and epoch checkpoint dumps are excluded. No ZIP was created; the user deferred that until the end.
 
@@ -719,6 +722,8 @@ No network detector can directly inspect plaintext hidden by encryption unless t
 Use a fixed candidate and thresholds, check packet/input health, record target ground truth independently and reserve prospective test sessions. Report each case as correctly typed detection, detection with wrong/unknown type, miss, or inconclusive delivery/ground-truth failure. Pair every suspicious pattern with suitable ordinary traffic and use episode-level as well as flow-level reporting.
 
 When a case exposes a weakness, preserve the result. Once it informs a repair, it is development material. A later retest can verify the repair on that case, but a genuinely independent accuracy claim needs newly reserved evidence. This rule is why the report keeps the original context audit, repair regressions, SQL correlation correction and inconclusive Beacon visible.
+
+@@ADDON_MODELS@@
 
 \appendix
 \chapter{Exact 32-feature flow layout}
@@ -912,6 +917,6 @@ Upload only \code{Android_NIDS_Project_Report.tex} into a blank Overleaf project
 \bibitem{aagm} Canadian Institute for Cybersecurity, \emph{Android Adware and General Malware dataset}. \url{https://www.unb.ca/cic/datasets/android-adware.html}.
 \bibitem{parrot} PARROT dataset publisher record. \url{https://zenodo.org/records/16368932}. Local inventory and accepted/excluded files are recorded separately.
 \bibitem{arp} D. Arp et al., \emph{Dos and Don'ts of Machine Learning in Computer Security}, USENIX Security 2022. \url{https://www.usenix.org/conference/usenixsecurity22/presentation/arp}.
-\bibitem{repo} Project source and current reproducibility documentation. \url{https://github.com/vishwajeet-singh-bhati/Android-nids}.
+\bibitem{repo} Project source and current reproducibility documentation. \url{https://github.com/vishwajeet-singh-bhati/rakshak}.
 \end{thebibliography}
 \end{document}

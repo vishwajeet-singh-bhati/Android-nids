@@ -1,0 +1,178 @@
+\part{Rakshak: SMS, phishing URLs and the integrated application}
+\chapter{Current application and the added detection branches}
+The network core described in Part I remains the augmented-v1 binary gate and diagnostic model. The current application is now \textbf{Rakshak 0.17.3, code46}. SMS and URL detection are additional branches with different inputs, datasets and evaluation units. Their addition does not repair or remeasure the network classifier's previously documented false positives and missed protocol behaviours.
+
+\begin{longtable}{@{}lp{0.74\textwidth}@{}}
+\toprule Version & Change and evidence scope\\\midrule\endhead
+41 preview & Optional SSH/FTP repetition policy; an experimental preview, not a new accepted network model.\\
+42 & Plain interface, confirmed history clearing and immediate factual notes with checked local Llama guidance.\\
+43 & Rakshak branding; SMS and URL models, independent controls, manual/share checks and incoming-SMS permission path.\\
+44 & Check SMS links before deeper SMS analysis; preserve link evidence in preliminary/final updates.\\
+45 & Bare links bypass SMS classification of the generic placeholder; narrow standalone congratulations remain quiet.\\
+46 & Preserve explicit URLs containing an email-like string in userinfo/query instead of masking away part of the URL.\\
+\bottomrule\end{longtable}
+
+These changes were incremental. App package \code{nids.app} stayed the same so upgrades could preserve preferences, seven-day activities and the separately installed Llama. The user interface contains Home, Check, Activity and Settings. Network, SMS and URL controls are independent; enabling one is not permission to read every other app.
+
+Post-code40 network experiments also remained research. Offline agreement/routing comparisons changed the phone test from TP62/64, FP10/120 to TP64, FP11 with an OR rule, while protocol detection changed79/268 to96/268 with13/36 normal flags. Strict agreement lost most protocol detections. An HTTP specialist reduced phone FP10 to2 or3 but reduced TP62 to36 or38. These previously opened development cases did not justify promotion. Broad terminal-fragment suppression lost36,262 positive-labelled legacy rows. The installed network decision policy and weights therefore remain unchanged.
+
+\section{The practical input boundary}
+Network detection consumes147 connection/history measurements. SMS detection consumes message text plus optional sender evidence. URL detection consumes the actual address text. An encrypted browser or WhatsApp connection does not expose its complete URL or message body to the SMS/URL classifiers.
+
+New carrier SMS can be checked automatically through Android delivery events after explicit consent and \code{RECEIVE_SMS}. The app does not read the inbox, RCS or private conversations in WhatsApp. Paste/share is available for those texts. Root is required for the existing network-capture implementation; SMS and URL checks do not require root. The APK has no \code{INTERNET} permission and performs no cloud inference or website fetching.
+
+\chapter{SMS models: data, training and architecture}
+\section{Source recovery and what was actually verified}
+The compact handoff originally contained the portable linear model, Kotlin pipeline, compiled neural model and tokenizer. The full SMS archive supplied on24 November also contained preprocessing/training/evaluation scripts, the selected floating-point checkpoint, PTQ/QAT tooling and original split/provenance records. The archived \code{ptq_int8_b1.pte} SHA256 exactly matches the deployed neural artifact. The selected checkpoint's tensor shapes contain22,898,947 elements.
+
+Original training, validation and test CSV hashes were checked directly inside the archive and matched the neural training configuration. Declared split-group intersections were zero for all supplied train/validation/test/external pairs. This verifies those files and declared group separation; it is not proof that every possible semantic duplicate or source bias has been eliminated. Datasets and personal messages are excluded from the public repository.
+
+\section{Dataset construction and split}
+The main sources were UCI SMS Spam and LSDST2022. NCSU phishing and a small Hinglish seed contributed to the external evaluation mixture. The recorded split policy was70/15/15 with seed42 and a grouping key combining exact text, masked templates, MinHash near duplicates and NCSU campaign information. The archive records16,763 exact duplicate rows removed and19 external-leakage rows dropped.
+
+@@SMS_DATA@@
+
+The external set is strongly phishing-heavy and is not representative of a phone's ordinary inbox. The main test has only49 smishing examples. High overall accuracy is influenced by the709 ham messages; classwise results and false warnings matter more than one aggregate percentage.
+
+\section{Preprocessing and the fast model}
+Unicode normalization, selected lookalike/leetspeak handling and whitespace cleanup precede tokenization. Real links, email addresses and phone numbers are extracted; model text uses \code{url_present}, \code{email_present} and \code{phone_present}. Extracted real URLs remain available to the independent link checker.
+
+The lightweight model uses word unigrams/bigrams, sublinear term frequency, saved IDF values and L2 normalization. Its13,545-feature vector passes through a three-class logistic classifier with40,638 coefficients/intercepts. The current fitted export is word-only; rule indicators are separate policy inputs, not extra learned dimensions. Classes are ham, spam and smishing. Spam can describe an unwanted promotion without establishing fraud.
+
+The selected linear experiment used balanced class weights, C=1 and seed42. Its applied temperature is1.0. An attempted fitted temperature was rejected when the validation operating point violated its precision requirement. The risk policy's thresholds0.385,0.10090909 and0.8 are provisional evidence-sensitive operating points, not calibrated probabilities that a message is fraudulent.
+
+\section{MobileBERT-22 neural model}
+The base was \code{google/mobilebert-uncased}. The source documents extreme final-layer activations in its original24-layer implementation and retains22 encoder blocks for the stability variant before fine-tuning. This must not be described as an unchanged standard24-layer result.
+
+\begin{lstlisting}
+Message modelText
+ -> uncased WordPiece, vocabulary 30,522
+ -> input_ids, attention_mask, token_type_ids
+    each int64[1,128]
+ -> token embeddings width 128
+ -> neighbouring-token projection 384 -> 512
+ -> 22 bottleneck Transformer blocks
+    hidden width 512; bottleneck width 128
+    4 attention heads, width 32 each
+    4 feed-forward sublayers per block
+ -> CLS representation 512
+ -> linear classifier 512 -> 3
+ -> float32[1,3] logits and softmax scores
+\end{lstlisting}
+
+The sequence holds up to126 message pieces plus boundary tokens; long-message suffixes can be lost. The model sees the masked text, not the real URL or sender. Training used four epochs, batch16, learning rate \(5\times10^{-5}\), weight decay0.01, warmup ratio0.1, seed42 and weighted classes. All four epochs completed; the best validation checkpoint was epoch3. The supplied training configuration reports CPU execution with eight threads.
+
+Post-training quantization produces a37,250,700-byte hybrid INT8/FP32 batch-one PTE. Embeddings and some attention operations remain floating point. Android loads it through ExecuTorch with MMAP and one configured thread. QAT was investigated but is not the deployed model. PTQ calibration code reads training data, not the test split.
+
+\section{Archived classifier results}
+The following are \textbf{archived upstream results on the same869-row test}, not a new execution of the complete Android warning pipeline. The archive explicitly states that final FP32 test evaluation had already occurred and that the quantization comparison reused it.
+
+@@SMS_COMPARISON@@
+
+The exact deployed PTQ batch-one export has these archived classwise results:
+
+@@SMS_CLASSWISE@@
+
+For that export the confusion matrix, with truth rows and prediction columns ordered ham/spam/smishing, is
+\[
+\begin{pmatrix}706&0&3\\8&94&9\\0&5&44\end{pmatrix}.
+\]
+The archived FP32 model detects46/49 smishing messages but predicts59 smishing in total; PTQ detects44/49 with56 predicted smishing. QAT export detects37/49 with43 predicted smishing. A higher recall or precision in one model is therefore a tradeoff, not automatic superiority. The ham misclassification rate in this table is not the app's end-to-end notification false-positive rate.
+
+\section{Routing and combination within SMS}
+Guarded greetings, ordinary OTP notices and some normal transactions/deliveries can avoid the neural stage. Bare links contain no prose for SMS semantics, so they take a link-only fast path while independent URL checks still run. Narrow standalone congratulations remain low only without additional link/contact/strong-risk evidence.
+
+Otherwise risk, rules, links, a ham score below0.90 or a contextual quick-return promise can route to MobileBERT. High-risk first-stage findings are preserved; guarded promotions may stay quiet; neural smishing alone normally requests suspicious review. Thus model class, score and final warning risk are distinct. This policy can both protect explicit-evidence detections and preserve an incorrect first-stage finding; it needs its own evaluation.
+
+Native regression checks covered four34-row Tier-1 fixture sets,14 tokenizer/neural class matches and230 authored scenarios. The maximum neural logit difference0.449647 still exceeds the strict0.05 tolerance. Matching classes does not erase that numerical failure, and authored scenarios are not representative scam accuracy.
+
+\chapter{Phishing URL architecture and decision policy}
+\section{Inputs and preprocessing}
+The detector receives a full address string and does not open the page, inspect HTML or follow redirects. It normalizes IDNA hosts, default ports and permitted escapes and removes fragments. The model string is host, optional nondefault port, path and query, excluding the scheme and userinfo; a separate feature records userinfo. Missing scheme is inferred as HTTP. HTTP, HTTPS and FTP are supported.
+
+The CNN character input is \code{int64[1,256]}; the second input is \code{float32[1,27]}. Its97 IDs represent printable non-space ASCII plus padding, unknown and truncation. A long string retains191 leading characters, one truncation marker and64 trailing characters. The27 features describe lengths, label/digit/symbol counts, path/query structure, ratios, entropy, IP hosts, punycode, userinfo and nondefault ports. The first17 use log1p and all use the saved training scaler.
+
+\begin{lstlisting}
+Character IDs -> embedding width 32
+ -> parallel Conv1D widths 3,5,7
+    128 channels per branch
+ -> ReLU, padding mask, max over positions
+ -> 384 character-pattern values
+27 features -> linear 27 -> 32, ReLU
+ -> concatenate to 416
+ -> linear 416 -> 64, ReLU
+ -> linear 64 -> 1 phishing logit
+\end{lstlisting}
+
+The CNN has92,577 trainable parameters. Training dropout0.3 is inactive during inference. A separate300,000-term character n-gram logistic model uses lengths2--5, sublinear TF, saved IDF and L2 normalization. Their learned combiner is
+\[
+p=\operatorname{sigmoid}(0.33173988z_{\rm CNN}
+ +0.39108674z_{\rm ngram}+0.03739391).
+\]
+Strictly above0.6831367399 gives PHISHING; strictly below0.0953727082 gives LIKELY SAFE; all other scores, including boundaries, give UNCERTAIN.
+
+\section{Rules and local threat information}
+Nonexpired exact-URL or eligible host matches can directly flag phishing. Shorteners remain uncertain. Domain-only mode or unavailable model output cannot establish safety. A popular-site guard changes a model-only phishing outcome to uncertain, while real threat-list hits retain priority. Eligible sibling-host evidence can prevent a likely-safe outcome.
+
+The measured phone used a20 November offline snapshot, marked stale after48 hours with seven-day entry expiry. It does not refresh automatically. The public repository provides an empty valid database and local preparation code instead of publishing downloaded feed information. Consequently its default list coverage differs from the measured phone until a locally permitted feed is installed. Model weights and the learned decision function remain identical.
+
+Original URL normalization, data preparation, training, calibration, inference and export source plus selected learned parameters are available under the separate URL component. Raw data and all original split files are not included. Desktop Google Safe Browsing and server/microbatch features in the source are not automatically capabilities of the Android APK.
+
+\chapter{Combined warnings, Llama and observed failure repairs}
+The combined SMS-plus-URL component is deterministic policy, not a third neural network. Enabled URL checking evaluates up to ten distinct extracted links before deeper SMS analysis. A PHISHING link can immediately raise a message to high risk. Later updates retain that finding. A likely-safe link never clears SMS evidence. Uncertain or unchecked links retain explicit status; an otherwise low-risk SMS does not become high merely from an uncertain URL. A standalone uncertain URL check instead requests review.
+
+Warnings receive an immediate factual \emph{What happened / What you can do} note. The shared local Llama3.2-1B SpinQuant INT4 model then rephrases approved advice, with an8--20-word target and48-token cap. Generated advice is checked and falls back to default guidance when unsupported. Llama does not decide risk, identify an SMS sender as authentic or invent a causal application. A network socket owner is best-effort connection attribution, not proof of who initiated malicious activity.
+
+Raw SMS bodies, sender identifiers, OTPs and full private URLs are kept out of persistent warning evidence and Llama prompts. Test diagnostics are separate private artifacts and are removed from the phone after retrieval. Independent controls, revision checks and confirmed history clearing prevent stale queued work from restoring cleared observations.
+
+\section{Why two bare links produced identical SMS warnings}
+One normal music link and one user-reported risky live link both normalized to \code{url_present}. The neural SMS scores were therefore identical: smishing0.9272169. The URL model had actually completed both checks, returning uncertain0.1513457 for the music link and likely safe0.0027493 for the other. The visible warnings originated from SMS semantics of the placeholder.
+
+Code45 delegates bare links to URL decisions. This removes that generic false-warning mechanism but also removes the incidental SMS warning on the user-reported risky URL. Its live phishing label is unverified and the URL judgment remains a coverage concern. No unverified URL was added to a blacklist.
+
+\section{Standalone congratulations and old history}
+The phrase \code{You won} had a linear smishing score0.4314044 and a prize cue. The high-risk first-stage policy remained high despite neural ham scores above0.995. A narrow standalone-congratulations fast path corrected this context; adding a URL, fee or OTP instruction defeats it. The newly delivered punctuation variant at03:26 IST was low and generated no new warning. Older02:46/02:47 warnings remained visible because history was deliberately preserved. A saved card is not evidence of a fresh notification.
+
+\section{Email-like content inside a URL}
+A synthetic URL with userinfo before an @ was mistaken for an email and lost before URL extraction. Code46 protects explicit URL spans while masking standalone emails. Userinfo and query emails now remain inside their complete URLs. Ordinary email-only messages retain their previous treatment.
+
+Nine exact recent messages were privately replayed. Three of four suspicious-looking \code{.invalid} addresses produced model phishing findings; the fourth was uncertain. Two neutral examples, the normal music link and standalone congratulations stayed quiet. These addresses have no working phishing content, so3/4 is pattern-test coverage, not real-world phishing recall. All230 prior authored SMS outcomes stayed unchanged. The notification test's initial immediate-snapshot failure was retained; a bounded visibility wait then passed all three real service/Llama events.
+
+\chapter{URL benchmark, evidence labels and measured limits}
+All2,048 user-supplied URLs were scored sequentially on the physical Pixel, with zero failed/invalid checks and no destination visits.
+
+@@URL_SUMMARY@@
+
+Of325 final phishing decisions,271 came from saved threat information and54 from the learned ensemble. Mean measured per-row latency was4.215ms, median3.940ms and p95 5.307ms; the first row took703.793ms including cold model initialization. Total native execution was9.417s. These are URL-detector measurements, not SMS-delivery, notification or Llama latency and not GPU/NPU utilization.
+
+\section{Why full accuracy could not be calculated}
+Every URL exactly matched the first2,048 inputs, in the same order, of the supplied export reference. Reference answers are predictor outputs, not true labels. Reusing them as ground truth would be circular. Training/calibration overlap is unknown, and the file is not a new untouched evaluation set.
+
+Current PhishTank verified/online data and OpenPhish data were downloaded as external evidence without sending benchmark URLs to either service. Exact full-string matching confirmed218 phishing URLs, all from PhishTank, spanning184 hosts. OpenPhish added no exact matches. The other1,830 remain unknown; no independent benign labels were established. Absence from a feed is not a benign label.
+
+@@URL_KNOWN@@
+
+All218 deployed detections were already saved-list matches. That100\% rate demonstrates list coverage on the selected positives, not learned-model accuracy. A diagnostic pass forced raw model scoring behind rule/list overrides and preserved the same final decisions on all2,048 rows.
+
+Counting uncertain outcomes as undetected gives raw-model TP172, FN46, recall78.90\% and false-negative rate21.10\% on this positive subset. Of46 misses,30 were uncertain and16 likely safe. Excluding uncertain examples would produce172/188=91.49\% with86.24\% decisive coverage; that selective result must not replace primary recall.
+
+Full-file accuracy, precision, F1, specificity, false-positive rate, NPV, balanced accuracy, MCC and ROC/PR-AUC are not established. Of325 warnings,107 have unknown truth. The1,581 likely-safe outcomes cannot be called true negatives. Reports and scoring code retain these limits, with positive-only accuracy/precision/F1 fields left undefined.
+
+\chapter{Reproduction, improvement gates and submission readiness}
+The repository separates SMS, phishing URL and integration components from the earlier network experiments. Available preprocessing, training, evaluation, PTQ/QAT, export and Android source are included. Selected model checkpoints and runtime artifacts have recorded hashes. Datasets, private messages/captures, environments, credentials, restricted feed snapshots and the large separately licensed Llama download are excluded.
+
+The public URL fixture includes27 authored edge cases, not the2,048 private benchmark rows or two real feed examples. Published historical2,077-row parity remains a dated result, not the size of the smaller public smoke fixture. A locally populated database and the original permitted snapshots are needed to reproduce list-assisted historical results exactly; current feeds can change.
+
+Source and package tests, native regressions, device predictions and research evaluation are separate checks. The original869-row SMS data hashes and declared group disjointness were verified inside the full source archive, but its archived classifier scores have not been newly presented as current Android-cascade accuracy. The current warning policy needs validation as a whole.
+
+\section{Model improvement priorities}
+First pin the current baseline and maintain separate training, selection and evaluation roles. SMS candidates should compare FP32/PTQ/QAT and evidence-sensitive fusion on validation data, tracking benign warning counts as well as smishing recall. URL repair requires independently supported benign labels, fresh phishing examples, website/time-separated splits and model-only versus list-assisted results. Previously opened tests remain regression data. Network context/specialist candidates must retain matched normal/attack controls and exact phone feature semantics.
+
+Measure cold/warm CPU latency, RAM/PSS and output quality on the same hardware before promotion. The Pixel uses ARM64 execution with ExecuTorch and XNNPACK in the observed models; no dedicated VRAM/NPU acceleration benefit is claimed. Part I retains the earlier CPU/RAM/PSS/GPU-counter limitations, E8/ExecuTorch experiments and Llama warm-cache measurements. Disk/model size is not peak RAM.
+
+No candidate is selected solely because it is larger or has a better aggregate accuracy. If labels, runtime evidence or time are insufficient, retain the documented baseline and describe its limits.
+
+\section{Submission is a later, explicit checkpoint}
+The organizer email supplied by the participant sets25 November2026,23:59 IST as the deadline and states that only the first submission is considered. Required artifacts are a public repository, a public two-minute video and a report covering methodology, results, hardware utilization and optimization. Preferred video settings are1920x1080,16:9 and MP4.
+
+This report is a \textbf{development/submission draft}. Model improvement, user candidate selection, faculty review, final video and a once-only form submission are separate gates. The repository's submission checkpoint file records what is complete, what remains, exact artifact locations and how to finish each step. No faculty approval or completed form submission is implied by publication of this source/report.

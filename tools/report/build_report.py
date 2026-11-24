@@ -154,11 +154,14 @@ def build():
     tokens['LEGACY_V5']=table(['Old candidate','Params','Epoch','Recall','CIC FP','PARROT','AAGM'],rows,r'p{0.31\textwidth}rrrrrr')
     from current_release_report import render
     tokens['LATER_CHAPTERS']=render(DATA,table,esc,pct)
+    from safety_models_report import render as render_safety
+    tokens['ADDON_MODELS']=render_safety(table,esc,pct)
     template=(Path(__file__).parent/'report_template.tex').read_text(encoding='utf-8')
     needed=set(re.findall(r'@@([A-Z_0-9]+)@@',template));assert needed==set(tokens),(needed-set(tokens),set(tokens)-needed)
     for key,value in tokens.items():template=template.replace('@@'+key+'@@',value)
     assert '@@' not in template
     target=FOLDER/'Android_NIDS_Project_Report.tex';target.write_text(template,encoding='utf-8',newline='\n')
+    (FOLDER/'Rakshak_Project_Report.tex').write_text(template,encoding='utf-8',newline='\n')
     print(json.dumps({'latex':str(target),'bytes':target.stat().st_size,'chapters':len(re.findall(r'\\chapter\{',template)),
                       'external_inputs':False,'zip_created':False},indent=2))
 

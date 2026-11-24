@@ -1,6 +1,6 @@
 # Results index
 
-Published aggregate measurements are retained here; generated runs write under ignored `runs/`, `data/` and `validation/reports/`.
+Published aggregate measurements are retained here; generated runs write under ignored `runs/`, `data/` and `results/`.
 
 | Report | Interpretation |
 |---|---|

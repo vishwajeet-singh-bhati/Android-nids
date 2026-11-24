@@ -1,0 +1,10 @@
+{
+  "max_batch_urls": 64,
+  "max_wait_ms": 0.0,
+  "max_queue_urls": 2048,
+  "max_urls_per_request": 256,
+  "queue_timeout_seconds": 10.0,
+  "model_batch_size": 64,
+  "online_workers": 2,
+  "online_max_pending": 1000
+}

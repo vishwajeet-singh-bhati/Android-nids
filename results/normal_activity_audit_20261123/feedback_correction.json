@@ -1,0 +1,12 @@
+{
+  "correction_applied": true,
+  "current_feedback": "unsure",
+  "prior_feedback_preserved": true,
+  "total_feedback_records": 6,
+  "original_activity_ids_preserved": true,
+  "model_or_alert_policy_changed": false,
+  "meaning": "User withdrew accidental Expected selection; activity remains unverified.",
+  "correction_time_ist": "2026-11-23T22:44:50.391000+05:30",
+  "subsequent_history_clear_ist": "2026-11-23T23:52:51.610000+05:30",
+  "current_phone_state_record": "final_state.json"
+}

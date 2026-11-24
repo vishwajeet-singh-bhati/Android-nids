@@ -38,6 +38,13 @@ object TsanetExplanationFacts{
             .put("history_window_minutes",5).put("history_complete",evidence.optBoolean("history_complete"))
             .put("capture_complete",evidence.optBoolean("capture_healthy",true))
             .put("attack_confirmed",false)
+        evidence.optJSONObject("authentication_episode")?.let { episode ->
+            val name=episode.optString("protocol")
+            val count=episode.optInt("connections_in_window")
+            if(name in setOf("SSH","FTP") && count>=4 && category==2){
+                facts.put("auth_episode_protocol",name).put("auth_episode_connections",count)
+            }
+        }
         return facts
     }
     fun guidance(category: String)=when(category){

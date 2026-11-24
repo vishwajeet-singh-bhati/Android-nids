@@ -55,7 +55,7 @@ def main():
     file=folder/'jobs'/cfg['jobs'][0]['name']/'epoch_01.pt';before=sha(file)
     subprocess.run([sys.executable,str(ROOT/'experiments/phone_repair_v3/train.py'),'--job',cfg['jobs'][0]['name']],env=env,check=True);assert sha(file)==before
     for script in ('select.py','evaluate.py','export_mobile.py'):
-        python=ROOT/'.venvs/edge-export/bin/python' if script=='export_mobile.py' else Path(sys.executable)
+        python=os.environ.get('NIDS_EXPORT_PYTHON',sys.executable) if script=='export_mobile.py' else Path(sys.executable)
         with (folder/(script+'.log')).open('w') as log:subprocess.run([str(python),str(ROOT/'experiments/phone_repair_v3'/script)],env=env,stdout=log,stderr=subprocess.STDOUT,check=True)
     result=json.loads((public/'mobile_export.json').read_text());assert result['native_policy_verification']['passed']
     # Matching seeds/models must initialize identically across all three arms.

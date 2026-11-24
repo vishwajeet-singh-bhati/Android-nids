@@ -1,0 +1,772 @@
+{
+  "files": {
+    "1_link_checker/phone_files/MANIFEST.json": {
+      "sha256": "38dc79c2455c73d98641082c36794e63ec33475dc9fef9b08d0672d24c8d5846",
+      "bytes": 1347
+    },
+    "1_link_checker/phone_files/ngram_lr.bin": {
+      "sha256": "32d5e2d5a888b67e5c93fc8d30d0ee7cdf0335e284f833b250bfe30e1c1f40a8",
+      "bytes": 6391214
+    },
+    "1_link_checker/phone_files/popular.txt": {
+      "sha256": "5c459641d0af83a28de0a9cf5dfb55d04f99d5c908accc2a608e85f6625bee4d",
+      "bytes": 13532
+    },
+    "1_link_checker/phone_files/pte_selfcheck.json": {
+      "sha256": "7bc4802a391add8cd76fdc3c814ad2eb846e22ee631b7c8242eb06fe6d87f1b5",
+      "bytes": 357
+    },
+    "1_link_checker/phone_files/public_suffix_list.dat": {
+      "sha256": "b69315c085d53972724b8f2df111ffc329b0c84fe0a47d62c8c91655cc774a38",
+      "bytes": 318581
+    },
+    "1_link_checker/phone_files/redirectors.txt": {
+      "sha256": "519372bce780547a81d0a8142a7502c0ddd5a0077f79cb3b7d51d9a66f92b888",
+      "bytes": 14177
+    },
+    "1_link_checker/phone_files/reference.jsonl": {
+      "sha256": "9d451e45ffcde0f6b37f8f099c2f9648353661c701a37934e1b9d08274ed5b9b",
+      "bytes": 4333795
+    },
+    "1_link_checker/phone_files/threat_intel.sqlite3": {
+      "sha256": "d71a61f47f7d6ec6a39605a77df4eb7e933657262e6ccf4d0772f61486eae9bb",
+      "bytes": 16719872
+    },
+    "1_link_checker/phone_files/url_cnn.pte": {
+      "sha256": "e6f528b630c96a5a95630a75167f80cd7df049f4afa6036a33bacd4925a5ae30",
+      "bytes": 381444
+    },
+    "1_link_checker/phone_files/url_model.json": {
+      "sha256": "e794e6ef1c23be8eaa7b3b7414a2e477672ca46dcc48e97f3b8db08797232858",
+      "bytes": 9288
+    },
+    "1_link_checker/python_source/src/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "1_link_checker/python_source/src/api/__init__.py": {
+      "sha256": "191b1e374a4c3c02ea79c7de169df8b62ee2789584cbd5790df6ca601c67b077",
+      "bytes": 82
+    },
+    "1_link_checker/python_source/src/api/app.py": {
+      "sha256": "c027a8984c034343ef84abac1480c7527f2b1f3d3875706d5abe3870b899d6d1",
+      "bytes": 14515
+    },
+    "1_link_checker/python_source/src/api/config.py": {
+      "sha256": "651d168444a91938f0c02933d014acc5c1d1f852df380c80e992e5720fb70336",
+      "bytes": 2197
+    },
+    "1_link_checker/python_source/src/api/metrics.py": {
+      "sha256": "b35997a055259a3e3469ba717513a0bbe93051962ebc675ac80a1bc96f10f7a6",
+      "bytes": 5339
+    },
+    "1_link_checker/python_source/src/api/schemas.py": {
+      "sha256": "1295ed3242e48ecf6e64bcaa212e9d984a1a945086ef952ed8551d5653f8c9bf",
+      "bytes": 2817
+    },
+    "1_link_checker/python_source/src/data/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "1_link_checker/python_source/src/data/build_dataset.py": {
+      "sha256": "bfbb164e2eee1a7e3066477f0a9b886c6eb72282226eed609939adfdd87d6885",
+      "bytes": 14510
+    },
+    "1_link_checker/python_source/src/data/commoncrawl_sample.py": {
+      "sha256": "525645b6e3b3949b5051ee5f8b2abdd0b404150fd0551e6d9f32e953fd332b64",
+      "bytes": 16433
+    },
+    "1_link_checker/python_source/src/data/download_datasets.py": {
+      "sha256": "842016899deea405b0d262d7ed541cee3d65926d6bb6a237a35c4deaa9de641b",
+      "bytes": 10611
+    },
+    "1_link_checker/python_source/src/data/parsers.py": {
+      "sha256": "1fe1a3adf1aaf9046356f289982fc9602c59c4f74a220228137796dca857c317",
+      "bytes": 6793
+    },
+    "1_link_checker/python_source/src/data/split_dataset.py": {
+      "sha256": "c808abb67451941e7498852e7aedb15f60d072d294e3da678b7abee744d01bb5",
+      "bytes": 17353
+    },
+    "1_link_checker/python_source/src/deploy/__init__.py": {
+      "sha256": "9ba208672c34fe60fafdb4c91b17fe463c239554057c8bfa262278218ded62ac",
+      "bytes": 60
+    },
+    "1_link_checker/python_source/src/deploy/mobile_export.py": {
+      "sha256": "64b9327428623d9a4ced73a4aab8584a66ff8d1444f6b9a1a58591bef8d2ffd0",
+      "bytes": 26349
+    },
+    "1_link_checker/python_source/src/deploy/package.py": {
+      "sha256": "7049f6871efb38efbfd512d8fe8b71ee841d72cca9a431872bc2e25a784aaf65",
+      "bytes": 10102
+    },
+    "1_link_checker/python_source/src/inference/__init__.py": {
+      "sha256": "7153b90db24c5c5590412be3fc146224910ba6627c485ffee56803cbdb97a7b6",
+      "bytes": 94
+    },
+    "1_link_checker/python_source/src/inference/benchmark.py": {
+      "sha256": "f2e486e428132563d7bfd63186c88bfd64e5e22bc5f27ee754565a0b649b9781",
+      "bytes": 19879
+    },
+    "1_link_checker/python_source/src/inference/bundle.py": {
+      "sha256": "48311bae7b5cbe31df933088f981567db37c4c383a07cb5d97d6eaf6587782a3",
+      "bytes": 12926
+    },
+    "1_link_checker/python_source/src/inference/decision_engine.py": {
+      "sha256": "0d7998268d0a040816d5fcefdd40ed23ab63ba76f764e43b0394036d69f47a6a",
+      "bytes": 5845
+    },
+    "1_link_checker/python_source/src/inference/machine.py": {
+      "sha256": "d046ed655e3121a2ec8a03b8142240e167eb9597c975a6f6e88d438b87aab5e0",
+      "bytes": 3779
+    },
+    "1_link_checker/python_source/src/inference/parity.py": {
+      "sha256": "c6963386376e338f52941352ab4375b11419036b3efc3a8150733ba9268e03d4",
+      "bytes": 7422
+    },
+    "1_link_checker/python_source/src/inference/predict.py": {
+      "sha256": "7ff2adf95df25cb38cf297c023579e4d3d867136514c29f61705fecaf64433a6",
+      "bytes": 13749
+    },
+    "1_link_checker/python_source/src/inference/runtime.py": {
+      "sha256": "9c3db534e1acd5a82572e23d3e89202a67493cde38e87b9de0355b293b23837e",
+      "bytes": 4568
+    },
+    "1_link_checker/python_source/src/inference/service.py": {
+      "sha256": "57b6a47429e6e02bc8a583d72799f9d5a2c0aaca1f5439a86fd5e51e0284393b",
+      "bytes": 13306
+    },
+    "1_link_checker/python_source/src/integration/__init__.py": {
+      "sha256": "346d7198ce6337f41596bec33ed209ae5b08a97673e942f7adccde57e3448b3e",
+      "bytes": 84
+    },
+    "1_link_checker/python_source/src/integration/sms_bridge.py": {
+      "sha256": "ce91dba73c014a3428dde7974a3ea1e9932c36a372c5061bdeee497f42317e90",
+      "bytes": 17291
+    },
+    "1_link_checker/python_source/src/intelligence/__init__.py": {
+      "sha256": "78bf2dcfa73302f9110d1dd2e86b4631e7fb36f1be6405a76d2c50c924e6e9ec",
+      "bytes": 90
+    },
+    "1_link_checker/python_source/src/intelligence/background.py": {
+      "sha256": "a1d919b3eb4752965fe543cc7644c105ca4f43133a3ae48a31c87bd46cfa2082",
+      "bytes": 5621
+    },
+    "1_link_checker/python_source/src/intelligence/cache.py": {
+      "sha256": "b62e380d6b95d2c77ea162c2f875f59aee08ebee4d3849967d2a4b20c0b24c98",
+      "bytes": 9333
+    },
+    "1_link_checker/python_source/src/intelligence/local_database.py": {
+      "sha256": "621eba3d5b63a8366c9438fed9ee349290eaabcad904869c1d12f797e567330e",
+      "bytes": 23512
+    },
+    "1_link_checker/python_source/src/intelligence/results.py": {
+      "sha256": "ea9477657786b5a97b483614c2286b21ada85bb00ee05cca40b9c7edf11b857e",
+      "bytes": 3185
+    },
+    "1_link_checker/python_source/src/intelligence/safe_browsing.py": {
+      "sha256": "357bce4bcc58b63a3a28c0d342ca549237c218aa4633529325e875b50c07fc79",
+      "bytes": 32739
+    },
+    "1_link_checker/python_source/src/models/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "1_link_checker/python_source/src/models/calibration.py": {
+      "sha256": "1cc5e1b6aa547624a43270eabea04f93aa43df8e611f7fc0155bfd0e0f0eaef7",
+      "bytes": 7116
+    },
+    "1_link_checker/python_source/src/models/char_cnn.py": {
+      "sha256": "8c7c351eee247897fdf92d47c3b95cc3f606fee3bfebd97cb7560cac5faff09e",
+      "bytes": 4930
+    },
+    "1_link_checker/python_source/src/models/ngram_lr.py": {
+      "sha256": "51ebc399b0c3e87428adc5cc4e523c33ef0e227498a02582122065eeeb510788",
+      "bytes": 4745
+    },
+    "1_link_checker/python_source/src/preprocessing/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "1_link_checker/python_source/src/preprocessing/feature_extractor.py": {
+      "sha256": "db0e657d44132171b69f7396c6b910ae35f329dfb1e03971f7717eed42afa84d",
+      "bytes": 10702
+    },
+    "1_link_checker/python_source/src/preprocessing/tokenizer.py": {
+      "sha256": "0aa995d85c733fa0a2784536a31fe1e7a2acf811906f9949da555f7dcd95a486",
+      "bytes": 8011
+    },
+    "1_link_checker/python_source/src/preprocessing/url_normalizer.py": {
+      "sha256": "01520681758380b0610e3fed5c08c317bca0d990ff37d2db9403b44e1af838c3",
+      "bytes": 9374
+    },
+    "1_link_checker/python_source/src/training/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "1_link_checker/python_source/src/training/baselines.py": {
+      "sha256": "06a45f76aa2828807712147d300c97655a98420675dd9f2a3d581d181a81bb37",
+      "bytes": 6583
+    },
+    "1_link_checker/python_source/src/training/calibrate.py": {
+      "sha256": "225bfcd3f0d88eecbdb97136ee5d449c613f9e966223189ee46579448592ea22",
+      "bytes": 17474
+    },
+    "1_link_checker/python_source/src/training/data.py": {
+      "sha256": "6d81d04a2a3535ebfcecc18f3d25333a2d91b608b4b3b5f8d65062cedc1b2769",
+      "bytes": 5518
+    },
+    "1_link_checker/python_source/src/training/ensemble.py": {
+      "sha256": "2dd7385b55fe0191f5c669a08a7c4e889efe2f85e7c867a20a7b90531e0e7bde",
+      "bytes": 12612
+    },
+    "1_link_checker/python_source/src/training/inspect_errors.py": {
+      "sha256": "2f6637cff68f17415464f1b964fad481780019229d776d4c84dbc3a8be15d304",
+      "bytes": 9136
+    },
+    "1_link_checker/python_source/src/training/metrics.py": {
+      "sha256": "ccb3fdca9e3d51a1d95bae9d70ac1e9656f0d228eb15d77319b72c1e422383a8",
+      "bytes": 4158
+    },
+    "1_link_checker/python_source/src/training/summarize.py": {
+      "sha256": "00f3d98330642501f9cc7e91995c832c6fb3f3f18c5ff7e03edc962e2e500407",
+      "bytes": 3553
+    },
+    "1_link_checker/python_source/src/training/train_cnn.py": {
+      "sha256": "14db996173148d2354c89293ba65777144067d47f6a813b790b898c93b66c5a2",
+      "bytes": 18835
+    },
+    "1_link_checker/python_source/src/utils/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "1_link_checker/python_source/src/utils/redact.py": {
+      "sha256": "ac119903ccd3d9034a45a3a3530ba639b7c8ccfe2b96a412a578bba5a006ea43",
+      "bytes": 2260
+    },
+    "1_link_checker/python_source/tests/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "1_link_checker/python_source/tests/test_api.py": {
+      "sha256": "50b7a22c24546cac87cfff48bf2ae8e8ecc2f7795b2d8a45bf646521c8b8cfaa",
+      "bytes": 12325
+    },
+    "1_link_checker/python_source/tests/test_background.py": {
+      "sha256": "e5dfb7390a666417ed9348f515b8ddef0e3443eaf32cfbde00223147ded50257",
+      "bytes": 4382
+    },
+    "1_link_checker/python_source/tests/test_benchmark.py": {
+      "sha256": "6c6bcc2b47659e52de98f52aa89ffd677f39988ecec80f9911340009e9a9f042",
+      "bytes": 2700
+    },
+    "1_link_checker/python_source/tests/test_build_dataset.py": {
+      "sha256": "ff9424ada34ef77074e9724f33d79fa13d9e93071db2479a0c311947497d81d4",
+      "bytes": 12579
+    },
+    "1_link_checker/python_source/tests/test_cache.py": {
+      "sha256": "52f3ab4fb2bb06f47f69087c25b2fcdffc0a5a314896b8f5415a7c6deda0cb5f",
+      "bytes": 7060
+    },
+    "1_link_checker/python_source/tests/test_calibration.py": {
+      "sha256": "981f6129977d5d9665e37cbf1fe9b655b563559753066557e834ece27ad8d7f1",
+      "bytes": 9758
+    },
+    "1_link_checker/python_source/tests/test_char_cnn.py": {
+      "sha256": "b202d1b88732fa4fe69f910ea3348620bf1e796b8698c05d82368db3d8907ce5",
+      "bytes": 7460
+    },
+    "1_link_checker/python_source/tests/test_commoncrawl_sample.py": {
+      "sha256": "cb1c99a9b0ef4b04d47ba1c738b34ef2ed5c12a1f34d9376884f95ada881fb58",
+      "bytes": 9869
+    },
+    "1_link_checker/python_source/tests/test_device.py": {
+      "sha256": "7aa47f6497d7447cbfd045de0ffa20e5737c90e3ae5293f9e502c819294caea9",
+      "bytes": 8114
+    },
+    "1_link_checker/python_source/tests/test_download_datasets.py": {
+      "sha256": "30eade4ba09a57d4180f8109b8aaae20d8046397c009be8e379f8236dd82122b",
+      "bytes": 6561
+    },
+    "1_link_checker/python_source/tests/test_ensemble.py": {
+      "sha256": "fdf843512a2de484f945b97b8bf3bf17882f94df3d45e01790d87d8b9fcb181e",
+      "bytes": 6541
+    },
+    "1_link_checker/python_source/tests/test_feature_extractor.py": {
+      "sha256": "6b5fe0cd2a6f8e2f30c868f5696f216d10063a705923c3a8a38441834c1d447c",
+      "bytes": 12010
+    },
+    "1_link_checker/python_source/tests/test_inference.py": {
+      "sha256": "df42d37242fa727293364d3c9b01e501f24dcab4ad1af204f8004dc2320a16a1",
+      "bytes": 19993
+    },
+    "1_link_checker/python_source/tests/test_inspect_errors.py": {
+      "sha256": "16499a2fba7bef7a60ccf2448a1fd1121dfe205e6b2ba8bdbc3f972bb2ca80f1",
+      "bytes": 4398
+    },
+    "1_link_checker/python_source/tests/test_mobile_export.py": {
+      "sha256": "8540844d2ec75c740f3919c84caa06b10a9c19d84bf28dc4bb00e7fab5a2b47c",
+      "bytes": 7554
+    },
+    "1_link_checker/python_source/tests/test_normalizer.py": {
+      "sha256": "8c6f33d9a0d554e60d4c7da885f3f369bb8a7d2986e0e7686d38f7e2b813be25",
+      "bytes": 7751
+    },
+    "1_link_checker/python_source/tests/test_parsers.py": {
+      "sha256": "7f4c928f247628048967cea4224a2b37e9433b298d7a04b2a5de81c18aff4a6a",
+      "bytes": 5751
+    },
+    "1_link_checker/python_source/tests/test_safe_browsing.py": {
+      "sha256": "091f88e29f42c1673ac2c0615337a8de04d0297d685b16e92b2d9071d1030636",
+      "bytes": 22913
+    },
+    "1_link_checker/python_source/tests/test_service.py": {
+      "sha256": "9af49e443306e4162c3699af4f6acf9fe6db91824fcb137c8172d858472c8753",
+      "bytes": 8077
+    },
+    "1_link_checker/python_source/tests/test_sms_bridge.py": {
+      "sha256": "b7cfcf10d60e14278728dc84cee3d454c3175b67bd5a32b69b7d2032a8297365",
+      "bytes": 17383
+    },
+    "1_link_checker/python_source/tests/test_split_dataset.py": {
+      "sha256": "820cb816d5c2f4b33fae9e2547bc77bac25d1b4bb5853fdb62149881b275d2a8",
+      "bytes": 9329
+    },
+    "1_link_checker/python_source/tests/test_threat_intel.py": {
+      "sha256": "0c89dd05b68e80e0474f3b3769c968760f350d53fe37409910b4723cae3d310c",
+      "bytes": 14446
+    },
+    "1_link_checker/python_source/tests/test_tokenizer.py": {
+      "sha256": "748e6248e98c910e8a4a693be4b095d624d5ead255c20ba20c076bc163eef132",
+      "bytes": 7698
+    },
+    "1_link_checker/python_source/tests/test_training.py": {
+      "sha256": "9a8ee033c38800ca330b0e0b49ff6b4aaa389c5371ab9cd83df3f06a90479fb9",
+      "bytes": 6864
+    },
+    "1_link_checker/python_source/config/api.json": {
+      "sha256": "ce1e9937c8a86200415bf8c1b9d8e3b5b2361c2ab5af85a6684029c38b4f807e",
+      "bytes": 148
+    },
+    "1_link_checker/python_source/config/cache.json": {
+      "sha256": "634df48b9b55dab12666eda5894a0d3addb8c37538a252ba47c414fbfa1fb15f",
+      "bytes": 182
+    },
+    "1_link_checker/python_source/config/inference.json": {
+      "sha256": "88d7e36258490181b886722ce55dec4c96c87a72bd9df95b0c466435f0d6dc86",
+      "bytes": 228
+    },
+    "1_link_checker/python_source/config/redirectors_local.txt": {
+      "sha256": "87ac64d723ffe5b0847116cb0ec9254099cf2e5b370803fba5d13375f80ae091",
+      "bytes": 636
+    },
+    "1_link_checker/python_source/config/safe_browsing.json": {
+      "sha256": "f08b08880b11e7fc5845dfbdea358c918c4cc4d0b72ac2affd76f5d530844396",
+      "bytes": 340
+    },
+    "1_link_checker/python_source/config/threat_intel.json": {
+      "sha256": "4cbb7da3e1159f013e95bf5a54838a714be97cb88c33eb95ae101ec7a75b907b",
+      "bytes": 209
+    },
+    "1_link_checker/python_source/models/full_url/cnn.pt": {
+      "sha256": "74ad76f04ec70019cb277a338de0bfde0b89db49204c20c2d808b983936a0cf1",
+      "bytes": 377020
+    },
+    "1_link_checker/python_source/models/full_url/ngram.npz": {
+      "sha256": "95c63dd21ddb8a6a36ff541f64b7fc46da49ed9f244fb448a9768e0943831ca2",
+      "bytes": 10803700
+    },
+    "1_link_checker/python_source/models/full_url/popular.txt": {
+      "sha256": "5c459641d0af83a28de0a9cf5dfb55d04f99d5c908accc2a608e85f6625bee4d",
+      "bytes": 13532
+    },
+    "1_link_checker/python_source/models/full_url/redirectors.txt": {
+      "sha256": "519372bce780547a81d0a8142a7502c0ddd5a0077f79cb3b7d51d9a66f92b888",
+      "bytes": 14177
+    },
+    "1_link_checker/python_source/models/full_url/version.json": {
+      "sha256": "a28d780ae2359c6e4a97c57bb0a305d9f176ef8cd7ab2bb755b6ee9fb2b7ce0d",
+      "bytes": 2651
+    },
+    "1_link_checker/python_source/README.md": {
+      "sha256": "7c8cb7fd3ef9fa76141075bba0459a60e24dc5a5dca7b2bec252883f13799adf",
+      "bytes": 66912
+    },
+    "1_link_checker/python_source/requirements.txt": {
+      "sha256": "a9fa671c852e9473034c855d1c040543c06a18952f102dcc1df872530d471933",
+      "bytes": 374
+    },
+    "1_link_checker/python_source/data/processed/benchmark_urls.txt": {
+      "sha256": "4285970866bd6812c27b2d68b18a09049425a63541d71e95d21e5f8ddf045f59",
+      "bytes": 168867
+    },
+    "2_sms_detector/tier1-kotlin/fixtures/synthetic_flags_parity.tsv": {
+      "sha256": "a59f3b26599c1a65463dd2d2624e4fdf1d67d0503ac94a2442d37735c71fcfcf",
+      "bytes": 4842
+    },
+    "2_sms_detector/tier1-kotlin/fixtures/synthetic_model_parity.tsv": {
+      "sha256": "497dfdd87925fdd28b3cd1a7285b982228ebcf5cfacb0111b98a35f37e136b04",
+      "bytes": 8077
+    },
+    "2_sms_detector/tier1-kotlin/fixtures/synthetic_parity.tsv": {
+      "sha256": "8d0f4f3a5e1f7e744fc61293374dd6b9cc01d6132184a5cd5496e9079cda68c9",
+      "bytes": 10735
+    },
+    "2_sms_detector/tier1-kotlin/fixtures/synthetic_policy_parity.tsv": {
+      "sha256": "94f31db8988d27130762f70e2bad1ac2020cc046b666272d1614cc96bed563e6",
+      "bytes": 8109
+    },
+    "2_sms_detector/tier1-kotlin/README.md": {
+      "sha256": "ce51c8cc2fec48e1c292b94ee9a86b60e609868f3c3c5f85a6bd4197be33155e",
+      "bytes": 8544
+    },
+    "2_sms_detector/tier1-kotlin/src/main/kotlin/com/bharat/smsguard/tier1/AlertPolicy.kt": {
+      "sha256": "2dda4834288787d6db55e43c5bdc599897f93d81840b3ff58e0e8785f1e29dc0",
+      "bytes": 1254
+    },
+    "2_sms_detector/tier1-kotlin/src/main/kotlin/com/bharat/smsguard/tier1/BertTokenizer.kt": {
+      "sha256": "165f3fe319b9ee9e9930600dd0cc6b830ae82c0525e05e7ebea774f46cf2708c",
+      "bytes": 4124
+    },
+    "2_sms_detector/tier1-kotlin/src/main/kotlin/com/bharat/smsguard/tier1/CascadePolicy.kt": {
+      "sha256": "3e6fec7787f87b837a814d7a8c1539746ad9941425a6961fa2d6728df9e0dbe2",
+      "bytes": 2549
+    },
+    "2_sms_detector/tier1-kotlin/src/main/kotlin/com/bharat/smsguard/tier1/DetectorPolicy.kt": {
+      "sha256": "7f6840b95e9a2fbf7e25b92dc52fd14ffa110301b2cfed678cefb703987e6715",
+      "bytes": 10178
+    },
+    "2_sms_detector/tier1-kotlin/src/main/kotlin/com/bharat/smsguard/tier1/Json.kt": {
+      "sha256": "8b075ec7a0dd2030f9b24ebd980c31f94025a9f1e577f910ee1cc0333e14a16f",
+      "bytes": 6103
+    },
+    "2_sms_detector/tier1-kotlin/src/main/kotlin/com/bharat/smsguard/tier1/Normalizer.kt": {
+      "sha256": "29fe343e97cf9df4473abc87ca13e808654769b76eba914c33d33d3cc315d8e2",
+      "bytes": 7654
+    },
+    "2_sms_detector/tier1-kotlin/src/main/kotlin/com/bharat/smsguard/tier1/PortableLinearModel.kt": {
+      "sha256": "d960f77f2a57d29eb9c79b9e8626deaa96b32b525b012780dce27b193dd4be06",
+      "bytes": 8116
+    },
+    "2_sms_detector/tier1-kotlin/src/main/kotlin/com/bharat/smsguard/tier1/RoutineMessages.kt": {
+      "sha256": "68725c52a177b429370454c050a3847a490f78fe76a4fc953c2ea39851d03610",
+      "bytes": 2244
+    },
+    "2_sms_detector/tier1-kotlin/src/main/kotlin/com/bharat/smsguard/tier1/Tier1Detector.kt": {
+      "sha256": "425491568dc14b5413e3edb5b65285a2e778e222629bb7c6841759e0972e26e8",
+      "bytes": 1248
+    },
+    "2_sms_detector/tier1-kotlin/src/main/kotlin/com/bharat/smsguard/tier1/Tier1Evidence.kt": {
+      "sha256": "354ff87b57a85822640f4df8c86643ab02c7522104cc35f06bf1ffbf3c40bb33",
+      "bytes": 28059
+    },
+    "2_sms_detector/tier1-kotlin/src/test/kotlin/com/bharat/smsguard/tier1/CascadeBatchMain.kt": {
+      "sha256": "9853e42b562e9dce6029234b851d816258496cd7ccf45fa88132dce9b371fbe9",
+      "bytes": 2612
+    },
+    "2_sms_detector/tier1-kotlin/src/test/kotlin/com/bharat/smsguard/tier1/CascadeChecks.kt": {
+      "sha256": "bf42d391c6f6b1a0b71a2a71a313800759d80cf334dd21b547b531ca70bf8be5",
+      "bytes": 2947
+    },
+    "2_sms_detector/tier1-kotlin/src/test/kotlin/com/bharat/smsguard/tier1/FlagParityMain.kt": {
+      "sha256": "d04f78166dcfe77453b45df3cccdaa25e1c0aa09f6f3f6cd4d9b955a9cf7f1b5",
+      "bytes": 2448
+    },
+    "2_sms_detector/tier1-kotlin/src/test/kotlin/com/bharat/smsguard/tier1/Main.kt": {
+      "sha256": "bfcf9275a6a8fe56047e37f5fe2fec78c8356076995d549df40dd8b849706c9f",
+      "bytes": 1100
+    },
+    "2_sms_detector/tier1-kotlin/src/test/kotlin/com/bharat/smsguard/tier1/ModelParityMain.kt": {
+      "sha256": "dc6f4a34b134e92df9693f8aa845e3d3c258e2133daf24c2137716756dec5265",
+      "bytes": 3348
+    },
+    "2_sms_detector/tier1-kotlin/src/test/kotlin/com/bharat/smsguard/tier1/ParityMain.kt": {
+      "sha256": "42c66ae47f343905372a69585926c7232875765d8190bb811e22ffa069fa8ea8",
+      "bytes": 3681
+    },
+    "2_sms_detector/tier1-kotlin/src/test/kotlin/com/bharat/smsguard/tier1/PolicyParityMain.kt": {
+      "sha256": "4b6a8151d1586ac179630f2a3816eac5ef568acc78502bd30289c54b751ad1d4",
+      "bytes": 3391
+    },
+    "2_sms_detector/tier1-kotlin/verify.ps1": {
+      "sha256": "56969be77992b87fe132405098afe3d176934e449ca030354b88fe375e60e892",
+      "bytes": 1283
+    },
+    "2_sms_detector/android-app/app/src/main/AndroidManifest.xml": {
+      "sha256": "2baaa274f5218d832ece35c6380535b5ec20058ba7fb37e64752cfd95f9d2b33",
+      "bytes": 1341
+    },
+    "2_sms_detector/android-app/app/src/main/assets/benchmark_suite.json": {
+      "sha256": "7f81c857d922d8057deb6a89d27818af34273529c52590c0bf3b0e7bff7c4edd",
+      "bytes": 93870
+    },
+    "2_sms_detector/android-app/app/src/main/assets/live_sms_reference.json": {
+      "sha256": "fbb6b5c4b33936dc9064d31f50ce862feda173162444844e580216314d3bb47c",
+      "bytes": 30397
+    },
+    "2_sms_detector/android-app/app/src/main/assets/tier2_checks.json": {
+      "sha256": "eadf6db661b97953cb483ac7ce39d107ecd06074fa292c570222e9f97b61a495",
+      "bytes": 19771
+    },
+    "2_sms_detector/android-app/app/src/main/kotlin/com/bharat/smsguard/app/AutomatedBenchmark.kt": {
+      "sha256": "b871cda815cbdce5cee5349a2c2051382a7cf4fdc2c7b84db50dd7cb1256c4c9",
+      "bytes": 5377
+    },
+    "2_sms_detector/android-app/app/src/main/kotlin/com/bharat/smsguard/app/EvaluationRun.kt": {
+      "sha256": "d5cc1b6f570ab75856ab9d07085c0700433559237b4f4ae2b33c15273f0521f5",
+      "bytes": 10654
+    },
+    "2_sms_detector/android-app/app/src/main/kotlin/com/bharat/smsguard/app/MainActivity.kt": {
+      "sha256": "7fb3981d10d3799eeb36b6f66892fb5f29391c5943acad8c23af32222252ff18",
+      "bytes": 19827
+    },
+    "2_sms_detector/android-app/app/src/main/kotlin/com/bharat/smsguard/app/NotificationHelper.kt": {
+      "sha256": "c190ffae5375bb6d6bdca57b9a1e6e62b1f2caa332e43431a4da97c91ebc1a3a",
+      "bytes": 5266
+    },
+    "2_sms_detector/android-app/app/src/main/kotlin/com/bharat/smsguard/app/SmsGuardEngine.kt": {
+      "sha256": "b35b3fc291c49158d45f29dcc103b5ef2fce1c2932a9b2e1db6f1d65217f7e99",
+      "bytes": 1066
+    },
+    "2_sms_detector/android-app/app/src/main/kotlin/com/bharat/smsguard/app/SmsPipeline.kt": {
+      "sha256": "c76de7d6668bf33ba403de272d7c5598a3f934beb23e9056ff6cf7653e51e297",
+      "bytes": 2946
+    },
+    "2_sms_detector/android-app/app/src/main/kotlin/com/bharat/smsguard/app/SmsReceiver.kt": {
+      "sha256": "3995119af0f814077cc9dc5379a91ed6908f40b682aae1398de0795d40395321",
+      "bytes": 4233
+    },
+    "2_sms_detector/android-app/app/src/main/kotlin/com/bharat/smsguard/app/Tier2Engine.kt": {
+      "sha256": "5ae29644cf99fe61e212e4f5fc3eeae36a96937b33ec80d15f3072e0f6e8e7da",
+      "bytes": 1886
+    },
+    "2_sms_detector/android-app/app/src/main/res/values/strings.xml": {
+      "sha256": "716145414e958818e17551570826e96ba3f3cf457030bc7ed5b71acee53a5a5d",
+      "bytes": 118
+    },
+    "2_sms_detector/android-app/app/build.gradle.kts": {
+      "sha256": "8c72d3477bdcd5227d72bf2feb2a9dcaedc0fa63f5ee6a63e17136a539ae2a5b",
+      "bytes": 1549
+    },
+    "2_sms_detector/android-app/build.gradle.kts": {
+      "sha256": "32aa71b7aab1524d39bef7ac0d6416063cfdf2d6c9c13d4d66bfca4f4e05b33b",
+      "bytes": 74
+    },
+    "2_sms_detector/android-app/settings.gradle.kts": {
+      "sha256": "cd8aba2e3baa7959004a2018e0a14a44cfa1b7e08420c931d7c92c3443bb72f3",
+      "bytes": 397
+    },
+    "2_sms_detector/android-app/gradle.properties": {
+      "sha256": "9069077370cd91d709da82994b550832c964c757805a4b63fe9d4790f0bb1f92",
+      "bytes": 98
+    },
+    "2_sms_detector/android-app/README.md": {
+      "sha256": "caefb42f67d2dfa44e54f7eb27bfbc18573b93dca9c92a05f522284dfa74e615",
+      "bytes": 3628
+    },
+    "2_sms_detector/android-app/verify_apk.ps1": {
+      "sha256": "0cd1d33bc08f2fc6b4ab67875a82533021f3015b21ccb7792478f7623ba58336",
+      "bytes": 2835
+    },
+    "2_sms_detector/models/metadata.json": {
+      "sha256": "d7848317e89e1831ab4db5ccd50715ad35927ce29a2bee0f289acdc24f0b2b83",
+      "bytes": 3123
+    },
+    "2_sms_detector/models/model.joblib": {
+      "sha256": "0744139423b579c9c5951f035c105b5217552e12a77e09d8926bf9faf71b856e",
+      "bytes": 839350
+    },
+    "2_sms_detector/models/portable/portable_model.json": {
+      "sha256": "39fc6e68b5270a828b3c52d02de6a46ac9e0443f8fa0dd07c2ab0119a421b997",
+      "bytes": 1385777
+    },
+    "2_sms_detector/models/portable/README.md": {
+      "sha256": "132b78d72d13e349c5c8685d1b6bf29795e22b44ac32274380d55a0242bb1c38",
+      "bytes": 1393
+    },
+    "2_sms_detector/sms_detection_result.schema.json": {
+      "sha256": "837e74cf89c41b6ea9962947409be61879d50d27a27cb790c56fdd4c6c313ffd",
+      "bytes": 2161
+    },
+    "2_sms_detector/tier2_assets/ptq_int8_b1.pte": {
+      "sha256": "e71c4652cb464651a1153400ac0750a9b00a0282db04a2f470f3298b3de67191",
+      "bytes": 37250700
+    },
+    "2_sms_detector/tier2_assets/vocab.txt": {
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508
+    },
+    "2_sms_detector/python_source/sms_detection/__init__.py": {
+      "sha256": "d563016fe51e12bf4d2ba464fff132ac4f4d472e505a906d667e3fc41a11f701",
+      "bytes": 322
+    },
+    "2_sms_detector/python_source/sms_detection/cli.py": {
+      "sha256": "c4b9ae6332f0006cfd624459c23e1eed70333b797c558dbc37f62f91e5a0c14c",
+      "bytes": 3124
+    },
+    "2_sms_detector/python_source/sms_detection/config.py": {
+      "sha256": "2289931c93f1378e1583736284f6f32a6802ecf94de1af95188098f0800ba183",
+      "bytes": 2796
+    },
+    "2_sms_detector/python_source/sms_detection/data/__init__.py": {
+      "sha256": "bba60aab0fac07432bd2819d9aa186a5c3c3f7710dc09c9343f129a0ad0a751d",
+      "bytes": 55
+    },
+    "2_sms_detector/python_source/sms_detection/data/deduplicate.py": {
+      "sha256": "1887cc9deb712f04db7eb7a643e97415d8ced2707d907e07eb4476d73ab16af3",
+      "bytes": 10057
+    },
+    "2_sms_detector/python_source/sms_detection/data/indian_sms.py": {
+      "sha256": "48353bff29398b9fec2529102670992fa9a5824851f5c8b4864010f327216437",
+      "bytes": 11702
+    },
+    "2_sms_detector/python_source/sms_detection/data/label_mapping.py": {
+      "sha256": "b81bb62192bd6a1ca5d7f3ba00b58c819836962369c7863a5fc11fc4daf042c0",
+      "bytes": 4138
+    },
+    "2_sms_detector/python_source/sms_detection/data/live_eval.py": {
+      "sha256": "525da627e2bd1ba9eda0d96f09050eebf60e439dd9c32cc522e8215404e38406",
+      "bytes": 7051
+    },
+    "2_sms_detector/python_source/sms_detection/data/load_sources.py": {
+      "sha256": "38594fdcf8f77de2001a5dbe1c3bb7435383c19476a2ec8a0ff595221fee0dcb",
+      "bytes": 13586
+    },
+    "2_sms_detector/python_source/sms_detection/data/review.py": {
+      "sha256": "e56708ed3854d18cde38a0c94e6cf5b6ffef8b00c17393e85e8f1d6778abffad",
+      "bytes": 5812
+    },
+    "2_sms_detector/python_source/sms_detection/interface/__init__.py": {
+      "sha256": "501cbcac67f762d36b88c95c8b3f5dc1e93f0cb3af65d1802dc01dcfa0955066",
+      "bytes": 56
+    },
+    "2_sms_detector/python_source/sms_detection/interface/schema.py": {
+      "sha256": "08313d8293b73c3bbb14d5d56b4623693bb379bb8a38884f5ca0ee5912167543",
+      "bytes": 8231
+    },
+    "2_sms_detector/python_source/sms_detection/models/__init__.py": {
+      "sha256": "89026bf1dc82dbbf524af149654dd8d96eae5c56a9ee79b813c19010663c78f6",
+      "bytes": 33
+    },
+    "2_sms_detector/python_source/sms_detection/models/calibrate.py": {
+      "sha256": "33e70ce13ef76d4128879e207020c45a9ceee5aa0a6eb414bcf8b4b80c563e68",
+      "bytes": 9464
+    },
+    "2_sms_detector/python_source/sms_detection/models/classifier.py": {
+      "sha256": "9dae20b1c08ab9601acde89fc7f2cd89210699730663055b13c220ed4959f43a",
+      "bytes": 11253
+    },
+    "2_sms_detector/python_source/sms_detection/models/evaluate.py": {
+      "sha256": "4dcf74f9f0966dd5329253e5f78a0578b7f84d0a0572f3a97ef89a9573aaff90",
+      "bytes": 8141
+    },
+    "2_sms_detector/python_source/sms_detection/models/export.py": {
+      "sha256": "9fd919c0f13de0a417c8d33852c8966d9154b153419da32979582c8afc158d2e",
+      "bytes": 10531
+    },
+    "2_sms_detector/python_source/sms_detection/models/indian_eval.py": {
+      "sha256": "5c91790c0d20161b022aa7611d1c941072253a0bdf55291e3a87ee4a58c5cc11",
+      "bytes": 30751
+    },
+    "2_sms_detector/python_source/sms_detection/models/train_baseline.py": {
+      "sha256": "90c279bc5f653e41e862e16fbd849e168b10db6c3b77bf2b6ee7294a6c18f8bd",
+      "bytes": 38258
+    },
+    "2_sms_detector/python_source/sms_detection/policy/__init__.py": {
+      "sha256": "83f548f71dc3b61515346d7e2c8e7e454058ccdea8a961f627d28c812d24a185",
+      "bytes": 38
+    },
+    "2_sms_detector/python_source/sms_detection/policy/action_codes.py": {
+      "sha256": "e046b99309243da140b54b7a87c978e1a12215c792f3a942cae85be91228f44d",
+      "bytes": 2080
+    },
+    "2_sms_detector/python_source/sms_detection/policy/risk_fusion.py": {
+      "sha256": "3c32afb361a8bfa7b4c45bab18c6a73d717eb147f62348ebe9e76b1314b53baa",
+      "bytes": 11092
+    },
+    "2_sms_detector/python_source/sms_detection/predictor.py": {
+      "sha256": "6cdeb6d84d98cd59ed4c8f7756e02874a070d8b00ae37158a46b2b39bda5c0f0",
+      "bytes": 5185
+    },
+    "2_sms_detector/python_source/sms_detection/preprocessing/__init__.py": {
+      "sha256": "aa499e7a6c62b58cb830fe774ce8448be7363882bfe5678725157d2100ce705a",
+      "bytes": 40
+    },
+    "2_sms_detector/python_source/sms_detection/preprocessing/indicators.py": {
+      "sha256": "c2919a21a4bc303837b3fbf857974d2af3d0d4f69183a185b39f65003b634eef",
+      "bytes": 29264
+    },
+    "2_sms_detector/python_source/sms_detection/preprocessing/normalize.py": {
+      "sha256": "2e77a30411f7ad5340bf8d0267d006f33c3c3e55afd63e18b464a387b7670ffa",
+      "bytes": 8705
+    },
+    "2_sms_detector/python_source/README.md": {
+      "sha256": "fae8815363a516ef907bc9419a07bde42588c35b963c5548d4ea58c2f4c18cfa",
+      "bytes": 15777
+    },
+    "2_sms_detector/python_source/LICENSE": {
+      "sha256": "bfad306b85333448c9ea7d0461f44a1cc06cb68f34c025cfcefbc517fc83c3ea",
+      "bytes": 1082
+    },
+    "2_sms_detector/python_source/pyproject.toml": {
+      "sha256": "eb7c6d39f0a50ca8c2a2d12e3a47defb27168f7518e647b08667bf8f942b00bc",
+      "bytes": 777
+    },
+    "2_sms_detector/python_source/requirements.txt": {
+      "sha256": "cae242191e106de8bc7547aa05c2426c087de450305c7823002427dbf61fec3b",
+      "bytes": 187
+    },
+    "2_sms_detector/docs/android-tier2-status.md": {
+      "sha256": "6367898dca597a76e1687578eae62932797f185e247bb274cdf1141410221e23",
+      "bytes": 8526
+    },
+    "2_sms_detector/docs/data-card.md": {
+      "sha256": "7a444d1939a8d9fdd17a483e37973306ec126ee4e8e3a33e33cc264d6d529300",
+      "bytes": 5634
+    },
+    "2_sms_detector/docs/evaluation-report.md": {
+      "sha256": "054fbb489c088bdddeb748cadaf7136067daf224c5fa6129c411993c5639ee38",
+      "bytes": 6140
+    },
+    "2_sms_detector/docs/indian-dataset-review.md": {
+      "sha256": "72408e06f6bedf5ef6a56eaff7742cdd5da9ac6184a477eca2ffa367c02d92d1",
+      "bytes": 5453
+    },
+    "2_sms_detector/docs/indian-source-benchmark.md": {
+      "sha256": "fe659a8b9b10296ef1e40110d922d8bd5953596ab1091b7cc8f7f41d79a0772f",
+      "bytes": 5856
+    },
+    "2_sms_detector/docs/indian-test-guide.md": {
+      "sha256": "8b8339c3b4b18767e9c1b2a89844df142a38dffb3ce41c73f52e210ca4734924",
+      "bytes": 6823
+    },
+    "2_sms_detector/docs/live-100-sms-test.md": {
+      "sha256": "d623d53575b8ac4ccb832ae8eed0c917dbdaea4fd8d60288599d862464a57b90",
+      "bytes": 5772
+    },
+    "2_sms_detector/docs/model-card.md": {
+      "sha256": "9401afa42799c9843be4e2d530972caeba2af27d775839176ab91a21ccbb3575",
+      "bytes": 5030
+    },
+    "2_sms_detector/docs/sms-next-steps.md": {
+      "sha256": "04cf4769c1a1b41b298db30940b22cc701945795ceede475a6ed1db966fdc16e",
+      "bytes": 6337
+    },
+    "3_combine_rule/combine_cases.json": {
+      "sha256": "5ef90fa0ba4fdd1fa4a51dc205cf177277e94b5a960cfef48703bfb73611c04e",
+      "bytes": 29677
+    },
+    "3_combine_rule/sms_bridge.py": {
+      "sha256": "ce91dba73c014a3428dde7974a3ea1e9932c36a372c5061bdeee497f42317e90",
+      "bytes": 17291
+    },
+    "docs/combined_app_walkthrough.html": {
+      "sha256": "36f910e7694936e420503b299813780ea66324f6274974cd54fd9a81165e1737",
+      "bytes": 31445
+    },
+    "START_HERE.md": {
+      "sha256": "a5511dfd0fdd7b8ddc84b4b259df725e3da8effbc60a817784ea16bc883af601",
+      "bytes": 10362
+    }
+  }
+}

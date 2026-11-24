@@ -1,5 +1,5 @@
 {
-  "as_of_ist": "2026-11-21T23:31:24.850006+05:30",
+  "as_of_ist": "2026-11-24T04:19:26.434155+05:30",
   "scope": "Read-only report on existing evidence. Dry runs use deterministic first rows of already-opened old cohorts, not the new phone validation/test cohort. No raw vectors, packets or private identities are published. Completed frozen aggregate evaluation is included; no new held-out-row scoring, checkpoint replacement or threshold fitting is performed by reporting.",
   "classes": [
     "Benign",

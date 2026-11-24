@@ -9,7 +9,7 @@ import java.io.File
 object AutomaticExplanations {
  private val ui=Handler(Looper.getMainLooper())
  fun pump(context: Context){val app=context.applicationContext;ui.post{
-  if(!LearnedLive.running || LlamaLive.running)return@post
+  if(LlamaLive.running)return@post
   val next=ObservationStore.nextQueued(app) ?: return@post
   start(app,next)
  }}

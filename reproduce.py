@@ -80,7 +80,7 @@ def install(args):
 def experiment(args):
     if os.name=='nt':raise RuntimeError('Paper/context training uses POSIX locking: run this command inside Linux/WSL; see docs/REPRODUCING_RESULTS.md')
     name='tsanet_paper' if args.name=='paper' else 'tsanet_context'
-    directory=ROOT/'runs'/('tsanet_paper_smoke' if name=='tsanet_paper' and args.smoke else 'tsanet_context_smoke' if args.smoke else 'tsanet_paper_70_30' if name=='tsanet_paper' else 'tsanet_context_v1')
+    directory=Path(args.directory).resolve() if args.directory else ROOT/'runs'/('tsanet_paper_smoke' if name=='tsanet_paper' and args.smoke else 'tsanet_context_smoke' if args.smoke else 'tsanet_paper_70_30' if name=='tsanet_paper' else 'tsanet_context_v1')
     run([sys.executable,'-u','-m','experiments.'+name+'.run','--directory',directory]+(['--smoke'] if args.smoke else []))
 
 
@@ -124,7 +124,7 @@ def main():
     p=sub.add_parser('build-android');p.add_argument('--sdk');p.add_argument('--offline',action='store_true');p.set_defaults(function=build)
     p=sub.add_parser('install-phone');p.add_argument('--serial');p.add_argument('--tcpdump');p.add_argument('--llama');p.add_argument('--start',action='store_true');p.set_defaults(function=install)
     for name in ['paper','context']:
-        p=sub.add_parser(name);p.add_argument('--smoke',action='store_true');p.set_defaults(function=experiment,name=name)
+        p=sub.add_parser(name);p.add_argument('--smoke',action='store_true');p.add_argument('--directory');p.set_defaults(function=experiment,name=name)
     p=sub.add_parser('aligned');p.add_argument('action',choices=['prepare','train','evaluate','export']);p.set_defaults(function=aligned)
     p=sub.add_parser('phone');p.add_argument('action',choices=['test','pilot','collect']);p.add_argument('--serial');p.add_argument('--profile',default='Benign');p.add_argument('--preview',action='store_true');p.set_defaults(function=phone)
     p=sub.add_parser('download-llama');p.add_argument('--accept-license',action='store_true');p.set_defaults(function=download_llama)

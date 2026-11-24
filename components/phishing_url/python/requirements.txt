@@ -1,0 +1,15 @@
+# Core (PyTorch is installed separately, see README)
+numpy>=2.0
+pandas>=2.2
+scikit-learn>=1.5
+tldextract>=5.1
+idna>=3.6
+# HTTP API (Phase 6). Floors = the versions tested; starlette 1.10 has the
+# RequestBodyLimitMiddleware the API uses for its body-size limit.
+fastapi>=0.162
+starlette>=1.10
+uvicorn>=0.54
+pydantic>=2.14
+httpx>=0.27
+requests>=2.31
+pytest>=8.0

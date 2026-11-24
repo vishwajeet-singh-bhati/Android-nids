@@ -1,0 +1,111 @@
+{
+  "started_unix": 1795467664.434133,
+  "model": "Pixel 6a",
+  "abi": "arm64-v8a",
+  "results": {
+    "rakshak_contract": {
+      "passed": true,
+      "combine_cases": 10,
+      "tidy_cases": 11,
+      "disabled_detectors_explicit": true,
+      "preliminary_final_same_event": true,
+      "history_clear_rejects_late_result": true,
+      "host_only_privacy": true,
+      "threat_rule_independent_of_neural_model": true,
+      "stale_domain_only_uncertain": true,
+      "neural_failure_explicit": true,
+      "unsafe_guidance_rejected": true,
+      "interrupted_preliminary_recovered": true,
+      "uncertain_links_visible_on_quiet_result": true,
+      "device": "Pixel 6a",
+      "abi": "arm64-v8a",
+      "test_wall_seconds": 2.607
+    },
+    "rakshak_sms": {
+      "passed": true,
+      "tier1_parity_rows_each": 34,
+      "tier1_fixture_files": 4,
+      "tier2_cases": 14,
+      "tokenization_matches": 14,
+      "class_matches": 14,
+      "maximum_logit_difference": 0.4496471881866455,
+      "strict_logit_tolerance_0_05_passed": false,
+      "benchmark_scenarios": 230,
+      "tier2_routed": 180,
+      "tier2_failures": 0,
+      "benchmark_counts": {
+        "ham->ham/low": 78,
+        "ham->ham/suspicious": 2,
+        "ham->smishing/suspicious": 8,
+        "ham->spam/low": 2,
+        "spam->spam/low": 16,
+        "spam->smishing/high": 4,
+        "spam->smishing/suspicious": 4,
+        "spam->ham/low": 16,
+        "smishing->smishing/high": 38,
+        "smishing->smishing/suspicious": 16,
+        "smishing->spam/suspicious": 4,
+        "smishing->ham/low": 16,
+        "smishing->spam/low": 2,
+        "smishing->ham/suspicious": 8,
+        "uncertain->smishing/suspicious": 8,
+        "uncertain->smishing/high": 4,
+        "uncertain->spam/low": 2,
+        "uncertain->ham/low": 2
+      },
+      "scope": "Bundled synthetic regression cases; no independent SMS accuracy claim.",
+      "device": "Pixel 6a",
+      "abi": "arm64-v8a",
+      "test_wall_seconds": 30.701
+    },
+    "rakshak_service": {
+      "passed": true,
+      "capture_paused_throughout": true,
+      "llama_model_available": true,
+      "events": [
+        {
+          "domain": "message",
+          "risk_level": "high",
+          "explanation_status": "complete",
+          "llama_guidance_accepted": true,
+          "notification_verified": true,
+          "raw_content_absent": true
+        },
+        {
+          "domain": "url",
+          "risk_level": "high",
+          "explanation_status": "complete",
+          "llama_guidance_accepted": false,
+          "notification_verified": true,
+          "raw_content_absent": true
+        },
+        {
+          "domain": "message",
+          "risk_level": "high",
+          "explanation_status": "complete",
+          "llama_guidance_accepted": false,
+          "notification_verified": true,
+          "raw_content_absent": true
+        }
+      ],
+      "scope": "Marked transient fixtures through the real foreground service. No carrier SMS sent. Missing Llama validates fallback only.",
+      "device": "Pixel 6a",
+      "abi": "arm64-v8a",
+      "test_wall_seconds": 31.582
+    }
+  },
+  "installed_apk_sha256": "1dd6240f9842a9efd23407668639b7119adc0d3d099a4772af40d1370a23055d",
+  "passed": true,
+  "version": "0.17.1-auto-links/code44",
+  "apk_sha256": "1dd6240f9842a9efd23407668639b7119adc0d3d099a4772af40d1370a23055d",
+  "final_controls": {
+    "incoming_sms_enabled": "true",
+    "sms_enabled": "true",
+    "url_enabled": "true"
+  },
+  "new_checks": [
+    "Embedded phishing link emits preliminary warning with SMS classifier disabled",
+    "No-link message skips URL assessment",
+    "Embedded-link message produces notification and local explanation"
+  ]
+}

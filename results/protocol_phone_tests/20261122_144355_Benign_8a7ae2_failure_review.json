@@ -1,0 +1,62 @@
+{
+  "case": "20261122_144355_Benign_8a7ae2",
+  "status": "incomplete_remote_ssh_timeout",
+  "matched_control_connections": [
+    {
+      "target_event": "ftp_login_failure",
+      "flagged": false,
+      "class_id": 0,
+      "gate_score": 3.016919643314565e-38,
+      "packet_counts_exact": true
+    },
+    {
+      "target_event": "ftp_login_success",
+      "flagged": true,
+      "class_id": 7,
+      "gate_score": 1,
+      "packet_counts_exact": true
+    },
+    {
+      "target_event": "ssh_login_failure",
+      "flagged": true,
+      "class_id": 7,
+      "gate_score": 1,
+      "packet_counts_exact": true
+    },
+    {
+      "target_event": "ssh_login_success",
+      "flagged": true,
+      "class_id": 7,
+      "gate_score": 1,
+      "packet_counts_exact": true
+    },
+    {
+      "target_event": "probe_available",
+      "flagged": false,
+      "class_id": 0,
+      "gate_score": 1.1240123967581894e-05,
+      "packet_counts_exact": true
+    },
+    {
+      "target_event": "probe_available",
+      "flagged": false,
+      "class_id": 0,
+      "gate_score": 6.1200285017548595e-06,
+      "packet_counts_exact": true
+    },
+    {
+      "target_event": "probe_available",
+      "flagged": false,
+      "class_id": 0,
+      "gate_score": 1.059665282809874e-05,
+      "packet_counts_exact": true
+    }
+  ],
+  "false_positives": 3,
+  "true_negatives": 4,
+  "capture_hash_verified": true,
+  "kernel_drops": 0,
+  "ended_early": false,
+  "scope": "Partial benign control. Seven completed local requests matched independently to target events, raw capture and native trace. Remote probes failed, final observation did not run. No complete-case metric or population estimate.",
+  "changes": "Added early TCP port-22 reachability check to Benign only. Mocked unavailable-host regression passes."
+}

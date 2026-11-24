@@ -41,7 +41,7 @@ class HybridPipelineValidation(private val test: Instrumentation,private val con
             val e=HybridFixtures.evidence(category,true);val input=JSONObject().put("id","").put("revision",index+1).put("model_evidence",e).put("attribution",e.getJSONObject("attribution"))
             val facts=TsanetExplanationFacts.from(e)!!
             val start=System.nanoTime();val note=HybridActivityNote.render(facts);val immediateMs=(System.nanoTime()-start)/1e6
-            check("Protocol Lab" in note && "This does not confirm an attack" in note)
+            check("Protocol Lab" in note && "An attack has not been confirmed" in note)
             val latch=CountDownLatch(1);var result: JSONObject?=null;var error: String?=null
             val tick=SystemClock.elapsedRealtime();val packets=LearnedLive.packets
             test.runOnMainSync{LlamaClient.explain(context,input){value,failure->result=value;error=failure;latch.countDown()}}
@@ -49,7 +49,7 @@ class HybridPipelineValidation(private val test: Instrumentation,private val con
             val row=result!!;check(row.optString("runtime_error").isEmpty())
             check(row.getString("pipeline_version")==HybridActivityNote.VERSION && row.getBoolean("guidance_only_generation"))
             check(row.getString("display").startsWith(HybridActivityNote.prefix(facts)))
-            check("Protocol Lab (nids.protocollab)" in row.getString("display"))
+            check("Protocol Lab received" in row.getString("display"))
             check(row.getBoolean("warm_model_reused")== (index>0))
             row.put("fixture_class",category).put("note_assembly_ms",immediateMs).put("request_wall_ms",SystemClock.elapsedRealtime()-tick)
                 .put("capture_packets_during_request",LearnedLive.packets-packets).put("capture_queue_drops",LearnedLive.queueDrops)

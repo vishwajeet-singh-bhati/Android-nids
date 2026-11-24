@@ -1,7 +1,7 @@
 {
   "created_at_ist": "2026-11-21T02:53:28.288036+05:30",
-  "source_commit": "2ecf8cd3ece8c5786faf3fd75e4241fe73add047",
-  "scope": "Current code40 plus paper-to-current source/evidence; datasets, raw captures, credentials and ZIP excluded.",
+  "source_commit": "79952ce30f8bd4eb30243ce95ae85b0de948588b",
+  "scope": "Current network/SMS/URL source and selected checkpoints; datasets/private data/feeds excluded.",
   "dataset_files_included": false,
   "private_phone_logs_included": false,
   "zip_created": false,
@@ -139,7 +139,7 @@
     {
       "file": "experiments/phone_capture_v1/smoke.py",
       "workstation_sha256": "0880024c61ab65ea7209eda7fcae63034f5d00067d9495bd6f0cd3d1f185c6ef",
-      "portable_sha256": "09b51fa7f6b1496a97f4cd9143856b3d5e172d404e79d1601187bb760d839f9c"
+      "portable_sha256": "2e0b275916eb0ee818c2d000fa938a01ffe4efdba02f3a829a05fa0747474736"
     },
     {
       "file": "experiments/phone_capture_v1/training_smoke.py",
@@ -184,7 +184,7 @@
     {
       "file": "experiments/phone_repair_v3/preflight.py",
       "workstation_sha256": "cd82cde453d4abf76306923b409ca3418a0640ae45bd144bc9bd9ae495521abb",
-      "portable_sha256": "a9a8ee2ff1a6eb5230467c66f4518ec0f8537cd19ce8b1bd6fcb23ecf7b90932"
+      "portable_sha256": "a8aec10d1e3a7debd3aa090e76cb8fd12c07fabd627fdad74bc248e83b859eda"
     },
     {
       "file": "experiments/phone_repair_v3/runner.py",
@@ -209,7 +209,7 @@
     {
       "file": "validation/manual_test_correlation.py",
       "workstation_sha256": "f50dccec9055286132d23e02fcf56af946eedba88ae722a2884aa9c5b2073c1c",
-      "portable_sha256": "e9606ec05168414dc1c68afc239dfecad151162129abe2a3fc30d1579356b397"
+      "portable_sha256": "2411e5f63189fd1092866f5afdd9e4a8ba433fceb70cd397f90b2dd62875c9d7"
     },
     {
       "file": "validation/manual_test_log.py",
@@ -228,8 +228,8 @@
     },
     {
       "file": "validation/protocol_phone_test.py",
-      "workstation_sha256": "b022b23a3cedc0f0bd8435946c05e6ecd37ae558b9780e7fff324b8d0446ffe7",
-      "portable_sha256": "5ac805ee90911f6e93cf56af6e1ec88fedfd874696cb5b7a18c8f9e064e2573e"
+      "workstation_sha256": "b42bd225ba7fa747cf5d08ccc73700a77dc4a29b4b767443169b95de4cc46622",
+      "portable_sha256": "a07eee5b3624d7038de58b5dd8b6c61247580ad34177bf37216689fa0ddb73d0"
     },
     {
       "file": "validation/review_protocol_results.py",
@@ -273,23 +273,27 @@
     },
     {
       "file": "validation/smoke_performance_controller.py",
-      "workstation_sha256": "c49ce8563ae6a78196d0459c5b4c9a8b3fbbec9626fc721d7ca6c4afae2781bd",
+      "workstation_sha256": "b842ae4d52777365160e8f7c82a1de2d13ab5e96f646ea2d412b3b11f75f1e02",
       "portable_sha256": "e97d4e4837ce4183c6ef8bb7971d438c38aca205e704c8f3d3285b9aff9225db"
     },
     {
       "file": "validation/review_forgesight_performance.py",
       "workstation_sha256": "6755f49d02d8650a3e7feee8d9eb6976a634bd0551f9b03de9e913ae5544cddd",
-      "portable_sha256": "f878e783b04c943d03a4d23dcdd974cdb850b5bda79bd74ad06b35644c88c4a5"
+      "portable_sha256": "6334f47f895edeea20600a8c4b685602734b10284e7be75926bad3def2ef394c"
     }
   ],
-  "updated_at_ist": "2026-11-21T23:45:47.938838+05:30",
-  "app_version": "0.14.2-network-scope",
-  "version_code": 40,
+  "updated_at_ist": "2026-11-24T04:01:09.057598+05:30",
+  "app_version": "0.17.3-link-extraction",
+  "version_code": 46,
   "additional_portability_changes": [
     "Explicit owned device selection and portable tool discovery",
     "Windows multi-source lab uses a user-created ignored SSH configuration; pinned hostnames/keys checked by Prepare",
     "Historical v2 comparison modules stored separately from current augmented references",
     "Only fixture endpoint literals were replaced with documentation addresses; current Android production source is unchanged",
     "Portable aggregate-driven report builder and public evidence audit"
-  ]
+  ],
+  "repository": "https://github.com/vishwajeet-singh-bhati/rakshak",
+  "public_threat_database": "Empty; rebuild locally from permitted data. Historical feed-assisted results differ.",
+  "public_url_fixture_rows": 27,
+  "original_reference_rows": 2077
 }

@@ -423,6 +423,17 @@ def review(case,profile,contract,effects):
 def run(profile):
     prepared=preparation();contract=prepared['contract'];attest()
     assert lab.endpoints()==(contract['phone'],contract['controller']),'Phone/PC address changed; prepare again'
+    if profile == 'Benign':
+        for _, host, _ in PEERS:
+            try:
+                with socket.create_connection((host, 22), timeout=3):
+                    pass
+            except OSError as error:
+                raise RuntimeError(
+                    'Benign control requires both remote PCs. SSH is unreachable on '
+                    + host + ':22. Check that PC is awake, its current IP, sshd and firewall. '
+                    'Stopped before capture and the five-minute warm-up.'
+                ) from error
     installed=lab.adb('shell','pm','path','nids.protocollab').strip().removeprefix('package:')
     assert re.fullmatch(r'/data/app/[A-Za-z0-9_~+=/.-]+/base\.apk',installed),'Unexpected protocol APK location'
     installed_hash=lab.adb('shell','su','-c',"'sha256sum "+installed+"'").split()[0]

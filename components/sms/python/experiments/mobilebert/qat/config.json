@@ -1,0 +1,86 @@
+{
+  "created_utc": "2026-11-07T00:00:00+00:00",
+  "experiment": "mobilebert22_qat_xnnpack_int8",
+  "description": "QAT fine-tuning of the existing MobileBERT-22 SMS classifier for ExecuTorch XNNPACK static INT8, with FP32/PTQ/QAT comparison on the same locked test examples.",
+  "base_checkpoint": "experiments/mobilebert/checkpoints/mobilebert22_lr5e5_bs16_e4/best",
+  "preserve_base_checkpoint": true,
+  "train_csv": "data/processed/train.csv",
+  "val_csv": "data/processed/val.csv",
+  "test_csv": "data/processed/test.csv",
+  "test_usage": "final comparison only; not used for QAT training or model selection",
+  "handmade_dataset": "not used",
+  "labels": ["ham", "spam", "smishing"],
+  "label_to_id": {"ham": 0, "spam": 1, "smishing": 2},
+  "seed": 42,
+  "max_length": 128,
+  "batch_size": 16,
+  "eval_batch_size": 16,
+  "threads": 8,
+  "class_weights": [0.4084819257259369, 2.507730484008789, 6.529790878295898],
+  "split_counts": {
+    "train": {"rows": 4055, "ham": 3309, "spam": 539, "smishing": 207},
+    "val": {"rows": 869, "ham": 709, "spam": 113, "smishing": 47},
+    "test": {"rows": 869, "ham": 709, "spam": 111, "smishing": 49}
+  },
+  "hashes": {
+    "train_csv_sha256": "d1b95dd573c62abd055a436896d4e60ce57d373d8b58a6c6979411b701158b36",
+    "val_csv_sha256": "24c532ef325de490f75954e809b36e82c7920bfce2aa1f13fb9d9b977a758d8b",
+    "test_csv_sha256": "603a2ae34179388c7e66bac757859f1719830434c00f3f8658b7a3c2242e7fcf"
+  },
+  "qat": {
+    "method": "torchao PT2E static QAT",
+    "quantizer": "XNNPACKQuantizer",
+    "quantization_scope": "linear_only",
+    "scope_note": "Linear weights/activations are INT8; aten.add and aten.mul stay FP32 because global add/mul activation quantization collapsed smishing validation recall to 0.",
+    "quantization_config": "get_symmetric_quantization_config(is_per_channel=True, is_qat=True)",
+    "epochs": 2,
+    "max_steps": null,
+    "learning_rate": 1e-05,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.10,
+    "gradient_clip": 1.0,
+    "patience": 1,
+    "observer_warmup_steps": 50,
+    "observer_warmup_shuffle": true,
+    "freeze_observers_after_warmup": true,
+    "smoke_test_steps": 20,
+    "monitor": "validation macro-F1",
+    "restore_best": true,
+    "dropout_during_qat": "disabled by eval-mode graph capture; documented limitation"
+  },
+  "ptq": {
+    "method": "torchao PT2E static PTQ",
+    "quantization_scope": "linear_only",
+    "quantization_config": "get_symmetric_quantization_config(is_per_channel=True, is_qat=False)",
+    "calibration_split": "train",
+    "calibration_rows": 4055,
+    "calibration_batch_size": 16
+  },
+  "export": {
+    "backend": "executorch XNNPACK",
+    "quantization_scope": "linear_only",
+    "partitioner": "XnnpackPartitioner",
+    "config_precisions": "STATIC_QUANT",
+    "mode": "release",
+    "batch_sizes": [1, 16],
+    "max_length": 128,
+    "expected_scope": "Linear weights/activations quantized INT8; aten.add and aten.mul, embeddings, attention bmm/softmax/div and other fallback ops remain FP32",
+    "flatc_executable": "experiments/mobilebert/.venv/Scripts/flatc.exe"
+  },
+  "environment": {
+    "python": "3.14.3",
+    "torch": "2.15.0+cpu",
+    "transformers": "4.57.6",
+    "executorch": "1.6.0",
+    "torchao": "0.18.0",
+    "flatc": "24.3.25",
+    "cuda_available": false,
+    "platform": "Windows CPU"
+  },
+  "safety": {
+    "sms_bodies_sent_to_cloud": false,
+    "existing_fp32_artifacts_overwritten": false,
+    "existing_test_split_used_for_selection": false,
+    "handmade_dataset_used": false
+  }
+}

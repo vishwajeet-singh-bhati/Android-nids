@@ -1,0 +1,708 @@
+{
+  "expected_count": 100,
+  "source_sha256": "df8cd4460c5ed50d6c28ba451092fb5942d9d855a6e5eff931480fa0b75697d5",
+  "ptq_sha256": "e71c4652cb464651a1153400ac0750a9b00a0282db04a2f470f3298b3de67191",
+  "limitations": "Observed all-positive handmade development set; no precision or population-accuracy claim",
+  "samples": [
+    {
+      "sample_id": 1,
+      "exact_hash": "3d04551fa7001b19c434fb5dc7c35b8836523c2369dc9956da505460ae033d04",
+      "template_hash": "1bde385d857545c4211a44a959568c8c71c45481179c538b927c86c4a6d23df4",
+      "category": "Bank & KYC",
+      "tactic": "Threat of account freeze"
+    },
+    {
+      "sample_id": 2,
+      "exact_hash": "4d402b6851d3198b1f7da65c8e700a7ac95c9a0c594104cec5c69d95e4607c11",
+      "template_hash": "fcc832d2b1ff1fd6685d97f3833d98e53c0fba1d17f8d83bc4dd0ebd4dc4ae4a",
+      "category": "Bank & KYC",
+      "tactic": "Tax penalty threat"
+    },
+    {
+      "sample_id": 3,
+      "exact_hash": "d7d0849818ae703d10e989f65a75348f954d48bbae6ae04f9f38531a295ec3d9",
+      "template_hash": "6f2d3f1316d616dbb37deafa98b78f337254cb43fe8ab2e13a95ffe0a7646550",
+      "category": "Bank & KYC",
+      "tactic": "Account locked panic"
+    },
+    {
+      "sample_id": 4,
+      "exact_hash": "ea6fd7d5a54eac970af334f974b2ab18436adf0e6a6d8ac4e946465bb2c2c20f",
+      "template_hash": "c1c3899b2eaf0ad41b4b809bb3432486d7773ae008005e3047ea56b1df43862a",
+      "category": "Bank & KYC",
+      "tactic": "Fake high-value debit alert"
+    },
+    {
+      "sample_id": 5,
+      "exact_hash": "717f8a768825e8261b55514d1c232984a5c4c5f793620cb43d422888c6ceb58a",
+      "template_hash": "850d95c3817ef30700a7b1403bd5a0c299eec5a9e2007cf8610e2dafd3bd1ad9",
+      "category": "Bank & KYC",
+      "tactic": "Regulatory compliance fear"
+    },
+    {
+      "sample_id": 6,
+      "exact_hash": "9d7f6e4c9693b4c51180cb1842667130b16d1aab3a875a1ac27cd43f6609787d",
+      "template_hash": "2c55a0fc73f2969defe119ab843c4ca7a10a1def5c337ce7e085db35ff6cd9ee",
+      "category": "Bank & KYC",
+      "tactic": "Urgent reward redemption"
+    },
+    {
+      "sample_id": 7,
+      "exact_hash": "a11a46670e188cdc5f1f87ea5e5f7f6e5736c9bd9e702d458281d16311925f79",
+      "template_hash": "f46a07645e49587196e6ca04e184eb069fd43ea6670c1d3a2074fb788dfd1592",
+      "category": "Bank & KYC",
+      "tactic": "Fake regulatory mandate"
+    },
+    {
+      "sample_id": 8,
+      "exact_hash": "d305f75fc40baf149ce7f2eab723a4216df225caf239b6d52459b347a41c3ac2",
+      "template_hash": "f69aa6aa4b7f9220b0e7934be5a7f0847e562929ec1d1862ae5a8cb9412225fa",
+      "category": "Bank & KYC",
+      "tactic": "Service interruption"
+    },
+    {
+      "sample_id": 9,
+      "exact_hash": "c26b9ee7cd49d594b39877bf89d04977f23bb2a3af5a535756d9719d7172f32e",
+      "template_hash": "efb4998f9ebb8b7795d5f0a37a12c6f76c08bad293a8b9b19196531f85b169ce",
+      "category": "Bank & KYC",
+      "tactic": "Greed / Limit enhancement"
+    },
+    {
+      "sample_id": 10,
+      "exact_hash": "112319da1839f140ef7d23199083e08184ab53c8c0ce8899b544ed6d3aeb630e",
+      "template_hash": "dbf5ff84b387c4be6ed0d8c6f1903498ba6124436ac69d225d03966ab8b1b90f",
+      "category": "Bank & KYC",
+      "tactic": "Financial reputation anxiety"
+    },
+    {
+      "sample_id": 11,
+      "exact_hash": "f3adaabe480ce117ba5ac6c1d29eaa418829f12b509cdfb33d9e0b367060a8ad",
+      "template_hash": "7f9af637897496dfbdc1f1742d0cc79bd2bad91d72d9d15f382810eceb54a285",
+      "category": "UPI & Payments",
+      "tactic": "Reverse UPI collect request"
+    },
+    {
+      "sample_id": 12,
+      "exact_hash": "a17a59039670a40d960d8b00b904e018b17cdab64be81a43316aed9200cff72c",
+      "template_hash": "e429040668d1b1acb66005f61a2e74d1baceca305efdc66183c84dce8f5a5644",
+      "category": "UPI & Payments",
+      "tactic": "Fake UPI scratch card"
+    },
+    {
+      "sample_id": 13,
+      "exact_hash": "a31eeade203dd64b0f05c6689607e9c068f200c683eaa3cbb27a16427d33b3fd",
+      "template_hash": "f6c370f89a22a54ffce5d4214492fa730f55870c584525a14bd3de7154814707",
+      "category": "UPI & Payments",
+      "tactic": "Fake wallet cashback"
+    },
+    {
+      "sample_id": 14,
+      "exact_hash": "60b5092751c5dba3590b4a6e4de31f0f91a36912ae3e9ea4ede778af265b6549",
+      "template_hash": "048d6aa23a31ed64005eaf41ebc9e6ab8bcb9332242e470e576904d9af3a5178",
+      "category": "UPI & Payments",
+      "tactic": "Wallet suspension threat"
+    },
+    {
+      "sample_id": 15,
+      "exact_hash": "2323b8aa6f5a7b49e9f2a2cad606c049be05aaa278bf73f6c0f0654f172d5ffe",
+      "template_hash": "8b1c129cf6ec5bfec91b7d015e1cb9735298b3f7a3feeb9721dfb1d10b32dde3",
+      "category": "UPI & Payments",
+      "tactic": "Fake toll/FASTag blacklist"
+    },
+    {
+      "sample_id": 16,
+      "exact_hash": "7d62be6d006950183b85ede9d73f7ba95704b1b73a419778a3363c048a00111f",
+      "template_hash": "60916cc25a5259057566fa2454ad20e62794b1f78a7e761b4840523c8df80309",
+      "category": "Bank & KYC",
+      "tactic": "Targeting joint accounts"
+    },
+    {
+      "sample_id": 17,
+      "exact_hash": "d496e5fa9ea2ef56312600d244871e26a520d0f3f4c8a09219938edd083d4c4e",
+      "template_hash": "411ec0d233ddda96bff64863d42392097a7c80ef51553fb74000e922008026cb",
+      "category": "Bank & KYC",
+      "tactic": "Fake international fraud alert"
+    },
+    {
+      "sample_id": 18,
+      "exact_hash": "d46ce265dd456fdc6c1acb0429b7a4515bb5a5ca2f1fcac8a2f3634be9b191dd",
+      "template_hash": "75560b1f318bb0f1f4031c2c7a18cf978a4cd17202a216a7da74494cf0da5fd7",
+      "category": "UPI & Payments",
+      "tactic": "Fake failed bill payment"
+    },
+    {
+      "sample_id": 19,
+      "exact_hash": "21bd7c49d9216f57bc793920c1bf39450d1747b895d3d8245810becaca96b01e",
+      "template_hash": "3cdb057dac29c93685d4378969d4470f9bc436bc45a6c0ce1befe371cb4f367d",
+      "category": "Bank & KYC",
+      "tactic": "Nominee update mandate"
+    },
+    {
+      "sample_id": 20,
+      "exact_hash": "f02c72dca58dfe31cdeedb3c5f67201a27ba5c9813d73ea62370626eddc0abdf",
+      "template_hash": "e7b6c9c4311769f62fa2096b10a1e4397c348a4aea8faa17a0156450450e64c1",
+      "category": "Bank & KYC",
+      "tactic": "Fake premium card offer"
+    },
+    {
+      "sample_id": 21,
+      "exact_hash": "d7dbce2315e3531daa6385baff583a0671201f2ad3d8af80fd1874d3df7ff8bc",
+      "template_hash": "7f36951262cbc7c8b287770b993947a322d3a98158357cc7fc8111f4ae912893",
+      "category": "Bank & KYC",
+      "tactic": "Locker break-open threat"
+    },
+    {
+      "sample_id": 22,
+      "exact_hash": "90aae52d0b67fc1ab73da8cd4fb62ee0741f18d38042cc29e7927e846d7ccc02",
+      "template_hash": "93db39dd1d35703e186c59d8074d8fca260577c1fc50cb5aebd97ef36e7107ed",
+      "category": "Bank & KYC",
+      "tactic": "Crypto suspicion threat"
+    },
+    {
+      "sample_id": 23,
+      "exact_hash": "e58553015a8ae732afe79167fc45f177ebb14ff3ac256456871b5b5ec180c146",
+      "template_hash": "d53c4d32261640608209bcc95617d29ee738c82ce1b52bf00f02d6e052a3fdd2",
+      "category": "Bank & KYC",
+      "tactic": "Fake bounced cheque"
+    },
+    {
+      "sample_id": 24,
+      "exact_hash": "7b0485d42f22f6e2e8bd88e41aa86fc241a40aac084d91d6d7a824219a73c200",
+      "template_hash": "bac844320f52a78acc1562e1c21b796c12bbd288c0809b8b1b95228703a0d2df",
+      "category": "Bank & KYC",
+      "tactic": "Fake insurance premium"
+    },
+    {
+      "sample_id": 25,
+      "exact_hash": "05be28f3d2de1f5909f846bea22326be6218a9a262f84569d83a636c061dc639",
+      "template_hash": "d1779ae060244f329a79d6e8fc46dc26f6bfad234e48cf4fd8eb704c42a67298",
+      "category": "UPI & Payments",
+      "tactic": "Limit upgrade spoof"
+    },
+    {
+      "sample_id": 26,
+      "exact_hash": "f97131db396027d0369ea88ae3225a430d0ec801f395e9ef4fae044bf4edfa23",
+      "template_hash": "b744f9da239a8d5131468682b5eb7dcab2fa9b870a5edcfc2d033f44c1751576",
+      "category": "Government & Tax",
+      "tactic": "Fake tax refund"
+    },
+    {
+      "sample_id": 27,
+      "exact_hash": "d80b0d01f44bbe32e3769dc5e414c10b43edf07ce3c4a245317f06a6d4b64ab2",
+      "template_hash": "3e15805ac929c91c6a7eabcf7e411904044022f8a1613ae5260f78c0f7905e4e",
+      "category": "Government & Tax",
+      "tactic": "Legal penalty threat"
+    },
+    {
+      "sample_id": 28,
+      "exact_hash": "de1c109d993d2f789942f8cc0750d02e7b3febf10a55a296eacd86f591aa5597",
+      "template_hash": "010a29eeacd231219e699f932a92b6b4cf0e6011d12dc65edeb0849386e9a53d",
+      "category": "Government & Tax",
+      "tactic": "Fake government loan approval"
+    },
+    {
+      "sample_id": 29,
+      "exact_hash": "9cb7cdafde5fe16771f949706d0852a264e66928a46582a478d2cb9822510dc5",
+      "template_hash": "4b454b77466fb313249f6d5e7a86e6dc88e995896b5d228d10e4dc1408d0bd28",
+      "category": "Government & Tax",
+      "tactic": "Holding back funds"
+    },
+    {
+      "sample_id": 30,
+      "exact_hash": "7498e57594f5f6208373ac46ca788a810b2bad1fb35ac8ebb0594f1c64000352",
+      "template_hash": "803089005f8ed2c34be418eb6b708a82892b2a560ee3c4989645271beb7ef9d8",
+      "category": "Government & Tax",
+      "tactic": "Fake regulatory mandate"
+    },
+    {
+      "sample_id": 31,
+      "exact_hash": "23fe6ddf00c387c442237a5270e31846f31ed99d92b234ac7b79a1c699744359",
+      "template_hash": "62ef162b2d5f97d567b2742e89f47a425497a2c1c1c597cbfe7a2bf1b9e92ec7",
+      "category": "Government & Tax",
+      "tactic": "Fake welfare scheme"
+    },
+    {
+      "sample_id": 32,
+      "exact_hash": "5694fc3f752316ae4750fafb3e40859b8f78265a06a1088bc90bc376442c9e91",
+      "template_hash": "e00dfbdfe5d5d32846b786dd1dc3ab8cfdc2865d632a0207c5e32c647212218b",
+      "category": "Law Enforcement",
+      "tactic": "Digital arrest / parcel scam"
+    },
+    {
+      "sample_id": 33,
+      "exact_hash": "0dbf0a5cb9b35416f333d17acffaf4a16b5bab466d86b69904afa6bf89ac248e",
+      "template_hash": "de7e005eadc8fb2f899c309bb2ccdd8f47c1667b78da2a7a6aaedd41fa60dbbf",
+      "category": "Law Enforcement",
+      "tactic": "Telecom disconnection threat"
+    },
+    {
+      "sample_id": 34,
+      "exact_hash": "c34fde3a37fc60c3f33e9e282d19b9c6edc7898a012abc82bc6259cc28f21351",
+      "template_hash": "ec411eb9c988a11f6976c2b0919faeef03786e7c06c9a3ff5c037be38c3150ce",
+      "category": "Law Enforcement",
+      "tactic": "Fake FIR/Police case"
+    },
+    {
+      "sample_id": 35,
+      "exact_hash": "fb8e39ebcd57221a0b505bc9304c8dcbe8abad91f562e5620e5400f50cb58781",
+      "template_hash": "6f18ccd9e70fc472e112c6a51b578a866402806a916e6cf6ec531ae2daa941f8",
+      "category": "Government & Tax",
+      "tactic": "Targeting small business owners"
+    },
+    {
+      "sample_id": 36,
+      "exact_hash": "d487f28b3efd02aa89cc3194e0b314026994bf5e06cb38bfacc513be8e5839ca",
+      "template_hash": "62ff9377969231a8a9a476c841cdf20869e3239cc51f38ca25666d1ad847f159",
+      "category": "Government & Tax",
+      "tactic": "PAN deactivation threat"
+    },
+    {
+      "sample_id": 37,
+      "exact_hash": "ea90dcb612201a5300ef1f12fdcf6861f9c85322fd3ec4ddbbd7918fe0c77f8e",
+      "template_hash": "e0c60207ba9c0e71471e532586984605bbd0af44b7a6d42e9aea04d18ace5353",
+      "category": "Government & Tax",
+      "tactic": "Fake biometric alert"
+    },
+    {
+      "sample_id": 38,
+      "exact_hash": "8fe07eddb81a846e1c9701ef7bbc31c8c6ea24e219701dcf6a886470f1e95275",
+      "template_hash": "afb496c3f379ab62e926ee405e2d369efe4393ec6e8f3ec578b94033eaefdf1a",
+      "category": "Government & Tax",
+      "tactic": "Fake green energy scheme"
+    },
+    {
+      "sample_id": 39,
+      "exact_hash": "a675e54e24577b251a821a7ced6749be88769369f92905a84f7aacfbe3ae39c6",
+      "template_hash": "1731902c53d9dd47cf787c68e703447b7f87838c7e1a8025ca08a80755e713c9",
+      "category": "Law Enforcement",
+      "tactic": "Fake court subpoena"
+    },
+    {
+      "sample_id": 40,
+      "exact_hash": "8446eee03227fa61b7845ec3ff888034086a3081486277807158af9c342e6fad",
+      "template_hash": "88e16c67bfed403b7a3762f44cd1923c7ed0930370298d6474bff02f69d3792e",
+      "category": "Government & Tax",
+      "tactic": "Exploiting rural/low-income users"
+    },
+    {
+      "sample_id": 41,
+      "exact_hash": "11aecb713af022cd72891fb7c4d80b1cfc46b43a1035e1a6871aec0c50298c17",
+      "template_hash": "debe4b8f0104cc9c5e943e5db30af5708f8846cc3ee059f329c5ff39167ff874",
+      "category": "Law Enforcement",
+      "tactic": "High-stakes extortion"
+    },
+    {
+      "sample_id": 42,
+      "exact_hash": "8f936bdf9b6aa31cbd884b3a1e105311581ea7e329552412171ce13166050e47",
+      "template_hash": "6b89f623a78635fa255714b57e607005e966bb7bda05e5ab5c3051a8e5283ff6",
+      "category": "Government & Tax",
+      "tactic": "Travel confirmation scam"
+    },
+    {
+      "sample_id": 43,
+      "exact_hash": "7d77a88ebcc08472acb4f6c2568a2a33f46b91158dcf5a37f5243331d9e3c1c6",
+      "template_hash": "a96acd0ab5fe18969f0cf10ec4ccbbd36adb6381acac7c7152c61db5e9adedd0",
+      "category": "Law Enforcement",
+      "tactic": "Blackmail / Scareware"
+    },
+    {
+      "sample_id": 44,
+      "exact_hash": "3c62a66e92df6e1bb6d8a443c862630c6a6a722a1fdfba26886278220636dacb",
+      "template_hash": "0bb50b34145bbf070ff9af9540ee965af4396d0115cc15d8d63ff173aeba2e3f",
+      "category": "Government & Tax",
+      "tactic": "Fake business renewal"
+    },
+    {
+      "sample_id": 45,
+      "exact_hash": "cdb4e081ba1039f6a884efae76800c6b195bd1397b9b38d27fcbc779be060e16",
+      "template_hash": "f964cdac351f0c3e374bf0aedf987552edb1327412f7ce5db9f95d7568c64eb1",
+      "category": "Government & Tax",
+      "tactic": "Data harvesting"
+    },
+    {
+      "sample_id": 46,
+      "exact_hash": "30caa4a8e7a7715ea8b1155ecac7ed146a9343a2c9d035c1a1d117fe81ccf853",
+      "template_hash": "f9f7fc9aa7e4cb20111d8002d7fc8bfce8709f706c0b8aa82852e1a6f2707c7e",
+      "category": "Postal & Delivery",
+      "tactic": "Fake delivery fee"
+    },
+    {
+      "sample_id": 47,
+      "exact_hash": "dd6dd333dbdef4ae7b0e204326ced5aa444a5ae9c315556c2c7277178ebb4f55",
+      "template_hash": "3ca872f2cab9c3d7c19a48d6dc067b9bd89581ca95ee079d4cc9d07eee9af049",
+      "category": "Postal & Delivery",
+      "tactic": "Fake missed delivery"
+    },
+    {
+      "sample_id": 48,
+      "exact_hash": "4ce6336eb040c6b17c24352358e9889ea4d3265b8c9421cc1075321b7ca6fea6",
+      "template_hash": "c467e2d3edfd872c418a89582e76d9db388cc85965c7e24c94aa654edf254bf8",
+      "category": "Postal & Delivery",
+      "tactic": "Address verification phishing"
+    },
+    {
+      "sample_id": 49,
+      "exact_hash": "25986d4acfadc4cdee2d076a015234ef1df98ece977408c7a08e082f70f4d65d",
+      "template_hash": "87579bfe56b077303215bd0fc7f0e2fb6e0e9ab4c96dfcb6b8da2a748fba705e",
+      "category": "Postal & Delivery",
+      "tactic": "Customs clearance fee scam"
+    },
+    {
+      "sample_id": 50,
+      "exact_hash": "7a0d8fa849cccca19632993989c520f67e5ec07abccbd31f0fdc15d080518338",
+      "template_hash": "22c08760c46023e23b8af5f70ae0484cb66f6cbca673655361ecf3cfe441697f",
+      "category": "Postal & Delivery",
+      "tactic": "Fake high-value order cancellation"
+    },
+    {
+      "sample_id": 51,
+      "exact_hash": "df88424fbb196509f2d4b5cf8112caf67349da01953b9210d974e1297d15bdf1",
+      "template_hash": "86216a6b5b78a1dde83db38b99fe3c6dcd9d931dd4329ba7f12fc0a4f206cede",
+      "category": "E-commerce & Offers",
+      "tactic": "Shopping festival lure"
+    },
+    {
+      "sample_id": 52,
+      "exact_hash": "93725f46876c581ac7331409db1685356173ca6d8e85ac2b7610290445b6fec4",
+      "template_hash": "79a9133825d5b2ca3e4743313fe863e6269910c42de7a9b67243f4c3edf67417",
+      "category": "Postal & Delivery",
+      "tactic": "International package scam"
+    },
+    {
+      "sample_id": 53,
+      "exact_hash": "4db15adae22c134075852e95087d30962c5eaff6a0517bb35ed08b4bf53dd309",
+      "template_hash": "036e83ab19b9d2b5216f012465601747cd86001536d774a05d007260a0a1c868",
+      "category": "E-commerce & Offers",
+      "tactic": "Advance shipping fee fraud"
+    },
+    {
+      "sample_id": 54,
+      "exact_hash": "7b4720a22a898288e3c561602f2ed401a3d0de0f0525a1c177e34867241d7fd6",
+      "template_hash": "61b0107dc73a9efed57ecef0b8ea80ad11538b85dcc3fe1f6b5316f02ff4b6bc",
+      "category": "Postal & Delivery",
+      "tactic": "Fake food delivery refund"
+    },
+    {
+      "sample_id": 55,
+      "exact_hash": "f0d06b0af8989e28334a89ed0c4b878b9b781a49c72af689d68db8693000ad2c",
+      "template_hash": "797d7369a2556d6425cdf721a71b41ebc85b9bab10cc325336beab8c2efe1faf",
+      "category": "E-commerce & Offers",
+      "tactic": "Fake premium subscription"
+    },
+    {
+      "sample_id": 56,
+      "exact_hash": "d30b19238ed571746f73d652df70129d04b9630821a6d1a8722826a05cce354b",
+      "template_hash": "99444f27828f10bd78347bd3d2e2a4092c14f7b37b89163d647b3c6747873cc2",
+      "category": "Postal & Delivery",
+      "tactic": "Fake service recovery"
+    },
+    {
+      "sample_id": 57,
+      "exact_hash": "1c245037c87468cea8ad1909ec4ebbafd5fd73144f28945cc4d88f62cda6f10f",
+      "template_hash": "0ba84e3ce84f28fadb3c1b978269fbddbb51ab1f30bbf498e85d52234a2d2b6a",
+      "category": "E-commerce & Offers",
+      "tactic": "Fake flash sale"
+    },
+    {
+      "sample_id": 58,
+      "exact_hash": "4c07f8b3a63714062e073d7dca05af0c1c5919709fcbda027262ee4675250921",
+      "template_hash": "4e3f7723eb54a94fa7b2daec90ffec00052d0980356513c4c12c286c7b6d9769",
+      "category": "Postal & Delivery",
+      "tactic": "Urgent failed delivery"
+    },
+    {
+      "sample_id": 59,
+      "exact_hash": "4c26864cb42b7338f8ae179bc8bfbf7f3403e1ac9d8702c07f3b9792b7d62631",
+      "template_hash": "bea422765b8f823a5c10622d4c6ed0b94e7a72ac99e58cafbc2b6f1b18a16e10",
+      "category": "E-commerce & Offers",
+      "tactic": "High-demand gadget scam"
+    },
+    {
+      "sample_id": 60,
+      "exact_hash": "ea2bef53213fbecca0e2b487a1086f57af1650eb925d5544a51456313b34be6c",
+      "template_hash": "1f7799a6d444333c921b769ea08cfe9c645ebf8817de183bf1104896b0b08ab9",
+      "category": "Postal & Delivery",
+      "tactic": "Fake quick-commerce apology"
+    },
+    {
+      "sample_id": 61,
+      "exact_hash": "47b616ea76ad46521a608d6819a472ac4416f4d8093cd270822f912f89b9c133",
+      "template_hash": "f64f0ab294d074803da9f9d56ebfe9165a1519493cb9a49cfa6d5c008a72b0fb",
+      "category": "Job & Loan",
+      "tactic": "Fake easy money job offer"
+    },
+    {
+      "sample_id": 62,
+      "exact_hash": "6a6c02aa8e5b41f4f54e7890488170767b9013685a1bec3823399849c36a6eae",
+      "template_hash": "b3bfd01f805e8ec7a6ce55b77ac5593bd258bc6301d0bddaba262ecc0f6cc12e",
+      "category": "Job & Loan",
+      "tactic": "Predatory fake loan"
+    },
+    {
+      "sample_id": 63,
+      "exact_hash": "6011610385ff289323be9f75c91f36ff36ad0eb7fff823a8dd055af397f0339a",
+      "template_hash": "8164eadb41db7ca3677d06a28b543edc91db7a5580ef3bf9f0bb7f20ececa45e",
+      "category": "Job & Loan",
+      "tactic": "Fake corporate recruitment"
+    },
+    {
+      "sample_id": 64,
+      "exact_hash": "c240425a054a699513cd2805bf747cb38a8e807ad83c7b2df50599fbe0ff08ba",
+      "template_hash": "01042c1953830704db80058884de8c8e9fbd8b22748759d30892028128a7fe0d",
+      "category": "Job & Loan",
+      "tactic": "Advance fee fraud"
+    },
+    {
+      "sample_id": 65,
+      "exact_hash": "276142d7f96cda61f024e5acf87386a94629a5b96529bff18539de6ef9381015",
+      "template_hash": "cfc17e6cf929a12c206f3f7d47206acab8d2c2c56c464ab3c2e60c2c7b8789f5",
+      "category": "Job & Loan",
+      "tactic": "Social media task scam"
+    },
+    {
+      "sample_id": 66,
+      "exact_hash": "a2e6470af70d7f678a87bb848bf2118f1ce87116d74301c62c43806fcb7bc84c",
+      "template_hash": "6132a5d94bd49994d984354b34846b723c0aac49a55e401f8a3c3a0012516e9c",
+      "category": "Job & Loan",
+      "tactic": "Debt collection threat"
+    },
+    {
+      "sample_id": 67,
+      "exact_hash": "c06164c6ddc627d7d0b0b48522ce0f27cab22d937a9bea2ca255fa69c109a1e0",
+      "template_hash": "5137c960f0c7eb0101d159b12ca3b7bd7f6266d2799fefd4abf85558737248cc",
+      "category": "Job & Loan",
+      "tactic": "Unrealistically good loan terms"
+    },
+    {
+      "sample_id": 68,
+      "exact_hash": "1c6cf7140789f852c0f47d34246e6ab3334545968ee0c81a081adcf9fbe36b10",
+      "template_hash": "718bd2630a2ec85a0f3fe798a7d92b3b61cd83d89cff19c52f820288ad54448d",
+      "category": "Job & Loan",
+      "tactic": "Fake review task scam"
+    },
+    {
+      "sample_id": 69,
+      "exact_hash": "bd1049305090e900a1b41ba72f21c08b657e649f59c3c15f2edb02468c62c26f",
+      "template_hash": "e180df916b0cfcca36ec207c5be88ffa5e05635480bbed5b42efde0918e6926d",
+      "category": "Job & Loan",
+      "tactic": "Loan processing fee scam"
+    },
+    {
+      "sample_id": 70,
+      "exact_hash": "d19813ea6077bec81c226bc11bf87b22e60901eb7069068c8e700820e345a87f",
+      "template_hash": "0d214fc16cef85c243593f3e61fcfdc6be0c2fed4aaeb8abde9fdb18be18cac9",
+      "category": "Job & Loan",
+      "tactic": "Malware delivery disguised as job"
+    },
+    {
+      "sample_id": 71,
+      "exact_hash": "3f0fcf910414198afadff1ff6543cff4243f538ca3fba4eac699b18625cf3ebf",
+      "template_hash": "73142e338911c1187200ce48a1fba11467c9c1839a7992271e08fd6b3ff1bc28",
+      "category": "Job & Loan",
+      "tactic": "Fake freelance client"
+    },
+    {
+      "sample_id": 72,
+      "exact_hash": "f49e2a9ecf1c5193183c5bc0d18b3c1784b76d25e6d6438aae58b3b86b6b9c00",
+      "template_hash": "ffdc5ab1f975a4c6cb0e30b2642054654bc09a7a8c31b1d784f3c6636afc4103",
+      "category": "Job & Loan",
+      "tactic": "Fake recovery agent threat"
+    },
+    {
+      "sample_id": 73,
+      "exact_hash": "da298f9c6617859162e940ba2863065cccf2b50df757f0395f2ddccafcf1ca02",
+      "template_hash": "1bd740ec0ef3730248923fa3aaf8279b2c64219c1913b625238b0125808a0e66",
+      "category": "Job & Loan",
+      "tactic": "Fake gig economy onboarding"
+    },
+    {
+      "sample_id": 74,
+      "exact_hash": "6d5270b62815f37981744e11a73d48eba24893e85790f2eeaf00177fc4982bf5",
+      "template_hash": "a3e77d0b3392d9ebe870dda6f6226bf232a1c0fe56d2215a72bf7e7e6efd8267",
+      "category": "Job & Loan",
+      "tactic": "Ponzi/Pyramid scheme"
+    },
+    {
+      "sample_id": 75,
+      "exact_hash": "e9c95bfacb54257ccef9eaf34324d2d3c3b5d02e3d132b1879a44e33a87663d8",
+      "template_hash": "85caeda739d99fb4495563cb8712376f0b5c6aecd639f62c0f16b2dcbab94a58",
+      "category": "Job & Loan",
+      "tactic": "Fake paid survey data collection"
+    },
+    {
+      "sample_id": 76,
+      "exact_hash": "76e545c46f350ebcd43755c118ac261500a70098e058c89e0b7e91fc7f8bb60a",
+      "template_hash": "53fa518eec03d49486d2ea4357f5dc326ad3078d829ce578bd8e4d0a0976ae24",
+      "category": "Utility Bills",
+      "tactic": "Immediate utility shut-off"
+    },
+    {
+      "sample_id": 77,
+      "exact_hash": "cbd2f74579489826839f1af9ac8c9c91fd8491bb8ffcfbb37eaeb00104e4f8ed",
+      "template_hash": "7ae874f438ede8f0edcc77ce31cb449e54d685a4a88168d872c9217d061d6f96",
+      "category": "Utility Bills",
+      "tactic": "Service halt due to KYC (malware link)"
+    },
+    {
+      "sample_id": 78,
+      "exact_hash": "96d66bb5ced43851ef26842eb0f1d6f8a1c2ec137696fdbe3cd12eeb4e62c04b",
+      "template_hash": "b3b7ee01d5d126fe801bb7b18fb048b613d485cb3a62a3b31fd5ec550dc05105",
+      "category": "Utility Bills",
+      "tactic": "Loss of government benefit"
+    },
+    {
+      "sample_id": 79,
+      "exact_hash": "4704e4c3f642436377dbcdc62363a306b3f6faf23bcb5169932d7a6ebceffa53",
+      "template_hash": "19116206a789616e062b4b2186bb45450c482c5443a080177ff30f8a31c03236",
+      "category": "Mobile Recharge",
+      "tactic": "Unrealistically cheap data plans"
+    },
+    {
+      "sample_id": 80,
+      "exact_hash": "9c95f9359af730c83085188fc500e12acad4385a4d30a46ff3e200566a7dd2f7",
+      "template_hash": "792bc1340ec9baee1e1d2b9c2bc37d99182cd12c042abbbdc08bc7f743423251",
+      "category": "Mobile Recharge",
+      "tactic": "Fake reward/freebie"
+    },
+    {
+      "sample_id": 81,
+      "exact_hash": "07553014d3dd59c9cb7e4bad3623377f971c8778e495c999829d27c6fb1bc330",
+      "template_hash": "9a2d8c68653d39be3e696e3df2d97e90088f67bc1ed98715dc749f2b15990bd4",
+      "category": "Account Security",
+      "tactic": "Fake unauthorized access alert"
+    },
+    {
+      "sample_id": 82,
+      "exact_hash": "f340699196949f9504c1976dcb621bbc6493dd41ca1143422eaffe64f64a083d",
+      "template_hash": "707e716b22a9f9110e6e468794119a32c04da85e6803056b1d0b5487f8d894dc",
+      "category": "Account Security",
+      "tactic": "Account deactivation threat"
+    },
+    {
+      "sample_id": 83,
+      "exact_hash": "f43771dac4544e221e6e364e61553c0fe65f907321fca8d2ec32a7e46dfa448a",
+      "template_hash": "c41162147167008e331b23f4b2187829bf4c89a497d3fceb38e46edb3ca82f4c",
+      "category": "Account Security",
+      "tactic": "Service interruption threat"
+    },
+    {
+      "sample_id": 84,
+      "exact_hash": "d117b86334e03774bdbc4c3d735cb493fb1b556aecc54aef35072bdb78f59146",
+      "template_hash": "201fc39864500bc6352a9fbc185612af717f9536cacd088b542359b0b7476040",
+      "category": "Account Security",
+      "tactic": "Fake streaming subscription issue"
+    },
+    {
+      "sample_id": 85,
+      "exact_hash": "49f96ecc0d13741dd7efd57f33cf7b977be0a3b62ade6416981f985043766b45",
+      "template_hash": "ad84358d0cbd0a402df6b6a221a5d5c20b9c2d42b90f8fa2c72720b08d5c261a",
+      "category": "Account Security",
+      "tactic": "Copyright violation threat"
+    },
+    {
+      "sample_id": 86,
+      "exact_hash": "f3f4870be40d4cae142c3da1b86aa9617dc86a1efef5cf02814af88c371d71bf",
+      "template_hash": "970c320bafcd6a5f213ba0de4db400c331c32c860eb792b467f7a02bc082a7cf",
+      "category": "Telecom & Utility",
+      "tactic": "Malware disguised as 5G update"
+    },
+    {
+      "sample_id": 87,
+      "exact_hash": "16700ff2cfa02a31a14992a4355679fd44c00a624132946484a284cdb59a3493",
+      "template_hash": "a1b0300f210da4dfd84df22fd5e3624cb1b4bcac5204bafcb58269548c3d6729",
+      "category": "Account Security",
+      "tactic": "Fake login alert"
+    },
+    {
+      "sample_id": 88,
+      "exact_hash": "adbeee5cc1a5c6def7eb6cadbec0e7ffd82e1970d66ba517d9ff8c36c629c925",
+      "template_hash": "fd7c50625ee28d560bf95e7a88bc021f6fef83d10f4fa4cd5c902a764d5f949f",
+      "category": "Account Security",
+      "tactic": "Device compromise panic"
+    },
+    {
+      "sample_id": 89,
+      "exact_hash": "e52caf8ca9a5fce873e6ef44c5c6c70ebdfa3d626bf57b397988405233173af3",
+      "template_hash": "10a00cd36c3317a661227a3f79313286d291bffc86f6c8d38a9754b81e3fcefa",
+      "category": "Telecom & Utility",
+      "tactic": "DTH shut-off threat"
+    },
+    {
+      "sample_id": 90,
+      "exact_hash": "c04c6468245e43bd3498dd733440238ad8755fd4bc011ba736b2bdb748760117",
+      "template_hash": "6a3ed3b8f68ad3b2c2f24f01c720fa1ca2c21c2e23856f4880fb3f3a5870ca05",
+      "category": "Account Security",
+      "tactic": "Blue tick phishing"
+    },
+    {
+      "sample_id": 91,
+      "exact_hash": "faff156a30dffce122e7fe777f3253d247ec44c1ec5d45aedc2319cb5efcfd4c",
+      "template_hash": "e60efcee67fb61e8f104141850088c8f44ec955c8cc2aa659445e6d5fc8e17f5",
+      "category": "Educational",
+      "tactic": "Fake scholarship grant"
+    },
+    {
+      "sample_id": 92,
+      "exact_hash": "fbc9051eb3f22b90411611504b08d7a5391f09d58e815524456fae01f7fb287b",
+      "template_hash": "f562c00c431f46f53118d831776b82354e94d59924ead3e55fc17c67f3001e94",
+      "category": "Educational",
+      "tactic": "Academic penalty threat"
+    },
+    {
+      "sample_id": 93,
+      "exact_hash": "d8a7eff6baa312c77826d3cc7628c5a21bd5131a02ea4a5c410afaf8834691c9",
+      "template_hash": "63046a016a29fe80fd4636d26f576569602ba9264263f7be73afbffb821f4e37",
+      "category": "Educational",
+      "tactic": "Fake student welfare scheme"
+    },
+    {
+      "sample_id": 94,
+      "exact_hash": "c68486a6a0eafce4c436dd4ba070192d58b84f54a76b65ab5727879553593ae3",
+      "template_hash": "fb567fcad6f0b45341d4748640743e385722242d72d582970a52995db4e7c523",
+      "category": "Educational",
+      "tactic": "Exploiting academic anxiety"
+    },
+    {
+      "sample_id": 95,
+      "exact_hash": "a65249a4b477b5a7421bc7eb823e12cb7b7cc4085fed74b041df3e384df0ffbb",
+      "template_hash": "1e2c4a11f1576a5b5a6db6fb7e259fc928e489b890b55d02d1fd2b44f80ff03d",
+      "category": "Health & Medical",
+      "tactic": "Health anxiety malware delivery"
+    },
+    {
+      "sample_id": 96,
+      "exact_hash": "99d88949a36beaf18192ee76147b5784303d7cc3658006fd90636a6facdc3f2f",
+      "template_hash": "04d65c3409d85b9ee7b44a16d1189d621e6fb4ec5fb7a4a7c0ca4ade82e80594",
+      "category": "Educational",
+      "tactic": "Study abroad scam"
+    },
+    {
+      "sample_id": 97,
+      "exact_hash": "b3883b66a1cd9abb96f7c758eecfa9d2f3d778dfba8eaddb23af26e8e0292daa",
+      "template_hash": "9275c6ccb082c4dc39f69cbb94df7f96db66dfd83a77e2fb2040cb95d119d055",
+      "category": "Health & Medical",
+      "tactic": "Targeting chronic patients"
+    },
+    {
+      "sample_id": 98,
+      "exact_hash": "77a391644a23723afc5c89a992ae1fc5975f0a01100222df233df8559910adb4",
+      "template_hash": "1e869e35f4bb7b6bfe2e9d06e31bc5ace148c14e1e511da153cb925791ca39e3",
+      "category": "Travel & Tourism",
+      "tactic": "Fake travel cancellation"
+    },
+    {
+      "sample_id": 99,
+      "exact_hash": "72a0a5a2889a232db99e5d84a9f04dc16bbc82ea460d15721ef31ece1971cf98",
+      "template_hash": "2064e3f2a456a117cb3873c2245a7b24df047bd2aedbc16c5b56061c7c715c46",
+      "category": "Miscellaneous",
+      "tactic": "Emotional exploitation scam"
+    },
+    {
+      "sample_id": 100,
+      "exact_hash": "28befabb12626e5bcb1cc546f47965af0dca8fc19c72d70418fe5a19cdd26389",
+      "template_hash": "e7968de69e2757ebd730fc12a504d2a1b44a188a8a9138a39c5590c7228d1a87",
+      "category": "Charity & Relief",
+      "tactic": "Fake charity/disaster relief"
+    }
+  ]
+}

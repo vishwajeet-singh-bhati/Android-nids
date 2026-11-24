@@ -30,7 +30,7 @@ Add `--preview` to print a case without accessing the phone or sending traffic. 
 | HTTPFlood | 128 bounded requests/at most 8 workers; delivered load alone does not prove DoS/DDoS |
 | Beacon | 12 fixed PING/PONG attempts to PC TCP 43990; behavior probe, not actual Bot infection |
 
-Logs/checks/PCAPs stay under ignored `runs/manual_phone_tests`. Generated chronology is under `validation/reports/manual_phone_tests`. Match full TCP tuples against packets/native traces; unrelated flags in the same time window are not test detections. Notifications group flags into activities; multiple segments/retries are not independent attacks. A notification absent from a late snapshot may have been dismissed earlier.
+Logs/checks/PCAPs stay under ignored `runs/manual_phone_tests`. Generated chronology is under `results/manual_phone_tests`. Match full TCP tuples against packets/native traces; unrelated flags in the same time window are not test detections. Notifications group flags into activities; multiple segments/retries are not independent attacks. A notification absent from a late snapshot may have been dismissed earlier.
 
 The original manual-test companion captures are 96-byte/filtered packet evidence. The newer dataset collector uses 768-byte/all-context recording with strict native parity and socket-level target events. Use DatasetLab/`phone collect` for training data; do not treat old manual PCAPs as complete feature replays.
 

@@ -1,0 +1,14 @@
+# Reviewed additions to the public URL-shortener list (one domain per line).
+#
+# A domain belongs here only if it is a link-shortening or QR-code redirect
+# SERVICE: its URLs look like "<domain>/<short code>" and the real destination
+# is not visible in the URL. Being here does NOT mean "phishing". It means
+# "a URL-only model cannot judge this link", so the decision engine reports
+# UNCERTAIN unless threat intelligence knows the exact link.
+#
+# Found by the opaque-pattern check in split_dataset.py (>= 90% of URLs are a
+# single short code) on the PhishTank snapshot of 2026-11-13, then reviewed.
+q-r.to
+ead.me
+qr-codes.io
+did.li

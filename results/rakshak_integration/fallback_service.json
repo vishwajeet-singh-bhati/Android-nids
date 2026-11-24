@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "capture_paused_throughout": true,
+  "llama_model_available": false,
+  "events": [
+    {
+      "domain": "message",
+      "risk_level": "high",
+      "explanation_status": "failed",
+      "llama_guidance_accepted": false,
+      "notification_verified": true,
+      "raw_content_absent": true
+    },
+    {
+      "domain": "url",
+      "risk_level": "high",
+      "explanation_status": "failed",
+      "llama_guidance_accepted": false,
+      "notification_verified": true,
+      "raw_content_absent": true
+    }
+  ],
+  "scope": "Marked transient fixtures through the real foreground service. No carrier SMS sent. Missing Llama validates fallback only.",
+  "device": "sdk_gphone64_x86_64",
+  "abi": "x86_64"
+}

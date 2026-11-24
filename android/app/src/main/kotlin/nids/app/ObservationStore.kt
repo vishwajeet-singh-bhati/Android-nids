@@ -26,6 +26,29 @@ object ObservationStore {
    override fun onUpgrade(db: SQLiteDatabase,oldVersion: Int,newVersion: Int){}
   }.apply{setWriteAheadLoggingEnabled(true)}}.writableDatabase
  }
+ @Synchronized fun recordCurrent(c: Context,kind: String,count: Long,evidence: JSONObject): JSONObject? {
+  val cutoff=c.getSharedPreferences("background_monitor",Context.MODE_PRIVATE).getLong("history_cleared_ms",0L)
+  if(evidence.optLong("decision_time_ms",Long.MAX_VALUE)<=cutoff)return null
+  return record(c,kind,count,evidence)
+ }
+ @Synchronized fun clearHistory(c: Context): List<String> {
+  val database=db(c)
+  val ids=ArrayList<String>()
+  database.rawQuery("SELECT id FROM observations",null).use{while(it.moveToNext())ids.add(it.getString(0))}
+  database.beginTransaction()
+  try{
+   database.delete("feedback",null,null)
+   database.delete("observations",null,null)
+   check(c.getSharedPreferences("background_monitor",Context.MODE_PRIVATE).edit()
+    .putLong("history_cleared_ms",System.currentTimeMillis()).commit())
+   database.setTransactionSuccessful()
+  }finally{database.endTransaction()}
+  File(c.filesDir,"history_sqlite_migrated").writeText("History cleared by user")
+  for(name in listOf("observations_v1.json","feedback_v1.jsonl","last_local_explanation.json"))File(c.filesDir,name).delete()
+  SafetyControls.preferences(c).edit().remove("last_result").remove("last_state").remove("last_request_id").apply()
+  SafetyResults.clear()
+  return ids
+ }
  @Synchronized fun close(c: Context){helpers.remove(File(c.filesDir,"activity_history_v1.db").absolutePath)?.close()}
  private fun prune(db: SQLiteDatabase){val cutoff=(System.currentTimeMillis()-RETENTION).toString();db.delete("observations","time_ms<?",arrayOf(cutoff));db.delete("feedback","time_ms<?",arrayOf(cutoff))}
  private fun put(db: SQLiteDatabase,row: JSONObject){
@@ -61,12 +84,20 @@ object ObservationStore {
      .put("safe_verification",HybridActivityNote.guidance(facts))
    }
   }
+  if(kind=="safety"){
+   row.put("title",SafetyNote.title(evidence)).put("factual_note",SafetyNote.render(evidence))
+    .put("safe_verification",SafetyNote.guidance(evidence)).put("attack_type",evidence.optString("domain"))
+    .put("observation","A local safety check needs review.")
+    .put("explanation_pipeline",SafetyNote.VERSION)
+  }
   // A completed draft describes an older revision once new evidence arrives.
   // Preserve the running request until it returns, but never display/save it
   // against changed facts. The immediate note always describes this revision.
   if(row.has("explanation") && row.getJSONObject("explanation").optInt("evidence_revision",-1)!=row.getInt("revision"))row.remove("explanation")
   if(row.optString("disposition")=="dismissed")row.put("explanation_status","skipped")
   else if(row.optString("explanation_status")!="running")row.put("explanation_status","queued")
+  if(kind=="safety" && evidence.optString("phase")=="preliminary")row.put("explanation_status","awaiting_checks")
+  if(kind=="safety" && evidence.optString("phase")=="cancelled")row.put("explanation_status","cancelled")
   put(db,row);return JSONObject(row.toString())
  }
  @Synchronized fun feedback(c: Context,id: String,revision: Int,label: String,note: String){
@@ -122,6 +153,19 @@ object ObservationStore {
  @Synchronized fun recoverQueue(c: Context){
   val database=db(c);val rows=ArrayList<JSONObject>();database.rawQuery("SELECT body FROM observations WHERE explanation_status='running'",null).use{while(it.moveToNext())rows.add(JSONObject(it.getString(0)))}
   for(row in rows){row.put("explanation_status",if(row.optString("traffic_scope")==NetworkObservationPolicy.LOCAL)"not_applicable" else if(!NetworkObservationPolicy.explanationAllowed(row))"skipped" else "queued");put(database,row)};prune(database)
+ }
+ @Synchronized fun hasInterruptedSafety(c: Context): Boolean=db(c).rawQuery("SELECT 1 FROM observations WHERE kind='safety' AND explanation_status='awaiting_checks' LIMIT 1",null).use{it.moveToFirst()}
+ /** Called only when a new safety service starts; no previous raw-input job survives its process. */
+ @Synchronized fun recoverInterruptedSafety(c: Context){
+  val database=db(c);val rows=ArrayList<JSONObject>()
+  database.rawQuery("SELECT body FROM observations WHERE kind='safety' AND explanation_status='awaiting_checks'",null).use{while(it.moveToNext())rows.add(JSONObject(it.getString(0)))}
+  for(row in rows){
+   val facts=SafetyNote.from(row.optJSONObject("model_evidence")) ?: continue
+   facts.put("phase","final").put("analysis_status","partial").put("completion_note","interrupted").put("tier2_status","interrupted")
+   row.put("explanation_status",if(NetworkObservationPolicy.explanationAllowed(row))"queued" else "skipped")
+    .put("factual_note",SafetyNote.render(facts)).put("safe_verification",SafetyNote.guidance(facts))
+   put(database,row)
+  }
  }
  @Synchronized fun export(c: Context,stream: OutputStream,metadata: JSONObject){
   val writer=stream.bufferedWriter();writer.write(metadata.toString().removeSuffix("}"));var needsComma=metadata.length()>0;val cutoff=(System.currentTimeMillis()-RETENTION).toString()

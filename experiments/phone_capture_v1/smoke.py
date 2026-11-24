@@ -18,7 +18,7 @@ lab=capture.lab
 
 
 def negative_label_checks():
-    r={'source':'192.0.2.20','sport':51000,'destination':'192.0.2.10','dport':43191,'protocol':6,
+    r={'source':'172.16.88.233','sport':51000,'destination':'172.16.89.83','dport':43191,'protocol':6,
         'route':'/page','http_status':200,'subtype':'normal_page','label':0}
     c={k:r[k] for k in ['source','sport','destination','dport','protocol']};c['connection_id']='one'
     events=[{'event':'connection_accepted','connection':c},{'event':'request_received','connection':c,'route':'/page'},

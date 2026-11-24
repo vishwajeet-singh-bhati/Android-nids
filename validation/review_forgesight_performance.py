@@ -10,7 +10,7 @@ from pathlib import Path
 import statistics
 
 ROOT=Path(__file__).resolve().parents[1]
-OUT=ROOT/'results/forgesight_pr_review'
+OUT=ROOT/'validation/reports/forgesight_pr_review'
 
 
 def read(name):return json.loads((OUT/name).read_text(encoding='utf-8'))

@@ -1,3 +1,5 @@
+> Current application is Rakshak code46. This document retains the network-core methodology; use the root component index and Rakshak guide for SMS/URL setup, current controls and the empty public-feed policy.
+
 # Current shipped detector — code 40
 
 App`0.14.2-network-scope`; real-phone-augmented v 1`gate_s0_final`+`diagnosis_s1_best`. This is an **experimental trial bundle**, with offline readiness false and known normal SSH false positives/missed attack behaviours.

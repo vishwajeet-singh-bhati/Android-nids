@@ -1,0 +1,106 @@
+{
+  "partitions": {
+    "Benign": {
+      "connections": 36,
+      "code40_flagged_connections": 13,
+      "preview_matched_connections": 2,
+      "preview_alert_events": 2,
+      "code40_brute_force_labels": 0,
+      "preview_brute_force_labels": 0
+    },
+    "normal SSH/FTP": {
+      "connections": 16,
+      "code40_flagged_connections": 11,
+      "preview_matched_connections": 0,
+      "preview_alert_events": 0,
+      "code40_brute_force_labels": 0,
+      "preview_brute_force_labels": 0
+    },
+    "FTPBruteForce": {
+      "connections": 32,
+      "code40_flagged_connections": 29,
+      "preview_matched_connections": 29,
+      "preview_alert_events": 1,
+      "code40_brute_force_labels": 0,
+      "preview_brute_force_labels": 29
+    },
+    "SSHBruteForce": {
+      "connections": 32,
+      "code40_flagged_connections": 32,
+      "preview_matched_connections": 29,
+      "preview_alert_events": 1,
+      "code40_brute_force_labels": 6,
+      "preview_brute_force_labels": 29
+    },
+    "BotBehavior controls": {
+      "connections": 1,
+      "code40_flagged_connections": 0,
+      "preview_matched_connections": 0,
+      "preview_alert_events": 0,
+      "code40_brute_force_labels": 0,
+      "preview_brute_force_labels": 0
+    },
+    "BotBehavior": {
+      "connections": 12,
+      "code40_flagged_connections": 0,
+      "preview_matched_connections": 0,
+      "preview_alert_events": 0,
+      "code40_brute_force_labels": 0,
+      "preview_brute_force_labels": 0
+    },
+    "DoS controls": {
+      "connections": 43,
+      "code40_flagged_connections": 1,
+      "preview_matched_connections": 1,
+      "preview_alert_events": 1,
+      "code40_brute_force_labels": 0,
+      "preview_brute_force_labels": 0
+    },
+    "DoS": {
+      "connections": 96,
+      "code40_flagged_connections": 18,
+      "preview_matched_connections": 18,
+      "preview_alert_events": 18,
+      "code40_brute_force_labels": 0,
+      "preview_brute_force_labels": 0
+    },
+    "DDoS controls": {
+      "connections": 47,
+      "code40_flagged_connections": 1,
+      "preview_matched_connections": 1,
+      "preview_alert_events": 1,
+      "code40_brute_force_labels": 0,
+      "preview_brute_force_labels": 0
+    },
+    "DDoS": {
+      "connections": 96,
+      "code40_flagged_connections": 0,
+      "preview_matched_connections": 0,
+      "preview_alert_events": 0,
+      "code40_brute_force_labels": 0,
+      "preview_brute_force_labels": 0
+    }
+  },
+  "kotlin_policy_smoke_passed": true,
+  "apk": {
+    "frozen_models_sha256": {
+      "gate": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+      "diagnosis": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e"
+    },
+    "apk_sha256": "4ce174744296cf093a388d3ae3b6f50f15116a78a37da289a0a746adadb5bfc8"
+  },
+  "saved_traces": 9,
+  "episodes": {
+    "20261121_163023_FTPBruteForce_8c74df": {
+      "code40_first_flag_s": 3.081,
+      "preview_first_alert_s": 3.081,
+      "auth_preview_events": 1
+    },
+    "20261121_163908_SSHBruteForce_737391": {
+      "code40_first_flag_s": 0.408,
+      "preview_first_alert_s": 1.696,
+      "auth_preview_events": 1
+    }
+  },
+  "scope": "Replay of previously examined traffic with preview enabled. Candidate events are not Android notifications."
+}

@@ -1,0 +1,22 @@
+{
+  "review_date_ist": "2026-11-24",
+  "installed_apk_matches_release": true,
+  "version_code": 43,
+  "network_monitor_enabled": true,
+  "sms_detector_enabled": true,
+  "url_detector_enabled": true,
+  "incoming_sms_enabled": true,
+  "sqlite_integrity": "ok",
+  "history_clear_recorded_ms": 1795458171610,
+  "history_clear_recorded_ist": "2026-11-23T23:52:51.610000+05:30",
+  "current_activity_counts": {
+    "safety": 1
+  },
+  "current_feedback_count": 0,
+  "archived_whatsapp_feedback": "unsure",
+  "feedback_correction_time_ist": "2026-11-23T22:44:50.391000+05:30",
+  "original_27_rows_preserved_in_local_backup": true,
+  "phone_history_not_repopulated": true,
+  "duplicate_wireless_alias_removed": true,
+  "scope": "The original upgrade-preservation check preceded a later recorded history clear. Archived data are retained for the audit; current phone history remains as found."
+}

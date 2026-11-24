@@ -1,0 +1,115 @@
+{
+  "review_date_ist": "2026-11-24",
+  "deployed_version": "0.17.0-rakshak",
+  "version_code": 43,
+  "saved_activity_rows": 27,
+  "snapshot_sha256": "f3c764b4671386ba86d642e440d9af4a3c620ef8e7f44bee1516047babb2648e",
+  "replay_max_diagnosis_score_error": 2.576923370356532e-06,
+  "whatsapp": {
+    "activity_time_ist": "2026-11-23 20:01:17",
+    "direction": "outgoing",
+    "transport": "TCP",
+    "destination_port": 443,
+    "socket_owner": "com.whatsapp",
+    "recorded_uid": 10301,
+    "ownership_method": "best-effort connected-socket snapshot",
+    "ownership_snapshot_age_ms": 1169,
+    "forward_packets": 2,
+    "backward_packets": 0,
+    "recorded_application_bytes": 0,
+    "duration_microseconds": 310.89783,
+    "display_duration_seconds_was_rounded": 0,
+    "syn_count": 0,
+    "rst_count": 1,
+    "ack_count": 2,
+    "gate_score": 0.7810497283935547,
+    "gate_threshold": 0.5408333333333333,
+    "diagnostic_top_class": "Benign",
+    "diagnostic_benign_score": 0.99999416,
+    "emitted_category": "Unclassified",
+    "policy": "Positive binary gate is retained even when diagnosis favors Benign.",
+    "previous_user_feedback": "expected",
+    "feedback_withdrawn_by_user": true,
+    "current_user_feedback": "unsure",
+    "traffic_ground_truth": "unverified",
+    "attack_confirmed": false,
+    "exact_trigger_or_app_operation_established": false,
+    "destination_registry_owner": "Meta Platforms Ireland Limited",
+    "registry_record_name": "FB-BLOCK",
+    "registry_url": "https://rdap.db.ripe.net/ip/57.144.253.33",
+    "registry_claim_limit": "Address registration does not establish the purpose or safety of a connection."
+  },
+  "other_recent_groups": {
+    "authorized_work_pc_adb_maintenance": {
+      "activities": 6,
+      "grouped_flags": 7,
+      "time_range_ist": "2026-11-23 21:15 to 22:07",
+      "evidence": "Work-PC/phone endpoint correlation plus the captured certificate-rejection diagnostics."
+    },
+    "configured_resolver_tcp_853": {
+      "activities": 1,
+      "packets": 2,
+      "syn_count": 1,
+      "rst_count": 1,
+      "interpretation": "Matches a configured DNS server shortly after Wi-Fi reconnection; consistent with a TLS resolver probe. Exact producer is unverified."
+    },
+    "unidentified_lan_peer": {
+      "activities": 2,
+      "interpretation": "Two short SYN/reset connections. Source identity and intent remain unverified."
+    },
+    "earlier_saved_lab_activity_rows": 17
+  },
+  "feedback_correction": {
+    "correction_applied": true,
+    "current_feedback": "unsure",
+    "prior_feedback_preserved": true,
+    "total_feedback_records": 6,
+    "original_activity_ids_preserved": true,
+    "model_or_alert_policy_changed": false,
+    "meaning": "User withdrew accidental Expected selection; activity remains unverified.",
+    "correction_time_ist": "2026-11-23T22:44:50.391000+05:30",
+    "subsequent_history_clear_ist": "2026-11-23T23:52:51.610000+05:30",
+    "current_phone_state_record": "final_state.json"
+  },
+  "post_deployment_observation": {
+    "heartbeat_time_ms": 1795464752313,
+    "uptime_seconds": 12564.556,
+    "captured_packets": 186855,
+    "model_inferences": 4098,
+    "queue_drops": 0,
+    "late_packets": 0,
+    "scope": "Observed single-device window without independent traffic labels; not a general FPR or safety guarantee.",
+    "new_network_model_flags": 0
+  },
+  "decision": {
+    "network_weights_changed": false,
+    "threshold_changed": false,
+    "alert_policy_changed": false,
+    "blanket_app_or_endpoint_exemption_added": false,
+    "whatsapp_used_as_benign_training_example": false,
+    "new_training_launched": false,
+    "reason": "User withdrew the only Expected selection. Evidence does not establish a WhatsApp false positive. Broad reset suppression damages labeled recall; narrow suppression does not establish a real-phone improvement."
+  },
+  "current_state": {
+    "review_date_ist": "2026-11-24",
+    "installed_apk_matches_release": true,
+    "version_code": 43,
+    "network_monitor_enabled": true,
+    "sms_detector_enabled": true,
+    "url_detector_enabled": true,
+    "incoming_sms_enabled": true,
+    "sqlite_integrity": "ok",
+    "history_clear_recorded_ms": 1795458171610,
+    "history_clear_recorded_ist": "2026-11-23T23:52:51.610000+05:30",
+    "current_activity_counts": {
+      "safety": 1
+    },
+    "current_feedback_count": 0,
+    "archived_whatsapp_feedback": "unsure",
+    "feedback_correction_time_ist": "2026-11-23T22:44:50.391000+05:30",
+    "original_27_rows_preserved_in_local_backup": true,
+    "phone_history_not_repopulated": true,
+    "duplicate_wireless_alias_removed": true,
+    "scope": "The original upgrade-preservation check preceded a later recorded history clear. Archived data are retained for the audit; current phone history remains as found."
+  }
+}

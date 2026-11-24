@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "share_requires_manual_check": true,
+  "notification_reopens_existing_activity_detail": true,
+  "structured_explanation_visible": true,
+  "clear_confirmation_visible": true,
+  "clear_leaves_zero_activities": true,
+  "raw_otp_absent_from_history": true,
+  "environment": "Dedicated Android emulator API37 x86_64",
+  "scope": "UI lifecycle, history and privacy checks, no live attacks."
+}

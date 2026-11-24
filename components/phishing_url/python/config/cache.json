@@ -1,0 +1,8 @@
+{
+  "prediction_seconds": 3600,
+  "likely_safe_seconds": 900,
+  "intel_malicious_seconds": 21600,
+  "intel_no_match_seconds": 900,
+  "failure_seconds": 60,
+  "max_entries": 100000
+}

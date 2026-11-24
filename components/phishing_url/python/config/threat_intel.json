@@ -1,0 +1,7 @@
+{
+  "database": "data/intel/threat_intel.sqlite3",
+  "ttl_days": {"phishtank": 7, "openphish": 7},
+  "popular_top_n": 100000,
+  "stale_after_hours": 48,
+  "local_redirectors": "config/redirectors_local.txt"
+}
