@@ -10,4 +10,4 @@ Known limits: network false positives/protocol misses; limited SMS language/real
 
 Read the [components](components/README.md), [improvement plan](docs/MODEL_IMPROVEMENT_PLAN.md), [report](docs/project_report/README.md) and [changelog](CHANGELOG.md).
 
-Branding update: code47 adds the original [Rakshak logo](docs/branding/README.md). Historical model/device measurements remain from their explicitly stated builds, including code46. Device installation of the branding build is pending reconnection.
+Branding update: code47 adds the original [Rakshak logo](docs/branding/README.md). Historical model/device measurements remain from their explicitly stated builds, including code46. Pixel code47 installed and checksum verified24 November;20 activities and settings preserved.

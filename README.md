@@ -71,4 +71,4 @@ See [URL evidence](results/url_benchmark_20261124/README.md), [SMS archive prove
 
 Run python -m pytest tests -q and python -m unittest validation.test_url_benchmark_metrics for dataset-free checks. Earlier network and SMS results retain their original cohorts; do not combine them into one app-accuracy percentage. Source licenses and missing provenance limits are documented per component.
 
-Branding update: code47 adds the original [Rakshak logo](docs/branding/README.md). Historical model/device measurements remain from their explicitly stated builds, including code46. Device installation of the branding build is pending reconnection.
+Branding update: code47 adds the original [Rakshak logo](docs/branding/README.md). Historical model/device measurements remain from their explicitly stated builds, including code46. Pixel code47 installed and checksum verified24 November;20 activities and settings preserved.

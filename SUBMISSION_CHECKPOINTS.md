@@ -87,4 +87,4 @@ Read this file, `HANDOFF.md`, `CURRENT_STATUS.md`, the latest publication record
 
 ## Branding update -24 November2026
 
-Original logo added to launcher and app header in source0.17.4/code47. Models and detector policies unchanged. Historical measurements remain tagged with their original builds. Standard, adaptive and themed icon previews reviewed. Phone installation pending: ADB currently reports no device. See [branding assets](docs/branding/README.md).
+Original logo added to launcher and app header in source0.17.4/code47. Models and detector policies unchanged. Historical measurements remain tagged with their original builds. Standard, adaptive and themed icon previews reviewed. Phone installation completed24 November: code47 APK checksum verified,20 activities preserved, preferences/history byte-identical before launch. Home/logo reviewed; monitoring and SMS/link controls remain enabled. See [branding assets](docs/branding/README.md).

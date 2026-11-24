@@ -113,5 +113,23 @@
     "phone_installed": false,
     "latest_verified_installed_version_code": 46,
     "scope": "Branding/build validation; no new detector accuracy or phone UI measurement claimed."
+  },
+  "pixel_branding_deployment": {
+    "date_ist": "2026-11-24T14:13:51.320015+05:30",
+    "version_code": 47,
+    "version_name": "0.17.4-branding",
+    "apk_sha256": "7971f81ff5a90ad2735a602d026e3e40ae874dbc195e6e8efc2ed9c1f1b6a124",
+    "installed_hash_verified": true,
+    "app_data_before_launch_byte_identical": true,
+    "preserved_rows": {
+      "observations": 20,
+      "feedback": 0
+    },
+    "previous_version_code": 46,
+    "rollback_apk_saved": true,
+    "private_data_backup_saved": true,
+    "models_and_detector_policy_changed": false,
+    "attacks_run": false,
+    "ui_review": "Pixel home and launch icon visually verified; network monitor running, SMS/link detectors on, incoming SMS enabled."
   }
 }

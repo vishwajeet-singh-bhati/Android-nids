@@ -1,6 +1,6 @@
 # Rakshak: faculty/reviewer briefing
 
-Current source:0.17.4/code47; last verified phone0.17.3/code46,24 November2026. Repository: https://github.com/vishwajeet-singh-bhati/rakshak . This is an experimental local Android security assistant, not a production-protection claim.
+Current source:0.17.4/code47; verified phone0.17.4/code47,24 November2026. Repository: https://github.com/vishwajeet-singh-bhati/rakshak . This is an experimental local Android security assistant, not a production-protection claim.
 
 ## Problem and implementation
 
@@ -31,4 +31,4 @@ Read [report PDF/source](project_report/README.md), [components](../components/R
 
 Model improvement and user selection precede faculty approval and final submission. Two-minute public video and once-only form submission remain pending. Deadline supplied by the organizer email:25 November2026,23:59IST. No form was submitted by this preparation work.
 
-Branding-only code47 adds the original logo and launcher/header assets; detection weights and policy are unchanged. The phone is disconnected and this build is not yet installed. See [logo provenance](branding/README.md).
+Branding-only code47 adds the original logo and launcher/header assets; detection weights and policy are unchanged. Code47 is installed on the Pixel, APK hash verified and20 activities preserved. See [logo provenance](branding/README.md).

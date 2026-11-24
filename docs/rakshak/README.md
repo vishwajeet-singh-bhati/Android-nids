@@ -45,4 +45,4 @@ The service check creates/removes three marked test events, verifies notificatio
 
 Native/reference/synthetic checks do not establish universal scam coverage or production readiness. The report distinguishes archived classifier results, reused benchmarks, actual carrier observations and remaining false positives/misses.
 
-Code47 adds the original [logo](../branding/README.md); measured model results retain their original code46 identities. Phone branding deployment awaits reconnection.
+Code47 adds the original [logo](../branding/README.md); measured model results retain their original code46 identities. Pixel code47 installed and home/logo visually checked24 November; history and controls preserved.
