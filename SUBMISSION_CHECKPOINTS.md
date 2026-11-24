@@ -88,3 +88,7 @@ Read this file, `HANDOFF.md`, `CURRENT_STATUS.md`, the latest publication record
 ## Branding update -24 November2026
 
 Original logo added to launcher and app header in source0.17.4/code47. Models and detector policies unchanged. Historical measurements remain tagged with their original builds. Standard, adaptive and themed icon previews reviewed. Phone installation completed24 November: code47 APK checksum verified,20 activities preserved, preferences/history byte-identical before launch. Home/logo reviewed; monitoring and SMS/link controls remain enabled. See [branding assets](docs/branding/README.md).
+
+## Subsequent clean phone reinstall -24 November2026
+
+After a user-requested factory reset, verified code47 and local models/capture binary were reinstalled. Magisk31.1 environment and Shell/app root grants restored; no boot flashing. Native network, safety contract and real notification/Llama service checks passed; test activities removed and history0 before enabling monitoring. All detectors/incoming SMS enabled. This is installation evidence, not a new accuracy cohort or proof of ghost-touch repair. See [record](results/clean_reinstall_20261124.json).

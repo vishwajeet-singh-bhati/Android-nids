@@ -1,0 +1,74 @@
+{
+  "version_code": 47,
+  "factory_reset_reported_by_user": true,
+  "old_history_restored": false,
+  "history_after_test_cleanup": {
+    "observations": 0,
+    "feedback": 0
+  },
+  "root_shell_verified": true,
+  "root_app_uid_verified": true,
+  "native_checks": {
+    "aligned_v2_native": {
+      "passed": true,
+      "error": null
+    },
+    "rakshak_contract": {
+      "passed": true,
+      "error": null
+    },
+    "rakshak_service": {
+      "passed": true,
+      "error": null
+    }
+  },
+  "sms_detector_enabled": true,
+  "url_detector_enabled": true,
+  "incoming_sms_enabled": true,
+  "permissions_granted": [
+    "RECEIVE_SMS",
+    "POST_NOTIFICATIONS"
+  ],
+  "capture_process_verified": true,
+  "network_history": "Building fresh300-second connection history",
+  "ghost_touch_fix_verified": false,
+  "latest_session_runtime_errors": 0,
+  "latest_heartbeat": {
+    "packets": 331,
+    "inferences": 3,
+    "queue_drops": 0,
+    "queue_depth": 0
+  },
+  "initial_setup_errors": "Earlier pre-capture dependency/permission failures retained in private runtime log; latest installed session checked separately.",
+  "explanation_fixture_results": [
+    {
+      "domain": "message",
+      "risk_level": "high",
+      "explanation_status": "complete",
+      "llama_guidance_accepted": true,
+      "notification_verified": true,
+      "raw_content_absent": true
+    },
+    {
+      "domain": "url",
+      "risk_level": "high",
+      "explanation_status": "complete",
+      "llama_guidance_accepted": false,
+      "notification_verified": true,
+      "raw_content_absent": true
+    },
+    {
+      "domain": "message",
+      "risk_level": "high",
+      "explanation_status": "complete",
+      "llama_guidance_accepted": false,
+      "notification_verified": true,
+      "raw_content_absent": true
+    }
+  ],
+  "date_ist": "24 November2026",
+  "version_name": "0.17.4-branding",
+  "magisk_version": "31.1",
+  "root_recovery": "Restored saved manager; user completed environment restart and granted Shell/Rakshak. No boot partition was flashed.",
+  "scope": "Installation smoke checks after user factory reset; no new attack accuracy evaluation or confirmed ghost-touch repair."
+}
