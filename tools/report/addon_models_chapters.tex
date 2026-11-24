@@ -176,3 +176,28 @@ No candidate is selected solely because it is larger or has a better aggregate a
 The organizer email supplied by the participant sets25 November2026,23:59 IST as the deadline and states that only the first submission is considered. Required artifacts are a public repository, a public two-minute video and a report covering methodology, results, hardware utilization and optimization. Preferred video settings are1920x1080,16:9 and MP4.
 
 This report is a \textbf{development/submission draft}. Model improvement, user candidate selection, faculty review, final video and a once-only form submission are separate gates. The repository's submission checkpoint file records what is complete, what remains, exact artifact locations and how to finish each step. No faculty approval or completed form submission is implied by publication of this source/report.
+
+\chapter{Idle-phone network review: rejected suppression and code49 correction}
+\section{Measured event versus model hypothesis}
+After the user factory-reset the Pixel, Magisk31.1 access and the verified code47 build were restored. Four subsequent activity groups represented five binary model flags from two LAN peers to phone port7680. Saved representative flows contained one packet each way, one SYN, one RST, one ACK and zero application bytes. Diagnosis returned Bot for three groups and Unclassified for one; no receiving app owner was established. These facts support a rejected incoming connection, not established bot activity on the phone. Port7680 is associated with Windows Delivery Optimization, but the peer software and intent are unverified. A later150-second passive capture recorded no matching packets; original-event packet captures were unavailable.
+
+\section{Why false-positive suppression was rejected}
+Fixed rejected-handshake candidates were compared over2,288,325 previously inspected regression rows, including legacy validation/test, phone validation/test and protocol development. The legacy cache lacks direction metadata, so applying an incoming guard to all eligible directions conservatively bounds its potential loss. The narrow candidate required quiet peer context and Bot/Unclassified diagnosis; it contained no app, address or service whitelist.
+
+\begin{center}\small
+\begin{tabular}{lrrr}\toprule
+Legacy test & Baseline & Suppression candidate & Released code49\\\midrule
+True positives &158,724&158,512&158,724\\
+False negatives &110&322&110\\
+False positives &965&625&965\\
+True negatives &939,130&939,470&939,130\\\bottomrule
+\end{tabular}\end{center}
+
+The candidate removed340 false positives but also210 Bot-labelled and two Port-Scan-labelled detections. Bot typed recall fell from86.09\% to53.28\%; binary-detected Bot examples fell from630/640 to420/640. It was rejected. A broader two-packet handshake suppression lost47,798 positive-labelled detections. Unchanged counts on the smaller phone/protocol cohorts were insufficient evidence of safety.
+
+\section{Implemented scope and limits}
+Code49 (0.17.6-connection-notes) changes factual presentation and duplicate grouping. Qualifying low-volume rejected incoming attempts are described as ``Incoming connection was rejected''; raw binary results, diagnostic classes and scores remain preserved in evidence and technical details. Repeats from the same peer to the same phone service can share a five-minute activity group; other peers/services and concentrated patterns retain separate treatment. Stale generated explanations cannot override current factual wording. All38 bundled assets remain byte-identical to code47; no model, threshold or positive binary decision was changed or suppressed. The released classifier results in the table are unchanged by construction and native self-checks, not new trained measurements.
+
+Core boundary checks, an isolated Android presentation/storage contract and installed network/hybrid/safety checks passed; four prior activity rows and detector settings were preserved. This corrects an unsupported Bot description and duplicate notifications. It does not fix the detector's false-positive rate, establish that the peers were benign or prove improved attack recall. SMS improvements were put on hold at the user's request. Detailed aggregate comparisons and reproduction instructions accompany \texttt{idle\_network\_repair\_20261124}.
+
+The intermediate code48 build corrected note bodies, but a live notification dump exposed cached legacy titles. Final code49 derives notification and screen titles from the same current facts, with a regression check for stale stored titles.

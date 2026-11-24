@@ -43,7 +43,7 @@ def build(args):
     if not sdk:raise RuntimeError('Set ANDROID_HOME or pass --sdk with Android SDK platform34 installed')
     (ROOT/'android/local.properties').write_text('sdk.dir='+Path(sdk).resolve().as_posix()+'\n',encoding='utf-8')
     gradle=['cmd.exe','/d','/c',str(ROOT/'android/gradlew.bat')] if os.name=='nt' else ['bash',str(ROOT/'android/gradlew')]
-    tasks=[':core:alignedCheck',':core:alignedV2PolicyCheck',':core:captureDeliveryClockCheck',':app:assembleDebug',':app:assembleDebugAndroidTest',':trafficlab:assembleDebug',':datasetlab:assembleDebug',':datasettools:jar',':contractcheck:assembleDebug',':protocolcore:installDist',':protocollab:assembleDebug']
+    tasks=[':core:alignedCheck',':core:rejectedHandshakeEvidenceCheck',':core:alignedV2PolicyCheck',':core:captureDeliveryClockCheck',':app:assembleDebug',':app:assembleDebugAndroidTest',':trafficlab:assembleDebug',':datasetlab:assembleDebug',':datasettools:jar',':contractcheck:assembleDebug',':protocolcore:installDist',':protocollab:assembleDebug']
     run(gradle+['-p',str(ROOT/'android'),'--no-daemon','--console=plain']+(['--offline'] if args.offline else [])+tasks)
 
 

@@ -205,5 +205,37 @@
     "magisk_version": "31.1",
     "root_recovery": "Restored saved manager; user completed environment restart and granted Shell/Rakshak. No boot partition was flashed.",
     "scope": "Installation smoke checks after user factory reset; no new attack accuracy evaluation or confirmed ghost-touch repair."
+  },
+  "network_note_release": {
+    "date_ist": "2026-11-24T15:36:42.619791+05:30",
+    "version_code": 49,
+    "version_name": "0.17.6-connection-notes",
+    "apk_sha256": "7dd516b42b92bc613eae17c243c6fdbd239f6b1c5b7b6d99dc00c03505cd063c",
+    "rollback_apk_sha256": "6a022a2dddfdf7c153305c4ce2f2b28b6f4f10b59441dad17a4f7ebf09dee421",
+    "all_bundled_asset_count": 38,
+    "all_bundled_assets_identical": true,
+    "preserved_activity_rows": 4,
+    "prior_activity_bodies_identical_before_launch": true,
+    "safety_preferences_preserved": true,
+    "checks": {
+      "aligned_v2_native": "passed",
+      "hybrid_contract": "passed",
+      "rakshak_contract": "passed"
+    },
+    "isolated_contract": "passed",
+    "binary_decisions_suppressed": 0,
+    "raw_model_classes_modified": false,
+    "changes": "Factual rejected-handshake description plus five-minute grouping per peer/phone service. No model suppression.",
+    "sms_changes": "On hold at user request; SMS code/assets unchanged.",
+    "ui_review": "Live API/visible notification snapshot verified; screen capture remained dozing.",
+    "history_review": {
+      "passed": true,
+      "rows": 4,
+      "reviewed_rejections": 4,
+      "explanations_refreshed": true,
+      "posted_notification_titles_verified": 4,
+      "raw_binary_flags_preserved": true,
+      "note": "Verified with NotificationManager active notifications and final Android notification dump; no visual screenshot claim."
+    }
   }
 }

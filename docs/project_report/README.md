@@ -1,6 +1,6 @@
 # Rakshak project report
 
-Current89-page **submission draft** through24 November2026 / code46:
+Current91-page **submission draft** through24 November2026 / code49 (historical measurement builds retained):
 
 - [Compiled PDF](Rakshak_Project_Report.pdf)
 - [Self-contained Overleaf source](Rakshak_Project_Report.tex)
@@ -44,3 +44,5 @@ The earlier version compiled a 73-page PDF with no overflowing boxes or unresolv
 Regenerate the LaTeX from the shipped aggregate evidence using `python tools/report/build_report.py` at the repository root. It does not train or contact the phone. The evidence collectors additionally require the original private/local artifacts; they are distinct from the portable report builder. No raw phone recordings or ZIP are created by report generation.
 
 Branding addendum24 November: source0.17.4/code47 adds the original [Rakshak logo](../branding/README.md). It changes launcher/header appearance only. The compiled report preserves its code46 measurement history; no new model scores or deployment results are implied.
+
+Current network-note build: **0.17.6/code49**. Rejected incoming handshakes get factual wording and stable duplicate grouping; learned decisions are unchanged. Suppression was rejected after losing212 positive-labelled legacy-test detections. SMS improvements remain on hold. See [network audit](../../results/idle_network_repair_20261124/README.md).

@@ -45,6 +45,11 @@ object TsanetExplanationFacts{
                 facts.put("auth_episode_protocol",name).put("auth_episode_connections",count)
             }
         }
+        if(NetworkObservationPolicy.rejectedIncomingEvidence(evidence)){
+            facts.put("model_suspected_pattern",classes[category]).put("suspected_pattern","Rejected connection")
+                .put("rejected_incoming_handshake",true).put("application_bytes_observed",0)
+                .put("type_established",false)
+        }
         return facts
     }
     fun guidance(category: String)=when(category){

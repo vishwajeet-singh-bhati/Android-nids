@@ -68,7 +68,11 @@ class LearnedNetworkActivity : Activity() {
    navigationButtons.add(b)
    nav.addView(b,LinearLayout.LayoutParams(0,dp(50),1f).apply{if(i>0)leftMargin=dp(8)})
   };root.addView(nav);setContentView(root)
-  Thread{ObservationStore.migrate(applicationContext);ui.post{if(alive)build()}}.start();build()
+  Thread{ObservationStore.migrate(applicationContext);ui.post{if(alive){
+   build()
+   ObservationStore.list(applicationContext).filter{NetworkObservationPolicy.rejectedIncomingEvidence(it.optJSONObject("model_evidence") ?: JSONObject())}
+    .forEach{ObservationNotifications.show(applicationContext,it)}
+  }}}.start();build()
  }
  private fun build(){
   if(!::body.isInitialized)return
@@ -162,9 +166,7 @@ class LearnedNetworkActivity : Activity() {
   }else body.addView(text("Dismissed by you. Detection remains active; future unrelated activity is still checked.",13f,muted))
  }
  private fun activityTitle(row: JSONObject): String {
-  SafetyNote.from(row.optJSONObject("model_evidence"))?.let{return SafetyNote.title(it)}
-  val facts=TsanetExplanationFacts.from(row.optJSONObject("model_evidence"))
-  return if(facts!=null)HybridActivityNote.title(facts) else row.optString("title","Network activity")
+  return HybridActivityNote.activityTitle(row)
  }
  private fun confirmClearHistory(){
   AlertDialog.Builder(this).setTitle("Clear activity history?")

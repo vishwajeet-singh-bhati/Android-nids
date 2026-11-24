@@ -4,7 +4,7 @@ import org.json.JSONObject
 
 /** Verified measurements/ownership stay outside the language-model prompt. */
 object HybridActivityNote {
-    const val VERSION="plain-guidance-v2"
+    const val VERSION="plain-guidance-v3"
     private fun clean(value: String,limit: Int=100)=value.replace(Regex("[\\p{Cc}\\p{Cf}]")," ").replace(Regex("\\s+")," ").trim().take(limit)
     private fun endpoint(value: String)=value.takeIf{it.length<=100 && it.matches(Regex("[0-9a-fA-F:.\\[\\]%]+:[0-9]+"))} ?: ""
     fun appLabel(facts: JSONObject): String {
@@ -14,6 +14,7 @@ object HybridActivityNote {
         return if(label.isBlank() || label=="App unknown" || label==pkg)pkg else "$label ($pkg)"
     }
     fun title(facts: JSONObject)=when(facts.optString("suspected_pattern")){
+        "Rejected connection"->"Incoming connection was rejected"
         "Port Scan"->"Possible check for open connections"
         "Brute Force"->if(facts.has("auth_episode_protocol"))"Repeated ${facts.optString("auth_episode_protocol")} connections" else "Possible repeated sign-in attempts"
         "Bot"->"Possible automated background activity"
@@ -22,7 +23,13 @@ object HybridActivityNote {
         "Web Attack"->"Possible suspicious web activity"
         else->"Unusual network activity to review"
     }
+    fun activityTitle(row: JSONObject): String {
+        SafetyNote.from(row.optJSONObject("model_evidence"))?.let{return SafetyNote.title(it)}
+        TsanetExplanationFacts.from(row.optJSONObject("model_evidence"))?.let{return title(it)}
+        return row.optString("title","Network activity to review")
+    }
     fun ownership(facts: JSONObject): String {
+        if(facts.optBoolean("rejected_incoming_handshake"))return "No completed connection or message content was seen in this attempt. This does not identify an app as responsible."
         val app=clean(facts.optString("app_label"),64).takeIf{it.isNotBlank() && it!="App unknown"} ?: appLabel(facts)
         if(facts.optString("app_package","unknown")!="unknown" && app.isNotEmpty())return when{
             facts.optString("owner_match_kind")=="listener"->app+" was available to receive connections, but we could not confirm it received this one."
@@ -33,7 +40,7 @@ object HybridActivityNote {
         return "We could not identify the app for this connection."
     }
     fun details(facts: JSONObject): String {
-        val summary=title(facts)+(if(facts.has("auth_episode_protocol"))" (connection pattern)" else " (model estimate)")+". This does not confirm an attack."
+        val summary=title(facts)+(if(facts.optBoolean("rejected_incoming_handshake"))" (observed handshake)" else if(facts.has("auth_episode_protocol"))" (connection pattern)" else " (model estimate)")+". This does not confirm an attack."
         val packets=facts.optInt("flow_packets").coerceAtLeast(0)
         val duration=facts.optDouble("flow_duration_seconds",0.0).takeIf{it.isFinite() && it>=0}
         val timing=if(duration!=null)" over ${java.lang.String.format(java.util.Locale.US,"%.2f",duration)} seconds" else ""
@@ -52,10 +59,12 @@ object HybridActivityNote {
             "Web Attack"->" The model does not establish what a web request contained."
             else->""
         }
-        return "$summary\n\n${ownership(facts)}$path$port\n\n$measured$context$coverage$caution\n\n"
+        val hypothesis=if(facts.optBoolean("rejected_incoming_handshake"))" Original model estimate: ${clean(facts.optString("model_suspected_pattern"))}. This small rejected handshake does not establish that type." else ""
+        return "$summary\n\n${ownership(facts)}$path$port\n\n$measured$context$coverage$caution$hypothesis\n\n"
     }
     fun prefix(facts: JSONObject): String {
         val happening=when(facts.optString("suspected_pattern")){
+            "Rejected connection"->"Another device tried to connect to your phone. The recorded attempt ended with a rejection."
             "Port Scan"->"Someone may be checking which connections your phone accepts."
             "Brute Force"->"Repeated connections may be sign-in attempts."
             "Bot"->"Some background connections look automated."
@@ -68,6 +77,7 @@ object HybridActivityNote {
         return "What happened\n"+happening+" "+ownership(facts)+"\n\nThis may be normal activity. An attack has not been confirmed."+limited+"\n\nWhat you can do\n"
     }
     fun guidance(facts: JSONObject)=when(facts.optString("suspected_pattern")){
+        "Rejected connection"->"Check whether you expected this connection attempt; use a trusted network if it keeps happening."
         "Port Scan"->"Check whether you started a device search, and review any app activity you do not recognise."
         "DoS","DDoS"->"Check for unexpected downloads or repeated connection attempts, and pause unfamiliar app activity."
         "Brute Force"->"Check recent account activity and review apps making unexpected repeated connections."
@@ -96,6 +106,7 @@ object HybridActivityNote {
         if(Regex("\\b(passwords?|credentials?)\\b").containsMatchIn(lower) &&
             (!Regex("(?:avoid|do not|don't|never)\\s+(?:enter(?:ing)?|provid(?:ing|e)|typ(?:ing|e)|shar(?:ing|e))[^.!?]{0,35}(?:password|credential)").containsMatchIn(lower) || "not avoid" in lower || "don't avoid" in lower))return false
         val topic=when(facts.optString("suspected_pattern")){
+            "Rejected connection"->listOf("network","expected","expect","connection")
             "Port Scan"->listOf("device","connection")
             "DoS","DDoS"->listOf("download","upload","repeated","retr")
             "Brute Force"->listOf("account","app")

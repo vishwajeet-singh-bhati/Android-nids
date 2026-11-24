@@ -1,6 +1,6 @@
 # Rakshak current app guide
 
-Current source: **0.17.4-branding / code47**. This public checkout is a reproducible development snapshot; [submission gates](../../SUBMISSION_CHECKPOINTS.md) remain separate.
+Current source: **0.17.6-connection-notes / code49**. This public checkout is a reproducible development snapshot; [submission gates](../../SUBMISSION_CHECKPOINTS.md) remain separate.
 
 ## Use the app
 
@@ -46,3 +46,5 @@ The service check creates/removes three marked test events, verifies notificatio
 Native/reference/synthetic checks do not establish universal scam coverage or production readiness. The report distinguishes archived classifier results, reused benchmarks, actual carrier observations and remaining false positives/misses.
 
 Code47 adds the original [logo](../branding/README.md); measured model results retain their original code46 identities. Pixel code47 installed and home/logo visually checked24 November; history and controls preserved.
+
+Code49 corrects rejected-handshake descriptions/grouping and stale notification titles. Detector weights and binary decisions are unchanged; SMS improvements are on hold. See the [network comparison](../../results/idle_network_repair_20261124/README.md).

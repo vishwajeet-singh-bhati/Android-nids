@@ -11,6 +11,11 @@ tasks.register<JavaExec>("alignedV2PolicyCheck") {
     classpath = sourceSets["main"].runtimeClasspath
     mainClass.set("nids.core.AlignedV2PolicyCheck")
 }
+
+tasks.register<JavaExec>("rejectedHandshakeEvidenceCheck") {
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass.set("nids.core.RejectedHandshakeEvidenceCheck")
+}
 tasks.register<JavaExec>("captureDeliveryClockCheck") {
     classpath = sourceSets["main"].runtimeClasspath
     mainClass.set("nids.core.CaptureDeliveryClockCheck")

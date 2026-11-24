@@ -1,0 +1,983 @@
+{
+  "scope": "Fixed candidate regression; no new holdout, retraining or app/port exemptions.",
+  "legacy_direction": "Incoming-only guard bounded conservatively by applying it to all directions in legacy cache.",
+  "threshold": 0.5408333333333333,
+  "type_cutoff": 0.8,
+  "cohorts": {
+    "phone_validation": {
+      "rows": 184,
+      "baseline": {
+        "tp": 64,
+        "fn": 0,
+        "fp": 11,
+        "tn": 109,
+        "classwise": {
+          "Benign": {
+            "support": 120,
+            "precision": 1.0,
+            "recall": 0.9083333333333333,
+            "f1": 0.9519650655021834,
+            "binary_detected": 11
+          },
+          "Web Attack": {
+            "support": 64,
+            "precision": 0.875,
+            "recall": 0.984375,
+            "f1": 0.9264705882352942,
+            "binary_detected": 64
+          }
+        }
+      },
+      "candidates": {
+        "rejected_handshake_only": {
+          "after": {
+            "tp": 64,
+            "fn": 0,
+            "fp": 11,
+            "tn": 109,
+            "classwise": {
+              "Benign": {
+                "support": 120,
+                "precision": 1.0,
+                "recall": 0.9083333333333333,
+                "f1": 0.9519650655021834,
+                "binary_detected": 11
+              },
+              "Web Attack": {
+                "support": 64,
+                "precision": 0.875,
+                "recall": 0.984375,
+                "f1": 0.9264705882352942,
+                "binary_detected": 64
+              }
+            }
+          },
+          "held_baseline_flags": 0,
+          "held_positive_by_class": {
+            "Web Attack": 0
+          }
+        },
+        "rejected_quiet_context": {
+          "after": {
+            "tp": 64,
+            "fn": 0,
+            "fp": 11,
+            "tn": 109,
+            "classwise": {
+              "Benign": {
+                "support": 120,
+                "precision": 1.0,
+                "recall": 0.9083333333333333,
+                "f1": 0.9519650655021834,
+                "binary_detected": 11
+              },
+              "Web Attack": {
+                "support": 64,
+                "precision": 0.875,
+                "recall": 0.984375,
+                "f1": 0.9264705882352942,
+                "binary_detected": 64
+              }
+            }
+          },
+          "held_baseline_flags": 0,
+          "held_positive_by_class": {
+            "Web Attack": 0
+          }
+        },
+        "rejected_quiet_bot_or_unknown": {
+          "after": {
+            "tp": 64,
+            "fn": 0,
+            "fp": 11,
+            "tn": 109,
+            "classwise": {
+              "Benign": {
+                "support": 120,
+                "precision": 1.0,
+                "recall": 0.9083333333333333,
+                "f1": 0.9519650655021834,
+                "binary_detected": 11
+              },
+              "Web Attack": {
+                "support": 64,
+                "precision": 0.875,
+                "recall": 0.984375,
+                "f1": 0.9264705882352942,
+                "binary_detected": 64
+              }
+            }
+          },
+          "held_baseline_flags": 0,
+          "held_positive_by_class": {
+            "Web Attack": 0
+          }
+        }
+      }
+    },
+    "phone_test": {
+      "rows": 184,
+      "baseline": {
+        "tp": 62,
+        "fn": 2,
+        "fp": 10,
+        "tn": 110,
+        "classwise": {
+          "Benign": {
+            "support": 120,
+            "precision": 0.9821428571428571,
+            "recall": 0.9166666666666666,
+            "f1": 0.9482758620689654,
+            "binary_detected": 10
+          },
+          "Web Attack": {
+            "support": 64,
+            "precision": 0.8840579710144928,
+            "recall": 0.953125,
+            "f1": 0.9172932330827068,
+            "binary_detected": 62
+          }
+        }
+      },
+      "candidates": {
+        "rejected_handshake_only": {
+          "after": {
+            "tp": 62,
+            "fn": 2,
+            "fp": 10,
+            "tn": 110,
+            "classwise": {
+              "Benign": {
+                "support": 120,
+                "precision": 0.9821428571428571,
+                "recall": 0.9166666666666666,
+                "f1": 0.9482758620689654,
+                "binary_detected": 10
+              },
+              "Web Attack": {
+                "support": 64,
+                "precision": 0.8840579710144928,
+                "recall": 0.953125,
+                "f1": 0.9172932330827068,
+                "binary_detected": 62
+              }
+            }
+          },
+          "held_baseline_flags": 0,
+          "held_positive_by_class": {
+            "Web Attack": 0
+          }
+        },
+        "rejected_quiet_context": {
+          "after": {
+            "tp": 62,
+            "fn": 2,
+            "fp": 10,
+            "tn": 110,
+            "classwise": {
+              "Benign": {
+                "support": 120,
+                "precision": 0.9821428571428571,
+                "recall": 0.9166666666666666,
+                "f1": 0.9482758620689654,
+                "binary_detected": 10
+              },
+              "Web Attack": {
+                "support": 64,
+                "precision": 0.8840579710144928,
+                "recall": 0.953125,
+                "f1": 0.9172932330827068,
+                "binary_detected": 62
+              }
+            }
+          },
+          "held_baseline_flags": 0,
+          "held_positive_by_class": {
+            "Web Attack": 0
+          }
+        },
+        "rejected_quiet_bot_or_unknown": {
+          "after": {
+            "tp": 62,
+            "fn": 2,
+            "fp": 10,
+            "tn": 110,
+            "classwise": {
+              "Benign": {
+                "support": 120,
+                "precision": 0.9821428571428571,
+                "recall": 0.9166666666666666,
+                "f1": 0.9482758620689654,
+                "binary_detected": 10
+              },
+              "Web Attack": {
+                "support": 64,
+                "precision": 0.8840579710144928,
+                "recall": 0.953125,
+                "f1": 0.9172932330827068,
+                "binary_detected": 62
+              }
+            }
+          },
+          "held_baseline_flags": 0,
+          "held_positive_by_class": {
+            "Web Attack": 0
+          }
+        }
+      }
+    },
+    "protocol_development": {
+      "rows": 304,
+      "baseline": {
+        "tp": 79,
+        "fn": 189,
+        "fp": 13,
+        "tn": 23,
+        "classwise": {
+          "Benign": {
+            "support": 36,
+            "precision": 0.10849056603773585,
+            "recall": 0.6388888888888888,
+            "f1": 0.18548387096774194,
+            "binary_detected": 13
+          },
+          "Bot": {
+            "support": 12,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "binary_detected": 0
+          },
+          "Brute Force": {
+            "support": 64,
+            "precision": 1.0,
+            "recall": 0.09375,
+            "f1": 0.17142857142857143,
+            "binary_detected": 61
+          },
+          "DDoS": {
+            "support": 96,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "binary_detected": 0
+          },
+          "DoS": {
+            "support": 96,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "binary_detected": 18
+          }
+        }
+      },
+      "candidates": {
+        "rejected_handshake_only": {
+          "after": {
+            "tp": 79,
+            "fn": 189,
+            "fp": 13,
+            "tn": 23,
+            "classwise": {
+              "Benign": {
+                "support": 36,
+                "precision": 0.10849056603773585,
+                "recall": 0.6388888888888888,
+                "f1": 0.18548387096774194,
+                "binary_detected": 13
+              },
+              "Bot": {
+                "support": 12,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "binary_detected": 0
+              },
+              "Brute Force": {
+                "support": 64,
+                "precision": 1.0,
+                "recall": 0.09375,
+                "f1": 0.17142857142857143,
+                "binary_detected": 61
+              },
+              "DDoS": {
+                "support": 96,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "binary_detected": 0
+              },
+              "DoS": {
+                "support": 96,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "binary_detected": 18
+              }
+            }
+          },
+          "held_baseline_flags": 0,
+          "held_positive_by_class": {
+            "Bot": 0,
+            "Brute Force": 0,
+            "DDoS": 0,
+            "DoS": 0
+          }
+        },
+        "rejected_quiet_context": {
+          "after": {
+            "tp": 79,
+            "fn": 189,
+            "fp": 13,
+            "tn": 23,
+            "classwise": {
+              "Benign": {
+                "support": 36,
+                "precision": 0.10849056603773585,
+                "recall": 0.6388888888888888,
+                "f1": 0.18548387096774194,
+                "binary_detected": 13
+              },
+              "Bot": {
+                "support": 12,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "binary_detected": 0
+              },
+              "Brute Force": {
+                "support": 64,
+                "precision": 1.0,
+                "recall": 0.09375,
+                "f1": 0.17142857142857143,
+                "binary_detected": 61
+              },
+              "DDoS": {
+                "support": 96,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "binary_detected": 0
+              },
+              "DoS": {
+                "support": 96,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "binary_detected": 18
+              }
+            }
+          },
+          "held_baseline_flags": 0,
+          "held_positive_by_class": {
+            "Bot": 0,
+            "Brute Force": 0,
+            "DDoS": 0,
+            "DoS": 0
+          }
+        },
+        "rejected_quiet_bot_or_unknown": {
+          "after": {
+            "tp": 79,
+            "fn": 189,
+            "fp": 13,
+            "tn": 23,
+            "classwise": {
+              "Benign": {
+                "support": 36,
+                "precision": 0.10849056603773585,
+                "recall": 0.6388888888888888,
+                "f1": 0.18548387096774194,
+                "binary_detected": 13
+              },
+              "Bot": {
+                "support": 12,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "binary_detected": 0
+              },
+              "Brute Force": {
+                "support": 64,
+                "precision": 1.0,
+                "recall": 0.09375,
+                "f1": 0.17142857142857143,
+                "binary_detected": 61
+              },
+              "DDoS": {
+                "support": 96,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "binary_detected": 0
+              },
+              "DoS": {
+                "support": 96,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "binary_detected": 18
+              }
+            }
+          },
+          "held_baseline_flags": 0,
+          "held_positive_by_class": {
+            "Bot": 0,
+            "Brute Force": 0,
+            "DDoS": 0,
+            "DoS": 0
+          }
+        }
+      }
+    },
+    "legacy_validation": {
+      "rows": 1188724,
+      "baseline": {
+        "tp": 159100,
+        "fn": 76,
+        "fp": 1023,
+        "tn": 1028525,
+        "classwise": {
+          "Benign": {
+            "support": 1029548,
+            "precision": 0.9999261132353556,
+            "recall": 0.9990063600725755,
+            "f1": 0.9994660250545515,
+            "binary_detected": 1023
+          },
+          "Bot": {
+            "support": 652,
+            "precision": 0.5412573673870335,
+            "recall": 0.8450920245398773,
+            "f1": 0.6598802395209581,
+            "binary_detected": 646
+          },
+          "Brute Force": {
+            "support": 2432,
+            "precision": 0.9995886466474702,
+            "recall": 0.9991776315789473,
+            "f1": 0.9993830968537939,
+            "binary_detected": 2430
+          },
+          "DDoS": {
+            "support": 17572,
+            "precision": 0.9931199181213396,
+            "recall": 0.9939676758479399,
+            "f1": 0.9935436161438038,
+            "binary_detected": 17518
+          },
+          "DoS": {
+            "support": 90672,
+            "precision": 0.9991514029403337,
+            "recall": 0.9998786836068466,
+            "f1": 0.9995149109751391,
+            "binary_detected": 90664
+          },
+          "Port Scan": {
+            "support": 47698,
+            "precision": 0.9996646264777396,
+            "recall": 0.9998742085622039,
+            "f1": 0.9997694065362766,
+            "binary_detected": 47694
+          },
+          "Web Attack": {
+            "support": 150,
+            "precision": 0.9407894736842105,
+            "recall": 0.9533333333333334,
+            "f1": 0.9470198675496689,
+            "binary_detected": 148
+          }
+        }
+      },
+      "candidates": {
+        "rejected_handshake_only": {
+          "after": {
+            "tp": 111268,
+            "fn": 47908,
+            "fp": 307,
+            "tn": 1029241,
+            "classwise": {
+              "Benign": {
+                "support": 1029548,
+                "precision": 0.9555233305698655,
+                "recall": 0.99970181089177,
+                "f1": 0.9771134624485629,
+                "binary_detected": 307
+              },
+              "Bot": {
+                "support": 652,
+                "precision": 1.0,
+                "recall": 0.34049079754601225,
+                "f1": 0.5080091533180777,
+                "binary_detected": 223
+              },
+              "Brute Force": {
+                "support": 2432,
+                "precision": 0.9995886466474702,
+                "recall": 0.9991776315789473,
+                "f1": 0.9993830968537939,
+                "binary_detected": 2430
+              },
+              "DDoS": {
+                "support": 17572,
+                "precision": 0.9931199181213396,
+                "recall": 0.9939676758479399,
+                "f1": 0.9935436161438038,
+                "binary_detected": 17518
+              },
+              "DoS": {
+                "support": 90672,
+                "precision": 0.9991514029403337,
+                "recall": 0.9998786836068466,
+                "f1": 0.9995149109751391,
+                "binary_detected": 90664
+              },
+              "Port Scan": {
+                "support": 47698,
+                "precision": 1.0,
+                "recall": 0.005954128055683677,
+                "f1": 0.011837772498020092,
+                "binary_detected": 285
+              },
+              "Web Attack": {
+                "support": 150,
+                "precision": 0.9407894736842105,
+                "recall": 0.9533333333333334,
+                "f1": 0.9470198675496689,
+                "binary_detected": 148
+              }
+            }
+          },
+          "held_baseline_flags": 48548,
+          "held_positive_by_class": {
+            "Bot": 423,
+            "Brute Force": 0,
+            "DDoS": 0,
+            "DoS": 0,
+            "Port Scan": 47409,
+            "Web Attack": 0
+          }
+        },
+        "rejected_quiet_context": {
+          "after": {
+            "tp": 158886,
+            "fn": 290,
+            "fp": 664,
+            "tn": 1028884,
+            "classwise": {
+              "Benign": {
+                "support": 1029548,
+                "precision": 0.9997182206313023,
+                "recall": 0.9993550567821996,
+                "f1": 0.9995366057194706,
+                "binary_detected": 664
+              },
+              "Bot": {
+                "support": 652,
+                "precision": 0.7527839643652561,
+                "recall": 0.5184049079754601,
+                "f1": 0.6139872842870119,
+                "binary_detected": 433
+              },
+              "Brute Force": {
+                "support": 2432,
+                "precision": 0.9995886466474702,
+                "recall": 0.9991776315789473,
+                "f1": 0.9993830968537939,
+                "binary_detected": 2430
+              },
+              "DDoS": {
+                "support": 17572,
+                "precision": 0.9931199181213396,
+                "recall": 0.9939676758479399,
+                "f1": 0.9935436161438038,
+                "binary_detected": 17518
+              },
+              "DoS": {
+                "support": 90672,
+                "precision": 0.9991514029403337,
+                "recall": 0.9998786836068466,
+                "f1": 0.9995149109751391,
+                "binary_detected": 90664
+              },
+              "Port Scan": {
+                "support": 47698,
+                "precision": 0.9996855807323873,
+                "recall": 0.9998742085622039,
+                "f1": 0.9997798857502228,
+                "binary_detected": 47693
+              },
+              "Web Attack": {
+                "support": 150,
+                "precision": 0.9407894736842105,
+                "recall": 0.9533333333333334,
+                "f1": 0.9470198675496689,
+                "binary_detected": 148
+              }
+            }
+          },
+          "held_baseline_flags": 573,
+          "held_positive_by_class": {
+            "Bot": 213,
+            "Brute Force": 0,
+            "DDoS": 0,
+            "DoS": 0,
+            "Port Scan": 1,
+            "Web Attack": 0
+          }
+        },
+        "rejected_quiet_bot_or_unknown": {
+          "after": {
+            "tp": 158886,
+            "fn": 290,
+            "fp": 665,
+            "tn": 1028883,
+            "classwise": {
+              "Benign": {
+                "support": 1029548,
+                "precision": 0.9997182203575103,
+                "recall": 0.9993540854821727,
+                "f1": 0.9995361197559067,
+                "binary_detected": 665
+              },
+              "Bot": {
+                "support": 652,
+                "precision": 0.7527839643652561,
+                "recall": 0.5184049079754601,
+                "f1": 0.6139872842870119,
+                "binary_detected": 433
+              },
+              "Brute Force": {
+                "support": 2432,
+                "precision": 0.9995886466474702,
+                "recall": 0.9991776315789473,
+                "f1": 0.9993830968537939,
+                "binary_detected": 2430
+              },
+              "DDoS": {
+                "support": 17572,
+                "precision": 0.9931199181213396,
+                "recall": 0.9939676758479399,
+                "f1": 0.9935436161438038,
+                "binary_detected": 17518
+              },
+              "DoS": {
+                "support": 90672,
+                "precision": 0.9991514029403337,
+                "recall": 0.9998786836068466,
+                "f1": 0.9995149109751391,
+                "binary_detected": 90664
+              },
+              "Port Scan": {
+                "support": 47698,
+                "precision": 0.9996646264777396,
+                "recall": 0.9998742085622039,
+                "f1": 0.9997694065362766,
+                "binary_detected": 47693
+              },
+              "Web Attack": {
+                "support": 150,
+                "precision": 0.9407894736842105,
+                "recall": 0.9533333333333334,
+                "f1": 0.9470198675496689,
+                "binary_detected": 148
+              }
+            }
+          },
+          "held_baseline_flags": 572,
+          "held_positive_by_class": {
+            "Bot": 213,
+            "Brute Force": 0,
+            "DDoS": 0,
+            "DoS": 0,
+            "Port Scan": 1,
+            "Web Attack": 0
+          }
+        }
+      }
+    },
+    "legacy_test": {
+      "rows": 1098929,
+      "baseline": {
+        "tp": 158724,
+        "fn": 110,
+        "fp": 965,
+        "tn": 939130,
+        "classwise": {
+          "Benign": {
+            "support": 940095,
+            "precision": 0.9998828840338998,
+            "recall": 0.9989735079965323,
+            "f1": 0.9994279891557386,
+            "binary_detected": 965
+          },
+          "Bot": {
+            "support": 640,
+            "precision": 0.5645491803278688,
+            "recall": 0.8609375,
+            "f1": 0.6819306930693069,
+            "binary_detected": 630
+          },
+          "Brute Force": {
+            "support": 2442,
+            "precision": 0.9995894909688013,
+            "recall": 0.9971334971334971,
+            "f1": 0.998359983599836,
+            "binary_detected": 2435
+          },
+          "DDoS": {
+            "support": 17840,
+            "precision": 0.9918248502155775,
+            "recall": 0.9928811659192825,
+            "f1": 0.9923527269671419,
+            "binary_detected": 17760
+          },
+          "DoS": {
+            "support": 90084,
+            "precision": 0.9993232298577673,
+            "recall": 0.999877891745482,
+            "f1": 0.9996004838584381,
+            "binary_detected": 90073
+          },
+          "Port Scan": {
+            "support": 47688,
+            "precision": 0.9996855279984905,
+            "recall": 0.9999161214561315,
+            "f1": 0.999800811431327,
+            "binary_detected": 47687
+          },
+          "Web Attack": {
+            "support": 140,
+            "precision": 0.8972602739726028,
+            "recall": 0.9357142857142857,
+            "f1": 0.9160839160839161,
+            "binary_detected": 139
+          }
+        }
+      },
+      "candidates": {
+        "rejected_handshake_only": {
+          "after": {
+            "tp": 110926,
+            "fn": 47908,
+            "fp": 297,
+            "tn": 939798,
+            "classwise": {
+              "Benign": {
+                "support": 940095,
+                "precision": 0.951495687988126,
+                "recall": 0.9996840744818343,
+                "f1": 0.974994825710745,
+                "binary_detected": 297
+              },
+              "Bot": {
+                "support": 640,
+                "precision": 1.0,
+                "recall": 0.35625,
+                "f1": 0.5253456221198157,
+                "binary_detected": 228
+              },
+              "Brute Force": {
+                "support": 2442,
+                "precision": 0.9995894909688013,
+                "recall": 0.9971334971334971,
+                "f1": 0.998359983599836,
+                "binary_detected": 2435
+              },
+              "DDoS": {
+                "support": 17840,
+                "precision": 0.9918248502155775,
+                "recall": 0.9928811659192825,
+                "f1": 0.9923527269671419,
+                "binary_detected": 17760
+              },
+              "DoS": {
+                "support": 90084,
+                "precision": 0.9993232298577673,
+                "recall": 0.999877891745482,
+                "f1": 0.9996004838584381,
+                "binary_detected": 90073
+              },
+              "Port Scan": {
+                "support": 47688,
+                "precision": 0.9931740614334471,
+                "recall": 0.0061021640664318064,
+                "f1": 0.012129801379712802,
+                "binary_detected": 291
+              },
+              "Web Attack": {
+                "support": 140,
+                "precision": 0.8972602739726028,
+                "recall": 0.9357142857142857,
+                "f1": 0.9160839160839161,
+                "binary_detected": 139
+              }
+            }
+          },
+          "held_baseline_flags": 48466,
+          "held_positive_by_class": {
+            "Bot": 402,
+            "Brute Force": 0,
+            "DDoS": 0,
+            "DoS": 0,
+            "Port Scan": 47396,
+            "Web Attack": 0
+          }
+        },
+        "rejected_quiet_context": {
+          "after": {
+            "tp": 158512,
+            "fn": 322,
+            "fp": 625,
+            "tn": 939470,
+            "classwise": {
+              "Benign": {
+                "support": 940095,
+                "precision": 0.9996573709927303,
+                "recall": 0.9993351735728836,
+                "f1": 0.9994962463169329,
+                "binary_detected": 625
+              },
+              "Bot": {
+                "support": 640,
+                "precision": 0.8004694835680751,
+                "recall": 0.5328125,
+                "f1": 0.6397748592870544,
+                "binary_detected": 420
+              },
+              "Brute Force": {
+                "support": 2442,
+                "precision": 0.9995894909688013,
+                "recall": 0.9971334971334971,
+                "f1": 0.998359983599836,
+                "binary_detected": 2435
+              },
+              "DDoS": {
+                "support": 17840,
+                "precision": 0.9918248502155775,
+                "recall": 0.9928811659192825,
+                "f1": 0.9923527269671419,
+                "binary_detected": 17760
+              },
+              "DoS": {
+                "support": 90084,
+                "precision": 0.9993232298577673,
+                "recall": 0.999877891745482,
+                "f1": 0.9996004838584381,
+                "binary_detected": 90073
+              },
+              "Port Scan": {
+                "support": 47688,
+                "precision": 0.9996855279984905,
+                "recall": 0.9999161214561315,
+                "f1": 0.999800811431327,
+                "binary_detected": 47685
+              },
+              "Web Attack": {
+                "support": 140,
+                "precision": 0.8972602739726028,
+                "recall": 0.9357142857142857,
+                "f1": 0.9160839160839161,
+                "binary_detected": 139
+              }
+            }
+          },
+          "held_baseline_flags": 552,
+          "held_positive_by_class": {
+            "Bot": 210,
+            "Brute Force": 0,
+            "DDoS": 0,
+            "DoS": 0,
+            "Port Scan": 2,
+            "Web Attack": 0
+          }
+        },
+        "rejected_quiet_bot_or_unknown": {
+          "after": {
+            "tp": 158512,
+            "fn": 322,
+            "fp": 625,
+            "tn": 939470,
+            "classwise": {
+              "Benign": {
+                "support": 940095,
+                "precision": 0.9996573709927303,
+                "recall": 0.9993351735728836,
+                "f1": 0.9994962463169329,
+                "binary_detected": 625
+              },
+              "Bot": {
+                "support": 640,
+                "precision": 0.8004694835680751,
+                "recall": 0.5328125,
+                "f1": 0.6397748592870544,
+                "binary_detected": 420
+              },
+              "Brute Force": {
+                "support": 2442,
+                "precision": 0.9995894909688013,
+                "recall": 0.9971334971334971,
+                "f1": 0.998359983599836,
+                "binary_detected": 2435
+              },
+              "DDoS": {
+                "support": 17840,
+                "precision": 0.9918248502155775,
+                "recall": 0.9928811659192825,
+                "f1": 0.9923527269671419,
+                "binary_detected": 17760
+              },
+              "DoS": {
+                "support": 90084,
+                "precision": 0.9993232298577673,
+                "recall": 0.999877891745482,
+                "f1": 0.9996004838584381,
+                "binary_detected": 90073
+              },
+              "Port Scan": {
+                "support": 47688,
+                "precision": 0.9996855279984905,
+                "recall": 0.9999161214561315,
+                "f1": 0.999800811431327,
+                "binary_detected": 47685
+              },
+              "Web Attack": {
+                "support": 140,
+                "precision": 0.8972602739726028,
+                "recall": 0.9357142857142857,
+                "f1": 0.9160839160839161,
+                "binary_detected": 139
+              }
+            }
+          },
+          "held_baseline_flags": 552,
+          "held_positive_by_class": {
+            "Bot": 210,
+            "Brute Force": 0,
+            "DDoS": 0,
+            "DoS": 0,
+            "Port Scan": 2,
+            "Web Attack": 0
+          }
+        }
+      }
+    }
+  },
+  "idle_alert_replay": {
+    "activity_groups": 4,
+    "represented_raw_flags": 5,
+    "baseline_class_ids": [
+      1,
+      1,
+      7,
+      1
+    ],
+    "candidate_held_groups": {
+      "rejected_handshake_only": 4,
+      "rejected_quiet_context": 4,
+      "rejected_quiet_bot_or_unknown": 4
+    },
+    "labels": "Unverified unsolicited incoming probes; no benign or bot ground-truth claim."
+  },
+  "complete": true
+}

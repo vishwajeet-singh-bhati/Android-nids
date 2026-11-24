@@ -10,6 +10,52 @@ class ValidationInstrumentation: Instrumentation() {
     private var options=Bundle()
     override fun onCreate(arguments: Bundle?) { options=arguments ?: Bundle(); start() }
     override fun onStart() {
+        if(options.getString("mode")=="network_history_review"){
+            val result=Bundle()
+            try{
+                val rows=ObservationStore.list(targetContext,500)
+                val selected=rows.filter{NetworkObservationPolicy.rejectedIncomingEvidence(it.optJSONObject("model_evidence") ?: JSONObject())}
+                val checks=org.json.JSONArray()
+                for(row in selected){
+                    val original=row.getJSONObject("model_evidence").toString()
+                    val facts=TsanetExplanationFacts.from(row.getJSONObject("model_evidence"))!!
+                    val note=HybridActivityNote.display(row)
+                    check(HybridActivityNote.title(facts)=="Incoming connection was rejected")
+                    check("Bot" !in note && "bot" !in note)
+                    check("Bot" in HybridActivityNote.details(facts) || facts.optString("model_suspected_pattern")=="Unclassified")
+                    if(options.getString("refresh_explanations")=="true"){
+                        runOnMainSync{AutomaticExplanations.request(targetContext,row)}
+                        val until=android.os.SystemClock.elapsedRealtime()+180000
+                        var updated=ObservationStore.get(targetContext,row.getString("id"))!!
+                        while(updated.optString("explanation_status") !in setOf("complete","failed") && android.os.SystemClock.elapsedRealtime()<until){
+                            Thread.sleep(200);updated=ObservationStore.get(targetContext,row.getString("id"))!!
+                        }
+                        check(updated.optString("explanation_status")=="complete")
+                        check(updated.getJSONObject("model_evidence").toString()==original)
+                        check(updated.getJSONObject("explanation").optString("pipeline_version")==HybridActivityNote.VERSION)
+                        check("Bot" !in HybridActivityNote.display(updated))
+                        val manager=targetContext.getSystemService(android.app.NotificationManager::class.java)
+                        val notificationUntil=android.os.SystemClock.elapsedRealtime()+4000
+                        var title=""
+                        while(android.os.SystemClock.elapsedRealtime()<notificationUntil){
+                            title=manager.activeNotifications.firstOrNull{it.id==row.getString("id").hashCode()}?.notification
+                                ?.extras?.getCharSequence(android.app.Notification.EXTRA_TITLE)?.toString() ?: ""
+                            if(title=="Incoming connection was rejected")break
+                            Thread.sleep(100)
+                        }
+                        check(title=="Incoming connection was rejected"){"Posted notification title: "+title}
+                    }
+                    checks.put(JSONObject().put("id",row.getString("id")).put("title",HybridActivityNote.title(facts))
+                        .put("raw_class_id",row.getJSONObject("model_evidence").getInt("class_id"))
+                        .put("binary_flag",row.getJSONObject("model_evidence").optBoolean("binary_flag")))
+                }
+                val report=JSONObject().put("passed",true).put("rows",rows.size).put("reviewed_rejections",selected.size)
+                    .put("checks",checks).put("explanations_refreshed",options.getString("refresh_explanations")=="true")
+                File(targetContext.filesDir,"network_history_review.json").writeText(report.toString(2))
+                result.putString("summary",report.toString());finish(Activity.RESULT_OK,result)
+            }catch(error: Throwable){result.putString("error",error.toString());finish(Activity.RESULT_CANCELED,result)}
+            return
+        }
         if(options.getString("mode")?.startsWith("rakshak_")==true){
             RakshakValidation(this,targetContext).run(options.getString("mode")!!);return
         }

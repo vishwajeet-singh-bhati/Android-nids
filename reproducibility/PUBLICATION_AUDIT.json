@@ -1,11 +1,20 @@
 {
-  "passed": true,
-  "checked_files": 739,
-  "bytes": 166670165,
+  "passed": false,
+  "checked_files": 744,
+  "bytes": 166758233,
   "largest_file_bytes": 91722756,
   "public_feed_rows": 0,
   "public_url_fixture_rows": 27,
-  "issues": [],
+  "issues": [
+    [
+      "docs/rakshak/README.md",
+      "broken Markdown link: ../../validation/install_local_llama.py"
+    ],
+    [
+      "docs/rakshak/README.md",
+      "broken Markdown link: SMS_LICENSE.txt"
+    ]
+  ],
   "scope": "Staged curated source; no datasets/raw captures/credentials/archives or restricted feed records.",
   "zip_created": false
 }

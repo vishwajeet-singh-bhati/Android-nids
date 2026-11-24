@@ -21,6 +21,26 @@ object HybridFixtures {
 object HybridNoteContract {
     fun run(context: Context): JSONObject {
         val notes=JSONArray()
+        val rejectedFlow=FloatArray(32).apply{this[1]=1f;this[2]=1f;this[29]=1f;this[30]=1f;this[31]=1f}
+        val rejectedContext=FloatArray(115).apply{this[114]=kotlin.math.ln(301.0).toFloat()}
+        val rejected=HybridFixtures.evidence(1,false).put("feature_schema","phone-aligned-v2")
+            .put("binary_flag",true).put("flow_close_reason","tcp_reset").put("flow_packets",2)
+            .put("flow_features",JSONArray(rejectedFlow.toList())).put("context_features",JSONArray(rejectedContext.toList()))
+            .put("history_complete",true).put("capture_healthy",true)
+        check(NetworkObservationPolicy.rejectedIncomingEvidence(rejected))
+        val rejectedFacts=TsanetExplanationFacts.from(rejected)!!
+        check(rejectedFacts.optString("model_suspected_pattern")=="Bot")
+        check(rejectedFacts.optString("suspected_pattern")=="Rejected connection" && !rejectedFacts.optBoolean("type_established"))
+        check(rejected.getInt("class_id")==1 && rejected.getBoolean("binary_flag"))
+        check("Bot" !in HybridActivityNote.render(rejectedFacts))
+        check("Bot" in HybridActivityNote.details(rejectedFacts))
+        check(HybridActivityNote.guidanceAccepted(HybridActivityNote.guidance(rejectedFacts),rejectedFacts))
+        val changedPort=JSONObject(rejected.toString()).apply{getJSONObject("attribution").put("local_endpoint","192.0.2.10:43195")}
+        check(NetworkObservationPolicy.rejectedFingerprint(rejected)!=NetworkObservationPolicy.rejectedFingerprint(changedPort))
+        check(NetworkObservationPolicy.groupingWindowMs(rejected)==300000L)
+        check(!NetworkObservationPolicy.rejectedIncomingEvidence(JSONObject(rejected.toString()).put("class_id",5)))
+        check(!NetworkObservationPolicy.rejectedIncomingEvidence(JSONObject(rejected.toString()).put("capture_healthy",false)))
+        check(NetworkObservationPolicy.rejectedIncomingEvidence(JSONObject(rejected.toString()).put("history_complete",false)))
         for(category in 1..7)for(known in listOf(false,true)){
             val facts=TsanetExplanationFacts.from(HybridFixtures.evidence(category,known))!!;val text=HybridActivityNote.render(facts)
             check("What happened\n" in text && "What you can do\n" in text && "An attack has not been confirmed." in text)
@@ -82,6 +102,22 @@ object HybridNoteContract {
         val sandbox=object: ContextWrapper(context){override fun getFilesDir()=sandboxDirectory
             override fun getSharedPreferences(name: String,mode: Int)=super.getSharedPreferences("ui-contract-"+sandboxDirectory.name+"-"+name,mode)}
         try{
+            val rejectInput=JSONObject(rejected.toString()).put("fingerprint",NetworkObservationPolicy.rejectedFingerprint(rejected))
+            val rejectFirst=ObservationStore.record(sandbox,"tsanet_pattern",1,rejectInput)
+            val stale=JSONObject(rejectFirst.toString()).put("time_ms",System.currentTimeMillis()-60000)
+            android.database.sqlite.SQLiteDatabase.openDatabase(File(sandbox.filesDir,"activity_history_v1.db").absolutePath,null,android.database.sqlite.SQLiteDatabase.OPEN_READWRITE).use{database->
+                database.execSQL("UPDATE observations SET time_ms=?,body=? WHERE id=?",arrayOf(stale.getLong("time_ms"),stale.toString(),stale.getString("id")))
+            }
+            val rejectNext=ObservationStore.record(sandbox,"tsanet_pattern",1,rejectInput)
+            check(rejectNext.getString("id")==rejectFirst.getString("id") && rejectNext.getLong("count")==2L)
+            val staleNote=JSONObject(rejectNext.toString()).put("explanation",JSONObject().put("pipeline_version","plain-guidance-v2")
+                .put("evidence_revision",rejectNext.getInt("revision")).put("display","OLD BOT CLAIM"))
+            check("OLD BOT CLAIM" !in HybridActivityNote.display(staleNote))
+            staleNote.put("title","Possible automated background activity")
+            check(HybridActivityNote.activityTitle(staleNote)=="Incoming connection was rejected")
+            android.database.sqlite.SQLiteDatabase.openDatabase(File(sandbox.filesDir,"activity_history_v1.db").absolutePath,null,android.database.sqlite.SQLiteDatabase.OPEN_READWRITE).use{database->
+                database.delete("observations","id=?",arrayOf(rejectNext.getString("id")))
+            }
             val input=HybridFixtures.evidence(5,true).put("fingerprint","hybrid-contract")
             val first=ObservationStore.record(sandbox,"tsanet_pattern",1,input)
             check(first.optString("explanation_status")=="queued" && !first.has("explanation"))

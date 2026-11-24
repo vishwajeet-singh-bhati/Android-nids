@@ -6,6 +6,22 @@ import org.json.JSONObject
 /** Local IPC is observed separately; it is not declared benign or an external attack. */
 object NetworkObservationPolicy {
     const val LOCAL="device_local"
+    fun rejectedIncomingEvidence(evidence: JSONObject): Boolean {
+        if(evidence.optString("feature_schema")!="phone-aligned-v2" ||
+           evidence.optString("flow_close_reason")!="tcp_reset")return false
+        val flow=evidence.optJSONArray("flow_features") ?: return false
+        val context=evidence.optJSONArray("context_features") ?: return false
+        if(flow.length()!=32 || context.length()!=115)return false
+        return nids.core.RejectedHandshakeEvidence.matches(FloatArray(32){flow.optDouble(it,Double.NaN).toFloat()},
+            FloatArray(115){context.optDouble(it,Double.NaN).toFloat()},
+            evidence.optJSONObject("attribution")?.optString("direction")=="incoming",
+            evidence.optBoolean("capture_healthy",false),evidence.optInt("class_id"))
+    }
+    fun rejectedFingerprint(evidence: JSONObject): String {
+        val owner=evidence.getJSONObject("attribution")
+        return "rejected-incoming-v1|${endpointIp(owner.optString("remote_endpoint"))}|${owner.optString("local_endpoint")}"
+    }
+    fun groupingWindowMs(evidence: JSONObject)=if(rejectedIncomingEvidence(evidence))300000L else 30000L
     fun endpointIp(endpoint: String): String=endpoint.substringBeforeLast(':',"").removePrefix("[").removeSuffix("]")
     private fun loopback(ip: String): Boolean=try {
         val literal=ip.substringBefore('%')

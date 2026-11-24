@@ -92,3 +92,7 @@ Original logo added to launcher and app header in source0.17.4/code47. Models an
 ## Subsequent clean phone reinstall -24 November2026
 
 After a user-requested factory reset, verified code47 and local models/capture binary were reinstalled. Magisk31.1 environment and Shell/app root grants restored; no boot flashing. Native network, safety contract and real notification/Llama service checks passed; test activities removed and history0 before enabling monitoring. All detectors/incoming SMS enabled. This is installation evidence, not a new accuracy cohort or proof of ghost-touch repair. See [record](results/clean_reinstall_20261124.json).
+
+## Network idle-alert review -24 November2026
+
+SMS repair is on hold at user request pending a later carrier-message test. Code49 corrects rejected-handshake wording/grouping and stale notification titles without changing binary/model decisions. A candidate that reduced legacy FP by340 also lost212 positive-labelled detections and was rejected. Saved comparisons cover2,288,325 regression rows, not fresh holdouts. See [audit](results/idle_network_repair_20261124/README.md). This is not a final model selection or proof of eliminated false positives.

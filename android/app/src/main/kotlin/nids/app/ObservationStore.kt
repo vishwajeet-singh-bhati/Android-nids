@@ -65,7 +65,7 @@ object ObservationStore {
  @Synchronized fun get(c: Context,id: String): JSONObject?=db(c).rawQuery("SELECT body FROM observations WHERE id=? AND time_ms>=?",arrayOf(id,(System.currentTimeMillis()-RETENTION).toString())).use{if(it.moveToFirst())JSONObject(it.getString(0)) else null}
  @Synchronized fun record(c: Context,kind: String,count: Long,evidence: JSONObject): JSONObject{
   val db=db(c);prune(db);val now=System.currentTimeMillis();val fingerprint=evidence.optString("fingerprint",kind)
-  val row=db.rawQuery("SELECT body FROM observations WHERE fingerprint=? AND disposition!='out_of_scope' AND time_ms>? AND created_ms>? ORDER BY time_ms DESC LIMIT 1",arrayOf(fingerprint,(now-30000).toString(),(now-RETENTION).toString())).use{if(it.moveToFirst())JSONObject(it.getString(0)) else null}
+  val row=db.rawQuery("SELECT body FROM observations WHERE fingerprint=? AND disposition!='out_of_scope' AND time_ms>? AND created_ms>? ORDER BY time_ms DESC LIMIT 1",arrayOf(fingerprint,(now-NetworkObservationPolicy.groupingWindowMs(evidence)).toString(),(now-RETENTION).toString())).use{if(it.moveToFirst())JSONObject(it.getString(0)) else null}
    ?:JSONObject().put("id",UUID.randomUUID().toString()).put("kind",kind).put("fingerprint",fingerprint).put("created_ms",now).put("revision",0).put("count",0).put("status","unconfirmed_anomaly").put("attack_verified",false).put("disposition","active").put("explanation_status","queued")
   row.put("revision",row.optInt("revision")+1).put("time_ms",now).put("time",now/1000.0).put("count",row.optLong("count")+count).put("model_evidence",evidence)
   val attribution=evidence.optJSONObject("attribution") ?: JSONObject().put("status","unknown").put("direction","unknown")

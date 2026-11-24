@@ -1,6 +1,6 @@
 # Current Rakshak status -24 November2026
 
-Current source/app: **0.17.4-branding / code47**. The prior network-only code40 source remains in Git history. Network weights and thresholds are unchanged. SMS/URL models and the source recovered from the full SMS archive are included.
+Current source/app: **0.17.6-connection-notes / code49**. The prior network-only code40 source remains in Git history. Network weights and thresholds are unchanged. SMS/URL models and the source recovered from the full SMS archive are included.
 
 The original Pixel used a populated dated offline feed. This public build has an empty/stale database; populate it locally from permitted sources if desired. All three learned pipelines are present. The selected SMS training checkpoint, PTQ/QAT scripts and checked split hashes are included; datasets and raw/private content are excluded.
 
@@ -11,3 +11,5 @@ Known limits: network false positives/protocol misses; limited SMS language/real
 Read the [components](components/README.md), [improvement plan](docs/MODEL_IMPROVEMENT_PLAN.md), [report](docs/project_report/README.md) and [changelog](CHANGELOG.md).
 
 Branding update: code47 adds the original [Rakshak logo](docs/branding/README.md). Historical model/device measurements remain from their explicitly stated builds, including code46. Pixel code47 installed and checksum verified24 November;20 activities and settings preserved.
+
+Network-note update24 November: code49 describes qualifying rejected incoming handshakes factually and groups repeats by peer/service. Raw model decisions are unchanged. A suppression candidate lost212 positive-labelled legacy-test detections and was rejected. SMS improvements are on hold. See [comparison](results/idle_network_repair_20261124/README.md).

@@ -1,5 +1,16 @@
 # Changelog
 
+##0.17.6-connection-notes / code49 -24 November2026
+
+- Describe qualifying rejected incoming handshakes using measured facts; retain original binary/diagnostic results in technical evidence. Group same-peer/same-service repeats across five minutes. No model, threshold, app/port whitelist or binary suppression change.
+- Derive notification and app titles from current facts, repairing stale saved titles discovered during live validation. Preserve all four prior activities and detector settings; SMS improvements explicitly on hold.
+- Reject quiet-handshake suppression after legacy-test FP965→625 also lost212 positive-labelled detections (210 Bot, two Port Scan). Publish the full2,288,325-row regression comparison and update the report; do not claim classifier false-positive improvement.
+
+##0.17.5-connection-evidence / code48 -24 November2026
+
+- Intermediate deployed candidate added rejected-handshake facts and grouping. Native/isolated checks passed and four activities were preserved. A subsequent live check exposed cached notification titles; superseded by code49. Both APKs and the pre-change code47 rollback remain local.
+
+
 ##0.17.4-branding / code47 -24 November2026
 
 - Create an original Rakshak logo inspired by the supplied protection/care theme. Add adaptive, round, density-specific and themed launcher assets plus the home header logo. Preserve model weights, thresholds, detection policy and explanation behavior.

@@ -186,7 +186,8 @@ class TsanetCaptureService: Service(){
                             .put("connections_in_window",policy.connections).put("window_seconds",AuthenticationEpisodePolicy.WINDOW_SECONDS)
                             .put("first_observed_connection_ms",(start*1000).toLong()).put("authentication_outcome_verified",false))
                         "auth-episode|${policy.protocol}|${snapshot.source}|${snapshot.destination}|${snapshot.destinationPort}|$start"
-                    }else "aligned-v2|$category|${owner.optInt("uid",-1)}|${owner.optString("direction","unknown")}|${System.currentTimeMillis()/60000}"+(if(localOnly)"|local-experimental" else "")
+                    }else if(NetworkObservationPolicy.rejectedIncomingEvidence(evidence))NetworkObservationPolicy.rejectedFingerprint(evidence)
+                    else "aligned-v2|$category|${owner.optInt("uid",-1)}|${owner.optString("direction","unknown")}|${System.currentTimeMillis()/60000}"+(if(localOnly)"|local-experimental" else "")
                     evidence.put("fingerprint",key).put("detector",if(episodeWarning)"authentication_episode_preview" else "phone_aligned_v2_gate_diagnosis")
                     val previous=pending[key]
                     pending[key]=Pair((previous?.first ?: 0)+1,evidence)

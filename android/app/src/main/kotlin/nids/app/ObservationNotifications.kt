@@ -14,7 +14,7 @@ object ObservationNotifications {
   manager.createNotificationChannel(NotificationChannel(channel,if(safety==null)"Network activity to review" else if(urgent)"Important message and link warnings" else "Message and link warnings",if(urgent)NotificationManager.IMPORTANCE_HIGH else NotificationManager.IMPORTANCE_DEFAULT))
   val id=row.getString("id");val attribution=row.optJSONObject("attribution");val direction=attribution?.optString("direction") ?: "unknown"
   val label=attribution?.optString("app_label","App unknown") ?: "App unknown"
-  val activity=row.optString("title","Network activity to review")
+  val activity=HybridActivityNote.activityTitle(row)
   val title=if(row.optJSONObject("model_evidence")?.optBoolean("test_only")==true)"TEST - "+activity else if(attribution?.optString("status")=="best_effort")"$label: $activity" else activity
   val text=HybridActivityNote.display(row)
   val open=PendingIntent.getActivity(context,id.hashCode(),Intent(context,LearnedNetworkActivity::class.java).putExtra("observation_id",id).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP),PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)

@@ -2,7 +2,7 @@
 
 [![Reproducibility checks](https://github.com/vishwajeet-singh-bhati/rakshak/actions/workflows/checks.yml/badge.svg)](https://github.com/vishwajeet-singh-bhati/rakshak/actions/workflows/checks.yml)
 
-An Android research app for **network intrusion, SMS scams and phishing links**, with immediate factual warnings and checked local Llama guidance. Current source: **0.17.4-branding / code47**. This is a development/submission draft, not a claim of complete protection or final mentor approval.
+An Android research app for **network intrusion, SMS scams and phishing links**, with immediate factual warnings and checked local Llama guidance. Current source: **0.17.6-connection-notes / code49**. This is a development/submission draft, not a claim of complete protection or final mentor approval.
 
 ## Start here
 
@@ -72,3 +72,5 @@ See [URL evidence](results/url_benchmark_20261124/README.md), [SMS archive prove
 Run python -m pytest tests -q and python -m unittest validation.test_url_benchmark_metrics for dataset-free checks. Earlier network and SMS results retain their original cohorts; do not combine them into one app-accuracy percentage. Source licenses and missing provenance limits are documented per component.
 
 Branding update: code47 adds the original [Rakshak logo](docs/branding/README.md). Historical model/device measurements remain from their explicitly stated builds, including code46. Pixel code47 installed and checksum verified24 November;20 activities and settings preserved.
+
+Network-note update24 November: code49 describes qualifying rejected incoming handshakes factually and groups repeats by peer/service. Raw model decisions are unchanged. A suppression candidate lost212 positive-labelled legacy-test detections and was rejected. SMS improvements are on hold. See [comparison](results/idle_network_repair_20261124/README.md).
