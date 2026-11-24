@@ -16,5 +16,6 @@
   },
   "native_current_work_phone_evidence": "See results/rakshak_integration and results/sms_followup_20261124; public empty-feed APK was not installed over the work phone.",
   "known_strict_sms_numerical_failure_retained": true,
-  "final_submission_approved": false
+  "final_submission_approved": false,
+  "windows_checkout_correction": "Fresh clone exposed CRLF mutation of an attested contract. Assets/report evidence now use -text attributes; strict hash assertions unchanged."
 }

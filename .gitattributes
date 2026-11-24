@@ -18,3 +18,9 @@ docs/project_report/*.json text eol=lf
 
 # Preserve imported upstream Markdown hard breaks and source formatting.
 /components/** -whitespace
+
+# Attested runtime contracts and report evidence must survive Windows checkout byte for byte.
+/android/app/src/main/assets/** -text -whitespace
+/android/app/src/androidTest/assets/** -text -whitespace
+/docs/project_report/*.json -text -whitespace
+/docs/project_report/*.tex -text -whitespace
