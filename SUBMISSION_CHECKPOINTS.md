@@ -84,3 +84,7 @@ Read this file, `HANDOFF.md`, `CURRENT_STATUS.md`, the latest publication record
 - URL measured limits: [benchmark report](results/url_benchmark_20261124/README.md).
 - Current repository: https://github.com/vishwajeet-singh-bhati/rakshak . Video URL, faculty approval and submission confirmation remain pending.
 - The Google Form could not be inspected through the read-only web tool; its exact fields/file limits still need participant-side review. No form was submitted.
+
+## Branding update -24 November2026
+
+Original logo added to launcher and app header in source0.17.4/code47. Models and detector policies unchanged. Historical measurements remain tagged with their original builds. Standard, adaptive and themed icon previews reviewed. Phone installation pending: ADB currently reports no device. See [branding assets](docs/branding/README.md).

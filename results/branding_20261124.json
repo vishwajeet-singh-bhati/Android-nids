@@ -1,0 +1,49 @@
+{
+  "date_ist": "24 November 2026",
+  "source_version": "0.17.4-branding",
+  "version_code": 47,
+  "master": "docs/branding/rakshak-logo.png",
+  "master_sha256": "baafb42a06d1f4447ad74ea5b1335f61c872c820b2e6b3019a3f9ae40fedb2f0",
+  "generation": "Built-in image generation; original artwork inspired by care/protection theme, not copied reference.",
+  "assets": [
+    "Legacy densities mdpi through xxxhdpi",
+    "Adaptive icon API26+",
+    "Monochrome themed icon API33+",
+    "App header"
+  ],
+  "visual_review": "Circle, rounded-square and themed previews reviewed; emblem stays inside mask.",
+  "local_builds": {
+    "public_app": "passed",
+    "public_test_apk": "passed",
+    "public_contractcheck": "passed",
+    "private_phone_apk": "passed"
+  },
+  "private_apk_sha256": "7971f81ff5a90ad2735a602d026e3e40ae874dbc195e6e8efc2ed9c1f1b6a124",
+  "public_apk_sha256": "db0a30876368dadabd6716157513122035e153473bfe01ac8cff2e8b07bdeaf7",
+  "manifest_verified": {
+    "package": "nids.app",
+    "version_code": 47,
+    "version_name": "0.17.4-branding"
+  },
+  "hosted_ci": {
+    "url": "https://github.com/vishwajeet-singh-bhati/rakshak/actions/runs/45357630278",
+    "commit": "97a47c3b368b370cb09db8641e56df5b81916125",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "python-contracts",
+        "conclusion": "success"
+      },
+      {
+        "name": "android-build",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "learned_assets_changed": false,
+  "detector_policy_changed": false,
+  "phone_connected_at_check": false,
+  "phone_installed": false,
+  "latest_verified_installed_version_code": 46,
+  "scope": "Branding/build validation; no new detector accuracy or phone UI measurement claimed."
+}
