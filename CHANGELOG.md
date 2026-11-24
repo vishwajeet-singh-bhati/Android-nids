@@ -1,5 +1,9 @@
 # Changelog
 
+## Public build validation fix - 24 November 2026
+
+- Include shared safety-note/result types in the isolated Android contract-check module. Move the unchanged result formatter into its own source file so the complete CI module set builds. App version and learned weights are unchanged.
+
 ## Submission preparation and full SMS source - 24 November 2026
 
 - Recover the full SMS trainer/evaluator/PTQ/QAT source, selected22-layer checkpoint and split metadata; match the deployed PTQ hash and independently verify archive CSV hashes/group separation. Preserve archived scores as archived evidence.
@@ -46,7 +50,7 @@
 - Rename the app Rakshak and integrate the supplied SMS rules/linear/MobileBERT cascade and URL CNN/ngram/list pipeline with the existing network detector. Keep `nids.app`, network model hashes/thresholds and upgrade data compatibility.
 - Add Home, Check, Activity and Settings navigation, manual/share message and link checks, independent network/SMS/link switches and permission-gated new-SMS delivery checks. No inbox, RCS or background browser-URL interception.
 - Share immediate plain factual warnings, notifications, seven-day history, clearing and the existing local Llama advice queue. Keep SMS bodies, senders, OTPs and full URLs out of saved evidence and prompts. Make disabled, incomplete, stale-list and failed checks explicit; recover interrupted preliminary warnings after reopening.
-- Verify all 192 handoff files, exact combination fixtures, 2,077 URL reference decisions, SMS normalization/rule/model/policy parity and actual Android foreground-service/Llama notifications with network capture paused. Validate incoming-SMS routing and detector controls on a dedicated local emulator. Full environment, counts, synthetic failure cases and Pixel deployment status are recorded in `results/rakshak_integration`.
+- Verify all 192 handoff files, exact combination fixtures, 2,077 URL reference decisions, SMS normalization/rule/model/policy parity and actual Android foreground-service/Llama notifications with network capture paused. Validate incoming-SMS routing and detector controls on a dedicated local emulator. Full environment, counts, synthetic failure cases and Pixel deployment status are recorded in `validation/reports/rakshak_integration`.
 
 ## 0.16.0 / code42 — 22 November 2026
 
@@ -339,7 +343,7 @@ State manual_remaining;3/10 entries executed,2scanprofiles verified. Remaining u
 - Installed the user-requested experimental context model on the owned Pixel after unchanged-weight export parity (960 inputs, zero flips), core regressions and native self-checks. Detector: 46,841 parameters, 440,220-byte PTE; original benchmark/source models preserved.
 - Added phone-visible full-flow statistics and 2/5/15-minute context, foreground monitoring, user-enabled persistence/recovery, capture retries, typed observations, per-flow socket attribution and automatic local Llama notifications. Preserved 33 existing observations and local Llama/model files; backed up APK/history before each update without clearing app data.
 - Tightened Llama prompts and fact checks; removed presentation-only boilerplate while retaining original drafts and truthful fallback. Native Llama/notification check passed with an accepted generated summary. Retained rc1/code30, rc2/code31 and rc3/code32 candidate evidence/APKs.
-- Added a bounded mock test app and detached incoming traffic-profile/validation/finalization controllers. Fixed test-process lifecycle by starting the normal app after instrumentation, and fresh-intent/reusable-listener startup. Final screen-off/background and traffic reports are under `results/tsanet_android`; traffic profiles are not real attack-recall measurements.
+- Added a bounded mock test app and detached incoming traffic-profile/validation/finalization controllers. Fixed test-process lifecycle by starting the normal app after instrumentation, and fresh-intent/reusable-listener startup. Final screen-off/background and traffic reports are under `validation/reports/tsanet_android`; traffic profiles are not real attack-recall measurements.
 
 ## Dataset provenance comparison - 2026-11-18
 
@@ -355,7 +359,7 @@ State manual_remaining;3/10 entries executed,2scanprofiles verified. Remaining u
 
 ## TSANet classwise diagnostic follow-up - 2026-11-18
 
-- Published all-class precision/recall/F1 for all three frozen variants, sample counts and confusion breakdowns in `results/tsanet_paper/CLASSWISE_ANALYSIS.md`.
+- Published all-class precision/recall/F1 for all three frozen variants, sample counts and confusion breakdowns in `validation/reports/tsanet_paper/CLASSWISE_ANALYSIS.md`.
 - Confirmed input ambiguity by directly comparing all 32 stored float32 values: 207 missed Bot, 872 missed Brute Force and 2,146 missed Port Scan flows in the 30% variant match Benign training inputs. Separated evidence from possible imbalance/context/feature explanations. Models, splits and thresholds were unchanged.
 
 ## TSANet paper-based reference implementation - 2026-11-18
@@ -398,12 +402,12 @@ State manual_remaining;3/10 entries executed,2scanprofiles verified. Remaining u
 - Fix stale feedback revisions, worker completion readiness, empty-metadata JSON export and explanation failure/dismissal placeholders. Stabilize pagination order for equal timestamps.
 - Add device validation for retention/export, queue recovery, real socket attribution, cold/warm reuse, cancellation and eviction. Runtime fixtures are synthetic and are not detection-accuracy evidence.
 
-Validation outcome and deployment hash: see `results/mentor_rc4_validation.json` (validated and installed on 2026-11-14).
+Validation outcome and deployment hash: see `validation/reports/mentor_rc4_validation.json` (validated and installed on 2026-11-14).
 
 ## 0.9.2-mentor-rc3 (versionCode 13)
 
 - Isolate native Llama inference in the `:llama` process to avoid the observed monitor/runtime contention.
-- Preserve measured cold inference and concurrent-capture evidence in `results/mentor_resource_profile.json`.
+- Preserve measured cold inference and concurrent-capture evidence in `validation/reports/mentor_resource_profile.json`.
 - Manual explanation preview; superseded by RC4 automatic flow after validation.
 
 ## Research audit - robust v5 deployment evaluation (2026-11-15)
@@ -411,13 +415,13 @@ Validation outcome and deployment hash: see `results/mentor_rc4_validation.json`
 - Completed a post-freeze, classwise and cross-scope audit of all 24 v5 candidates and four baseline operating points. Added per-seed, time-block, protocol/prefix, Android capture/app, uncertainty and phone-recording replay diagnostics.
 - No candidate passed the frozen offline deployment gates. The installed RC4 detector and app assets remain unchanged; candidate exports remain research-only.
 - Four fresh bounded Pixel scan/retry recordings captured all 52 intended connection attempts. Candidate inference for those recordings was offline replay; the separate temporary APK test is documented below.
-- Recorded failure analysis, data limitations, and the next data/label repair priorities in `results/robust_v5_audit/`.
+- Recorded failure analysis, data limitations, and the next data/label repair priorities in `validation/reports/robust_v5_audit/`.
 
 ## Temporary V5 on-device validation (2026-11-15; versionCodes 21 and 22)
 
 - Built trace-enabled, test-only APKs for `shortflow_specialist_s1` and `behavior_general_s2`. Diagnostic mode logs timestamped short-flow warnings and model hashes while suppressing incident history, notifications, and automatic Llama explanations.
-- Fixed candidate JSON packaging for Android: UTF-8 without BOM, app-schema tensor names, and the required `absolute_tolerance` self-check value. Preserved superseded APKs and their hashes in `results/robust_v5_phone/CANDIDATE_BUILD_HISTORY.md`.
+- Fixed candidate JSON packaging for Android: UTF-8 without BOM, app-schema tensor names, and the required `absolute_tolerance` self-check value. Preserved superseded APKs and their hashes in `validation/reports/robust_v5_phone/CANDIDATE_BUILD_HISTORY.md`.
 - Ran both candidates on the owned Pixel, one at a time. Each received 104 SYN-only attempts to ports absent from the Pixel TCP listen table, at no more than 20 attempts/second. Every attempt was visible in the app's parsed trace; no payload, exploit, malware, external target, or denial-of-service traffic was generated.
 - V5 short-flow warnings by profile: 5/8 slow scan, 10/12 moderate scan, 24/24 rapid scan, 3/8 slow retries, 0/12 moderate retries, 0/40 bounded burst. Paired RC4 short-flow control: 0/8, 3/12, 15/24, 0/8, 0/12, 33/40. V5 behavior: 69 positive and 65 confirmed endpoint-second windows during/after probes; RC4 behavior control: 113/110. Both 12-second quiet controls had zero short-flow warnings and zero positive behavior windows; this is not enough to estimate alerts/day.
 - Restored RC4 versionCode 14 and verified both model hashes plus normal capture. Candidate offline gates remain failed; no V5 candidate was promoted.
-- Summary: `results/robust_v5_phone/ON_DEVICE_MATRIX.md`; detailed metrics: `on_device_matrix.json`; raw phone traces remain ignored under `validation/private/phone_candidate_matrix_20261115/`.
+- Summary: `validation/reports/robust_v5_phone/ON_DEVICE_MATRIX.md`; detailed metrics: `on_device_matrix.json`; raw phone traces remain ignored under `validation/private/phone_candidate_matrix_20261115/`.

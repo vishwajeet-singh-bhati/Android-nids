@@ -22,9 +22,9 @@
       "bytes": 511
     },
     "CHANGELOG.md": {
-      "git_blob": "e5bab18a957058383a67feb1ca38ae9176b86851",
-      "sha256": "61f3d4141df7d625f75845f038f1852fe9f9dc07b2b98be275076867474d277f",
-      "bytes": 58378
+      "git_blob": "1a34033272192efacb528f852501f39c02718cbd",
+      "sha256": "820e6b0d4b31cf7405fc6677aa8f1aa2ec983abd7a786055c4518417ff64b600",
+      "bytes": 58753
     },
     "NOTICE.md": {
       "git_blob": "bf18b7228a1410bf9e6bf98a2cd9f155587e5d94",
@@ -487,9 +487,14 @@
       "bytes": 8424
     },
     "android/app/src/main/kotlin/nids/app/SafetyPipeline.kt": {
-      "git_blob": "6aac6cb3148166192853edfe84d1195b0c7e6e7d",
-      "sha256": "aa21f2cf20a7859bc612b130453d453d9776448d7d3c729da33c03485892c026",
-      "bytes": 6552
+      "git_blob": "8e035817a53e4fedbc609cd6a6d9eaeba15e2508",
+      "sha256": "6d8da460dc66ec84620ae9e693f4d3dfa19d10fc024f4f65ae644269ba682e96",
+      "bytes": 6036
+    },
+    "android/app/src/main/kotlin/nids/app/SafetyResults.kt": {
+      "git_blob": "da1052dcb7c5dd94b2f522de2fdb8390944bbe5f",
+      "sha256": "5e9d20d3f49e86083dc2e385378915090be8297ed27459b5c524e4dbc78a22cd",
+      "bytes": 561
     },
     "android/app/src/main/kotlin/nids/app/SelfTest.kt": {
       "git_blob": "d8a8f92ba2e978d3cbea23aa44756286c4b0e965",
@@ -552,9 +557,9 @@
       "bytes": 206
     },
     "android/contractcheck/build.gradle.kts": {
-      "git_blob": "ed2235592455aaa9424e1921aabff4a87521ab23",
-      "sha256": "2e91be4fddca2e03b365c1e9cf079641d51b0ea95aeca882dea597395944a943",
-      "bytes": 2962
+      "git_blob": "f5a1d7a50007f9d182d6b111c68b6a196a32fa3f",
+      "sha256": "69d308d2429e741b210e5b33cc5ff9d765b91cffd51cc55157d33b91ed138229",
+      "bytes": 2997
     },
     "android/contractcheck/src/main/AndroidManifest.xml": {
       "git_blob": "4ad927472fdf29509c6ba434cb5d2fde95db58da",
