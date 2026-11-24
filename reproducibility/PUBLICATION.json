@@ -1,0 +1,67 @@
+{
+  "date_ist": "24 November 2026",
+  "repository": "https://github.com/vishwajeet-singh-bhati/rakshak",
+  "public": true,
+  "account": "vishwajeet-singh-bhati",
+  "validated_code_commit": "611bd4d7a0a0f42cacffafdb33af6a96377518a9",
+  "hosted_ci": {
+    "url": "https://github.com/vishwajeet-singh-bhati/rakshak/actions/runs/45356650336",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "android-build",
+        "conclusion": "success"
+      },
+      {
+        "name": "python-contracts",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "initial_ci_failure": {
+    "run_id": 45355204142,
+    "cause": "Isolated contractcheck omitted shared safety result/note types; fixed without changing model weights or app behavior."
+  },
+  "local_checks": {
+    "public_pytest": 10,
+    "metric_unittests": 4,
+    "fresh_windows_clone_pytest": 10,
+    "all_android_ci_modules": "passed",
+    "paper_and_context_smoke": "passed",
+    "report_regeneration": "byte-identical"
+  },
+  "report": {
+    "validated_on": "24 November 2026",
+    "compiler": "Tectonic 0.17.0 (XeTeX-based local validation)",
+    "compiler_exit_code": 0,
+    "pages": 89,
+    "main_file": "Rakshak_Project_Report.tex",
+    "source_sha256": "bc31b7ef37e0aa5ad6f191e5ab160b771d4ab08ea3db101c257ab310b1a98279",
+    "pdf_sha256": "7d086580041fd08ae706502dc67e7a59021b8393d848d900da3717dd36de7092",
+    "evidence_sha256": "6fc5dbb38baecce5f53962f4bc5c242808d26234aa4a5c6f9c5fdb58613094c3",
+    "addon_evidence_sha256": "2e8d5b25f4b18bc0062a6508602ab1127b76e578698c9394e482b411a8cbd712",
+    "self_contained": true,
+    "overfull_boxes": 0,
+    "undefined_references_or_commands": false,
+    "layout_visually_reviewed": true,
+    "review_scope": "Cover and new SMS/URL pages rendered; historical report layout retained. Final PDF needs mentor/user review.",
+    "numerical_count_checks_passed": true,
+    "zip_created": false,
+    "final_submission_approved": false,
+    "coverage": "Paper/network history through current code46; recovered SMS training/PTQ/QAT source, archived classwise scores, SMS/URL integration and2,048-URL labeling limits."
+  },
+  "public_feed": "Empty valid schema; restricted populated snapshot not redistributed.",
+  "zip_created": false,
+  "phone_reinstalled_for_publication": false,
+  "candidate_promoted": false,
+  "mentor_approval": false,
+  "video_uploaded": false,
+  "form_submitted": false,
+  "remaining": [
+    "Validation-first model improvements",
+    "User candidate selection",
+    "Mentor review",
+    "Public two-minute video",
+    "Once-only final form submission"
+  ]
+}
