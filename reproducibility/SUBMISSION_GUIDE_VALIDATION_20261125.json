@@ -5,15 +5,42 @@
   "canonical_guide": "REPRODUCE.md",
   "demo_guide": "docs/DEMO_VIDEO_SCRIPT.md",
   "local_checks": {
-    "python_pytest": {"passed": true, "tests": 11},
-    "url_metric_unittests": {"passed": true, "tests": 4},
-    "android_build_entry_point": {"passed": true, "gradle_actionable_tasks": 208, "offline_cache": true},
-    "protocol_loopback_smoke": {"passed": true, "phone_actions": 0},
-    "controlled_and_protocol_previews": {"passed": true, "phone_actions": 0},
-    "powershell_helper_syntax": {"passed": true, "source_pc_install_not_performed_by_this_check": true},
-    "sms_package_build_isolated_install_and_reference_info": {"passed": true},
-    "paper_fixture_smoke_fresh_directory": {"passed": true, "research_accuracy_evidence": false},
-    "context_fixture_smoke_fresh_directory": {"passed": true, "research_accuracy_evidence": false},
+    "python_pytest": {
+      "passed": true,
+      "tests": 11
+    },
+    "url_metric_unittests": {
+      "passed": true,
+      "tests": 4
+    },
+    "android_build_entry_point": {
+      "passed": true,
+      "gradle_actionable_tasks": 208,
+      "offline_cache": true
+    },
+    "protocol_loopback_smoke": {
+      "passed": true,
+      "phone_actions": 0
+    },
+    "controlled_and_protocol_previews": {
+      "passed": true,
+      "phone_actions": 0
+    },
+    "powershell_helper_syntax": {
+      "passed": true,
+      "source_pc_install_not_performed_by_this_check": true
+    },
+    "sms_package_build_isolated_install_and_reference_info": {
+      "passed": true
+    },
+    "paper_fixture_smoke_fresh_directory": {
+      "passed": true,
+      "research_accuracy_evidence": false
+    },
+    "context_fixture_smoke_fresh_directory": {
+      "passed": true,
+      "research_accuracy_evidence": false
+    },
     "demo_narration_words": 237
   },
   "corrections": [
@@ -39,5 +66,16 @@
     "video_recording_upload_pending": true,
     "final_form_not_submitted": true,
     "project_zip_created": false
+  },
+  "fresh_local_clone_pytest": {
+    "passed": true,
+    "tests": 11
+  },
+  "hosted_ci": {
+    "validated_source_commit": "ce1b1c139d4080e7e93de791ae48fe4c034e3def",
+    "url": "https://github.com/vishwajeet-singh-bhati/rakshak/actions/runs/45589266713",
+    "conclusion": "success",
+    "python_contracts": "success",
+    "android_build": "success"
   }
 }

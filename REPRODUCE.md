@@ -593,12 +593,21 @@ $smsPy=Join-Path (Get-Location) '.venv-sms\Scripts\python.exe'
 & $smsPy -m pip install -e .
 & $smsPy -m sms_detection.cli info --model-dir ..\models
 & $smsPy -m sms_detection.cli predict 'Your OTP is 123456. Do not share it.' --model-dir ..\models
-# After obtaining matching permitted sources in data/raw:
+# Review the source licenses/URLs in the downloader before acquisition:
+& $smsPy scripts/download_data.py --help
+& $smsPy scripts/download_data.py
+# Then prepare the downloaded, permitted sources:
 & $smsPy scripts/prepare_data.py
 & $smsPy -m sms_detection.models.train_baseline
 ```
 
 Do this on an experimental copy; baseline training writes model/report outputs.
+The downloader records URLs, license notes, byte counts and SHA256 in
+`data/raw/source_manifest.json`. It covers UCI SMS Spam Collection, LSDST2022,
+NCSU campaign messages and the documented Hinglish/Indian controls. Some
+upstream snapshots/APIs may require manual publisher access or have changed;
+compare the recorded hashes/splits instead of assuming today's download is the
+original corpus. Do not skip a source and then claim the original denominator.
 For the neural experiment, create a separate environment compatible with
 `experiments/mobilebert/requirements.txt` and its documented CPU versions:
 

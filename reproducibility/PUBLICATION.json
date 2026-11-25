@@ -261,5 +261,24 @@
       "runtime_errors": 0,
       "scope": "Single current-session heartbeat; not an accuracy cohort."
     }
+  },
+  "latest_source_update": {
+    "date_ist": "25 November 2026",
+    "app_version": "0.17.8-feedback-collapse",
+    "version_code": 51,
+    "validated_source_commit": "ce1b1c139d4080e7e93de791ae48fe4c034e3def",
+    "canonical_guide": "REPRODUCE.md",
+    "demo_guide": "docs/DEMO_VIDEO_SCRIPT.md",
+    "hosted_ci": {
+      "url": "https://github.com/vishwajeet-singh-bhati/rakshak/actions/runs/45589266713",
+      "conclusion": "success",
+      "jobs": [
+        "python-contracts",
+        "android-build"
+      ]
+    },
+    "fresh_local_clone_pytest": 11,
+    "guide_validation": "reproducibility/SUBMISSION_GUIDE_VALIDATION_20261125.json",
+    "scope": "Code and reviewer guides; no final candidate approval, video upload or form submission."
   }
 }
