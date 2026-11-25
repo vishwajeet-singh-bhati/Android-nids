@@ -29,3 +29,8 @@ not an uploaded video or mentor approval.
 ## Passive notice correction ?25 November2026
 
 Code53 confirms manual monitoring pauses and records stop sources. Historical entries are no longer reposted on app launch; reset notes explicitly say Rakshak observed the connection rather than blocked it. Models/thresholds are unchanged. See [review and exact validation limits](results/passive_notice_review_20261125/README.md). The live campaign is incomplete and the manual cancellation check awaits an unlocked phone.
+
+
+## Normal-use scope correction ?25 November2026
+
+Two19:47?19:48 warnings were localhost exchanges, not recorded Google connections. The experimental local-alert setting was on. Restored default external-only alert scope without model changes;137 network records preserved,11 loopback rows separated, external evidence unchanged. See [review](results/signin_scope_review_20261125/README.md). The interrupted live campaign resumed with an explicit scope-phase annotation; it is not yet a completed benchmark.

@@ -254,6 +254,11 @@ addresses stable and controller awake. Prevent automatic screen locking during
 the session, then restore your screen settings. Other VPNs/client isolation or
 unreachable subnets can invalidate the path even if the Wi-Fi name is identical.
 
+For ordinary use, keep **Alert on on-device connections (experimental)** off.
+Localhost exchanges stay inside the phone and are outside the default external
+intrusion assessment; this does not declare every local exchange safe. Read the
+[ordinary-use scope correction](results/signin_scope_review_20261125/README.md).
+
 Record detector switches, authentication-episode/local-traffic settings and any
 Expected feedback before comparing runs. The opt-in Expected rule can mute
 a narrowly matching repeated rejected connection; Undo removes the rule. Do not

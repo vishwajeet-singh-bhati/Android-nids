@@ -1,5 +1,10 @@
 # Changelog
 
+## Normal-use configuration correction ?25 November2026
+
+- Restore the work phone's default external-only intrusion-alert scope after two loopback warnings during ordinary use. APK/models/thresholds unchanged; preserve original evidence and separate11 local records from external assessments.
+- Document native external-feature parity checks and live evaluation phase boundaries. No Google whitelist, fabricated benign labels or blanket suppression of external connections.
+
 ## 0.18.0-passive-notices / code53 ?25 November2026
 
 - Do not repost nonvisible historical notifications on app launch. Use factual incoming-reset wording that explicitly identifies Rakshak as an observer. Invalidate only obsolete reset guidance.
