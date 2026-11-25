@@ -5,6 +5,11 @@ import android.content.Intent
 import org.json.JSONObject
 
 object ObservationNotifications {
+ fun refreshVisible(context: Context,rows: List<JSONObject>){
+  val manager=context.getSystemService(NotificationManager::class.java)
+  val visible=manager.activeNotifications.map{it.id}.toSet()
+  for(row in rows)if(row.optString("id").hashCode() in visible)show(context,row)
+ }
  fun show(context: Context,row: JSONObject){
   if(!NetworkObservationPolicy.explanationAllowed(row))return
   val manager=context.getSystemService(NotificationManager::class.java)

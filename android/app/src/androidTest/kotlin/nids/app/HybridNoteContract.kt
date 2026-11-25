@@ -141,7 +141,10 @@ object HybridNoteContract {
                 .put("evidence_revision",rejectNext.getInt("revision")).put("display","OLD BOT CLAIM"))
             check("OLD BOT CLAIM" !in HybridActivityNote.display(staleNote))
             staleNote.put("title","Possible automated background activity")
-            check(HybridActivityNote.activityTitle(staleNote)=="Incoming connection was rejected")
+            check(HybridActivityNote.activityTitle(staleNote)=="Incoming connection did not open")
+            val oldRejectedNote=JSONObject(staleNote.toString()).put("revision",1).put("explanation",JSONObject()
+                .put("pipeline_version","plain-guidance-v3").put("evidence_revision",1).put("display","Old rejected-connection wording"))
+            check("Rakshak observed this; it did not block it." in HybridActivityNote.display(oldRejectedNote))
             android.database.sqlite.SQLiteDatabase.openDatabase(File(sandbox.filesDir,"activity_history_v1.db").absolutePath,null,android.database.sqlite.SQLiteDatabase.OPEN_READWRITE).use{database->
                 database.delete("observations","id=?",arrayOf(rejectNext.getString("id")))
             }
@@ -196,7 +199,13 @@ object HybridNoteContract {
             for(file in sandboxDirectory.listFiles().orEmpty()){check(file.isFile && file.canonicalFile.parentFile==sandboxDirectory.canonicalFile);check(file.delete())}
             check(sandboxDirectory.delete())
         }
+        val unpostedId="unposted-history-contract-"+java.util.UUID.randomUUID()
+        val notifications=context.getSystemService(android.app.NotificationManager::class.java)
+        check(notifications.activeNotifications.none{it.id==unpostedId.hashCode()})
+        ObservationNotifications.refreshVisible(context,listOf(JSONObject().put("id",unpostedId)))
+        check(notifications.activeNotifications.none{it.id==unpostedId.hashCode()})
         return JSONObject().put("passed",true).put("notes",notes).put("contract_cases",14)
+            .put("history_refresh_does_not_post_unseen_notifications",true)
             .put("history_clear_and_late_callback_rejected",true).put("stale_revision_rejected",true).put("dismissed_result_rejected",true).put("fresh_facts_before_llama",true)
             .put("listener_is_not_confirmed_delivery",true).put("live_incidents_or_notifications_inserted",false)
             .put("device_local_scope_and_history",true).put("external_traffic_not_exempted",true).put("closed_socket_not_app_owner",true)

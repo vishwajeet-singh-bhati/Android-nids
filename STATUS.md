@@ -1,6 +1,6 @@
 # Current Rakshak status -24 November2026
 
-Current source/app: **0.17.8-feedback-collapse / code51**. The prior network-only code40 source remains in Git history. Network weights and thresholds are unchanged. SMS/URL models and the source recovered from the full SMS archive are included.
+Current source/app: **0.18.0-passive-notices / code53**. The prior network-only code40 source remains in Git history. Network weights and thresholds are unchanged. SMS/URL models and the source recovered from the full SMS archive are included.
 
 The original Pixel used a populated dated offline feed. This public build has an empty/stale database; populate it locally from permitted sources if desired. All three learned pipelines are present. The selected SMS training checkpoint, PTQ/QAT scripts and checked split hashes are included; datasets and raw/private content are excluded.
 
@@ -24,3 +24,8 @@ The current live13-profile campaign is incomplete; no final all-class result is
 claimed. The [reproduction guide](REPRODUCE.md) documents setup, controls and
 validity checks; the [demo script](docs/DEMO_VIDEO_SCRIPT.md) remains preparation,
 not an uploaded video or mentor approval.
+
+
+## Passive notice correction ?25 November2026
+
+Code53 confirms manual monitoring pauses and records stop sources. Historical entries are no longer reposted on app launch; reset notes explicitly say Rakshak observed the connection rather than blocked it. Models/thresholds are unchanged. See [review and exact validation limits](results/passive_notice_review_20261125/README.md). The live campaign is incomplete and the manual cancellation check awaits an unlocked phone.

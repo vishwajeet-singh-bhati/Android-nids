@@ -23,7 +23,12 @@ class TsanetCaptureService: Service(){
     override fun onBind(intent: Intent?): IBinder?=null
     override fun onStartCommand(intent: Intent?,flags: Int,startId: Int): Int{
         val preferences=getSharedPreferences("background_monitor",Context.MODE_PRIVATE)
-        if(intent?.action==STOP){preferences.edit().putBoolean("enabled",false).apply();stopRequested=true;stopping=true;capture?.destroy();stopSelf();return START_NOT_STICKY}
+        if(intent?.action==STOP){
+            log(JSONObject().put("event","monitor_stop_requested").put("time_ms",System.currentTimeMillis())
+                .put("source",intent.getStringExtra("stop_source") ?: "internal_stop_intent")
+                .put("user_confirmed",intent.getBooleanExtra("user_confirmed",false)))
+            preferences.edit().putBoolean("enabled",false).apply();stopRequested=true;stopping=true;capture?.destroy();stopSelf();return START_NOT_STICKY
+        }
         if(intent==null && !preferences.getBoolean("enabled",false)){stopSelf();return START_NOT_STICKY}
         if(LearnedLive.running)return START_STICKY
         if(Live.running){stopSelf();return START_NOT_STICKY}
@@ -91,7 +96,8 @@ class TsanetCaptureService: Service(){
                     .put("history_window_seconds",300).put("flow_timeout_seconds",30).put("capture_snaplen",768)
                     .put("capture_immediate_mode",true).put("idle_delivery_grace_ms",2000)
                     .put("gate_threshold",scorer.policy.gateThreshold).put("type_score_cutoff",scorer.policy.typeCutoff)
-                    .put("history_sample_fraction",1.0).put("lab_accuracy_is_device_accuracy",false))
+                    .put("history_sample_fraction",1.0).put("lab_accuracy_is_device_accuracy",false)
+                    .put("network_mode","passive_capture_and_warnings"))
                 ownerThread=Thread({while(!stopping){owners.refresh();try{Thread.sleep(1000)}catch(_: InterruptedException){break}}},"socket-ownership").apply{isDaemon=true;start()}
                 val p=ProcessBuilder("su","-c","exec nice -n 10 ${CaptureService.TCPDUMP} --immediate-mode -i any -U -s 768 -w -").start();capture=p
                 Thread{try{p.errorStream.bufferedReader().useLines{lines->lines.take(40).forEach{log(JSONObject().put("event","capture_message").put("message",it.take(300)))}}}catch(_: Exception){}}.apply{isDaemon=true;start()}
@@ -256,7 +262,8 @@ class TsanetCaptureService: Service(){
             log(JSONObject().put("event","session_end").put("time_ms",System.currentTimeMillis())
                 .put("packets",packets.get()).put("inferences",LearnedLive.inferences).put("flags",LearnedLive.warnings)
                 .put("queue_drops",drops.get()).put("model_inference_ms",modelNanos/1e6)
-                .put("cpu_ms",android.os.Process.getElapsedCpuTime()-cpu).put("runtime_error",runtimeError))
+                .put("cpu_ms",android.os.Process.getElapsedCpuTime()-cpu).put("runtime_error",runtimeError)
+                .put("stop_requested",stopRequested).put("monitoring_enabled",preferences.getBoolean("enabled",false)))
             ResourceMonitor.release("monitor");LlamaClient.releaseIfIdle()
             if(retry){
                 LearnedLive.status="Reconnecting";LearnedLive.quality="Monitoring interrupted · retrying locally"
@@ -266,6 +273,10 @@ class TsanetCaptureService: Service(){
             }else{stopForeground(STOP_FOREGROUND_REMOVE);stopSelf()}
         }
     }
-    override fun onDestroy(){stopRequested=true;stopping=true;capture?.destroy();super.onDestroy()}
+    override fun onDestroy(){
+        log(JSONObject().put("event","monitor_service_destroyed").put("time_ms",System.currentTimeMillis())
+            .put("stop_requested_before_destroy",stopRequested))
+        stopRequested=true;stopping=true;capture?.destroy();super.onDestroy()
+    }
     companion object{const val STOP="nids.app.CONTEXT_STOP"}
 }

@@ -1,4 +1,4 @@
-> Current source is Rakshak code51. Start with the [A-to-Z reproduction guide](../REPRODUCE.md). This page retains the stage-specific network methodology; historical measurements retain their original build identities.
+> Current source is Rakshak code53. Start with the [A-to-Z reproduction guide](../REPRODUCE.md). This page retains the stage-specific network methodology; historical measurements retain their original build identities.
 
 # Android source map
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.18.0-passive-notices / code53 ?25 November2026
+
+- Do not repost nonvisible historical notifications on app launch. Use factual incoming-reset wording that explicitly identifies Rakshak as an observer. Invalidate only obsolete reset guidance.
+- Confirm manual monitor pauses, log stop source/confirmation and lifecycle; no automatic traffic blocking. Code52 was an intermediate local control build.
+- All38 bundled assets unchanged; native self-checks and no-history-repost regression passed. Record snapshot evidence and the lock-screen limitation on UI tap checks. Add two passive-boundary regression guards.
+
 ## 0.17.8 / code51 —25 November2026
 
 - Sync current reversible Expected feedback and compact Undo UI; detector weights/thresholds unchanged. Retain code50 eligibility boundaries and stress-test losses in the feedback report.

@@ -20,7 +20,7 @@ class ValidationInstrumentation: Instrumentation() {
                     val original=row.getJSONObject("model_evidence").toString()
                     val facts=TsanetExplanationFacts.from(row.getJSONObject("model_evidence"))!!
                     val note=HybridActivityNote.display(row)
-                    check(HybridActivityNote.title(facts)=="Incoming connection was rejected")
+                    check(HybridActivityNote.title(facts)=="Incoming connection did not open")
                     check("Bot" !in note && "bot" !in note)
                     check("Bot" in HybridActivityNote.details(facts) || facts.optString("model_suspected_pattern")=="Unclassified")
                     if(options.getString("refresh_explanations")=="true"){
@@ -40,10 +40,10 @@ class ValidationInstrumentation: Instrumentation() {
                         while(android.os.SystemClock.elapsedRealtime()<notificationUntil){
                             title=manager.activeNotifications.firstOrNull{it.id==row.getString("id").hashCode()}?.notification
                                 ?.extras?.getCharSequence(android.app.Notification.EXTRA_TITLE)?.toString() ?: ""
-                            if(title=="Incoming connection was rejected")break
+                            if(title=="Incoming connection did not open")break
                             Thread.sleep(100)
                         }
-                        check(title=="Incoming connection was rejected"){"Posted notification title: "+title}
+                        check(title=="Incoming connection did not open"){"Posted notification title: "+title}
                     }
                     checks.put(JSONObject().put("id",row.getString("id")).put("title",HybridActivityNote.title(facts))
                         .put("raw_class_id",row.getJSONObject("model_evidence").getInt("class_id"))

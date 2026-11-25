@@ -2,7 +2,7 @@
 
 [![Reproducibility checks](https://github.com/vishwajeet-singh-bhati/rakshak/actions/workflows/checks.yml/badge.svg)](https://github.com/vishwajeet-singh-bhati/rakshak/actions/workflows/checks.yml)
 
-An Android research app for **network intrusion, SMS scams and phishing links**, with immediate factual warnings and checked local Llama guidance. Current source: **0.17.8-feedback-collapse / code51**. This is a development/submission draft, not a claim of complete protection or final mentor approval.
+An Android research app for **network intrusion, SMS scams and phishing links**, with immediate factual warnings and checked local Llama guidance. Current source: **0.18.0-passive-notices / code53**. This is a development/submission draft, not a claim of complete protection or final mentor approval.
 
 ## Start here
 
@@ -87,3 +87,8 @@ The current live13-profile campaign is incomplete; no final all-class result is
 claimed. The [reproduction guide](REPRODUCE.md) documents setup, controls and
 validity checks; the [demo script](docs/DEMO_VIDEO_SCRIPT.md) remains preparation,
 not an uploaded video or mentor approval.
+
+
+## Passive notice correction ?25 November2026
+
+Code53 confirms manual monitoring pauses and records stop sources. Historical entries are no longer reposted on app launch; reset notes explicitly say Rakshak observed the connection rather than blocked it. Models/thresholds are unchanged. See [review and exact validation limits](results/passive_notice_review_20261125/README.md). The live campaign is incomplete and the manual cancellation check awaits an unlocked phone.

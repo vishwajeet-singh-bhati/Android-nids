@@ -1,6 +1,6 @@
 # Rakshak: clone-to-phone reproduction guide
 
-Submission preparation, 25 November 2026. Current source: **0.17.8-feedback-collapse / code51**.
+Submission preparation, 25 November 2026. Current source: **0.18.0-passive-notices / code53**.
 Use this guide from a fresh clone. No author's drive layout, phone identity,
 SSH key or running service is required. Commands below use **Windows PowerShell
 5.1** unless a block explicitly says Linux/WSL. Run commands from the repository
@@ -255,7 +255,7 @@ the session, then restore your screen settings. Other VPNs/client isolation or
 unreachable subnets can invalidate the path even if the Wi-Fi name is identical.
 
 Record detector switches, authentication-episode/local-traffic settings and any
-Expected feedback before comparing runs. Code51's opt-in Expected rule can mute
+Expected feedback before comparing runs. The opt-in Expected rule can mute
 a narrowly matching repeated rejected connection; Undo removes the rule. Do not
 mark test traffic Expected, clear feedback or change thresholds mid-comparison.
 Clearing activity history also removes associated feedback; export what you need

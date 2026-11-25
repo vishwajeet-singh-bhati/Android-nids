@@ -43,6 +43,16 @@ class LearnedNetworkActivity : Activity() {
  }
  private fun bind(parent: LinearLayout,key: String,value: String,size: Float=15f,color: Int=ink){val v=text(value,size,color);dynamic[key]=v;parent.addView(v)}
  private fun stamp(ms: Long)=SimpleDateFormat("dd MMM, HH:mm:ss",Locale.getDefault()).format(Date(ms))
+ private fun requestMonitoringPause(source: String,onConfirmed: ()->Unit={}){
+  AlertDialog.Builder(this).setTitle("Pause network monitoring?")
+   .setMessage("This pauses Rakshak's network checks. It does not disconnect your internet or block any app.")
+   .setNegativeButton("Keep monitoring",null)
+   .setPositiveButton("Pause monitoring"){_,_->
+    startService(Intent(this,TsanetCaptureService::class.java).setAction(TsanetCaptureService.STOP)
+     .putExtra("stop_source",source).putExtra("user_confirmed",true))
+    onConfirmed()
+   }.show()
+ }
  private fun reviewed(row: JSONObject)=row.optJSONObject("feedback")?.optInt("revision")==row.optInt("revision")
  private fun configureTrace(source: Intent){
   if(source.hasExtra("validation_trace"))getSharedPreferences("background_monitor",MODE_PRIVATE).edit()
@@ -70,8 +80,8 @@ class LearnedNetworkActivity : Activity() {
   };root.addView(nav);setContentView(root)
   Thread{ObservationStore.migrate(applicationContext);ui.post{if(alive){
    build()
-   ObservationStore.list(applicationContext).filter{NetworkObservationPolicy.rejectedIncomingEvidence(it.optJSONObject("model_evidence") ?: JSONObject())}
-    .forEach{ObservationNotifications.show(applicationContext,it)}
+   ObservationNotifications.refreshVisible(applicationContext,ObservationStore.list(applicationContext)
+    .filter{NetworkObservationPolicy.rejectedIncomingEvidence(it.optJSONObject("model_evidence") ?: JSONObject())})
   }}}.start();build()
  }
  private fun build(){
@@ -86,7 +96,7 @@ class LearnedNetworkActivity : Activity() {
  private fun monitorPage(){
   val status=card();bind(status,"state","Monitoring",23f,accent);bind(status,"health","Checking capture status",13f,muted)
   val toggle=button(status,"Start monitoring",true){
-   if(LearnedLive.running)startService(Intent(this,TsanetCaptureService::class.java).setAction(TsanetCaptureService.STOP))
+   if(LearnedLive.running)requestMonitoringPause("home_pause_confirmed")
    else if(Live.running){notice="Pause the reference monitor in Research tools first.";build()}
    else{notice="";startForegroundService(Intent(this,TsanetCaptureService::class.java))}
   };dynamic["toggle"]=toggle
@@ -246,12 +256,18 @@ class LearnedNetworkActivity : Activity() {
  }
  private fun protectionSettings(){
   val controls=card();controls.addView(text("Detection controls",20f,ink,true))
-  controls.addView(text("Each detector can be enabled separately for testing.",14f,muted))
+  controls.addView(text("Rakshak gives warnings and guidance. It does not block connections or turn off your internet. Each detector can be enabled separately.",14f,muted))
   controls.addView(Switch(this).apply{
    text="Network intrusion monitoring";setTextColor(ink);isChecked=getSharedPreferences("background_monitor",MODE_PRIVATE).getBoolean("enabled",false)
-   setOnCheckedChangeListener{_,enabled->
-    if(enabled)startForegroundService(Intent(this@LearnedNetworkActivity,TsanetCaptureService::class.java))
-    else startService(Intent(this@LearnedNetworkActivity,TsanetCaptureService::class.java).setAction(TsanetCaptureService.STOP))
+   var updating=false
+   setOnCheckedChangeListener{control,enabled->
+    if(!updating){
+     if(enabled)startForegroundService(Intent(this@LearnedNetworkActivity,TsanetCaptureService::class.java))
+     else{
+      updating=true;control.isChecked=true;updating=false
+      requestMonitoringPause("settings_pause_confirmed"){updating=true;control.isChecked=false;updating=false}
+     }
+    }
    }
   })
   controls.addView(text("New SMS messages are checked automatically when enabled below. Links inside them go to the phishing detector; risky links produce a warning. No copy and paste is needed. This does not read WhatsApp or other chat apps.",13f,muted))

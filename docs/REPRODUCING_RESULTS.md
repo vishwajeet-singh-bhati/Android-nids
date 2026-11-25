@@ -1,4 +1,4 @@
-> Current source is Rakshak code51. Start with the [A-to-Z reproduction guide](../REPRODUCE.md). This page retains the stage-specific network methodology; historical measurements retain their original build identities.
+> Current source is Rakshak code53. Start with the [A-to-Z reproduction guide](../REPRODUCE.md). This page retains the stage-specific network methodology; historical measurements retain their original build identities.
 
 # Reproducing results
 
@@ -92,6 +92,6 @@ Linux equivalents are `cat` for status JSON and `tail -f` for a selected job log
 
 ## Current release clarification
 
-Current source is code51 with the augmented-v1 detector and opt-in Expected feedback. Network model weights/thresholds are unchanged from the augmented baseline; historical code36 is a reference. Read [current pipeline](CURRENT_PIPELINE.md), [status](../STATUS.md), [completed training](../results/phone_capture_training_v1/RESULTS.md) and [protocol testing](PROTOCOL_TESTING.md). All six training jobs completed; readiness remains false. The old v2 reference is kept only for comparison. New cases must be kept separate from already examined development cohorts.
+Current source is code53 with the augmented-v1 detector and opt-in Expected feedback. Network model weights/thresholds are unchanged from the augmented baseline; historical code36 is a reference. Read [current pipeline](CURRENT_PIPELINE.md), [status](../STATUS.md), [completed training](../results/phone_capture_training_v1/RESULTS.md) and [protocol testing](PROTOCOL_TESTING.md). All six training jobs completed; readiness remains false. The old v2 reference is kept only for comparison. New cases must be kept separate from already examined development cohorts.
 
 The rejected repair source is also included under `experiments/phone_repair_v3`. With the baseline cache/jobs regenerated, run its Linux runner for a separate experiment; it is never an automatic deployment. Augmented before/after evaluation loads the historical reference from `models/references/aligned_v2`, while `models/current` remains current. To regenerate the report from the shipped aggregate evidence, run `python tools/report/build_report.py`; it performs no training or phone actions. Collectors need the separately obtained original artifacts.

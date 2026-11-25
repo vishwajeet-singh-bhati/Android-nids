@@ -280,5 +280,17 @@
     "fresh_local_clone_pytest": 11,
     "guide_validation": "reproducibility/SUBMISSION_GUIDE_VALIDATION_20261125.json",
     "scope": "Code and reviewer guides; no final candidate approval, video upload or form submission."
+  },
+  "current_notice_update": {
+    "date_ist": "25 November 2026",
+    "version_code": 53,
+    "app_version": "0.18.0-passive-notices",
+    "report": "results/passive_notice_review_20261125/README.md",
+    "local_python_tests": 13,
+    "native_checks": "passed;21 self-check rows;0 decision flips",
+    "bundled_assets_unchanged": 38,
+    "ui_cancellation_verification": "pending unlocked phone",
+    "hosted_ci": "pending current source push",
+    "complete_live_attack_campaign": false
   }
 }

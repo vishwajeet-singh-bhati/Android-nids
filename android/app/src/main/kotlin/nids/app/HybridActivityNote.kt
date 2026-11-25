@@ -4,7 +4,7 @@ import org.json.JSONObject
 
 /** Verified measurements/ownership stay outside the language-model prompt. */
 object HybridActivityNote {
-    const val VERSION="plain-guidance-v3"
+    const val VERSION="plain-guidance-v4-passive-notices"
     private fun clean(value: String,limit: Int=100)=value.replace(Regex("[\\p{Cc}\\p{Cf}]")," ").replace(Regex("\\s+")," ").trim().take(limit)
     private fun endpoint(value: String)=value.takeIf{it.length<=100 && it.matches(Regex("[0-9a-fA-F:.\\[\\]%]+:[0-9]+"))} ?: ""
     fun appLabel(facts: JSONObject): String {
@@ -14,7 +14,7 @@ object HybridActivityNote {
         return if(label.isBlank() || label=="App unknown" || label==pkg)pkg else "$label ($pkg)"
     }
     fun title(facts: JSONObject)=when(facts.optString("suspected_pattern")){
-        "Rejected connection"->"Incoming connection was rejected"
+        "Rejected connection"->"Incoming connection did not open"
         "Port Scan"->"Possible check for open connections"
         "Brute Force"->if(facts.has("auth_episode_protocol"))"Repeated ${facts.optString("auth_episode_protocol")} connections" else "Possible repeated sign-in attempts"
         "Bot"->"Possible automated background activity"
@@ -64,7 +64,7 @@ object HybridActivityNote {
     }
     fun prefix(facts: JSONObject): String {
         val happening=when(facts.optString("suspected_pattern")){
-            "Rejected connection"->"Another device tried to connect to your phone. The recorded attempt ended with a rejection."
+            "Rejected connection"->"Another device tried to connect to your phone, which replied with a reset before the connection opened. Rakshak observed this; it did not block it."
             "Port Scan"->"Someone may be checking which connections your phone accepts."
             "Brute Force"->"Repeated connections may be sign-in attempts."
             "Bot"->"Some background connections look automated."
@@ -119,10 +119,12 @@ object HybridActivityNote {
     fun display(row: JSONObject): String {
         if(SafetyNote.from(row.optJSONObject("model_evidence"))!=null)return SafetyNote.display(row)
         if(row.optString("traffic_scope")==NetworkObservationPolicy.LOCAL)return row.optString("factual_note")
-        val explanation=row.optJSONObject("explanation")
-        if(explanation!=null && explanation.optInt("evidence_revision",-1)==row.optInt("revision") && explanation.optString("pipeline_version")==VERSION)
-            return explanation.optString("display")
         val facts=TsanetExplanationFacts.from(row.optJSONObject("model_evidence"))
+        val explanation=row.optJSONObject("explanation")
+        val compatible=explanation?.optString("pipeline_version")==VERSION ||
+            facts?.optBoolean("rejected_incoming_handshake")!=true && explanation?.optString("pipeline_version")=="plain-guidance-v3"
+        if(explanation!=null && explanation.optInt("evidence_revision",-1)==row.optInt("revision") && compatible)
+            return explanation.optString("display")
         if(facts!=null)return render(facts)
         return row.optString("factual_note").ifEmpty{explanation?.optString("display") ?: "A local model flagged unusual connection patterns. This does not confirm an attack. Review whether this activity was expected."}
     }
