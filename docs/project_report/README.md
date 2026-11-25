@@ -46,3 +46,8 @@ Regenerate the LaTeX from the shipped aggregate evidence using `python tools/rep
 Branding addendum24 November: source0.17.4/code47 adds the original [Rakshak logo](../branding/README.md). It changes launcher/header appearance only. The compiled report preserves its code46 measurement history; no new model scores or deployment results are implied.
 
 Current network-note build: **0.17.6/code49**. Rejected incoming handshakes get factual wording and stable duplicate grouping; learned decisions are unchanged. Suppression was rejected after losing212 positive-labelled legacy-test detections. SMS improvements remain on hold. See [network audit](../../results/idle_network_repair_20261124/README.md).
+
+
+## Submission setup supplement —25 November2026
+
+The existing PDF/source retain their dated code49 measurements. The code51 source/setup supplement is [REPRODUCE.md](../../REPRODUCE.md), with [Expected-feedback evidence](../../results/expected_repeat_feedback_20261125/README.md) and the [demo script](../DEMO_VIDEO_SCRIPT.md). The ongoing13-profile campaign is not yet a completed report result. Freeze and reconcile final results before mentor/final submission review.

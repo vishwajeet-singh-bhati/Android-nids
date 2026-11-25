@@ -35,6 +35,7 @@ public final class LabServer implements AutoCloseable {
     public static final int HTTP=43194, FTP=43195, SSH=43196, RECEIVER=43991;
     private final Set<String> allowed;
     private final String bind,receiver;
+    private final javax.net.SocketFactory outboundSockets;
     private final Consumer<Map<String,Object>> sink;
     private final AtomicInteger connections=new AtomicInteger();
     private final Semaphore resource=new Semaphore(2);
@@ -48,9 +49,13 @@ public final class LabServer implements AutoCloseable {
     private int httpPort,ftpPort,sshPort;
     private String fingerprint;
     public LabServer(String bind,Set<String> allowed,String receiver,Consumer<Map<String,Object>> sink){
+        this(bind,allowed,receiver,sink,javax.net.SocketFactory.getDefault());
+    }
+    public LabServer(String bind,Set<String> allowed,String receiver,Consumer<Map<String,Object>> sink,javax.net.SocketFactory outboundSockets){
         if(allowed.isEmpty()||allowed.size()>4)throw new IllegalArgumentException("One to four allowed sources required");
         for(String ip:allowed)validate(ip);validate(bind);validate(receiver);
         this.bind=bind;this.allowed=new HashSet<>(allowed);this.receiver=receiver;this.sink=sink;
+        this.outboundSockets=java.util.Objects.requireNonNull(outboundSockets);
     }
     private static void validate(String ip){
         if(!ip.matches("[0-9.]{7,15}"))throw new IllegalArgumentException("IPv4 literals only");
@@ -144,7 +149,7 @@ public final class LabServer implements AutoCloseable {
     }
     private void bot(){
         for(int i=0;i<12&&!stopping;i++){
-            try(Socket s=new Socket()){
+            try(Socket s=outboundSockets.createSocket()){
                 s.connect(new InetSocketAddress(receiver,RECEIVER),1500);s.setSoTimeout(2000);
                 String command=line(s.getInputStream(),32);String reply="PING".equals(command)?"PONG":"STATUS".equals(command)?"LAB-OK":"REJECTED";
                 write(s,reply+"\n");event(reply.equals("REJECTED")?"bot_command_rejected":"bot_exchange",s,fields("sequence",i,"command",command==null?"":command,"reply",reply));

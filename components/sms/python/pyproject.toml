@@ -27,9 +27,10 @@ data = ["requests>=2.31"]
 sms-detect = "sms_detection.cli:main"
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["."]
+include = ["sms_detection*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
+pythonpath = ["."]
 addopts = "-q"

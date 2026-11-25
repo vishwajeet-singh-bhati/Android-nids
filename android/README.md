@@ -1,4 +1,4 @@
-> Current application is Rakshak code46. This document retains the network-core methodology; use the root component index and Rakshak guide for SMS/URL setup, current controls and the empty public-feed policy.
+> Current source is Rakshak code51. Start with the [A-to-Z reproduction guide](../REPRODUCE.md). This page retains the stage-specific network methodology; historical measurements retain their original build identities.
 
 # Android source map
 

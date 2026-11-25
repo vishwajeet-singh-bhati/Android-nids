@@ -27,9 +27,14 @@ class ProtocolService: Service(){
         File(filesDir,"events.jsonl").writeText("")
         Thread({try{
             LabServer.configureAndroid(filesDir.absolutePath)
-            val server=LabServer(bind,sources,receiver){row->synchronized(this){File(filesDir,"events.jsonl").appendText(LabServer.json(row)+"\n")}}
+            val connectivity=getSystemService(android.net.ConnectivityManager::class.java)
+            val wifi=connectivity.allNetworks.filter{network->
+                connectivity.getNetworkCapabilities(network)?.hasTransport(android.net.NetworkCapabilities.TRANSPORT_WIFI)==true &&
+                    connectivity.getLinkProperties(network)?.linkAddresses?.any{it.address.hostAddress==bind}==true
+            }.singleOrNull() ?: error("The configured lab Wi-Fi network is unavailable")
+            val server=LabServer(bind,sources,receiver,{row->synchronized(this){File(filesDir,"events.jsonl").appendText(LabServer.json(row)+"\n")}},wifi.socketFactory)
             lab=server;server.start(LabServer.HTTP,LabServer.FTP,LabServer.SSH)
-            val status=server.status();status["session"]=session;File(filesDir,"status.json").writeText(LabServer.json(status))
+            val status=server.status();status["session"]=session;status["outbound_transport"]="WIFI";File(filesDir,"status.json").writeText(LabServer.json(status))
             handler.postDelayed(expiry,15*60*1000L)
         }catch(e: Throwable){
             File(filesDir,"status.json").writeText(LabServer.json(LabServer.fields("state","failed","session",session,"error",e.toString())))

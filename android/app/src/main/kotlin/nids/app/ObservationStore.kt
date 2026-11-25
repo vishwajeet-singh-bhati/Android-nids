@@ -29,7 +29,22 @@ object ObservationStore {
  @Synchronized fun recordCurrent(c: Context,kind: String,count: Long,evidence: JSONObject): JSONObject? {
   val cutoff=c.getSharedPreferences("background_monitor",Context.MODE_PRIVATE).getLong("history_cleared_ms",0L)
   if(evidence.optLong("decision_time_ms",Long.MAX_VALUE)<=cutoff)return null
+  if(kind=="tsanet_pattern" && expectedRepeat(c,evidence))return null
   return record(c,kind,count,evidence)
+ }
+ @Synchronized fun expectedRepeat(c: Context,evidence: JSONObject): Boolean {
+  val key=NetworkObservationPolicy.expectedRepeatKey(evidence) ?: return false
+  val cutoff=System.currentTimeMillis()-RETENTION
+  return db(c).rawQuery(
+   "SELECT body FROM observations WHERE fingerprint=? AND disposition='dismissed' AND time_ms>=?",
+   arrayOf(key,cutoff.toString())
+  ).use{cursor ->
+   while(cursor.moveToNext()){
+    val feedback=JSONObject(cursor.getString(0)).optJSONObject("feedback") ?: continue
+    if(feedback.optBoolean("mute_matching_repeats") && feedback.optLong("time_ms")>=cutoff)return@use true
+   }
+   false
+  }
  }
  @Synchronized fun clearHistory(c: Context): List<String> {
   val database=db(c)
@@ -65,7 +80,7 @@ object ObservationStore {
  @Synchronized fun get(c: Context,id: String): JSONObject?=db(c).rawQuery("SELECT body FROM observations WHERE id=? AND time_ms>=?",arrayOf(id,(System.currentTimeMillis()-RETENTION).toString())).use{if(it.moveToFirst())JSONObject(it.getString(0)) else null}
  @Synchronized fun record(c: Context,kind: String,count: Long,evidence: JSONObject): JSONObject{
   val db=db(c);prune(db);val now=System.currentTimeMillis();val fingerprint=evidence.optString("fingerprint",kind)
-  val row=db.rawQuery("SELECT body FROM observations WHERE fingerprint=? AND disposition!='out_of_scope' AND time_ms>? AND created_ms>? ORDER BY time_ms DESC LIMIT 1",arrayOf(fingerprint,(now-NetworkObservationPolicy.groupingWindowMs(evidence)).toString(),(now-RETENTION).toString())).use{if(it.moveToFirst())JSONObject(it.getString(0)) else null}
+  val row=db.rawQuery("SELECT body FROM observations WHERE fingerprint=? AND disposition!='out_of_scope' AND time_ms>? AND created_ms>? ORDER BY time_ms DESC LIMIT 1",arrayOf(fingerprint,(now-NetworkObservationPolicy.groupingWindowMs(evidence)).toString(),(now-RETENTION).toString())).use{if(it.moveToFirst())JSONObject(it.getString(0)).takeUnless{row->row.optJSONObject("feedback")?.optBoolean("mute_matching_repeats")==true} else null}
    ?:JSONObject().put("id",UUID.randomUUID().toString()).put("kind",kind).put("fingerprint",fingerprint).put("created_ms",now).put("revision",0).put("count",0).put("status","unconfirmed_anomaly").put("attack_verified",false).put("disposition","active").put("explanation_status","queued")
   row.put("revision",row.optInt("revision")+1).put("time_ms",now).put("time",now/1000.0).put("count",row.optLong("count")+count).put("model_evidence",evidence)
   val attribution=evidence.optJSONObject("attribution") ?: JSONObject().put("status","unknown").put("direction","unknown")
@@ -106,6 +121,11 @@ object ObservationStore {
   val now=System.currentTimeMillis();val event=JSONObject().put("schema",1).put("feedback_id",UUID.randomUUID().toString()).put("observation_id",id).put("evidence_revision",revision).put("time_ms",now).put("user_label",label).put("note",note.take(300)).put("verified_ground_truth",false).put("evidence_snapshot",JSONObject(row.toString()))
   database.insertOrThrow("feedback",null,ContentValues().apply{put("id",event.getString("feedback_id"));put("time_ms",now);put("body",event.toString())})
   row.put("feedback",JSONObject().put("label",label).put("revision",revision).put("time_ms",now)).put("disposition",if(label=="expected")"dismissed" else if(row.optString("traffic_scope")==NetworkObservationPolicy.LOCAL)"out_of_scope" else "active")
+  if(label=="expected" && row.optString("kind")=="tsanet_pattern"){
+   val evidence=row.optJSONObject("model_evidence")
+   val key=evidence?.let(NetworkObservationPolicy::expectedRepeatKey)
+   if(key!=null && key==row.optString("fingerprint"))row.getJSONObject("feedback").put("mute_matching_repeats",true)
+  }
   if(label=="expected" && row.optString("explanation_status") in setOf("queued","running"))row.put("explanation_status","skipped")
   if(NetworkObservationPolicy.explanationAllowed(row) && label!="expected" && row.optString("explanation_status") in setOf("skipped","cancelled","failed"))row.put("explanation_status","queued")
   put(database,row);prune(database)

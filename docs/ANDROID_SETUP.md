@@ -1,4 +1,4 @@
-> Current application is Rakshak code46. This document retains the network-core methodology; use the root component index and Rakshak guide for SMS/URL setup, current controls and the empty public-feed policy.
+> Current source is Rakshak code51. Start with the [A-to-Z reproduction guide](../REPRODUCE.md). This page retains the stage-specific network methodology; historical measurements retain their original build identities.
 
 # Android build and phone setup
 
@@ -67,4 +67,4 @@ Without these files, monitoring and evidence fallback remain available; no accep
 
 ## Current release clarification
 
-Current source is code40 with the augmented-v1 detector, not the historical code36 weights. Read [current pipeline](CURRENT_PIPELINE.md), [status](../STATUS.md), [completed training](../results/phone_capture_training_v1/RESULTS.md) and [protocol testing](PROTOCOL_TESTING.md). All six training jobs completed; readiness remains false. The old v2 reference is kept only for comparison. New cases must be kept separate from already examined development cohorts.
+Current source is code51 with the augmented-v1 detector and opt-in Expected feedback. Network model weights/thresholds are unchanged from the augmented baseline; historical code36 is a reference. Read [current pipeline](CURRENT_PIPELINE.md), [status](../STATUS.md), [completed training](../results/phone_capture_training_v1/RESULTS.md) and [protocol testing](PROTOCOL_TESTING.md). All six training jobs completed; readiness remains false. The old v2 reference is kept only for comparison. New cases must be kept separate from already examined development cohorts.

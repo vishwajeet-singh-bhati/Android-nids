@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.17.8 / code51 —25 November2026
+
+- Sync current reversible Expected feedback and compact Undo UI; detector weights/thresholds unchanged. Retain code50 eligibility boundaries and stress-test losses in the feedback report.
+- Add canonical REPRODUCE.md and a timed two-minute demo script with recording/checklist steps. Correct stale current-version setup headers.
+- Preserve the verified Wi-Fi-bound disposable callback and separate raw/policy-emitted protocol counts. Accept PowerShell UTF-8 BOM in private SSH configuration.
+- Add an owned-source public-key installer with controller-scoped SSH rule. Fix copied SMS flat-layout packaging/data paths; no model or decision changes.
+- Exact historical private-data reproduction and ongoing live-campaign limits remain explicit; submission/mentor/video gates are pending.
+
 ##0.17.6-connection-notes / code49 -24 November2026
 
 - Describe qualifying rejected incoming handshakes using measured facts; retain original binary/diagnostic results in technical evidence. Group same-peer/same-service repeats across five minutes. No model, threshold, app/port whitelist or binary suppression change.

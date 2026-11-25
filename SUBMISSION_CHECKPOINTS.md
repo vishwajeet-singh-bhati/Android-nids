@@ -98,3 +98,10 @@ After a user-requested factory reset, verified code47 and local models/capture b
 SMS repair is on hold at user request pending a later carrier-message test. Code49 corrects rejected-handshake wording/grouping and stale notification titles without changing binary/model decisions. A candidate that reduced legacy FP by340 also lost212 positive-labelled detections and was rejected. Saved comparisons cover2,288,325 regression rows, not fresh holdouts. See [audit](results/idle_network_repair_20261124/README.md). This is not a final model selection or proof of eliminated false positives.
 
 Code49 publication verification: [hosted CI](https://github.com/vishwajeet-singh-bhati/rakshak/actions/runs/45372448209) passed Python and Android jobs on `3d53e17`;91-page report regenerates identically. Four actual notification titles/current Llama notes verified. Model improvement and submission gates remain pending.
+
+
+## Reproduction and demo preparation —25 November2026
+
+Current public source is code51. [REPRODUCE.md](REPRODUCE.md) is the canonical clone-to-phone/training/live-lab guide. [DEMO_VIDEO_SCRIPT.md](docs/DEMO_VIDEO_SCRIPT.md) provides the120-second narration, matching screen actions, recording/export and public-link checks. Source includes a source-PC SSH key helper; no private credentials or author IPs are needed. Local Android build and software checks are validated separately from phone accuracy.
+
+The original PDF remains dated; final live campaign results and source/report/video identities must be reconciled before the final freeze. Exact private-capture and missing source-split limits remain explicit. Faculty approval, candidate freeze, video recording/upload/public access and final form submission are still pending. No ZIP/video upload/form submission was performed.

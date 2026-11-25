@@ -67,3 +67,13 @@ def test_protocol_preview_starts_no_device_or_source(monkeypatch,capsys):
     result=json.loads(capsys.readouterr().out)
     assert result['phone_actions']==result['attack_requests_sent']==0
     assert result['max_load_requests']==96 and result['max_load_workers']==6
+
+
+def test_sms_training_paths_stay_in_the_python_component():
+    # The source handoff used src/, but this checkout intentionally ships the
+    # package directly. Data preparation and neural training must share a root.
+    component=ROOT/'components/sms/python'
+    sys.path.insert(0,str(component))
+    from sms_detection.config import PROJECT_ROOT,PROCESSED_DIR
+    assert PROJECT_ROOT==component
+    assert PROCESSED_DIR==component/'data/processed'

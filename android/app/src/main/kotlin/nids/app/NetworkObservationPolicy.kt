@@ -21,6 +21,18 @@ object NetworkObservationPolicy {
         val owner=evidence.getJSONObject("attribution")
         return "rejected-incoming-v1|${endpointIp(owner.optString("remote_endpoint"))}|${owner.optString("local_endpoint")}"
     }
+    fun expectedRepeatKey(evidence: JSONObject): String? {
+        if(evidence.optString("traffic_scope")!="external_network" ||
+           !evidence.optBoolean("gate_flagged") || !rejectedIncomingEvidence(evidence))return null
+        val ports=evidence.optInt("target_ports_5m",-1)
+        if(ports !in 0..1)return null
+        val owner=evidence.getJSONObject("attribution")
+        val local=owner.optString("local_endpoint")
+        val remote=owner.optString("remote_endpoint")
+        if(endpointIp(local).isBlank() || endpointIp(remote).isBlank() ||
+           (local.substringAfterLast(':').toIntOrNull() ?: 0) !in 1..65535)return null
+        return rejectedFingerprint(evidence)
+    }
     fun groupingWindowMs(evidence: JSONObject)=if(rejectedIncomingEvidence(evidence))300000L else 30000L
     fun endpointIp(endpoint: String): String=endpoint.substringBeforeLast(':',"").removePrefix("[").removeSuffix("]")
     private fun loopback(ip: String): Boolean=try {

@@ -103,6 +103,33 @@ object HybridNoteContract {
             override fun getSharedPreferences(name: String,mode: Int)=super.getSharedPreferences("ui-contract-"+sandboxDirectory.name+"-"+name,mode)}
         try{
             val rejectInput=JSONObject(rejected.toString()).put("fingerprint",NetworkObservationPolicy.rejectedFingerprint(rejected))
+                .put("traffic_scope","external_network").put("gate_flagged",true).put("target_ports_5m",1)
+            fun variant(field: String, value: Any)=JSONObject(rejectInput.toString()).put(field,value)
+            check(!ObservationStore.expectedRepeat(sandbox,rejectInput))
+            val marked=ObservationStore.record(sandbox,"tsanet_pattern",1,rejectInput)
+            val markedId=marked.getString("id")
+            ObservationStore.feedback(sandbox,markedId,marked.getInt("revision"),"expected","")
+            check(ObservationStore.recordCurrent(sandbox,"tsanet_pattern",1,rejectInput)==null)
+            check(ObservationStore.get(sandbox,markedId)!!.getLong("count")==1L)
+            val changedSourcePort=JSONObject(rejectInput.toString()).apply {
+                val owner=getJSONObject("attribution")
+                owner.put("remote_endpoint",NetworkObservationPolicy.endpointIp(owner.getString("remote_endpoint"))+":62001")
+            }
+            check(ObservationStore.expectedRepeat(sandbox,changedSourcePort))
+            check(!ObservationStore.expectedRepeat(sandbox,variant("attribution",changedPort.getJSONObject("attribution"))))
+            val differentPeer=JSONObject(rejectInput.toString()).apply {
+                getJSONObject("attribution").put("remote_endpoint","203.0.113.220:62001")
+            }
+            check(!ObservationStore.expectedRepeat(sandbox,differentPeer))
+            check(!ObservationStore.expectedRepeat(sandbox,variant("flow_close_reason","idle")))
+            check(!ObservationStore.expectedRepeat(sandbox,variant("capture_healthy",false)))
+            check(!ObservationStore.expectedRepeat(sandbox,variant("class_id",5)))
+            check(!ObservationStore.expectedRepeat(sandbox,variant("target_ports_5m",2)))
+            val sweep=ObservationStore.recordCurrent(sandbox,"tsanet_pattern",1,variant("target_ports_5m",2))
+            check(sweep!=null && sweep.getString("id")!=markedId && sweep.getString("disposition")=="active")
+            ObservationStore.feedback(sandbox,markedId,marked.getInt("revision"),"unsure","")
+            check(!ObservationStore.expectedRepeat(sandbox,rejectInput))
+            ObservationStore.clearHistory(sandbox)
             val rejectFirst=ObservationStore.record(sandbox,"tsanet_pattern",1,rejectInput)
             val stale=JSONObject(rejectFirst.toString()).put("time_ms",System.currentTimeMillis()-60000)
             android.database.sqlite.SQLiteDatabase.openDatabase(File(sandbox.filesDir,"activity_history_v1.db").absolutePath,null,android.database.sqlite.SQLiteDatabase.OPEN_READWRITE).use{database->

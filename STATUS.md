@@ -1,6 +1,6 @@
 # Current Rakshak status -24 November2026
 
-Current source/app: **0.17.6-connection-notes / code49**. The prior network-only code40 source remains in Git history. Network weights and thresholds are unchanged. SMS/URL models and the source recovered from the full SMS archive are included.
+Current source/app: **0.17.8-feedback-collapse / code51**. The prior network-only code40 source remains in Git history. Network weights and thresholds are unchanged. SMS/URL models and the source recovered from the full SMS archive are included.
 
 The original Pixel used a populated dated offline feed. This public build has an empty/stale database; populate it locally from permitted sources if desired. All three learned pipelines are present. The selected SMS training checkpoint, PTQ/QAT scripts and checked split hashes are included; datasets and raw/private content are excluded.
 
@@ -13,3 +13,14 @@ Read the [components](components/README.md), [improvement plan](docs/MODEL_IMPRO
 Branding update: code47 adds the original [Rakshak logo](docs/branding/README.md). Historical model/device measurements remain from their explicitly stated builds, including code46. Pixel code47 installed and checksum verified24 November;20 activities and settings preserved.
 
 Network-note update24 November: code49 describes qualifying rejected incoming handshakes factually and groups repeats by peer/service. Raw model decisions are unchanged. A suppression candidate lost212 positive-labelled legacy-test detections and was rejected. SMS improvements are on hold. See [comparison](results/idle_network_repair_20261124/README.md).
+
+
+## Code51 reproduction update —25 November2026
+
+Code50 adds opt-in narrowly matched Expected-repeat feedback; code51 collapses
+the feedback form and offers Undo. Neither changes model assets or raw scores.
+See [feedback evidence](results/expected_repeat_feedback_20261125/README.md).
+The current live13-profile campaign is incomplete; no final all-class result is
+claimed. The [reproduction guide](REPRODUCE.md) documents setup, controls and
+validity checks; the [demo script](docs/DEMO_VIDEO_SCRIPT.md) remains preparation,
+not an uploaded video or mentor approval.

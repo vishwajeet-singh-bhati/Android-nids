@@ -9,8 +9,8 @@ android {
         applicationId = "nids.app"
         minSdk = 26
         targetSdk = 34
-        versionCode = 49
-        versionName = "0.17.6-connection-notes"
+        versionCode = 51
+        versionName = "0.17.8-feedback-collapse"
         testInstrumentationRunner = "nids.app.ValidationInstrumentation"
     }
     androidResources { noCompress += listOf("tflite", "pte") }

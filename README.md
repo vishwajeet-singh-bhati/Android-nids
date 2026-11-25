@@ -2,12 +2,14 @@
 
 [![Reproducibility checks](https://github.com/vishwajeet-singh-bhati/rakshak/actions/workflows/checks.yml/badge.svg)](https://github.com/vishwajeet-singh-bhati/rakshak/actions/workflows/checks.yml)
 
-An Android research app for **network intrusion, SMS scams and phishing links**, with immediate factual warnings and checked local Llama guidance. Current source: **0.17.6-connection-notes / code49**. This is a development/submission draft, not a claim of complete protection or final mentor approval.
+An Android research app for **network intrusion, SMS scams and phishing links**, with immediate factual warnings and checked local Llama guidance. Current source: **0.17.8-feedback-collapse / code51**. This is a development/submission draft, not a claim of complete protection or final mentor approval.
 
 ## Start here
 
 | Goal | Documentation |
 |---|---|
+| Clone-to-phone setup, training and full live lab commands | [A-to-Z reproduction guide](REPRODUCE.md) |
+| Two-minute narration, screen plan and recording checklist | [Demo video guide](docs/DEMO_VIDEO_SCRIPT.md) |
 | Submission requirements, deadline and remaining gates | [Submission checkpoints](SUBMISSION_CHECKPOINTS.md) |
 | Current state and measured limits | [Status](STATUS.md) |
 | Separate SMS, URL and integration sections | [Component index](components/README.md) |
@@ -74,3 +76,14 @@ Run python -m pytest tests -q and python -m unittest validation.test_url_benchma
 Branding update: code47 adds the original [Rakshak logo](docs/branding/README.md). Historical model/device measurements remain from their explicitly stated builds, including code46. Pixel code47 installed and checksum verified24 November;20 activities and settings preserved.
 
 Network-note update24 November: code49 describes qualifying rejected incoming handshakes factually and groups repeats by peer/service. Raw model decisions are unchanged. A suppression candidate lost212 positive-labelled legacy-test detections and was rejected. SMS improvements are on hold. See [comparison](results/idle_network_repair_20261124/README.md).
+
+
+## Code51 reproduction update —25 November2026
+
+Code50 adds opt-in narrowly matched Expected-repeat feedback; code51 collapses
+the feedback form and offers Undo. Neither changes model assets or raw scores.
+See [feedback evidence](results/expected_repeat_feedback_20261125/README.md).
+The current live13-profile campaign is incomplete; no final all-class result is
+claimed. The [reproduction guide](REPRODUCE.md) documents setup, controls and
+validity checks; the [demo script](docs/DEMO_VIDEO_SCRIPT.md) remains preparation,
+not an uploaded video or mentor approval.

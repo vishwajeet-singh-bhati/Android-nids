@@ -60,7 +60,7 @@ class TsanetCaptureService: Service(){
         var authWasEnabled=false
         val cachedOwners=LinkedHashMap<String,JSONObject>();val refreshed=HashMap<String,Double>()
         val orientations=HashMap<String,Pair<String,String>>()
-        val pending=LinkedHashMap<String,Pair<Long,JSONObject>>()
+        val pending=LinkedHashMap<Pair<String,Boolean>,Pair<Long,JSONObject>>()
         var reader: Thread?=null;var ownerThread: Thread?=null;var lastTick=0L;var lastFlush=0L;var lastHeartbeat=0L
         var appliedDrops=0L;var appliedLate=0L;var unhealthyUntil=0L;var lastAddressRefresh=0L
         var runtimeError="";var modelNanos=0L
@@ -147,7 +147,6 @@ class TsanetCaptureService: Service(){
                             .put("diagnosis_scores",JSONArray(decision.diagnosisScores.toList())).toString()+"\n")
                     }
                     if(!policy.emit)return
-                    LearnedLive.warnings++
                     val fresh=owners.lookupFlow(snapshot.protocol,"${snapshot.source}:${snapshot.sourcePort}","${snapshot.destination}:${snapshot.destinationPort}")
                     val owner=if(snapshot.closeReason=="tuple_reused")JSONObject().put("status","unknown").put("direction",fresh.optString("direction","unknown"))
                         .put("app_label","App unknown").put("reason","Connection tuple changed before ownership could be established")
@@ -189,8 +188,12 @@ class TsanetCaptureService: Service(){
                     }else if(NetworkObservationPolicy.rejectedIncomingEvidence(evidence))NetworkObservationPolicy.rejectedFingerprint(evidence)
                     else "aligned-v2|$category|${owner.optInt("uid",-1)}|${owner.optString("direction","unknown")}|${System.currentTimeMillis()/60000}"+(if(localOnly)"|local-experimental" else "")
                     evidence.put("fingerprint",key).put("detector",if(episodeWarning)"authentication_episode_preview" else "phone_aligned_v2_gate_diagnosis")
-                    val previous=pending[key]
-                    pending[key]=Pair((previous?.first ?: 0)+1,evidence)
+                    if(ObservationStore.expectedRepeat(this,evidence))return
+                    LearnedLive.warnings++
+                    // Keep changed behavior separate from batches that feedback may mute at flush.
+                    val pendingKey=Pair(key,NetworkObservationPolicy.expectedRepeatKey(evidence)!=null)
+                    val previous=pending[pendingKey]
+                    pending[pendingKey]=Pair((previous?.first ?: 0)+1,evidence)
                     log(JSONObject().put("event","model_flag").put("time_ms",System.currentTimeMillis()).put("evidence",evidence))
                 }
                 while(!stopping){

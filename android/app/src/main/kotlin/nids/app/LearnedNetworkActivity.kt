@@ -143,18 +143,48 @@ class LearnedNetworkActivity : Activity() {
    button(body,"Technical details"){technical.visibility=if(technical.visibility==View.GONE)View.VISIBLE else View.GONE}
    body.addView(technical)
   }
-  val feedback=card();feedback.addView(text("Was this expected?",19f,ink,true));feedback.addView(text("If you recognise this activity, you can dismiss it. Your feedback stays on this phone.",13f,muted))
-  val note=EditText(this).apply{hint="Optional note";setHintTextColor(muted);setTextColor(ink);textSize=14f;maxLines=3;setText(draftNote)};feedback.addView(note)
-  for((label,value) in listOf("I expected this — dismiss" to "expected","Looks suspicious" to "suspicious","Not sure" to "unsure"))button(feedback,label){
-   draftNote=note.text.toString()
+  fun submitFeedback(value: String, note: String){
+   draftNote=note
    try{
-    val current=ObservationStore.get(this,row.getString("id")) ?: error("Activity expired")
-    ObservationStore.feedback(this,row.getString("id"),row.getInt("revision"),value,draftNote)
-    getSystemService(android.app.NotificationManager::class.java).cancel(current.getString("id").hashCode())
-    if(value=="expected")AutomaticExplanations.dismiss(this,current.getString("id")) else AutomaticExplanations.pump(applicationContext)
-    notice=if(value=="expected")"Dismissed. It remains in your seven-day history." else "Feedback saved. Review the precaution steps below."
+    val id=row.getString("id")
+    ObservationStore.feedback(this,id,row.getInt("revision"),value,draftNote)
+    currentFocus?.let{focus->
+     getSystemService(android.view.inputmethod.InputMethodManager::class.java)
+      .hideSoftInputFromWindow(focus.windowToken,0)
+    }
+    notice=when(value){
+     "expected" -> ""
+     "unsure" -> if(row.optString("disposition")=="dismissed")"Dismissal undone." else "Feedback saved."
+     else -> "Feedback saved. Review the precaution steps below."
+    }
     draftNote="";build()
+    if(value=="expected")AutomaticExplanations.dismiss(this,id)
+    else{
+     getSystemService(android.app.NotificationManager::class.java).cancel(id.hashCode())
+     AutomaticExplanations.pump(applicationContext)
+    }
    }catch(e: Exception){Toast.makeText(this,e.message,Toast.LENGTH_LONG).show()}
+  }
+  val feedback=card()
+  val mutedRepeat=row.optJSONObject("feedback")?.optBoolean("mute_matching_repeats")==true
+  if(row.optString("disposition")=="dismissed"){
+   feedback.addView(text("Marked as expected",19f,ink,true))
+   val status=if(mutedRepeat)"Matching attempts are muted for up to seven days."
+    else "This activity is dismissed and stays in your history."
+   feedback.addView(text(status,13f,muted))
+   button(feedback,if(mutedRepeat)"Undo repeat mute" else "Undo dismissal"){submitFeedback("unsure","")}
+  }else{
+   feedback.addView(text("Was this expected?",19f,ink,true))
+   val eligible=row.optString("kind")=="tsanet_pattern" &&
+    row.optJSONObject("model_evidence")?.let(NetworkObservationPolicy::expectedRepeatKey)!=null
+   val description=if(eligible)"If you recognize this connection, marking it expected mutes closely matching repeats for up to seven days."
+    else "If you recognize this activity, you can dismiss it. Your feedback stays on this phone."
+   feedback.addView(text(description,13f,muted))
+   val note=EditText(this).apply{hint="Optional note";setHintTextColor(muted);setTextColor(ink);textSize=14f;maxLines=3;setText(draftNote)}
+   feedback.addView(note)
+   button(feedback,"I expected this"){submitFeedback("expected",note.text.toString())}
+   button(feedback,"Looks suspicious"){submitFeedback("suspicious",note.text.toString())}
+   button(feedback,"Not sure"){submitFeedback("unsure",note.text.toString())}
   }
   if(row.optString("disposition")!="dismissed"){
    if(safety==null){
@@ -163,7 +193,7 @@ class LearnedNetworkActivity : Activity() {
    if(owner.optString("status")=="best_effort" && packages?.length()==1)button(steps,"Review this app in Settings"){startActivity(Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS,android.net.Uri.parse("package:"+packages.optString(0))))}
    if(safety==null)button(steps,"Review network settings"){startActivity(Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS))}
    }
-  }else body.addView(text("Dismissed by you. Detection remains active; future unrelated activity is still checked.",13f,muted))
+  }
  }
  private fun activityTitle(row: JSONObject): String {
   return HybridActivityNote.activityTitle(row)

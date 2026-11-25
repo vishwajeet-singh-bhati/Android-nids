@@ -44,7 +44,7 @@ HELPERS=ROOT/'validation/protocol_lab'
 REMOTE='C:/ProgramData/NidsProtocolLab'
 KEYS=ROOT/'runs/protocol_phone_tests'
 _config=KEYS/'ssh_config.json'
-_verified=json.loads(_config.read_text(encoding='utf-8')) if _config.exists() else {'hosts':[]}
+_verified=json.loads(_config.read_text(encoding='utf-8-sig')) if _config.exists() else {'hosts':[]}
 
 PEERS=[(r['name'],r['host'],r['expected_hostname'].lower()) for r in _verified['hosts'] if r.get('identity_verified')]
 SSH=Path(os.environ.get('NIDS_SSH') or shutil.which('ssh') or 'ssh')
@@ -392,7 +392,10 @@ def review(case,profile,contract,effects):
         evidence=r.get('evidence') or {};owner=evidence.get('attribution') or {};a=endpoint(owner.get('initiator'));b=endpoint(owner.get('responder'))
         if a and b and key(6,a,b) in tuples:
             log_flags.append(r);fingerprints.add(evidence.get('fingerprint'))
-    assert len(log_flags)==len(flags),'Independent monitor-log/native flags disagree; preserve evidence for review'
+    # Raw gate flags and post-policy emissions are different measurements. The
+    # authentication policy can suppress or introduce an episode warning.
+    emitted=[r for r in rows if r.get('alert_emitted',r['flagged'])]
+    assert len(log_flags)==len(emitted),'Independent monitor-log/native emitted flags disagree; preserve evidence for review'
     activity=[];notification_error=None
     try:
         db_path=lab.history_snapshot(case/'history');db=sqlite3.connect(db_path)
@@ -410,6 +413,8 @@ def review(case,profile,contract,effects):
     except Exception as error:notification_error=repr(error)
     result={'profile':profile,'run_id':case.name,'model_sha256':EXPECTED,'source_events':dict(event_counts),
         'native_segments':len(rows),'flagged_segments':len(flags),'classification_counts':dict(Counter(NAMES[r['class_id']] for r in rows)),
+        'policy_emitted_segments':len(emitted),'matched_logged_flags':len(log_flags),
+        'policy_classification_counts':dict(Counter(NAMES[r.get('alert_category',r['class_id'])] for r in emitted)),
         'captured_test_packets':sum(len(v) for v in tuples.values()),'unique_tcp_connections':len(tuples),
         'all_per_connection_packet_counts_exact':True,'maximum_start_timestamp_error_seconds':maximum,
         'activity_groups':activity,'visible_matched_notification_groups':sum(a['visible_notification'] for a in activity),
