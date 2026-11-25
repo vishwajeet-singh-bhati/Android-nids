@@ -1,84 +1,86 @@
-# Two-minute Rakshak submission demo
+# Rakshak: two-minute demonstration
 
-Target: **120 seconds,1920x1080,16:9,MP4**. This is a script/recording plan, not
-an uploaded video. Record after the current live evaluation ends; do not
-interrupt a campaign, stage a false alert, or run tests concurrently for footage.
-The narration below is approximately240 words; rehearse once at a natural pace.
-Use the actual app screens and your own saved, valid results.
+**Order:** tech stack → pipeline → app tour → PC PortScan → normal traffic → results/weak cases → four SMS examples → limitations.
 
-## Timed narration and screen plan
+Target120seconds,1920×1080,16:9,MP4. Read only **Narration** aloud. Record real clips separately and edit them together; warm-up and test observation take minutes and must be labelled when omitted. This document does not run tests, send messages, record/upload a video or submit the form.
 
-| Time | Say this | Show this |
+## Timed script and screen actions
+
+| Time | Narration | Show on screen |
 |---|---|---|
-|0–12s|“This is Rakshak, an Android research prototype that brings network intrusion warnings, scam-message checks and phishing-link detection into one app.”|Title/logo for3s, then real app Home. Small caption: “Research prototype · on-device analysis.”|
-|12–27s|“The three detectors can be switched independently. Processing happens on the phone. Network monitoring needs a rooted test device; message and link checks can work without root.”|Settings: point to three switches and incoming-SMS option. Show current app version; avoid personal accounts or identifiers.|
-|27–43s|“For network activity, Rakshak summarizes connections and their recent history. A small model checks for suspicious behavior. A second model suggests a possible category when the evidence supports one.”|Simple connection → binary check → possible category diagram; then foreground monitoring indicator. Do not show raw packet payloads or claim the model reads encrypted passwords.|
-|43–60s|“Here is a controlled port scan against our test phone. The app groups repeated detections into activities. In this normal control, eight requests produced no warnings. These are limited lab observations, not universal accuracy claims.”|Previously recorded/saved valid PortScan activity and matching test report, then Benign0/8 result. Label it “one bounded PortScan case; repeated flags grouped.” Use real footage only if the matching case actually alerted.|
-|60–77s|“Incoming carrier messages can be checked automatically. When a message contains a link, the URL detector checks the address too. Messages without links skip that detector. Pasted or shared text can also be checked.”|SMS/URL flow diagram and Check screen. Use invented examples and label “authored demo message.” For receiver footage show a real carrier-SMS test, not RCS/chat.|
-|77–94s|“A warning first explains what happened and what to do in simple language. Local Llama can then add checked guidance. If generation fails, a factual fallback remains. App names appear only when ownership can be established.”|Open a genuine activity; zoom to “What happened” and “What you can do.” Show actual generated/fallback source accurately; never relabel fallback as Llama output.|
-|94–108s|“The project includes model training, preprocessing and phone test tools. Our tests record packets and independent target outcomes, so an unrelated background warning is not counted as a successful detection.”|GitHub repository folders, REPRODUCE.md, one sanitized report/evidence screenshot. Show current commit briefly; no raw captures, keys, messages or lab passwords.|
-|108–120s|“False positives, missed cases and limited datasets remain. The repository and report document these limits, the measured results and the steps needed to repeat the experiments.”|Final card: repository URL, report path, “Known limits documented.” Keep link visible for at least5s.|
+|0–12s|“Rakshak uses Android and Kotlin, PyTorch-trained models, ExecuTorch inference, and a quantized local Llama. It combines network, scam-message and phishing-link checks.”|Logo1s, then **Kotlin/Android · Python/PyTorch · ExecuTorch · Llama3.2 1B INT4**. Small caption: rooted capture for network monitoring.|
+|12–22s|“Connections, message text and extracted links reach their respective detectors. Suspicious findings produce immediate factual warnings, followed by optional local Llama guidance.”|Diagram: flow statistics → binary gate → possible category; SMS → message detector; extracted URL → URL detector; all → facts and guidance.|
+|22–40s|“Home controls monitoring. Check accepts pasted messages or links. Activity keeps seven-day records, explanations and Clear history. Settings controls each detector separately and enables automatic incoming-message checks.”|Home3s, Check3s, Activity5s, Settings7s. Point to Start/Pause, explanations, feedback/Undo, Clear history, three detector switches and incoming-SMS switch. Advanced information can be captioned. Do not clear evaluation history.|
+|40–55s|“From the PC, I run a bounded port scan against our test phone. Rakshak flags scan-like activity and explains what happened and what the user should do.”|Exact PortScan command → real report → matching phone alert and explanation. Caption across cuts: **Waiting omitted; real recorded test**. Use a genuinely detected case.|
+|55–64s|“Next comes normal traffic. Here, eight normal test flows are classified as benign, with no flags on those flows.”|Benign command and actual8-flow result. Caption: **Test flows:0/8 flagged; background warnings assessed separately**.|
+|64–79s|“Our lab results show strong scan and SQL-injection detection, partial password-guessing detection, and missed XSS and connection-exhaustion cases. Traffic differences and limited context are possible reasons.”|One results card, using the verified snapshot below or its finalized replacement. Mark misses red and partial detection amber. Footer: **Bounded lab cases; not general accuracy**.|
+|79–110s|“Now I send four test messages: a normal message, a scam asking for an OTP, promotional spam with a suspicious test link, and a normal message with a legitimate link. Incoming SMS is checked automatically; extracted links also reach the URL detector. The actual warning or safe result appears on the phone.”|Four clips: normal7s; scam8s; spam/test link8s; normal/legitimate link8s. Show sender/receiver and actual app output. Caption invented content **Authored demo**. Never force a verdict.|
+|110–120s|“Rakshak warns; it does not block connections. False alarms and missed attacks remain possible. Source, results and reproduction instructions are available on GitHub.”|Final card: repository URL, report path, **Warnings, not blocking · Best-effort attribution · Limited validation**.|
 
-## Prepare before recording
+Rehearse against the timestamps. Use captions for secondary details instead of increasing speaking speed until the demo is hard to follow.
 
-1. Read [reproduction guide](../REPRODUCE.md), then freeze the app/model/source
-   version used in the video. Use the version actually shown; do not mix an old
-   report with a new app and imply one measured experiment.
-2. Choose one valid normal control and one valid suspicious case. Keep the
-   matching report, app activity and time window together. If a case misses,
-   report the miss; use another genuinely detected case for the UI demonstration.
-   The25November provisional evidence is Benign0/8 flags and one PortScan with
-   504 matched segment flags grouped into6 visible notifications. Those are
-   **not**504 independent attacks or general precision/recall. Refresh this
-   caption from the final verified campaign before submission.
-3. Optional SMS/link footage: use your own invented non-personal text and show
-   the actual returned verdict. A suspicious-looking reserved `.example` URL is
-   an interface test, not labelled real-world phishing. Never open a phishing
-   page or collect credentials just for a demo.
-4. Use the UI's actual Activity history; avoid clearing it during a campaign.
-   Hide personal notifications and sender/account details. Do not claim
-   unsupported RCS/WhatsApp/browser monitoring or automatic attack blocking.
-5. Make a slide for the three detector paths and a small results/limitations
-   card. These can be static; record the actual app for the UI portions.
+## Commands for the PortScan and normal-traffic clips
 
-## Record and edit
-
-- Use a1080p16:9 landscape PC canvas. Put the portrait phone recording in the
-  center, with short captions at the sides; do not stretch the portrait image.
-  Use a camera or a trusted screen recorder. USB mirroring is optional; obtain
-  it separately and do not navigate the phone during a running evaluation.
-- Capture the app segments and diagrams first, then record the narration in a
-  quiet room. Edit to the timestamps above with any editor you already use.
-  Cut footage rather than speeding speech until it is difficult to understand.
-- A full network test takes minutes because of history warm-up/observation.
-  Show a short excerpt and label skipped waiting; do not suggest it finishes
-  in a few seconds. If displaying saved footage, identify the recorded case.
-- Export MP4,1920x1080,16:9, approximately120s, with clear speech. Avoid loud
-  music, tiny code text, fast transitions and terminal dumps.
-
-Optional Android-native recording, **after** evaluation and with personal
-content hidden:
+Record these **after the automated campaign finishes**, with monitoring enabled, the phone unlocked and the selected owned phone/PC reachable. Do not run manual demo cases alongside evaluation.
 
 ```powershell
-adb -s $env:NIDS_DEVICE_SERIAL shell screenrecord --time-limit 120 /sdcard/rakshak-demo.mp4
-# While it records, perform only the planned UI demonstration.
-adb -s $env:NIDS_DEVICE_SERIAL pull /sdcard/rakshak-demo.mp4 .\rakshak-demo.mp4
+Set-Location D:\NIDS-development
+Start-Sleep -Seconds 305
+.\validation\Run-ControlledPhoneTest.ps1 -Profile PortScan
+
+Start-Sleep -Seconds 305
+.\validation\Run-ControlledPhoneTest.ps1 -Profile Benign
 ```
 
-This records the display only; record narration separately. The phone's output
-may be portrait and needs the landscape canvas in editing. Keep the local MP4
-out of Git; this is not an instruction to upload it now.
+Reviewers use their own clone path and [REPRODUCE.md](../REPRODUCE.md) first. Each command also observes130seconds after traffic. Show command submission → report → corresponding app activity, with **waiting omitted** on the cut. Do not imply the full sequence takes24seconds. The existing harness still uses ADB; the proposed standalone no-debugging workflow is not implemented yet.
 
-## Final viewing checklist
+If a demonstration case misses or a normal flow flags, retain that outcome. Never inject a model alert, fake terminal output, or substitute an unrelated background notification. Opening the phone's warning should show **What happened** and **What you can do**. Attribute advice to Llama only if generation actually ran and was accepted; otherwise identify the factual fallback.
 
-- Duration close to2minutes;1080p16:9MP4; readable text and audible narration.
-- All three pipelines and the common warning/explanation flow are visible.
-- Actual version/result identities match; normal and suspicious cases have
-  evidence; authored fixtures and fallback text are labelled honestly.
-- No claim of100% protection, all-class coverage, universal no-false-positives,
-  complete message interception or automatic blocking.
-- Public repository/report links are correct; no personal data/keys/passwords.
-- After user/faculty review, upload to YouTube or Google Drive with **Public**
-  access and test the link signed out. Record the final URL in
-  [submission checkpoints](../SUBMISSION_CHECKPOINTS.md). This document does not
-  submit/upload anything; only the first final challenge submission counts.
+## Results card: currently verified snapshot
+
+As of25November2026,21:20IST, **6/13 code53 cases were completed**:
+
+| Profile | Matched segments flagged / observed | Interpretation |
+|---|---:|---|
+| Normal HTTP |0/8|Test flows remained benign |
+| PortScan |505/510|503 typed Port Scan;2 Unclassified |
+| HTTP password guessing |16/32|5 typed Web Attack;11 Unclassified; partial detection |
+| SQL injection |2/3|Both injection flows flagged; the control was benign |
+| XSS |0/1|Missed despite target execution proof |
+| Connection exhaustion |0/16|Missed despite dummy-resource denials |
+
+HTTPFlood, protocol Benign, FTP, SSH, BotBehavior, DoS and DDoS were pending at that snapshot. **Do not mark them passed or missed before their reports finish.** Before final submission, replace this card with finalized aggregate results from the folder in `runs/network_campaign_latest.txt`. Keep the same15-second slot; a compact detected/partial/missed matrix can accommodate all completed profiles.
+
+These are segments/flows from bounded cases, not505 independent attacks or general precision/recall. The benign window also had3 unrelated background flags and2 visible activity groups: say **no flags on the test flows**, not “the phone had no alerts.” Notification counts are not attack counts.
+
+The first five cases used experimental local alerts; ConnectionExhaustion and subsequent resumed cases use normal external-only scope. Models/thresholds are unchanged, but do not pool background false-alert rates across those settings. Captions may list **dataset-to-phone traffic differences** and **limited application context** as possible reasons for weak cases; these are hypotheses, not proven root causes for every miss.
+
+## Four authored message examples
+
+Use your own second phone/SIM and actual **carrier SMS**, not RCS/WhatsApp. Enable incoming SMS and both SMS/URL detectors. No real passwords, account numbers or OTPs.
+
+| Clip | Example text | Inspect |
+|---|---|---|
+| Normal text |Hi, our meeting is at4pm. Please bring your notebook.|Actual normal/no-warning result. Report an unexpected warning honestly.|
+| Scam |Your account will be blocked today. Reply with your OTP and PIN immediately to keep it active.|SMS risk and advice; the request is invented.|
+| Promotion with phishing-style test URL |Congratulations! Claim your cash prize now: http://accounts.google.com.security-check.example/claim|Automatic URL extraction plus SMS/URL results. `.example` is a non-public authored test address, not verified real phishing.|
+| Normal text and legitimate link |Here is the video we discussed: https://www.youtube.com/|Automatic link checking and actual outcome; do not claim every link on a popular domain is safe.|
+
+Rehearse these inputs before recording: their predictions are **not guaranteed**. Show UNCERTAIN or a miss if that is the outcome. If replacing a string with another previously verified authored demonstration input, retain its exact text/result with the footage. Four chosen examples are interface demonstrations, not an independent accuracy benchmark. Do not visit the suspicious address or create a credential-collection page.
+
+The narration says “actual warning or safe result” so it does not promise success before the examples run. If using Check/paste instead of incoming delivery, caption **Manual input; not an SMS-receiver demonstration**.
+
+## Functions to explain visually during the app tour
+
+- **Home:** status and Start/Pause; pause confirmation affects monitoring only, not Internet access.
+- **Check:** manual paste/share for supported messages and links.
+- **Activity:** grouped warnings, explanation, seven-day history, review/Expected feedback, Undo and Clear history confirmation. Show clearing without deleting needed results. Never mark genuine suspicious traffic Expected just for a clean demo.
+- **Settings:** independent detectors and automatic incoming SMS. Briefly caption model/resource information and research controls; explaining every advanced option aloud will exceed two minutes. Keep experimental on-device alerts **off for normal use**.
+
+## Recording checklist
+
+1. Collect real network/message footage first and retain matching reports and app/model versions. Earlier code51 cases are a separate cohort.
+2. Use a1080p16:9 canvas with readable terminal/phone panels; preserve the portrait phone's aspect ratio. Hide personal notifications, accounts, keys, pairing codes and private network identifiers.
+3. Record narration separately. Remove waiting, not failures, and label cuts, authored inputs and recorded excerpts. Do not navigate the phone during an automated evaluation.
+4. Limitations card: false positives/misses, root needed for network capture, no automatic RCS/WhatsApp/old-inbox coverage, URL text analysis rather than page inspection, best-effort app ownership, and possible Llama fallback.
+5. Export approximately120seconds,1920×1080,16:9,MP4. After user/faculty review, upload publicly and verify signed-out playback. Save the link in [submission checkpoints](../SUBMISSION_CHECKPOINTS.md). No upload or form submission is performed by this guide.

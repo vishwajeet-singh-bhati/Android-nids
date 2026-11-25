@@ -22,9 +22,9 @@
       "bytes": 939
     },
     "CHANGELOG.md": {
-      "git_blob": "d397694bfe147c05870f269a4b91ad415c257597",
-      "sha256": "b7372fd11b05c64877e9f7a88f872c207667e4abdc3f69b06508df667ba2b9aa",
-      "bytes": 62249
+      "git_blob": "79012862ae61f702c5888093747f7d8981f2af96",
+      "sha256": "6a6542da84b5545bf0b87f6f5595a12b9b2ce137e281ca6edb4ee14095272d64",
+      "bytes": 62680
     },
     "NOTICE.md": {
       "git_blob": "bf18b7228a1410bf9e6bf98a2cd9f155587e5d94",
@@ -47,9 +47,9 @@
       "bytes": 3537
     },
     "SUBMISSION_CHECKPOINTS.md": {
-      "git_blob": "5ed9b434d9c2297ec7429ae7f3743168cea59d1d",
-      "sha256": "afe8521e57ad0b8a64565827f1123ead16a738b00e8176dcbe563d7b3533ddf9",
-      "bytes": 12718
+      "git_blob": "c97a415d4bbe9f155c3eec36f36a735aa8e01a8d",
+      "sha256": "9e6c6ce0917ae3b7ae10732224e0da1b61805e42ba23778c60c75301488ae719",
+      "bytes": 13188
     },
     "android/README.md": {
       "git_blob": "bd7b589b8158c5d9c48382a872faa27a32d5c198",
@@ -2082,9 +2082,9 @@
       "bytes": 3495
     },
     "docs/DEMO_VIDEO_SCRIPT.md": {
-      "git_blob": "adbc597d16ff2cbd2a14a7dc41f2e30e394bcc18",
-      "sha256": "87d99adf8229894e01c090deab7ca64d05e495fbff475f7fc40cf334392f1277",
-      "bytes": 7237
+      "git_blob": "494302143b34b04355f94e934abc198845ed56c4",
+      "sha256": "24914074eaac3e0323e253bc6492d1aa6167c0098e7e81eaceb77c76deef744e",
+      "bytes": 10013
     },
     "docs/DEVELOPMENT_HISTORY.md": {
       "git_blob": "c154f9628aa588ce193f4253471a4117437ec098",
@@ -2545,6 +2545,11 @@
       "git_blob": "cdccbfbe2cc1e8234b9c088cb9b9922b0f0c7801",
       "sha256": "765562e3b5ce9c31a1c748e4676b6098d74712eccc5d2a6a2f774435b6a2a2ad",
       "bytes": 8857
+    },
+    "reproducibility/DEMO_SCRIPT_REVIEW_20261125.json": {
+      "git_blob": "b7e69844f141cb33f3acc1822aa33ea10a7fe4a6",
+      "sha256": "bc952fd3c6bcf0e735a912781aab2869de10454041215bca8fe736e69aed257f",
+      "bytes": 729
     },
     "reproducibility/FILE_MANIFEST.json": {
       "git_blob": "05c218a9d370feae6e9708d66989b933f973eabc",

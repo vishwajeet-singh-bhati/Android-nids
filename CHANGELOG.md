@@ -1,5 +1,10 @@
 # Changelog
 
+## Two-minute demo script rewrite ?25 November2026
+
+- Reorder narration to tech stack/pipeline, app functions, real PC PortScan then benign control, measured successes/misses, four carrier-SMS/link examples and limitations.
+- Add exact commands, timed screen actions, omitted-wait labels, six-case provisional results and no-debugging/historical-cohort limits. Record217 spoken words; no test/model/phone changes or video upload.
+
 ## Normal-use configuration correction ?25 November2026
 
 - Restore the work phone's default external-only intrusion-alert scope after two loopback warnings during ordinary use. APK/models/thresholds unchanged; preserve original evidence and separate11 local records from external assessments.

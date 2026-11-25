@@ -105,3 +105,8 @@ Code49 publication verification: [hosted CI](https://github.com/vishwajeet-singh
 Current public source is code51. [REPRODUCE.md](REPRODUCE.md) is the canonical clone-to-phone/training/live-lab guide. [DEMO_VIDEO_SCRIPT.md](docs/DEMO_VIDEO_SCRIPT.md) provides the120-second narration, matching screen actions, recording/export and public-link checks. Source includes a source-PC SSH key helper; no private credentials or author IPs are needed. Local Android build and software checks are validated separately from phone accuracy.
 
 The original PDF remains dated; final live campaign results and source/report/video identities must be reconciled before the final freeze. Exact private-capture and missing source-split limits remain explicit. Faculty approval, candidate freeze, video recording/upload/public access and final form submission are still pending. No ZIP/video upload/form submission was performed.
+
+
+## Demo script revision ?25 November2026
+
+[The rewritten120-second script](docs/DEMO_VIDEO_SCRIPT.md) now follows tech stack/pipeline ? app tour ? live PortScan/benign footage ? measured strengths/misses ? four incoming-SMS/link examples ? limitations. Current217-word narration and6/13-case provisional table must be rehearsed/refreshed from finalized evidence. No new message/test execution, video recording/upload or form submission was performed by this revision.
