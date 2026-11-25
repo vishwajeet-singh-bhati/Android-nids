@@ -30,7 +30,7 @@ To show the **automatic** SMS path, send the scam text from a second phone as a 
 | 0:42–1:05 | "Let's receive a scam SMS asking to share an OTP. Rakshak warns immediately and explains what happened and what to do. A normal OTP message stays quiet." | Real notification and the "What happened / What you can do" screen, then the normal message result |
 | 1:05–1:20 | "Links are checked automatically. This look-alike link is flagged, and a normal site is not. The app never opens the link." | Check screen: phishing verdict, then likely-safe verdict |
 | 1:20–1:35 | "On a rooted test phone, Rakshak also watches network connections. Here, a port scan from our lab PC was detected and grouped into a few clear alerts." | Saved activity in History (fallback: protocol-test results slide) |
-| 1:35–1:52 | "Results: 97% accuracy for SMS, 0.976 ROC-AUC for links, and about 1 to 4 milliseconds per check on a Pixel 6a. Quantization made MobileBERT 59% smaller. Some false alarms and missed attacks remain, and we document them." | Results card slide |
+| 1:35–1:52 | "Results: 97% accuracy for SMS, 0.976 ROC-AUC for links, and about 1 to 4 milliseconds per check on a Pixel 6a. Quantization made MobileBERT 59% smaller. It does not yet detect brute force, DoS or bots reliably, and we document that openly." | Results card slide |
 | 1:52–2:00 | "The code, models and full report are on GitHub. Thank you!" | Closing card: GitHub URL and team names, held for 5 seconds |
 
 Results card text:
@@ -38,7 +38,7 @@ Results card text:
 ```
 SMS scams     97.1% accuracy · 89.8% scam recall (INT8 MobileBERT)
 Phishing URLs 0.976 ROC-AUC · 3.9 ms per link on Pixel 6a
-Network       62/64 attack segments flagged on real-phone test · 1.18 ms
+Network       controlled port scan flagged as Port Scan · 1.18 ms per check
 Optimisation  INT8: 87.5 → 35.5 MiB · cascade routing · 5.4× faster LLM advice
 Privacy       100% on-device · no INTERNET permission
 ```
