@@ -34,3 +34,9 @@ jobs:
           test -f "$ANDROID_HOME/platforms/android-34/android.jar"
           test -x "$ANDROID_HOME/build-tools/34.0.0/aapt2"
       - run: python reproduce.py build-android --sdk "$ANDROID_HOME"
+      - name: Upload installable APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: rakshak-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error

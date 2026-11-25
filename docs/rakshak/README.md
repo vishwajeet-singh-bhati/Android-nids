@@ -1,6 +1,6 @@
 # Rakshak current app guide
 
-Current source: **0.18.0-passive-notices / code53**. This public checkout is a reproducible development snapshot; [submission gates](../../SUBMISSION_CHECKPOINTS.md) remain separate.
+Current source: **0.18.0-passive-notices / code53**. See the [final report](../Rakshak_Final_Report.pdf) for results and limitations.
 
 ## Use the app
 

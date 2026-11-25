@@ -15,6 +15,6 @@ Published aggregate measurements are retained here; generated runs write under i
 | [Inference measurements](performance_v1/README.md) | Component/production distinction; rejected optimizations retained |
 | [Deployed Llama guidance](forgesight_pr_review/README.md) | Persistent runtime, bounded generation and measured IPC |
 | [Current false-positive audit](false_positive_audit_20261121/README.md) | Loopback scope correction; external SSH remains unfixed |
-| [Current status](../STATUS.md) | Code40 experimental source; no production-readiness claim |
+| [Final report](../docs/Rakshak_Final_Report.pdf) | Methodology, results, hardware utilization, optimisation and limitations |
 
 No dataset or real phone packet capture is included. Do not interpret class counts, flow retries or smoke metrics as independent attack episodes. Raw private phone-cohort results cannot be exactly regenerated from source alone; see [reproduction limits](../docs/REPRODUCING_RESULTS.md).

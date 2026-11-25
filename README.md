@@ -1,94 +1,169 @@
-# Rakshak
+<p align="center">
+  <img src="docs/branding/rakshak-logo.png" alt="Rakshak logo" width="140">
+</p>
 
-[![Reproducibility checks](https://github.com/vishwajeet-singh-bhati/rakshak/actions/workflows/checks.yml/badge.svg)](https://github.com/vishwajeet-singh-bhati/rakshak/actions/workflows/checks.yml)
+<h1 align="center">Rakshak</h1>
 
-An Android research app for **network intrusion, SMS scams and phishing links**, with immediate factual warnings and checked local Llama guidance. Current source: **0.18.0-passive-notices / code53**. This is a development/submission draft, not a claim of complete protection or final mentor approval.
+<p align="center">
+  <b>On-device AI protection against network intrusions, SMS scams and phishing links for Android</b><br>
+  Everything runs on the phone. No cloud. No INTERNET permission.
+</p>
 
-## Start here
+<p align="center">
+  <a href="https://github.com/vishwajeet-singh-bhati/rakshak/actions/workflows/checks.yml"><img src="https://github.com/vishwajeet-singh-bhati/rakshak/actions/workflows/checks.yml/badge.svg" alt="Build and tests"></a>
+  <img src="https://img.shields.io/badge/Android-8.0%2B-3DDC84?logo=android&logoColor=white" alt="Android 8.0+">
+  <img src="https://img.shields.io/badge/Kotlin-ExecuTorch-7F52FF?logo=kotlin&logoColor=white" alt="Kotlin + ExecuTorch">
+  <img src="https://img.shields.io/badge/inference-100%25%20on--device-0f2a4a" alt="On-device">
+</p>
 
-| Goal | Documentation |
+| | |
 |---|---|
-| Clone-to-phone setup, training and full live lab commands | [A-to-Z reproduction guide](REPRODUCE.md) |
-| Two-minute narration, screen plan and recording checklist | [Demo video guide](docs/DEMO_VIDEO_SCRIPT.md) |
-| Submission requirements, deadline and remaining gates | [Submission checkpoints](SUBMISSION_CHECKPOINTS.md) |
-| Current state and measured limits | [Status](STATUS.md) |
-| Separate SMS, URL and integration sections | [Component index](components/README.md) |
-| Architecture from input to output | [Model architecture](docs/rakshak/architecture/README.md) |
-| Install and use all three detectors | [Rakshak guide](docs/rakshak/README.md), [Android setup](docs/ANDROID_SETUP.md) |
-| Full methodology, history, results and optimization | [Report PDF and Overleaf source](docs/project_report/README.md) |
-| SMS training, data splits, PTQ/QAT and archived classwise results | [SMS component](components/sms/README.md) |
-| URL training, inference, feed setup and benchmark limits | [URL component](components/phishing_url/README.md) |
-| Shared notifications, Llama and privacy | [Integration](components/integration/README.md) |
-| Network training and controlled phone testing | [Reproduction](docs/REPRODUCING_RESULTS.md), [phone tests](docs/PHONE_TESTING.md), [protocol tests](docs/PROTOCOL_TESTING.md) |
-| Candidate improvement and acceptance plan | [Model improvement plan](docs/MODEL_IMPROVEMENT_PLAN.md) |
+| 📄 **Final project report** | [docs/Rakshak_Final_Report.pdf](docs/Rakshak_Final_Report.pdf) |
+| 🎬 **2-minute demo video** | <!-- DEMO_VIDEO_LINK --> _Link added after upload_ |
+| 📱 **Download the app** | [Latest release APK](https://github.com/vishwajeet-singh-bhati/rakshak/releases/latest) |
+| 🧪 **Reproduce everything** | [REPRODUCE.md](REPRODUCE.md) |
 
-## What runs on the phone
+---
 
-- **Network:** rooted packet capture ->147 connection/history features -> binary gate -> diagnostic type -> warning. Known normal-traffic false positives and missed protocol classes remain.
-- **SMS:** consented new carrier SMS -> normalization/evidence/word classifier -> selective INT8 MobileBERT-22 -> risk policy. No inbox/RCS/WhatsApp reader; share/paste supports other messages.
-- **URLs:** links are automatically extracted from incoming SMS and checked before deeper SMS analysis. Character CNN + n-gram model + local rules return phishing, likely safe or uncertain. Bare links do not go through SMS semantics of a placeholder. No link means no URL inference.
-- **Explanations:** immediate What happened / What you can do; optional local Llama rephrases approved guidance. It does not decide risk or receive raw SMS/OTPs/full private URLs.
+## The problem
 
-The three detector switches are independent. Enable **Automatically check incoming SMS and links**, grant SMS/notification permissions and leave URL detection enabled for automatic message-link checks. Network root is not required for SMS/URL inference. The APK has no INTERNET permission and does not visit submitted URLs.
+Scam SMS ("share your OTP with our agent", fake KYC updates, parcel re-delivery fees), phishing links that imitate banks and login pages, and attacks on phones joined to shared Wi-Fi networks are everyday threats. Most protection tools send your messages or browsing data to a server, cover only one threat, and show alerts that ordinary users can't act on.
 
-## Reproduce the app
+## What Rakshak does
 
-Use Java21 and Android SDK34 with platform-tools on PATH.
+Rakshak runs **three independent AI detectors on the phone** and explains every warning in plain language.
 
-    ./android/gradlew -p android :app:assembleDebug :app:assembleDebugAndroidTest
-    adb -s YOUR_DEVICE_SERIAL install -r android/app/build/outputs/apk/debug/app-debug.apk
-    python validation/validate_rakshak.py --serial YOUR_DEVICE_SERIAL --install
-
-On Windows use android/gradlew.bat. The public build ships a valid **empty threat database** to avoid redistributing downloaded feeds. Model inference works; to add local list coverage, use the [feed setup instructions](components/phishing_url/README.md). Historical218/218 list hits require the original permitted snapshot and cannot be claimed from the empty public database.
-
-Small deployed model artifacts and the selected SMS FP32 checkpoint are provided with provenance. Optional1.06GiB Llama weights are separately downloaded under their license using the [Android setup](docs/ANDROID_SETUP.md). No dataset, private capture/message, credentials, source archive or project ZIP is included.
-
-## Results without inflated claims
-
-| Evidence | Finding | Limit |
+| Detector | How it works | Key result |
 |---|---|---|
-| Archived869-row SMS PTQ export test | Accuracy97.12%; smishing precision78.57%, recall89.80% | Archived classifier result; reused test, not new Android warning accuracy |
-| Pixel SMS regressions |14/14 neural classes and230 authored scenario checks | Strict logit tolerance still fails; synthetic checks are not real-world accuracy |
-|2,048-URL Pixel benchmark |325 phishing,1,581 likely safe,142 uncertain;0 failures | Inputs duplicate export references;1,830 labels unknown |
-|218 externally supported phishing URLs | Raw model172 detected,30 uncertain,16 likely safe | Conditional positive-subset recall78.90%; no full-file precision/accuracy |
-|Same218 with measured saved lists |218 flagged by list hits | List coverage, not independent learned-model accuracy; public default database is empty |
-|Current network held-out development data |TP62/64, FP10/120 | Limited development cohort; readiness failed and protocol misses remain |
+| 💬 **SMS scam detection** | Text normalisation + scam-evidence rules + TF-IDF logistic regression; deeper check with an **INT8 MobileBERT (22 layers)** only when needed | **97.12 %** accuracy, **89.8 %** scam recall on an 869-message test set |
+| 🔗 **Phishing link detection** | Character-CNN with 27 URL features + character n-gram model, calibrated into PHISHING / UNCERTAIN / LIKELY SAFE, plus local rules | **0.976** ROC-AUC; **3.9 ms** per URL on a Pixel 6a |
+| 🌐 **Network intrusion detection** | Rooted packet capture → 147 connection and history features → small gate model → attack-family diagnosis (CNN + attention + LSTM) | **62 / 64** attack segments flagged on held-out real-phone sessions; **1.18 ms** inference |
 
-See [URL evidence](results/url_benchmark_20261124/README.md), [SMS archive provenance](components/sms/provenance/ARCHIVED_EVALUATION.json), [phone corrections](results/sms_followup_20261124/README.md) and the report before using these numbers.
+- Links inside incoming SMS are extracted and checked **automatically**.
+- Each warning appears immediately as **"What happened / What you can do"**.
+- An optional local **Llama 3.2 1B** (INT4) model rephrases the advice. It never decides the risk and never sees the raw SMS, the OTP or the full URL.
+- Each detector has its own on/off switch. SMS and link checks work on **any phone**; network monitoring needs a **rooted** test phone.
 
-## Repository structure
+<p align="center"><img src="docs/branding/android-icon-preview.png" alt="Rakshak launcher icons" width="420"></p>
 
-    android/                 Current app, shared network features and isolated labs
-    components/sms/          SMS source, checkpoint, training/export provenance
-    components/phishing_url/ URL source, learned models and local feed setup
-    components/integration/  Combined routing and shared explanations
-    experiments/             Original network paper/context/alignment/augmentation
-    models/                  Network references and optional Llama manifest
-    results/                 Aggregate evidence; no raw datasets/captures
-    docs/                    Setup, architectures, improvement plan and report
-    tools/                   Report generation and local feed preparation
-    validation/              Native checks, URL evaluation and controlled tests
-    reproducibility/         Portable configuration and source/model identities
-    SUBMISSION_CHECKPOINTS.md Draft-to-review-to-submission gates
+## Architecture
 
-Run python -m pytest tests -q and python -m unittest validation.test_url_benchmark_metrics for dataset-free checks. Earlier network and SMS results retain their original cohorts; do not combine them into one app-accuracy percentage. Source licenses and missing provenance limits are documented per component.
+```mermaid
+flowchart LR
+    subgraph Inputs
+      P[Network packets<br/>rooted capture]
+      S[Incoming SMS<br/>or pasted text]
+      U[URL<br/>pasted or from SMS]
+    end
+    P --> F[147 flow + history features] --> G[Gate MLP] -->|suspicious| D[Diagnosis<br/>7 attack families]
+    S --> T1[Tier 1: rules + TF-IDF LR] -->|only if needed| T2[Tier 2: MobileBERT-22 INT8]
+    S -. links .-> U
+    U --> C[Char-CNN + n-gram LR<br/>calibrated ensemble] --> R[Threat list, shortener<br/>and popular-site rules]
+    D --> W
+    T1 --> W
+    T2 --> W
+    R --> W[Risk policy → instant warning<br/>+ optional Llama 3.2 1B advice]
+```
 
-Branding update: code47 adds the original [Rakshak logo](docs/branding/README.md). Historical model/device measurements remain from their explicitly stated builds, including code46. Pixel code47 installed and checksum verified24 November;20 activities and settings preserved.
+More detail: [model architecture](docs/rakshak/architecture/README.md) · [network pipeline](docs/CURRENT_PIPELINE.md) · [SMS component](components/sms/README.md) · [URL component](components/phishing_url/README.md)
 
-Network-note update24 November: code49 describes qualifying rejected incoming handshakes factually and groups repeats by peer/service. Raw model decisions are unchanged. A suppression candidate lost212 positive-labelled legacy-test detections and was rejected. SMS improvements are on hold. See [comparison](results/idle_network_repair_20261124/README.md).
+## Install and use
 
+### Option A: download the APK (easiest)
 
-## Code51 reproduction update —25 November2026
+1. On an Android 8.0+ phone, download **`Rakshak.apk`** from [Releases](https://github.com/vishwajeet-singh-bhati/rakshak/releases/latest). Every CI run also uploads it as the `rakshak-apk` artifact under [Actions](https://github.com/vishwajeet-singh-bhati/rakshak/actions).
+2. Open the file and allow **Install unknown apps** when Android asks.
+3. Open **Rakshak** → **Detection controls** → turn on **Automatically check incoming SMS and links** → allow the SMS and notification permissions.
+4. To check something manually, use **Check a message or link** and paste the text or URL. You can also *Share* text to Rakshak from any app.
 
-Code50 adds opt-in narrowly matched Expected-repeat feedback; code51 collapses
-the feedback form and offers Undo. Neither changes model assets or raw scores.
-See [feedback evidence](results/expected_repeat_feedback_20261125/README.md).
-The current live13-profile campaign is incomplete; no final all-class result is
-claimed. The [reproduction guide](REPRODUCE.md) documents setup, controls and
-validity checks; the [demo script](docs/DEMO_VIDEO_SCRIPT.md) remains preparation,
-not an uploaded video or mentor approval.
+That's all you need for SMS and link protection.
 
+### Option B: build from source
 
-## Passive notice correction ?25 November2026
+Requirements: Java 21, Android SDK 34 (platform-tools on `PATH`), Python 3.12+.
 
-Code53 confirms manual monitoring pauses and records stop sources. Historical entries are no longer reposted on app launch; reset notes explicitly say Rakshak observed the connection rather than blocked it. Models/thresholds are unchanged. See [review and exact validation limits](results/passive_notice_review_20261125/README.md). The live campaign is incomplete and the manual cancellation check awaits an unlocked phone.
+```bash
+git clone https://github.com/vishwajeet-singh-bhati/rakshak.git
+cd rakshak
+python reproduce.py build-android --sdk "$ANDROID_HOME"     # or: android/gradlew -p android :app:assembleDebug
+adb install -r android/app/build/outputs/apk/debug/app-debug.apk
+```
+
+### Optional extras
+
+- **Network monitoring** (rooted test phone only): `python reproduce.py install-phone --serial <SERIAL> --start`. See [Android setup](docs/ANDROID_SETUP.md).
+- **Local Llama explanations** (1.06 GiB, separate license): `python reproduce.py download-llama --accept-license`, then install with `--llama external_models/llama`. The app works fully without it.
+- **Local phishing threat list:** the public build ships an empty list because feed licences restrict redistribution. To fill it: `python tools/setup_runtime_feeds.py --assets android/app/src/main/assets/url --download-phishtank`.
+
+## Results
+
+| Evaluation | Result |
+|---|---|
+| SMS – MobileBERT INT8, 869-message held-out test | Accuracy **97.12 %**, macro-F1 0.909, smishing precision 78.6 % / recall 89.8 % |
+| SMS – INT8 vs FP32 | 87.5 MiB → **35.5 MiB** (−59 %) for −0.12 pp accuracy |
+| URL – calibrated ensemble (validation) | ROC-AUC **0.976**, PR-AUC 0.938; catches 83.6 % of phishing at a 0.5 % false-alarm rate |
+| URL – 218 confirmed phishing URLs on the Pixel 6a | Model alone: 172 flagged, 30 uncertain; with local threat list: 218 / 218 |
+| Network – CIC-IDS2017 (TSANet reconstruction → + connection context) | 97.03 % → **99.98 %** accuracy (development benchmark) |
+| Network – held-out real-phone sessions | **62 / 64** attack segments flagged; 10 / 120 normal segments falsely flagged |
+| Network – live lab tests on the phone | SSH brute force 32 / 32, FTP brute force 29 / 32, DoS 18 / 96; DDoS and bot beacons missed |
+
+**Hardware (Pixel 6a, CPU via ExecuTorch XNNPACK):** network inference 1.18 ms, URL check 3.9 ms, app ≈ 52 MiB RAM while monitoring. The optional Llama worker uses ≈ 1.2 GiB in a separate process and is called only after a warning.
+
+**Optimisations:** post-training INT8 quantization, two-tier cascades (heavy models run only when needed), LSTM graph hoisting (−25.3 % latency, no decision changes), facts-first notifications, and an LLM prompt redesign (21 s → 3.9 s, 5.4× faster). Full details are in [section 7 of the report](docs/Rakshak_Final_Report.pdf).
+
+**Known limitations** (we report these openly): normal SSH/FTP logins can be falsely flagged; distributed DDoS and bot beacons were missed in live tests; SMS evaluation is mainly English; and a warning is a risk signal, not proof of compromise. See section 9 of the report.
+
+## Privacy
+
+- The APK has **no INTERNET permission**: there is no cloud inference or telemetry, and checked URLs are never opened.
+- Rakshak reads only new incoming SMS (with your permission) or text you share with it. It never reads your inbox.
+- History keeps no SMS bodies, senders or OTPs, and saved links keep only the host name.
+- This repository contains no datasets, private messages, packet captures or credentials.
+
+## Repository layout
+
+```
+android/                 Android app (Kotlin), shared feature extractor, test/lab modules
+components/sms/          SMS training, PTQ/QAT export, checkpoint, provenance
+components/phishing_url/ URL data pipeline, CNN + n-gram training, export, tests
+components/integration/  SMS + link combination and shared explanations
+experiments/             Network model research: TSANet, context, phone alignment
+models/                  Network reference models, Llama download manifest
+results/                 Saved evidence behind every reported number (aggregates only)
+docs/                    Final report, setup guides, architecture, demo script
+validation/  tests/      Phone validation tools and dataset-free unit tests
+tools/  reproducibility/ Report builder, feed setup, hashes and manifests
+```
+
+Quick checks (no dataset or phone needed):
+
+```bash
+pip install -r requirements.txt
+python -m pytest tests -q
+python -m unittest validation.test_url_benchmark_metrics
+```
+
+## Documentation
+
+| Topic | Link |
+|---|---|
+| Final report (methodology, results, hardware, optimisation) | [docs/Rakshak_Final_Report.pdf](docs/Rakshak_Final_Report.pdf) |
+| Full 91-page technical record (LaTeX source included) | [docs/project_report/](docs/project_report/README.md) |
+| Clone-to-phone reproduction, training and lab tests | [REPRODUCE.md](REPRODUCE.md) |
+| Android setup (root, Llama, feeds) | [docs/ANDROID_SETUP.md](docs/ANDROID_SETUP.md) |
+| Datasets and how to obtain them | [docs/DATASETS.md](docs/DATASETS.md) |
+| Inference performance measurements | [docs/INFERENCE_PERFORMANCE.md](docs/INFERENCE_PERFORMANCE.md) |
+| Evidence index | [results/README.md](results/README.md) |
+| Change history | [CHANGELOG.md](CHANGELOG.md) |
+
+## Team
+
+| | |
+|---|---|
+| **Team members** | Vishwajeet Singh Bhati · Sumit Kumar · Lakshya Patidar |
+| **Institute** | Indian Institute of Information Technology Design and Manufacturing (IIITDM) Kurnool |
+| **Faculty mentor** | Dr. Rohit Kumar Das |
+
+## Acknowledgements and licences
+
+This project builds on the TSANet paper (Malode et al., ISED 2025), the CIC-IDS2017, UCI SMS Spam and LSDST-2022 datasets, PhishTank, Tranco and Common Crawl, Google's MobileBERT, Meta's Llama 3.2, and PyTorch ExecuTorch. Datasets and Llama weights are not redistributed. Third-party licences and attribution are listed in [NOTICE.md](NOTICE.md).

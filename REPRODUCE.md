@@ -1,6 +1,6 @@
 # Rakshak: clone-to-phone reproduction guide
 
-Submission preparation, 25 November 2026. Current source: **0.18.0-passive-notices / code53**.
+Current source: **0.18.0 (version code 53)**, 25 November 2026.
 Use this guide from a fresh clone. No author's drive layout, phone identity,
 SSH key or running service is required. Commands below use **Windows PowerShell
 5.1** unless a block explicitly says Linux/WSL. Run commands from the repository
@@ -686,7 +686,6 @@ For review, supply the public commit SHA, app version, model/contract hashes,
 environment versions, dataset manifests and permissions, aggregate reports,
 case validity/effect evidence, known failures, [report PDF/source](docs/project_report/README.md)
 and [two-minute demo guide](docs/DEMO_VIDEO_SCRIPT.md). Preserve full logs/captures
-privately with consent; do not upload personal packets/messages/keys. Read
-[submission checkpoints](SUBMISSION_CHECKPOINTS.md) before freezing claims.
-No demo upload, mentor approval or final form submission is performed by these
-commands.
+privately with consent; do not upload personal packets/messages/keys. The
+[final report](docs/Rakshak_Final_Report.pdf) summarises methodology, results,
+hardware utilization and limitations.
