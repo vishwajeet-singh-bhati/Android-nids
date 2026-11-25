@@ -1,84 +1,56 @@
-# Two-minute Rakshak submission demo
+# Rakshak: 2-minute demo video guide
 
-Target: **120 seconds,1920x1080,16:9,MP4**. This is a script/recording plan, not
-an uploaded video. Record after the current live evaluation ends; do not
-interrupt a campaign, stage a false alert, or run tests concurrently for footage.
-The narration below is approximately240 words; rehearse once at a natural pace.
-Use the actual app screens and your own saved, valid results.
+Target: **about 2:00 · 1920×1080 · 16:9 · MP4 · Public** on YouTube or Google Drive.
 
-## Timed narration and screen plan
+## Before you record (about 15 minutes)
 
-| Time | Say this | Show this |
+1. Install the current APK on the demo phone. Turn on **Automatically check incoming SMS and links** and grant the permissions.
+2. Turn on **Do Not Disturb** (with Rakshak allowed) and hide personal notifications, contacts and account names.
+3. Rehearse the three test inputs below in **Check a message or link** and note the verdict each one actually gets. **Show only real app output.** If an input doesn't give the result you expected, pick another one. Don't fake a screen.
+4. If the rooted phone already has network activity in the history (for example, the port-scan test), open it once so you know where it is. If you don't have it, use the slide fallback in scene 4.
+5. Prepare two simple slides (16:9): the architecture figure from the report (section 3) and a results card (table below).
+
+Suggested test inputs (invented, with no real people or brands):
+
+| Purpose | Paste this |
+|---|---|
+| Scam SMS (OTP request) | `Your OTP is 482913. Share it with our delivery agent to reschedule your parcel.` |
+| Normal SMS (should stay quiet) | `Never share your OTP with anyone. Our bank staff will not ask for it.` |
+| Link check | A phishing-style URL you tested beforehand, then a normal site such as `https://www.wikipedia.org` |
+
+To show the **automatic** SMS path, send the scam text from a second phone as a normal carrier SMS (not RCS/WhatsApp) and record the notification appearing.
+
+## Script and shot list
+
+| Time | Say | Show |
 |---|---|---|
-|0–12s|“This is Rakshak, an Android research prototype that brings network intrusion warnings, scam-message checks and phishing-link detection into one app.”|Title/logo for3s, then real app Home. Small caption: “Research prototype · on-device analysis.”|
-|12–27s|“The three detectors can be switched independently. Processing happens on the phone. Network monitoring needs a rooted test device; message and link checks can work without root.”|Settings: point to three switches and incoming-SMS option. Show current app version; avoid personal accounts or identifiers.|
-|27–43s|“For network activity, Rakshak summarizes connections and their recent history. A small model checks for suspicious behavior. A second model suggests a possible category when the evidence supports one.”|Simple connection → binary check → possible category diagram; then foreground monitoring indicator. Do not show raw packet payloads or claim the model reads encrypted passwords.|
-|43–60s|“Here is a controlled port scan against our test phone. The app groups repeated detections into activities. In this normal control, eight requests produced no warnings. These are limited lab observations, not universal accuracy claims.”|Previously recorded/saved valid PortScan activity and matching test report, then Benign0/8 result. Label it “one bounded PortScan case; repeated flags grouped.” Use real footage only if the matching case actually alerted.|
-|60–77s|“Incoming carrier messages can be checked automatically. When a message contains a link, the URL detector checks the address too. Messages without links skip that detector. Pasted or shared text can also be checked.”|SMS/URL flow diagram and Check screen. Use invented examples and label “authored demo message.” For receiver footage show a real carrier-SMS test, not RCS/chat.|
-|77–94s|“A warning first explains what happened and what to do in simple language. Local Llama can then add checked guidance. If generation fails, a factual fallback remains. App names appear only when ownership can be established.”|Open a genuine activity; zoom to “What happened” and “What you can do.” Show actual generated/fallback source accurately; never relabel fallback as Llama output.|
-|94–108s|“The project includes model training, preprocessing and phone test tools. Our tests record packets and independent target outcomes, so an unrelated background warning is not counted as a successful detection.”|GitHub repository folders, REPRODUCE.md, one sanitized report/evidence screenshot. Show current commit briefly; no raw captures, keys, messages or lab passwords.|
-|108–120s|“False positives, missed cases and limited datasets remain. The repository and report document these limits, the measured results and the steps needed to repeat the experiments.”|Final card: repository URL, report path, “Known limits documented.” Keep link visible for at least5s.|
+| 0:00–0:12 | "Hi, we are Vishwajeet, Sumit and Lakshya from IIITDM Kurnool. This is **Rakshak**, an Android app that detects scam SMS, phishing links and network attacks, entirely on the phone." | Logo/title card with team names, then the app home screen |
+| 0:12–0:27 | "Rakshak runs three AI detectors locally. Nothing goes to the cloud: the app doesn't even have internet permission. Each detector can be switched on or off." | Detection controls screen, pointing at the three switches |
+| 0:27–0:42 | "Here's the architecture. Messages go through fast rules and a small model first, and an INT8 MobileBERT only when needed. Links use a character CNN plus an n-gram model. Network traffic becomes 147 features for a gate model and an attack-family model." | Architecture slide |
+| 0:42–1:05 | "Let's receive a scam SMS asking to share an OTP. Rakshak warns immediately and explains what happened and what to do. A normal OTP message stays quiet." | Real notification and the "What happened / What you can do" screen, then the normal message result |
+| 1:05–1:20 | "Links are checked automatically. This look-alike link is flagged, and a normal site is not. The app never opens the link." | Check screen: phishing verdict, then likely-safe verdict |
+| 1:20–1:35 | "On a rooted test phone, Rakshak also watches network connections. Here, a port scan from our lab PC was detected and grouped into a few clear alerts." | Saved activity in History (fallback: protocol-test results slide) |
+| 1:35–1:52 | "Results: 97% accuracy for SMS, 0.976 ROC-AUC for links, and about 1 to 4 milliseconds per check on a Pixel 6a. Quantization made MobileBERT 59% smaller. Some false alarms and missed attacks remain, and we document them." | Results card slide |
+| 1:52–2:00 | "The code, models and full report are on GitHub. Thank you!" | Closing card: GitHub URL and team names, held for 5 seconds |
 
-## Prepare before recording
+Results card text:
 
-1. Read [reproduction guide](../REPRODUCE.md), then freeze the app/model/source
-   version used in the video. Use the version actually shown; do not mix an old
-   report with a new app and imply one measured experiment.
-2. Choose one valid normal control and one valid suspicious case. Keep the
-   matching report, app activity and time window together. If a case misses,
-   report the miss; use another genuinely detected case for the UI demonstration.
-   The25November provisional evidence is Benign0/8 flags and one PortScan with
-   504 matched segment flags grouped into6 visible notifications. Those are
-   **not**504 independent attacks or general precision/recall. Refresh this
-   caption from the final verified campaign before submission.
-3. Optional SMS/link footage: use your own invented non-personal text and show
-   the actual returned verdict. A suspicious-looking reserved `.example` URL is
-   an interface test, not labelled real-world phishing. Never open a phishing
-   page or collect credentials just for a demo.
-4. Use the UI's actual Activity history; avoid clearing it during a campaign.
-   Hide personal notifications and sender/account details. Do not claim
-   unsupported RCS/WhatsApp/browser monitoring or automatic attack blocking.
-5. Make a slide for the three detector paths and a small results/limitations
-   card. These can be static; record the actual app for the UI portions.
-
-## Record and edit
-
-- Use a1080p16:9 landscape PC canvas. Put the portrait phone recording in the
-  center, with short captions at the sides; do not stretch the portrait image.
-  Use a camera or a trusted screen recorder. USB mirroring is optional; obtain
-  it separately and do not navigate the phone during a running evaluation.
-- Capture the app segments and diagrams first, then record the narration in a
-  quiet room. Edit to the timestamps above with any editor you already use.
-  Cut footage rather than speeding speech until it is difficult to understand.
-- A full network test takes minutes because of history warm-up/observation.
-  Show a short excerpt and label skipped waiting; do not suggest it finishes
-  in a few seconds. If displaying saved footage, identify the recorded case.
-- Export MP4,1920x1080,16:9, approximately120s, with clear speech. Avoid loud
-  music, tiny code text, fast transitions and terminal dumps.
-
-Optional Android-native recording, **after** evaluation and with personal
-content hidden:
-
-```powershell
-adb -s $env:NIDS_DEVICE_SERIAL shell screenrecord --time-limit 120 /sdcard/rakshak-demo.mp4
-# While it records, perform only the planned UI demonstration.
-adb -s $env:NIDS_DEVICE_SERIAL pull /sdcard/rakshak-demo.mp4 .\rakshak-demo.mp4
+```
+SMS scams     97.1% accuracy · 89.8% scam recall (INT8 MobileBERT)
+Phishing URLs 0.976 ROC-AUC · 3.9 ms per link on Pixel 6a
+Network       62/64 attack segments flagged on real-phone test · 1.18 ms
+Optimisation  INT8: 87.5 → 35.5 MiB · cascade routing · 5.4× faster LLM advice
+Privacy       100% on-device · no INTERNET permission
 ```
 
-This records the display only; record narration separately. The phone's output
-may be portrait and needs the landscape canvas in editing. Keep the local MP4
-out of Git; this is not an instruction to upload it now.
+## Recording and editing (Windows)
 
-## Final viewing checklist
+- **Phone screen:** use Android's built-in **Screen record** (Quick Settings), or from the PC: `adb shell screenrecord --time-limit 170 /sdcard/demo.mp4`, then `adb pull /sdcard/demo.mp4`.
+- **Edit:** Clipchamp (built into Windows 11) or any editor. Create a **16:9 1920×1080** project, place the portrait phone video in the centre (don't stretch it), add the slides, then record the narration in a quiet room.
+- **Export:** 1080p MP4. Check that the length is close to 2:00 and that the text is readable.
 
-- Duration close to2minutes;1080p16:9MP4; readable text and audible narration.
-- All three pipelines and the common warning/explanation flow are visible.
-- Actual version/result identities match; normal and suspicious cases have
-  evidence; authored fixtures and fallback text are labelled honestly.
-- No claim of100% protection, all-class coverage, universal no-false-positives,
-  complete message interception or automatic blocking.
-- Public repository/report links are correct; no personal data/keys/passwords.
-- After user/faculty review, upload to YouTube or Google Drive with **Public**
-  access and test the link signed out. Record the final URL in
-  [submission checkpoints](../SUBMISSION_CHECKPOINTS.md). This document does not
-  submit/upload anything; only the first final challenge submission counts.
+## Upload
+
+1. **YouTube:** Create → Upload → set Visibility to **Public** (not Unlisted or Private). For **Google Drive:** Share → General access → **Anyone with the link** (Viewer).
+2. Open the link in a private/incognito window to confirm it plays without signing in.
+3. Paste the link into the submission form, and replace the placeholder line in the top table of `README.md` with it.
