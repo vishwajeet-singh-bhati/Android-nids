@@ -1,0 +1,795 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=25mm,headheight=14pt]{geometry}
+\usepackage{booktabs,tabularx,array,amsmath,enumitem,fancyhdr}
+\usepackage[hidelinks,bookmarksopen=true]{hyperref}
+\hypersetup{pdftitle={Rakshak: Final Project Report},pdfauthor={Vishwajeet Singh Bhati; Sumit Kumar; Lakshya Patidar}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\renewcommand{\arraystretch}{1.2}
+\setlist{nosep,leftmargin=1.4em}
+\setcounter{tocdepth}{1}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Rakshak}
+\fancyhead[R]{\small Final Project Report}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\source}[1]{{\small\textit{Evidence: #1.}\par}}
+\newcommand{\chapterpage}[1]{\clearpage\section{#1}}
+\newcommand{\repo}{https://github.com/vishwajeet-singh-bhati/rakshak}
+\newcommand{\repolink}[2]{\href{https://github.com/vishwajeet-singh-bhati/rakshak/blob/main/#1}{#2}}
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{16mm}
+{\Huge\bfseries RAKSHAK\par}
+\vspace{7mm}
+{\Large On-device Network Intrusion, SMS Scam\par and Phishing URL Detection\par}
+\vspace{12mm}
+{\large Final Project Report\par}
+{\normalsize Bharat AI-SoC Student Challenge\par}
+\vspace{18mm}
+{\large\bfseries Team Members\par}
+\vspace{4mm}
+{\large Vishwajeet Singh Bhati\par Sumit Kumar\par Lakshya Patidar\par}
+\vspace{14mm}
+{\large\bfseries Faculty Mentor\par}
+\vspace{3mm}
+{\large Dr. Rohit Kumar Das\par}
+\vfill
+{\large Indian Institute of Information Technology\par Design and Manufacturing Kurnool\par}
+\vspace{8mm}
+{\normalsize 25 November 2026\par}
+\vspace{3mm}
+{\small Application snapshot: 0.18.0-passive-notices, version code 53\par}
+\end{titlepage}
+
+\clearpage
+\setcounter{page}{2}
+\thispagestyle{plain}
+\renewcommand{\contentsname}{Index}
+\tableofcontents
+\vfill
+{\small Results are reported against their recorded dataset, device and test date.
+Earlier experiments are identified separately from the current application.
+This document is prepared for faculty review; it does not record mentor approval or final form submission.}
+
+\chapterpage{Project Overview}
+\subsection*{Purpose}
+Rakshak is an Android security prototype that brings three checks into one application:
+network intrusion detection, SMS scam detection and phishing URL detection.
+The aim is to warn users about suspicious activity in language they can understand.
+Detection runs locally. A local language model can add a short guidance sentence after the application has already shown a factual warning.
+
+The application observes and warns. It does not block connections, delete messages,
+close another application or take recovery action on the user's behalf.
+An alert indicates a model estimate or a recorded indicator; it does not establish that a device has been compromised.
+
+\subsection*{Tasks and selected models}
+\begin{tabularx}{\textwidth}{@{}L{28mm}YY@{}}
+\toprule Task & Model or method & Output \\\midrule
+Network monitoring & Binary multilayer perceptron, followed by a CNN/attention/LSTM diagnosis model & Benign or suspicious; estimated attack family when sufficiently confident.\\
+SMS screening & Word TF-IDF logistic regression, rules and selective MobileBERT-22 inference & Ham, spam or smishing evidence, combined into an alert decision.\\
+Links in messages & Character CNN, character TF-IDF classifier, logistic score combiner and local threat indicators & PHISHING, LIKELY\_SAFE or UNCERTAIN.\\
+User explanation & Factual templates plus Llama 3.2 1B Instruct, SpinQuant INT4 & Immediate account of the observation, followed by checked guidance.\\
+\bottomrule
+\end{tabularx}
+
+\subsection*{Implementation}
+The Android application is written in Kotlin. Learned model artifacts run through
+ExecuTorch Android 1.5.1, with CPU execution. Python/PyTorch tooling supports training,
+preprocessing, export and evaluation. The network path uses rooted packet capture
+and a shared feature-extraction implementation. PowerShell and Python scripts operate
+the controlled phone tests from a Windows work PC. SQLite stores recent activities.
+
+\subsection*{Main findings}
+The system is operational on the test Pixel 6a. Actual phone tests show strong port-scan
+responses and successful alerts for the isolated SQL-injection example. They also expose
+missed XSS, bot-emulator and resource-denial behaviour, and false alarms during normal
+authentication. The SMS model has useful archived results, while benign carrier-message
+behaviour still needs work. The URL checker runs quickly, but its available benchmark
+does not support an overall accuracy or false-positive claim.
+
+\chapterpage{Application Flow and User Controls}
+\subsection*{Three inputs, one explanation path}
+\begin{center}
+\fbox{\begin{minipage}{0.91\textwidth}
+Network packets $\rightarrow$ flow and history features $\rightarrow$ binary gate
+$\rightarrow$ optional family diagnosis.\par
+Incoming SMS $\rightarrow$ normalize text and extract links $\rightarrow$ SMS cascade.\par
+Extracted links $\rightarrow$ independent URL detector.\par
+Suspicious result $\rightarrow$ immediate factual note and notification
+$\rightarrow$ optional local Llama guidance $\rightarrow$ checked update or default advice.
+\end{minipage}}
+\end{center}
+
+SMS and URL analysis are separate decisions. A normal-looking message can contain a
+risky link. A suspicious message need not contain a link. There is no additional neural
+model trained jointly on their outputs; combination rules bring the evidence together.
+No URL in a message means no automatic URL-model call for that message.
+
+\subsection*{Controls available to the user}
+Each detector has its own switch. Automatic incoming-SMS analysis also requires the
+corresponding Android permission and monitoring setting. Users can paste or share text
+for a manual check. Activity history is retained for seven days, with a confirmation
+before clearing previous records. Alerts show the observation and suggested action.
+
+App attribution uses observed socket ownership where available. A receiving application
+is described as the receiver; it is not called the attacker. Closed ports and short-lived
+connections may have no identifiable owner. The interface states that limitation rather
+than inventing an app or Android service name.
+
+An optional ``expected activity'' action can suppress a narrowly matching future notice
+for a limited period, with an undo option. It does not retrain the model or establish
+that matching traffic is safe. Monitoring pause requires a user action and confirmation.
+
+\subsection*{Example of the intended experience}
+Suppose another lab PC repeatedly tries many ports on the phone. The network model may
+identify a possible port scan. The first note explains that many connection attempts were
+observed and asks whether the user expected a device search or a connection test.
+It names an app only if ownership evidence exists. Llama may rephrase the advice after
+the note is visible. A generation failure leaves the factual note in place.
+
+This example describes the flow; it is not an additional test result.
+Actual measured results are given in Sections 6--8.
+\source{E1, E6, E8, E10}
+
+\chapterpage{Paper Reconstruction and Context Experiment}
+\subsection*{Starting point}
+The network work began with the paper \textit{A Lightweight Embedded Intelligent Threat
+Detection System Using TSANet on Android Platforms} (Malode et al., ISED 2025).
+We reconstructed its CNN/LSTM attention design on CIC-IDS2017. The paper did not provide
+author code, the precise 32-feature list, saved split indices or sufficient implementation
+details for an exact reproduction.
+
+The project therefore used a declared stratified 70/30 training/test split, seed 42,
+a fixed 32-feature list, training-only standardization, Conv1D kernel 3 with padding 1,
+sigmoid spatial attention and softmax temporal attention. The model had 42,761 parameters.
+Adam learning rate 0.001 and batch size 256 were used for 10 epochs, followed by
+5 fine-tuning epochs for independent magnitude-pruning branches. Duplicates were retained;
+the fixed final checkpoints were evaluated without early stopping.
+
+\subsection*{Connection context}
+Isolated flow statistics poorly distinguished some rare attacks. The next experiment
+added 78 source/destination history features over 2-, 5- and 15-minute windows.
+An equal-capacity control and context model each had 46,841 parameters, the same initial
+weights, data order and 10+5 epoch schedule. Only eligible earlier training flows populated
+the history; labels and literal addresses were not model inputs.
+
+\begin{center}\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule Variant & Accuracy (\%) & Macro F1 (\%) & Benign FPR (\%)\\\midrule
+Reconstruction & 97.0256 & 76.6327 & 1.68933 \\
+Reconstruction, 30\% pruned & 97.3240 & 77.1588 & 2.16379 \\
+Matched control & 97.1808 & 76.9501 & 1.53420 \\
+Matched control + context & 99.9815 & 98.1405 & 0.00484 \\
+Context, 30\% pruned & 99.9850 & 98.6028 & 0.00558 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The paper reports 97.35\% baseline test accuracy and 98.30\% after 30\% pruning.
+Our corresponding figures were 97.0256\% and 97.3240\%; they do not exactly match.
+The missing author details prevent attribution of the difference to one cause.
+On the matched unpruned comparison, context increased macro F1 by 21.1904 percentage
+points, from 76.9501\% to 98.1405\%.
+
+These are completed-flow, random-row benchmark results from a small set of related
+campaigns, with one training seed and retained duplicates. They do not demonstrate
+unseen-device or everyday-phone performance. The context method and later phone feature
+contract are different experiments; the 99.98\% figure is not the current app's accuracy.
+\source{E2}
+
+\chapterpage{Current Network Input and Model Architecture}
+\subsection*{What is monitored}
+The rooted phone capture supplies IP and transport-layer observations, mainly TCP/UDP
+headers, packet lengths, direction and timing. A flow is a group of packets associated
+with a connection. Bounded protocol indicators are extracted where the captured data
+supports them. The application does not decrypt HTTPS or SSH, inspect another app's
+internal state, or turn every network packet into a full application transaction.
+
+The input consists of two FP32 tensors: 32 flow values and 115 context/protocol values,
+for a total of 147 features. The flow values describe duration, directional packet and
+byte counts, packet-length statistics, packet/byte rates, inter-arrival statistics and
+SYN/RST/ACK counts. Context describes recent connections and supported protocol evidence,
+with a longest history window of 300 seconds. Literal IP addresses, labels and calendar
+times are not fed to the learned classifiers.
+
+Preprocessing is embedded in the exported wrapper. Nonnegative flow values and
+18 designated protocol counters receive \texttt{log1p}; the remaining context values
+retain their contract-defined form. Training-fitted means and scales standardize the
+combined vector. No normalization is fitted on live observations or test rows.
+
+\subsection*{Stage 1: binary gate}
+The 18,913-parameter MLP is
+$147\rightarrow96\rightarrow48\rightarrow1$, with ReLU hidden activations and a
+sigmoid decision score. The deployed gate threshold is 0.5408333333.
+A score below it ends the network decision as benign. The gate artifact is 82,820 bytes.
+
+\subsection*{Stage 2: family diagnosis}
+Only a positive gate invokes the 173,721-parameter diagnosis model. The 32 flow values
+form an ordered feature sequence, not a sequence of 32 packets. Parallel Conv1D-64 and
+LSTM-64 branches apply spatial and temporal attention. Batch normalization and fusion
+feed an LSTM-128. A separate $115\rightarrow32\rightarrow16$ ReLU branch encodes context.
+The final 144 values feed $144\rightarrow128\rightarrow7$ classification layers.
+The diagnosis artifact is 949,788 bytes.
+
+The seven outputs are Benign, Bot, Brute Force, DDoS, DoS, Port Scan and Web Attack.
+The family cutoff is 0.8. A positive gate without an accepted attack-family diagnosis
+is retained as \textit{Unclassified}; even a Benign-favoured diagnosis does not veto
+the binary gate. This deliberate policy can retain useful uncertain warnings and
+also contributes to false alarms. Llama does not decide these labels.
+\source{E1, E3}
+
+\chapterpage{Network Data, Training and Validity Controls}
+\subsection*{From published flows to phone-aligned inputs}
+The paper experiment retained 2,827,829 CIC-IDS2017 rows: 1,979,480 for training and
+848,349 for testing. Cleaning excluded 36 Infiltration and 11 Heartbleed rows and
+2,867 rows with nonfinite selected features. Seven family labels grouped related subtypes.
+
+The deployed extractor does not reproduce all completed-flow CSV semantics. The later
+phone-aligned experiment therefore processed the five original CIC-IDS2017 packet captures
+through the shared feature contract, with PARROT2025 and benign CIC-AAGM2017 captures as
+additional normal-traffic sources. Its grouped 70/15/15 split contained 4,956,674 training,
+1,188,724 validation and 1,098,929 test views. Views are extracted flow segments, not
+independent attack campaigns. The old paper 70/30 split is not reused as this split.
+
+\subsection*{Real-phone augmentation used by the current detector}
+Twenty accepted phone sessions were assigned chronologically: 14 training, 3 validation
+and 3 test sessions. Requests, responses and isolated effects were recorded independently
+of model outputs. This produced 848 unique new training rows, 184 validation rows and
+184 test rows. The phone labels cover Benign and Web Attack only; they do not add real
+examples for every network family.
+
+New training rows received eight-fold exact replay to avoid being overwhelmed by the
+large original corpus. These repeats are declared resampling, not extra independent
+examples. Validation and test rows were not resampled. Scaling used the combined
+training partition only. The original dataset memberships were retained.
+
+Six training jobs, three seeds per architecture, ran for 40 epochs. Epoch checkpoints
+were retained without early stopping. Validation selected \texttt{gate\_s0\_final} and
+\texttt{diagnosis\_s1\_best}, together with the thresholds, before final test evaluation.
+The selected bundle failed the pilot readiness criterion because benign phone flags
+remained too high. It was installed subsequently for explicitly requested experimental
+testing; installation did not change that failed criterion into a pass.
+
+\subsection*{Controls and remaining uncertainty}
+Capture integrity, packet/connection accounting, independent target effects and
+native/offline feature agreement were checked. Unrelated background traffic stayed
+unlabelled. Failed or ambiguous recordings were not silently made positive examples.
+These controls address several sources of leakage and label error, but do not prove
+generalization. The new cohort uses the same phone and lab applications, rare classes
+remain small, and earlier test sets have already been examined during development.
+\source{E3}
+
+\chapterpage{Network Dataset Results}
+\subsection*{Binary detection by the deployed model bundle}
+TP and FN count attack-labelled rows; FP and TN count normal-labelled rows.
+All rates below are percentages. Precision is $TP/(TP+FP)$, recall is $TP/(TP+FN)$,
+and benign FPR is $FP/(FP+TN)$.
+
+\begin{center}\small
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule Cohort & TP & FN & FP & TN & Precision & Recall & FPR\\\midrule
+Legacy & 158,724 & 110 & 965 & 939,130 & 99.396 & 99.931 & 0.103 \\
+Phone & 62 & 2 & 10 & 110 & 86.111 & 96.875 & 8.333 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{Family classification on the legacy test views}
+These are typed results after the full routing policy. F1 is the harmonic mean of
+precision and recall. Typed macro F1 is 94.1080\%.
+\begin{center}\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule Class & Support & Precision (\%) & Recall (\%) & F1 (\%)\\\midrule
+Benign & 940,095 & 99.99 & 99.90 & 99.94 \\
+Bot & 640 & 56.45 & 86.09 & 68.19 \\
+Brute Force & 2,442 & 99.96 & 99.71 & 99.84 \\
+DDoS & 17,840 & 99.18 & 99.29 & 99.24 \\
+DoS & 90,084 & 99.93 & 99.99 & 99.96 \\
+Port Scan & 47,688 & 99.97 & 99.99 & 99.98 \\
+Web Attack & 140 & 89.73 & 93.57 & 91.61 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{Family classification on the held-out phone sessions}
+\begin{center}\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule Class & Support & Precision (\%) & Recall (\%) & F1 (\%)\\\midrule
+Benign & 120 & 98.21 & 91.67 & 94.83 \\
+Web Attack & 64 & 88.41 & 95.31 & 91.73 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Phone typed macro F1 is 93.2785\%. Its binary accuracy is 172/184, or 93.48\%,
+but 10 of 120 normal rows were flagged. That 8.33\% benign FPR matters more for
+everyday use than the aggregate accuracy alone. The frozen model before phone
+augmentation detected 0/64 phone attack-labelled rows; augmentation detected 62/64,
+while introducing the 10 normal false flags.
+
+The low Bot precision and the lack of phone examples for five attack families limit
+what these tables establish. A 99.93\% legacy binary recall cannot be described as
+99.93\% detection of attacks on a phone. These are correlated rows from declared
+cohorts, not a population estimate of attacks detected or alerts per day.
+\source{E3; numerical tables generated directly from the saved evaluation}
+
+\chapterpage{Latest Controlled Tests on the Phone}
+\subsection*{Setup and completion}
+The 25 November campaign used the Pixel 6a with current app code 53, unchanged detector
+weights, the Windows controller and isolated test targets. Captured packets, matching
+native flow segments, controller events and target outcomes were saved. Warm-up covered
+the 300-second connection history and each completed case included observation time.
+
+Seven of thirteen planned cases completed. The next protocol-control case stopped
+because the locked phone did not start its test target. That interruption is inconclusive,
+not a classifier miss. The table is frozen to the campaign record updated at
+21:38:49 IST on 25 November 2026.
+
+\begin{tabularx}{\textwidth}{@{}L{31mm}L{22mm}Y@{}}
+\toprule Case & Flagged / segments & Observed outcome\\\midrule
+Benign & 0 / 8 & 8 ordinary HTTP requests; no matched flags. \\
+Port scan & 505 / 510 & 503 Port Scan; 2 Unclassified flags. \\
+HTTP password guessing & 16 / 32 & 5 Web Attack; 11 Unclassified flags. \\
+SQL injection & 2 / 3 & 2 Web Attack flags; 1 control stayed Benign. \\
+XSS & 0 / 1 & Script execution confirmed in isolated target; missed. \\
+Connection exhaustion & 0 / 16 & 14 resource denials, 2 holds; no matched flag. \\
+Bounded HTTP burst & 0 / 128 & 128 requests; no matched flag; harm not established. \\
+\bottomrule
+\end{tabularx}
+
+\subsection*{What these counts mean}
+All seven completed captures passed health and total-packet/native-accounting checks.
+The scan made 129 connection attempts, including one open port; retries and segmentation
+produced 510 model segments. Its 505 flags therefore do not represent 505 independent
+attacks. SQL injection included two independently confirmed effects and one normal control.
+The password case included 31 failures and one valid login, so 16/32 is not a pure
+attack-recall estimate.
+
+The ordinary HTTP control was quiet for its eight matched connections, but three
+outside-test flags occurred in the same window. During the first five cases an experimental
+device-local alert setting was enabled. It was disabled before connection exhaustion
+and the HTTP burst. Background counts from these scope settings must not be pooled.
+
+Notifications are grouped and may remain visible from earlier activity. A visible
+notification count is not the number of matched detections. The target evidence and
+matched traffic provide the basis for the results above. The sample sizes do not support
+general class recall, an overall TP/FP score, or a claim of 100-variety attack coverage.
+\source{E4; the accompanying evidence file preserves the aggregate campaign snapshot}
+
+\chapterpage{Earlier Protocol Tests and Missed Behaviours}
+\subsection*{Completed tests from 21 November}
+These cases used the same learned network bundle with an earlier application and
+explanation policy. They are retained as historical protocol evidence, not new code-53
+results. Each listed primary connection produced one native segment in these cases.
+
+\begin{center}\small
+\begin{tabular}{@{}lrr@{}}
+\toprule Test & Primary connections flagged & Correct attack family\\\midrule
+Normal protocol control, first & 3 / 9 & Not applicable\\
+FTP password guessing & 29 / 32 & 0 / 32\\
+SSH password guessing & 32 / 32 & 6 / 32\\
+Restricted bot-behaviour emulator & 0 / 12 & 0 / 12\\
+Single-source resource-denial load & 18 / 96 & 0 / 96\\
+Three-source resource-denial load & 0 / 96 & 0 / 96\\
+Normal protocol control, final & 4 / 9 & Not applicable\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The resource tests caused denial in a dummy application and then recovery. The
+three-source test used distinct source IPs with overlapping activity. It was an
+application-capacity test, not a volumetric flood of the institute network.
+Availability probes were counted separately: one probe was flagged in each load case.
+The probe flag must not be reported as detection of a DDoS load request.
+
+\subsection*{Failure analysis}
+Seven of eighteen normal control connections were falsely flagged. All four successful
+FTP/SSH control logins were among those flags. Meanwhile, the emulator and distributed
+load were missed. This exposes the gap between a high legacy benchmark and real protocol
+behaviour: training campaign statistics do not guarantee that application intent is
+observable in the available features. SSH content is encrypted. A brief normal login
+and a malicious sequence can share similar transport statistics.
+
+The family stage was also weak: FTP positives were Unclassified, and only six SSH
+attempts received the Brute Force family. The new HTTP password case receiving Web Attack
+or Unclassified does not demonstrate FTP/SSH family recognition. The bot emulator was
+restricted test software, not real malware; its failure is still a useful regression
+case, but not an estimate of recall against every bot family.
+
+These tests establish reproducible failure cases. The current application should not
+be presented as a dependable detector for all seven families merely because their
+names appear in its output layer.
+\source{E5}
+
+\chapterpage{SMS Detection: Architecture and Data}
+\subsection*{Input and routing}
+Incoming multipart SMS is assembled before analysis. Normalization extracts links,
+email addresses and phone numbers, then creates model text with the prescribed replacements.
+Actual URL spans are protected during email masking. Links are checked independently
+before deeper SMS classification so that a risky-link warning need not wait for it.
+
+Tier 1 uses word unigram/bigram TF-IDF with 13,545 features and a three-class logistic
+regression classifier: Ham (normal), Spam (unsolicited) and Smishing (SMS phishing).
+It has 40,638 coefficients/intercepts. The fitted model used balanced classes,
+$C=1$ and seed 42. Risk/evidence rules determine whether further inference is needed.
+
+Tier 2 is a 22-layer MobileBERT variant with 22,898,947 parameters, using a hybrid
+INT8/FP32 ExecuTorch artifact of 37,250,700 bytes. It receives three int64 tensors
+of shape $[1,128]$: token IDs, attention mask and token-type IDs, and returns three
+class logits. It began from \texttt{google/mobilebert-uncased}; the final two encoder
+blocks were omitted for a documented stability problem. Fine-tuning used four epochs,
+learning rate $5\times10^{-5}$, batch size 16, maximum length 128 and seed 42;
+validation selected epoch 3.
+
+The final Android policy fuses model and rule evidence. A link-only message skips SMS
+semantic escalation but keeps the independent URL decision. A narrow guarded fast path
+handles standalone celebration phrases. Model class probabilities are not calibrated
+probabilities that a sender is fraudulent.
+
+\subsection*{Recorded dataset split}
+\begin{center}\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule Split & Ham & Spam & Smishing & Total\\\midrule
+Training & 3,309 & 539 & 207 & 4,055\\
+Validation & 709 & 113 & 47 & 869\\
+Test & 709 & 111 & 49 & 869\\
+\bottomrule
+\end{tabular}
+\end{center}
+The main sources were UCI SMS Spam and LSDST 2022, with declared Hinglish seed examples
+and a separate NCSU phishing source. Exact text, masked templates, near-duplicates and
+declared campaigns formed split groups. A 70/15/15 split followed the external holdout
+policy. Another 27,885 external rows were retained, dominated by 27,233 smishing rows;
+this is not a balanced estimate of ordinary incoming messages.
+
+Original data files are not redistributed. Archive hashes and group-disjointness records
+were verified. Exact retraining still requires those permitted sources and split files.
+The original Python policy and the later Android routing fixes are versioned separately.
+\source{E6}
+
+\chapterpage{SMS Results and Remaining Errors}
+\subsection*{Archived comparison on 869 test messages}
+These are supplied, archived neural-classifier evaluations, not a new end-to-end Android
+warning benchmark. The deployed batch-one PTQ PTE matches the archived artifact hash.
+The test set had already been opened for a previous final comparison.
+
+\begin{center}\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule Variant & Accuracy (\%) & Smishing P (\%) & Smishing R (\%)\\\midrule
+FP32 reference & 97.24 & 77.97 & 93.88 \\
+PTQ PTE, batch one (deployed) & 97.12 & 78.57 & 89.80 \\
+QAT PTE, batch one & 96.78 & 86.05 & 75.51 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{Selected PTQ PTE: classwise results}
+\begin{center}\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule Class & Support & Precision (\%) & Recall (\%) & F1 (\%)\\\midrule
+Ham & 709 & 98.88 & 99.58 & 99.23 \\
+Spam & 111 & 94.95 & 84.68 & 89.52 \\
+Smishing & 49 & 78.57 & 89.80 & 83.81 \\
+\bottomrule
+\end{tabular}
+\end{center}
+The selected model's macro F1 was 90.85\%. Its confusion matrix is shown below;
+rows are true classes and columns are predicted classes.
+\begin{center}\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule True $\backslash$ predicted & Ham & Spam & Smishing\\\midrule
+Ham & 706 & 0 & 3\\
+Spam & 8 & 94 & 9\\
+Smishing & 0 & 5 & 44\\
+\bottomrule
+\end{tabular}
+\end{center}
+Thus 44 of 49 smishing messages were recognized, while 12 other messages were assigned
+Smishing. Three of 709 ham messages were falsely classified, giving a 0.423\% ham error
+rate in this archive. This is a neural-classifier error rate, not the Android cascade's
+real-world warning rate.
+
+\subsection*{Phone checks and unresolved weaknesses}
+Integration checks covered four sets of 34 Tier-1 fixtures, 14 neural class/token checks
+and 230 authored scenarios. Class agreement on those neural fixtures did not imply
+strict numeric parity: the maximum logit difference was 0.449647, exceeding the stated
+0.05 criterion. That stricter check remains failed.
+
+Normal carrier and bank-message false alarms were reported during use. The original
+messages were lost in the factory reset, and further SMS improvement was put on hold
+pending new examples. The archived figures do not resolve those reports. Current evidence
+does not establish dependable performance on Indian transactional messages, mixed languages
+or new scam campaigns. A representative labelled benign SMS cohort is the next priority.
+\source{E6; PTQ results use the deployed PTE entry, not the pre-export PTQ entry}
+
+\chapterpage{Phishing URL Detection: Architecture}
+\subsection*{Input and preprocessing}
+The detector receives an address string extracted from a message or supplied manually.
+It does not open the website. Normalization validates the address, handles international
+hostnames, lowercases scheme/host, removes default ports and fragments, and creates a
+model string containing host, optional nondefault port, path and query.
+
+The character input is int64 $[1,256]$, with 97 vocabulary IDs. Long inputs preserve
+the first 191 characters, a truncation token and the final 64 characters. Short inputs
+are padded. A second FP32 $[1,27]$ tensor describes address lengths, host structure,
+digits/symbols, path/query structure, entropy and indicators such as IP hosts, punycode,
+userinfo and nondefault ports. The first 17 numeric features receive \texttt{log1p};
+saved training means/scales standardize all 27 features.
+
+\subsection*{Learned ensemble}
+\begin{tabularx}{\textwidth}{@{}L{31mm}Y@{}}
+\toprule Component & Architecture\\\midrule
+Character CNN & 97-entry embedding of width 32; parallel 128-channel convolutions with kernels 3, 5 and 7; ReLU and masked max-pooling; 384 character values. A $27\rightarrow32$ numeric branch joins them. A $416\rightarrow64\rightarrow1$ head returns a logit. Total: 92,577 parameters.\\
+Character linear model & Character n-grams of lengths 2--5; 300,000-term TF-IDF vocabulary, logarithmic term frequency and L2 normalization; logistic-regression logit.\\
+Learned combiner & $z=0.331740\,z_{CNN}+0.391087\,z_{ngram}+0.037394$; sigmoid score $p$.\\
+\bottomrule
+\end{tabularx}
+
+The frozen decision bands are PHISHING for $p>0.6831367399$ and LIKELY\_SAFE for
+$p<0.0953727082$; intermediate scores are UNCERTAIN. A valid threat-list match can
+override the learned result. Shorteners and selected ambiguous cases receive uncertainty
+rather than an assumed safe verdict. HTTPS is not a safety guarantee.
+
+\subsection*{Deployment and provenance}
+The Android CNN runs through ExecuTorch. The recorded CNN PTE is 381,444 bytes and the
+linear-model binary is 6,391,214 bytes. Available source covers parsing, data preparation,
+training, calibration and export, but the handoff does not establish the complete original
+training/split provenance. Exact whole-model retraining is therefore not demonstrated.
+The public repository ships an empty, stale-marked threat database to avoid redistributing
+restricted feed contents; measured phone list-assisted results used a dated local snapshot.
+\source{E7}
+
+\chapterpage{URL Benchmark and What It Establishes}
+\subsection*{Measured phone run}
+On 24 November, all 2,048 unique supplied URLs were processed sequentially on the physical
+Pixel 6a with zero input/inference failures. No destination was opened. The full detector
+returned 325 PHISHING, 1,581 LIKELY\_SAFE and 142 UNCERTAIN results. Of the 325 phishing
+decisions, 271 came from saved threat indicators and 54 from the learned ensemble.
+
+The input file exactly repeated the first 2,048 inputs in the supplied export-reference
+file. Those reference outcomes are predictions, not truth labels. Original training overlap
+is unknown. This benchmark is useful for runtime and supported-label checks, but it is
+not a fresh, independently labelled holdout.
+
+\subsection*{Independent labels and known-positive results}
+Exact complete-URL matches in a dated PhishTank feed supported 218 phishing labels.
+The other 1,830 URLs remained unknown; there were zero independently confirmed benign
+labels. Popular-site identity, appearance and absence from a threat feed were not used
+to invent negative labels.
+
+\begin{center}\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule View on 218 positives & Phishing & Uncertain & Likely safe & Detection rate\\\midrule
+Full local pipeline & 218 & 0 & 0 & 100.00\%\\
+Learned ensemble before overrides & 172 & 30 & 16 & 78.90\%\\
+\bottomrule
+\end{tabular}
+\end{center}
+All 218 full-pipeline positives were saved-list hits. That 100\% is a known-list result,
+not model accuracy. Counting uncertainty as a miss, the learned ensemble detected
+172/218 and missed 46/218, giving 78.90\% recall and a 21.10\% false-negative rate
+on the supported-positive subset. The 107 other PHISHING outputs have unknown truth.
+
+\subsection*{Metrics that cannot be claimed}
+Overall accuracy, precision, F1, specificity and false-positive rate cannot be calculated
+for the full file without verified benign labels. The 1,581 likely-safe outputs cannot
+all be called true negatives. In addition, an empty public threat database will not
+reproduce the phone's 218 saved-list hits without a permitted matching feed snapshot.
+
+The detector-only run took 9.417 seconds. Per-URL mean latency was 4.215 ms, median
+3.940 ms and p95 5.307 ms; the first URL took 703.793 ms including cold initialization.
+These exclude SMS delivery, notification and Llama. A future balanced, fresh and
+independently labelled URL test set is needed to measure both detection and false alarms.
+\source{E7}
+
+\chapterpage{Local Explanations and Output Checks}
+\subsection*{Why the explanation path changed}
+Generating an entire warning with Llama was slow and often failed factual checks.
+The adopted design first builds the observation, uncertainty, ownership caveat and
+manual advice from recorded facts. Llama generates only a short additional guidance
+sentence. The model is Llama 3.2 1B Instruct, SpinQuant INT4 EO8, with
+1,135,951,488 bytes of model weights, approximately 1.058 GiB.
+
+The worker runs locally in an isolated process. Verified weights can remain warm for
+about 120 seconds of inactivity; generation context resets for each activity.
+This reuses weights, not another incident's conversation. The EO8 filename describes
+embedding/output precision and is not the custom E8 lattice technique reviewed later.
+
+\subsection*{User-facing structure}
+\begin{description}[style=nextline,leftmargin=0pt]
+\item[What happened] State the suspected pattern, measured activity and whether an app
+was identified as sender or receiver. Avoid asserting a confirmed compromise.
+\item[What to do] Suggest a simple manual check appropriate to the evidence, such as
+reviewing unfamiliar activity or avoiding a suspicious link.
+\item[What remains unknown] Explain missing ownership, incomplete capture/history or an
+uncertain diagnosis when these affect interpretation.
+\end{description}
+Raw messages, OTPs and full URLs are not sent into the guidance prompt. App names and
+packet counts are rendered from facts, rather than supplied for the language model to
+guess. Unsupported, incomplete or conflicting generated advice is rejected, leaving
+the factual note and default guidance available.
+
+\subsection*{Recorded live-worker validation}
+With monitoring active, eight declared evidence requests covered seven flagged
+categories. Seven generated guidance sentences were accepted. One Web Attack request
+introduced an unsupported sign-in purpose and was rejected; correct default guidance
+remained. All eight returned useful notes without runtime errors, and the measured
+capture queue-drop count was zero in those requests.
+
+One cold request took 15.522 seconds; seven warm requests had median 3.707 seconds
+and range 2.944--3.792 seconds. A separately labelled notification-preview check verified
+the factual note before Llama started; posting and querying it took 10 ms. This is not
+packet-to-alert latency. There has been no blinded readability study or population
+hallucination-rate measurement. Not every displayed note is an accepted Llama generation.
+\source{E8}
+
+\chapterpage{Hardware Use and Optimization Results}
+\subsection*{Measurement environment}
+Phone measurements used a Pixel 6a, Google Tensor, eight online CPU cores and Android 17.
+Accessible RAM was approximately 5.46 GiB. ExecuTorch Android 1.5.1 used CPU XNNPACK;
+no model GPU acceleration or dedicated VRAM result is claimed. Training and tooling
+ran on the Windows/WSL work PC, whose GPU inventory included an RTX 2000 Ada, 16 GB.
+
+\begin{tabularx}{\textwidth}{@{}L{55mm}Y@{}}
+\toprule Measurement & Recorded result and scope\\\midrule
+Current detector graph & Paired timing experiment: median of block medians 1.583 ms, 5,040 calls. Excludes packet capture and flow/history waiting.\\
+Hoisted FP32 graph candidate & 1.182 ms under the same paired experiment: 25.3\% lower median latency; zero family/binary changes in checked inputs. Candidate, not the shipped diagnosis artifact.\\
+Old full-note Llama worker & Warm median 38.254 s and cold median 54.605 s, three requests each; none of the six drafts passed the old checks.\\
+Adopted short-guidance worker & Warm median 3.707 s (seven), cold 15.522 s (one), in a later installed-worker session. Different sessions and workloads; not a randomized paired speedup.\\
+Paired component explanation test & Full-note 21.053 s versus fixed facts + short guidance 3.888 s warm median; 81.5\% less time under that component setup.\\
+Resident memory & Earlier monitoring-only app median PSS 51.9 MiB (four samples); production 1B Llama worker sampled peak PSS 1.338 GiB. Different scopes, not a summed universal footprint.\\
+CPU and temperature & Earlier warm worker phase medians about 303--306\% CPU (roughly three cores); observed battery temperatures 39.4--41.9$^{\circ}$C in that production session.\\
+\bottomrule
+\end{tabularx}
+
+\subsection*{Options tested but not adopted}
+Custom E8 post-training reconstructions changed 278/1,125 binary decisions and
+577 or 655 family decisions, depending on reconstruction; they were rejected.
+No packed 2-bit Android Llama kernel was produced. A smaller 135M language model was
+faster but failed the additional output-quality screen, so it was not promoted.
+One-token advance warm-up moved loading earlier but did not establish a total-time
+benefit; the on-demand warm worker was retained.
+
+The practical improvement is an immediate useful note, less generated text and reused
+verified weights. The 1B model still needs substantial RAM. Sampled CPU/GPU/battery
+counters are workload-dependent; they do not establish energy per alert or battery life.
+\source{E8, E9}
+
+\chapterpage{Corrections, Privacy and Present Limitations}
+\subsection*{Corrections made during phone use}
+Normal-looking activity exposed several problems beyond model weights. Link-only
+messages were incorrectly escalated by the SMS path; routing was separated. URL spans
+containing email-like text were damaged during masking; extraction order was corrected.
+Historical reset notices were being reposted when the app reopened; the current release
+refreshes only relevant visible notices. Reset wording now explains that Rakshak observed
+an unsuccessful connection and did not block it.
+
+Two alerts reported around a Google sign-in were loopback connections, not recorded
+external Google connections. An experimental device-local alert setting had remained on.
+Normal external-only scope was restored while preserving history and raw model evidence.
+The actual loopback service owner and connection to the sign-in remain unproven.
+This scope fix does not establish that ordinary external false alarms are solved.
+
+\subsection*{Privacy and operational scope}
+The current main application has no INTERNET permission. Inference and stored activity
+are local. SMS permission applies to new carrier messages; Rakshak does not automatically
+read WhatsApp, RCS, browser history or every installed app's text. Test helpers are
+separate packages with their own network permissions. Research captures, messages,
+credentials and downloaded threat feeds are excluded from the public repository.
+
+No traffic-blocking path was found in the current source review. The network branch
+requires root and continuing capture permission; this is not a stock, unrooted Android
+deployment. Capture drops, process restarts and incomplete 300-second history can affect
+results. App ownership is best-effort; a remote attacking program or exact Android
+service is not reliably identifiable from a short connection.
+
+\subsection*{What remains weak}
+\begin{enumerate}
+\item Network false positives remain, particularly normal authentication. The gate can
+warn even when diagnosis favours Benign. Suppressing all such warnings could also lose
+true attacks and has not been accepted as a safe general repair.
+\item Real XSS, restricted bot exchanges and resource-denial tests were missed. Encrypted
+content and application intent may be unavailable; low-volume attacks can resemble normal use.
+\item Rare-class support is small. Same-phone session splits, earlier test inspection and
+missing fresh device/day holdouts constrain generalization claims.
+\item SMS benign-message handling and strict neural numerical parity remain unresolved.
+URL negatives and original split provenance are incomplete.
+\item Llama can add unsupported advice; checking and fallback reduce this risk without
+eliminating it. Cold loading and 1B memory use remain material costs.
+\end{enumerate}
+\source{E6--E10}
+
+\chapterpage{Reproducibility and Next Work}
+\subsection*{Submitted source and documentation}
+The public repository is \url{https://github.com/vishwajeet-singh-bhati/rakshak}. It contains the Android application, shared
+feature code, available training/preprocessing/export code, component model provenance,
+test helpers and aggregate results. The main reproduction guide is
+\repolink{REPRODUCE.md}{REPRODUCE.md}. Dataset downloads, private captures, SSH keys,
+raw SMS and restricted feed snapshots are intentionally separate.
+
+\begin{tabularx}{\textwidth}{@{}L{33mm}Y@{}}
+\toprule Stage & Required work\\\midrule
+Build and install & Clone the repository; follow the pinned Android/JDK setup and artifact checks; build the app and install it on an authorized ARM64 phone. Root is required for the network path. Enable each intended detector and required permissions.\\
+Verify execution & Run the supplied native model/feature contracts and component fixtures. Allow a complete history warm-up after a network restart. Fixture agreement is a software check, not a new accuracy benchmark.\\
+Repeat lab cases & Follow the controlled/protocol guides with isolated targets, explicit phone/source addresses, fresh captures and independent target events. Additional PCs and SSH setup are needed for the three-source protocol test.\\
+Reproduce training & Obtain permitted publisher files, check hashes, preserve the documented splits and fit preprocessing on training only. New phone collection produces a new cohort, not the original private recordings.\\
+Compare results & Keep raw model decisions, family correctness, policy alerts, notifications and incomplete cases separate. Do not merge tests from different scope settings or app revisions without labelling them.\\
+\bottomrule
+\end{tabularx}
+
+Exact old numbers require the same inputs, split memberships, feature/model artifacts
+and runtime. Public users can reproduce the procedures and included regression checks;
+they cannot recover excluded private recordings or restricted feeds by cloning alone.
+The original full URL split is incomplete, and the SMS exact source splits must be
+obtained separately. Those are explicit reproducibility limits.
+
+\subsection*{Next work}
+The priority is a fresh labelled normal-use cohort spanning legitimate authentication,
+carrier/bank SMS and new devices/days. Attack collection should vary rates, protocol
+forms and session conditions, retaining independent effect labels. A frozen final test
+should follow validation-only calibration of warning thresholds. URL testing needs verified
+negatives and time-separated unknown campaigns. Robustness and alerts per day should be
+measured before claiming dependable unattended protection.
+
+The present contribution is an integrated, inspectable on-device prototype with explicit
+successes and failures. Faculty review, final video publication and the final submission
+remain separate checkpoints; they are not asserted complete by this report.
+
+\chapterpage{References and Evidence Index}
+The numbered records below identify the sources of the tables and implementation claims.
+Repository paths are clickable in the PDF. The accompanying
+\repolink{docs/final_submission_report/EVIDENCE.json}{EVIDENCE.json} pins source hashes
+and retains the aggregate 25 November campaign snapshot. Raw private traffic is not
+part of the report.
+
+\begin{description}[style=nextline,leftmargin=0pt,itemsep=5pt]
+\item[E1 --- Current network contract]
+\repolink{models/current/MODEL_CARD.md}{Network model card} and
+\repolink{android/app/src/main/assets/aligned_v2_gate_manifest.json}{gate manifest}.
+Model-card application labels retain their historical dates; report code 53 comes from
+the current build configuration, while the detector hashes remain unchanged.
+\item[E2 --- Paper and context]
+Malode et al., \textit{A Lightweight Embedded Intelligent Threat Detection System Using
+TSANet on Android Platforms}, ISED 2025, DOI
+\href{https://doi.org/10.1109/ISED67359.2025.11404952}{10.1109/ISED67359.2025.11404952}.
+\repolink{docs/PAPER_AND_CONTEXT.md}{Reconstruction assumptions} and
+\repolink{results/tsanet_context/COMPARISON.md}{matched context results}.
+\item[E3 --- Network data and held-out results]
+\repolink{docs/DATASETS.md}{Dataset sources and split counts};
+\repolink{experiments/phone_capture_v1/DATASHEET.md}{phone capture datasheet};
+\repolink{results/phone_capture_training_v1/evaluation.json}{complete saved evaluation}.
+\item[E4 --- Latest phone campaign]
+\repolink{docs/final_submission_report/EVIDENCE.json}{Seven-case snapshot and source hash},
+25 November 2026, 21:38:49 IST. Seven valid cases; the remaining six have no completed
+current-campaign results.
+\item[E5 --- Historical protocol tests]
+\repolink{results/protocol_phone_tests/RESULTS.md}{Completed 21 November tests} and
+\repolink{results/protocol_phone_tests/COMPLETED_REVIEW.json}{accounting review}.
+\item[E6 --- SMS]
+\repolink{components/sms/README.md}{Architecture and training};
+\repolink{components/sms/provenance/ARCHIVED_EVALUATION.json}{archived split, classwise
+results and artifact hashes}; \repolink{results/sms_alert_review_20261124/README.md}{routing review}.
+\item[E7 --- URL]
+\repolink{docs/rakshak/architecture/README.md}{URL/SMS layer architecture};
+\repolink{components/phishing_url/README.md}{model and feed provenance};
+\repolink{results/url_benchmark_20261124/README.md}{labelled-subset benchmark}.
+\item[E8 --- Explanation path]
+\repolink{results/hybrid_guidance_v1/README.md}{Installed hybrid-guidance validation};
+\repolink{results/hybrid_guidance_v1/summary.json}{runtime summary}.
+Llama model: \href{https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct-SpinQuant_INT4_EO8}{Meta Llama 3.2 1B SpinQuant INT4 EO8}.
+\item[E9 --- Optimization]
+\repolink{results/performance_v1/README.md}{Paired timing, resource and E8 evaluation};
+\repolink{results/forgesight_pr_review/README.md}{warm-up and token-limit investigation}.
+\item[E10 --- Current notice and scope corrections]
+\repolink{results/passive_notice_review_20261125/README.md}{Passive-notice review};
+\repolink{results/signin_scope_review_20261125/README.md}{local-scope review}.
+\end{description}
+\end{document}

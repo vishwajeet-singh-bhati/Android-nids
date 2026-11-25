@@ -1,0 +1,7 @@
+# Keep report evidence hashes stable across Windows/Linux checkouts.
+*.tex text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+*.pdf binary

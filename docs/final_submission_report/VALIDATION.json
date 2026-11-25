@@ -1,0 +1,20 @@
+{
+  "validated_at_ist": "2026-11-25T23:41:33.513146+05:30",
+  "pages": 19,
+  "title_page": 1,
+  "index_page": 2,
+  "main_text_first_page": 3,
+  "team_institute_mentor_checked": true,
+  "all_section_page_numbers_checked": true,
+  "numerical_anchors_checked": true,
+  "overfull_boxes": 0,
+  "undefined_references_or_commands": false,
+  "compiler": "Tectonic 0.17.0",
+  "overleaf_source": "Self-contained pdfLaTeX-compatible LaTeX",
+  "visual_review": "All 19 pages reviewed in contact sheets; network, live-case and SMS tables reviewed full-size",
+  "source_sha256": "69baa7c30968d377909c97b5edc9afd896377b25d622853ee1165a5383b408b7",
+  "pdf_sha256": "02aeae4d07a0669df4f4f8c8c6e580df9a2241d4e995d18180ffa81ff730733c",
+  "evidence_sha256": "f8cce6b92a4e8de8f9ec7ad25235a0ef9ada8540223f3cac8d6087fd24a4759a",
+  "mentor_approval_recorded": false,
+  "submission_performed": false
+}

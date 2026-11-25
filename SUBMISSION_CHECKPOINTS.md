@@ -1,14 +1,18 @@
 # Rakshak submission checkpoints
 
-Working plan:24 November2026. Deadline supplied in the organizer email: **25 November2026,11:59pm IST (Asia/Calcutta)**. Only the first submission is considered. This is a preparation record; nothing has been submitted and no mentor approval is assumed.
+## Concise final report prepared - 25 November 2026
+
+The [19-page final project report](docs/final_submission_report/README.md) now includes the three team members, IIITDM Kurnool and Dr. Rohit Kumar Das. Cover page 1, index page 2, content page 3; numerical/pagination checks and visual review passed. It separates code-53 seven-case phone results, older protocol failures, archived SMS test scores and the URL known-positive subset. Current campaign ended at 21:38:49 IST with 7/13 completed; locked-phone target startup failed before case 8. It is not running, and that interruption is inconclusive. Models/app/phone unchanged by report work. Mentor approval, video publication and final form submission remain pending.
+
+Working plan:25 November2026. Deadline supplied in the organizer email: **25 November2026,11:59pm IST (Asia/Calcutta)**. Only the first submission is considered. This is a preparation record; nothing has been submitted and no mentor approval is assumed.
 
 ## Current phase and gates
 
 | Phase | State | Completion evidence / next action |
 |---|---|---|
-| Preserve current experimental baseline | Done | Installed app0.17.3/code46; versioned network/SMS/URL model identities and validation reports retained. |
+| Preserve current experimental baseline | Done | Current source/app0.18.0/code53; versioned network/SMS/URL model identities and validation reports retained. |
 | Recover all available SMS source | Done | Full archive located in user Downloads. Trainer, PTQ/QAT export, selected checkpoint, split metadata and matching deployed PTQ hash verified. Selected checkpoint tensor count, dataset hashes and disjoint declared groups verified; source/provenance included. |
-| Update report through SMS/URL work | Draft complete | 89-page PDF and self-contained LaTeX compiled; separate component chapters, archived/new result distinction and limitations included. Final candidate/mentor review still pending. |
+| Update report through SMS/URL work | Draft complete | 19-page final report PDF and self-contained LaTeX validated; cover/team/institute/mentor, page-2 index, classwise evidence and explicit limitations included. Historical 91-page report retained. Final candidate/mentor review still pending. |
 | Update and rename public repository | Done: development snapshot | Public `rakshak` source/report pushed; history preserved. Hosted Python and full Android checks passed on `611bd4d`: [CI evidence](https://github.com/vishwajeet-singh-bhati/rakshak/actions/runs/45356650336). Model/faculty/submission gates remain pending. |
 | Model improvement experiments | Planned; not yet accepted | Freeze baseline and validation/test roles. Use the experiment plan below; keep candidates separate until measured improvement. |
 | Choose submission candidate | Pending user decision | Pin model hashes, app version, code commit, dataset provenance and exact report numbers. No automatic promotion from one attractive metric. |
@@ -20,7 +24,7 @@ Working plan:24 November2026. Deadline supplied in the organizer email: **25 Nov
 
 1. **Public GitHub/GitLab repository.** Requested target: `https://github.com/vishwajeet-singh-bhati/rakshak`. Confirm the final URL, public visibility and remote commit after publication. Include current Android source, available network/SMS/URL training/preprocessing/evaluation/export code, model identities, setup/testing instructions, dependencies/licenses and aggregate evidence. Keep components separately indexed.
 2. **Two-minute public demo video.** Final URL is pending. Preferred1920x1080,16:9,MP4. Include actual app behavior and explain that it is a research prototype. Do not imply synthetic URLs prove real-world accuracy.
-3. **Project report PDF** (the email also says `.dox`; PDF is the clear supported route). Planned canonical output: `docs/project_report/Rakshak_Project_Report.pdf`, with self-contained LaTeX source alongside it. Explain methodology, results, hardware utilization, optimization, reproducibility and limitations. This remains a draft until the chosen candidate and mentor review are frozen.
+3. **Project report PDF** (the email also says `.dox`; PDF is the clear supported route). Planned canonical output: `docs/final_submission_report/Rakshak_Final_Project_Report.pdf`, with self-contained LaTeX source alongside it. Explain methodology, results, hardware utilization, optimization, reproducibility and limitations. This remains a draft until the chosen candidate and mentor review are frozen.
 4. **Submission form:** https://forms.gle/3KyscquPFG8rS9ASA . Open/read during preparation only. Do not submit a placeholder or test entry. Check actual fields and upload limits while signed into the intended participant account; preserve answers privately before final submission.
 
 No ZIP is required by the supplied email and none is planned. Raw datasets, personal SMS/inbox contents, packet captures, credentials, private keys, environments and third-party restricted feed snapshots must stay out of the public repository. Large Llama weights use their existing separately licensed download manifest. Public builds initially use an empty threat database with local setup instructions; the report distinguishes that from the measured populated phone build.
@@ -78,7 +82,7 @@ Read this file, `HANDOFF.md`, `CURRENT_STATUS.md`, the latest publication record
 
 ## Current artifact index
 
-- Report PDF: [Rakshak_Project_Report.pdf](docs/project_report/Rakshak_Project_Report.pdf); Overleaf: [Rakshak_Project_Report.tex](docs/project_report/Rakshak_Project_Report.tex).
+- Report PDF: [Rakshak_Project_Report.pdf](docs/final_submission_report/Rakshak_Final_Project_Report.pdf); Overleaf: [Rakshak_Project_Report.tex](docs/project_report/Rakshak_Project_Report.tex).
 - Added-model overview: [components](components/README.md); [model improvement plan](docs/MODEL_IMPROVEMENT_PLAN.md).
 - SMS original split/checkpoint/evaluation evidence: [ARCHIVED_EVALUATION.json](components/sms/provenance/ARCHIVED_EVALUATION.json).
 - URL measured limits: [benchmark report](results/url_benchmark_20261124/README.md).

@@ -1,0 +1,176 @@
+{
+  "generated_at_ist": "2026-11-25T23:41:25.392028+05:30",
+  "report_scope": "Current code53 and separately dated historical evidence; mentor review pending.",
+  "models_changed": false,
+  "phone_accessed": false,
+  "new_tests_run": false,
+  "source_evidence": {
+    "paper_context": {
+      "sha256": "6fc5dbb38baecce5f53962f4bc5c242808d26234aa4a5c6f9c5fdb58613094c3",
+      "public_reference": "docs/project_report/REPORT_EVIDENCE.json"
+    },
+    "network_test": {
+      "sha256": "086be726c7c4a6d47fed4574535f27f14268f6cb2ad8c4811a5055d6da1b88d4",
+      "public_reference": "results/phone_capture_training_v1/evaluation.json"
+    },
+    "sms_archive": {
+      "sha256": "cff853516a462c86f4cf013e47d8496c57fef56d38173f550c97336c9875d826",
+      "public_reference": "components/sms/provenance/ARCHIVED_EVALUATION.json"
+    },
+    "url_benchmark": {
+      "sha256": "2e09d2533d7b2ae46e2ab7fe336805057b9e7c165024f1690cfe6d02fb3ac3bf",
+      "public_reference": "results/url_benchmark_20261124/results.json"
+    },
+    "hybrid_runtime": {
+      "sha256": "bbf15d0e873966d3cdcb9c3284457d7811e65b023d53ebd36089d7ab830c3f15",
+      "public_reference": "results/hybrid_guidance_v1/summary.json"
+    },
+    "latest_campaign": {
+      "sha256": "89b8852aee7acc9bdc20b802346e0a2eb10794b0cbfb8ddcd3b0fcaf8cda07fb",
+      "public_reference": "docs/final_submission_report/EVIDENCE.json"
+    }
+  },
+  "network_campaign_snapshot": {
+    "state": "failed",
+    "completed": 7,
+    "total": 13,
+    "updated_ist": "2026-11-25T21:38:49.893038+05:30",
+    "incomplete_reason": "Locked phone prevented protocol target startup; not a detector miss.",
+    "scope_phase_changed_after_case": 5,
+    "results": [
+      {
+        "profile": "Benign",
+        "valid": true,
+        "raw_flagged_segments": 0,
+        "native_segments": 8,
+        "raw_classification_counts": {
+          "Benign": 8
+        },
+        "target_events": {
+          "http_request": 8
+        },
+        "monitor_scope": "external_plus_experimental_local",
+        "capture_healthy": true,
+        "packet_total_matches_native": true,
+        "window_flags_including_background": 3
+      },
+      {
+        "profile": "PortScan",
+        "valid": true,
+        "raw_flagged_segments": 505,
+        "native_segments": 510,
+        "raw_classification_counts": {
+          "Benign": 5,
+          "Unclassified": 2,
+          "Port Scan": 503
+        },
+        "target_events": {},
+        "monitor_scope": "external_plus_experimental_local",
+        "capture_healthy": true,
+        "packet_total_matches_native": true,
+        "window_flags_including_background": 505
+      },
+      {
+        "profile": "PasswordGuessing",
+        "valid": true,
+        "raw_flagged_segments": 16,
+        "native_segments": 32,
+        "raw_classification_counts": {
+          "Benign": 16,
+          "Web Attack": 5,
+          "Unclassified": 11
+        },
+        "target_events": {
+          "login_failure": 31,
+          "login_success": 1
+        },
+        "monitor_scope": "external_plus_experimental_local",
+        "capture_healthy": true,
+        "packet_total_matches_native": true,
+        "window_flags_including_background": 16
+      },
+      {
+        "profile": "SQLInjection",
+        "valid": true,
+        "raw_flagged_segments": 2,
+        "native_segments": 3,
+        "raw_classification_counts": {
+          "Benign": 1,
+          "Web Attack": 2
+        },
+        "target_events": {
+          "search": 1,
+          "sqli_confirmed": 2
+        },
+        "monitor_scope": "external_plus_experimental_local",
+        "capture_healthy": true,
+        "packet_total_matches_native": true,
+        "window_flags_including_background": 2
+      },
+      {
+        "profile": "XSS",
+        "valid": true,
+        "raw_flagged_segments": 0,
+        "native_segments": 1,
+        "raw_classification_counts": {
+          "Benign": 1
+        },
+        "target_events": {
+          "xss_execution_confirmed": 1,
+          "xss_payload_received": 1
+        },
+        "monitor_scope": "external_plus_experimental_local",
+        "capture_healthy": true,
+        "packet_total_matches_native": true,
+        "window_flags_including_background": 0
+      },
+      {
+        "profile": "ConnectionExhaustion",
+        "valid": true,
+        "raw_flagged_segments": 0,
+        "native_segments": 16,
+        "raw_classification_counts": {
+          "Benign": 16
+        },
+        "target_events": {
+          "test_resource_denied": 14,
+          "test_resource_held": 2
+        },
+        "monitor_scope": "external_only",
+        "capture_healthy": true,
+        "packet_total_matches_native": true,
+        "window_flags_including_background": 4
+      },
+      {
+        "profile": "HTTPFlood",
+        "valid": true,
+        "raw_flagged_segments": 0,
+        "native_segments": 128,
+        "raw_classification_counts": {
+          "Benign": 128
+        },
+        "target_events": {
+          "http_request": 128
+        },
+        "monitor_scope": "external_only",
+        "capture_healthy": true,
+        "packet_total_matches_native": true,
+        "window_flags_including_background": 2
+      }
+    ]
+  },
+  "selected_sms_archived_evaluation": "comparison.models.ptq_pte_b1",
+  "application_snapshot": {
+    "version_name": "0.18.0-passive-notices",
+    "version_code": 53,
+    "source_baseline_commit": "5afa0e88330576035ef6f91aa1074c6f2cfbe9d4",
+    "private_phone_apk_sha256": "b6f79260b9add42f56db77ed21bdebc84f90e9f5da8da78f857c001f123415e2",
+    "network_gate_sha256": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
+    "network_diagnosis_sha256": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e",
+    "sms_ptq_sha256": "e71c4652cb464651a1153400ac0750a9b00a0282db04a2f470f3298b3de67191",
+    "public_feed_policy": "Empty valid database; private measured feed-assisted results require permitted matching feed."
+  },
+  "source_sha256": "69baa7c30968d377909c97b5edc9afd896377b25d622853ee1165a5383b408b7",
+  "submission_performed": false,
+  "mentor_approval_recorded": false
+}

@@ -1,5 +1,11 @@
 # Changelog
 
+## Final project report prepared - 25 November 2026
+
+- Add a 19-page academic report covering network/SMS/URL models, data/splits, classwise results, actual phone tests, Llama, resource use and remaining failures.
+- Include requested team, institute and mentor; verify cover/index/content pages 1/2/3, numerical anchors and all page layouts. Preserve historical report separately.
+- Pin seven valid current phone cases; distinguish incomplete protocol testing, historical protocol evidence, archived SMS results and the URL positive-only subset. No model/app changes or final submission.
+
 ## Two-minute demo script rewrite ?25 November2026
 
 - Reorder narration to tech stack/pipeline, app functions, real PC PortScan then benign control, measured successes/misses, four carrier-SMS/link examples and limitations.

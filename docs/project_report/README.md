@@ -1,5 +1,7 @@
 # Rakshak project report
 
+**Historical development report.** For the concise current submission report with team/institute/mentor details, use the [19-page final report](../final_submission_report/README.md). The 91-page document below remains an earlier development record.
+
 Current91-page **submission draft** through24 November2026 / code49 (historical measurement builds retained):
 
 - [Compiled PDF](Rakshak_Project_Report.pdf)

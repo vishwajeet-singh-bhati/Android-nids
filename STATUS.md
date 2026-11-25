@@ -1,5 +1,9 @@
 # Current Rakshak status -24 November2026
 
+## Concise final report prepared - 25 November 2026
+
+The [19-page final project report](docs/final_submission_report/README.md) now includes the three team members, IIITDM Kurnool and Dr. Rohit Kumar Das. Cover page 1, index page 2, content page 3; numerical/pagination checks and visual review passed. It separates code-53 seven-case phone results, older protocol failures, archived SMS test scores and the URL known-positive subset. Current campaign ended at 21:38:49 IST with 7/13 completed; locked-phone target startup failed before case 8. It is not running, and that interruption is inconclusive. Models/app/phone unchanged by report work. Mentor approval, video publication and final form submission remain pending.
+
 Current source/app: **0.18.0-passive-notices / code53**. The prior network-only code40 source remains in Git history. Network weights and thresholds are unchanged. SMS/URL models and the source recovered from the full SMS archive are included.
 
 The original Pixel used a populated dated offline feed. This public build has an empty/stale database; populate it locally from permitted sources if desired. All three learned pipelines are present. The selected SMS training checkpoint, PTQ/QAT scripts and checked split hashes are included; datasets and raw/private content are excluded.

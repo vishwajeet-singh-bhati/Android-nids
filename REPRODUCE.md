@@ -689,7 +689,7 @@ Restoring the phone or resetting root is not a routine installation step.
 
 For review, supply the public commit SHA, app version, model/contract hashes,
 environment versions, dataset manifests and permissions, aggregate reports,
-case validity/effect evidence, known failures, [report PDF/source](docs/project_report/README.md)
+case validity/effect evidence, known failures, [final report PDF/source](docs/final_submission_report/README.md)
 and [two-minute demo guide](docs/DEMO_VIDEO_SCRIPT.md). Preserve full logs/captures
 privately with consent; do not upload personal packets/messages/keys. Read
 [submission checkpoints](SUBMISSION_CHECKPOINTS.md) before freezing claims.

@@ -15,7 +15,8 @@ An Android research app for **network intrusion, SMS scams and phishing links**,
 | Separate SMS, URL and integration sections | [Component index](components/README.md) |
 | Architecture from input to output | [Model architecture](docs/rakshak/architecture/README.md) |
 | Install and use all three detectors | [Rakshak guide](docs/rakshak/README.md), [Android setup](docs/ANDROID_SETUP.md) |
-| Full methodology, history, results and optimization | [Report PDF and Overleaf source](docs/project_report/README.md) |
+| Concise final report: tasks, models, results and limitations | [19-page PDF and editable LaTeX](docs/final_submission_report/README.md) |
+| Earlier detailed methodology and experiment history | [Historical development report](docs/project_report/README.md) |
 | SMS training, data splits, PTQ/QAT and archived classwise results | [SMS component](components/sms/README.md) |
 | URL training, inference, feed setup and benchmark limits | [URL component](components/phishing_url/README.md) |
 | Shared notifications, Llama and privacy | [Integration](components/integration/README.md) |
