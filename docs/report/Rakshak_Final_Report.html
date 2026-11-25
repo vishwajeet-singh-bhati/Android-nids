@@ -241,22 +241,23 @@
 </table>
 <p>The context model is a development benchmark on a split that had already been used. It shows that context matters, but it does not measure performance on a phone. On the phone-aligned cascade trained with real Pixel data, the <b>held-out phone sessions</b> gave:</p>
 <table>
-  <caption>Table 2. Held-out real-phone test sessions (frozen model, augmented v1).</caption>
+  <caption>Table 2. Held-out real-phone test sessions (frozen model, augmented v1). The attacks are cleartext HTTP password guessing, SQL injection and XSS from our own lab, i.e. the same phone, PC and tooling as the phone training data; before that training the model detected 0 / 64. This shows adaptation to the phone, not detection of unseen attacks.</caption>
   <tr><th>Metric</th><th class="n">Result</th></tr>
-  <tr><td>Attack segments flagged</td><td class="n">62 / 64 (96.9%)</td></tr>
+  <tr><td>Web-attack segments flagged</td><td class="n">62 / 64 (96.9%)</td></tr>
   <tr><td>Normal segments falsely flagged</td><td class="n">10 / 120 (8.3%)</td></tr>
 </table>
 <table>
-  <caption>Table 3. Live protocol tests against the phone (21 Nov 2026). Each attack was confirmed by an independent target-side log.</caption>
+  <caption>Table 3. Live tests against the phone (21 Nov 2026), counted per connection. Each attack was confirmed by an independent target-side log. Full analysis: docs/ATTACK_TEST_AUDIT.md.</caption>
   <tr><th>Case</th><th class="n">Connections flagged</th><th>Observation</th></tr>
-  <tr><td>SSH brute force</td><td class="n">32 / 32</td><td>All detected; 6 labelled Brute Force, rest Unclassified</td></tr>
-  <tr><td>FTP brute force</td><td class="n">29 / 32</td><td>Detected, family Unclassified</td></tr>
-  <tr><td>Application DoS</td><td class="n">18 / 96</td><td>Partially detected</td></tr>
+  <tr><td>TCP connect port scan (129 ports)</td><td class="n">510 / 512 segments</td><td>Detected; 437 segments labelled Port Scan</td></tr>
+  <tr><td>SSH brute force</td><td class="n">32 / 32</td><td><b>Not a valid detection:</b> normal SSH logins were also flagged (4 / 4)</td></tr>
+  <tr><td>FTP brute force</td><td class="n">29 / 32</td><td><b>Not a valid detection:</b> normal FTP logins also flagged (3 / 4)</td></tr>
+  <tr><td>Low-rate application DoS</td><td class="n">18 / 96</td><td>Missed in effect: only the 18 slow served requests were flagged, none of the 78 refused ones</td></tr>
   <tr><td>Application DDoS (3 sources)</td><td class="n">0 / 96</td><td>Missed – known gap</td></tr>
   <tr><td>Bot-like beacon</td><td class="n">0 / 12</td><td>Missed – known gap</td></tr>
   <tr><td>Normal controls (2 runs)</td><td class="n">7 / 18</td><td>Successful SSH/FTP logins falsely flagged; all 10 normal HTTP probes quiet</td></tr>
 </table>
-<p>In a separate controlled port-scan run, the app grouped 504 flagged segments into 6 user-visible notifications, while 8 normal HTTP requests produced none. These tests show that detection works on a real phone, and they point directly at the work still needed: authentication false positives and slow, distributed attacks.</p>
+<p>In a separate controlled port-scan run, the app grouped 504 flagged segments into 6 user-visible notifications, while 8 normal HTTP requests produced none. These tests show that scan detection works on a real phone. They also show what does not work yet. The model learned from CIC-IDS2017 that SSH/FTP traffic is almost always an attack, so it flags normal logins too. It missed low-rate DoS, DDoS and bot behaviour. We therefore claim only port-scan detection and lab web-attack detection on cleartext HTTP.</p>
 
 <h3>5.2 SMS scam detection</h3>
 <table>
@@ -373,7 +374,7 @@
 
 <h2>9. Limitations</h2>
 <ul>
-  <li><b>Network:</b> normal SSH/FTP logins can be falsely flagged; distributed application-level DDoS and bot beacons were missed in live tests; the family label is often "Unclassified". The network detector needs a rooted phone.</li>
+  <li><b>Network:</b> normal SSH/FTP logins are flagged as often as brute-force attempts, so brute-force detection is not established. Web-attack cues only exist in plain HTTP (not HTTPS), and that class was tested on the same lab setup it was trained on. Low-rate DoS, DDoS and bot emulations were missed. The family label is often "Unclassified", and the network detector needs a rooted phone.</li>
   <li><b>SMS:</b> the test set was used earlier in development, so it is a reused rather than a fresh hold-out. Coverage is mainly English; Hindi and code-mixed (Hinglish) messages were not separately evaluated. RCS, WhatsApp and other chat apps are only covered through share/paste.</li>
   <li><b>URL:</b> on the 2,048-URL phone file, only 218 URLs have independent labels, so full-file precision cannot be computed. The model judges the URL text only, not page content. The public build ships an empty threat database.</li>
   <li><b>LLM:</b> needs about 1.2 GiB RAM and a separate 1.06 GiB download. Cold start is slow (≈15 s), so it is optional.</li>

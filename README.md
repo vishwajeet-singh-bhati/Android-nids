@@ -37,7 +37,7 @@ Rakshak runs **three independent AI detectors on the phone** and explains every 
 |---|---|---|
 | 💬 **SMS scam detection** | Text normalisation + scam-evidence rules + TF-IDF logistic regression; deeper check with an **INT8 MobileBERT (22 layers)** only when needed | **97.12 %** accuracy, **89.8 %** scam recall on an 869-message test set |
 | 🔗 **Phishing link detection** | Character-CNN with 27 URL features + character n-gram model, calibrated into PHISHING / UNCERTAIN / LIKELY SAFE, plus local rules | **0.976** ROC-AUC; **3.9 ms** per URL on a Pixel 6a |
-| 🌐 **Network intrusion detection** | Rooted packet capture → 147 connection and history features → small gate model → attack-family diagnosis (CNN + attention + LSTM) | **62 / 64** attack segments flagged on held-out real-phone sessions; **1.18 ms** inference |
+| 🌐 **Network intrusion detection** | Rooted packet capture → 147 connection and history features → small gate model → attack-family diagnosis (CNN + attention + LSTM) | Flagged a controlled 129-port scan and labelled it *Port Scan*; **1.18 ms** inference |
 
 - Links inside incoming SMS are extracted and checked **automatically**.
 - Each warning appears immediately as **"What happened / What you can do"**.
@@ -104,14 +104,14 @@ adb install -r android/app/build/outputs/apk/debug/app-debug.apk
 | URL – calibrated ensemble (validation) | ROC-AUC **0.976**, PR-AUC 0.938; catches 83.6 % of phishing at a 0.5 % false-alarm rate |
 | URL – 218 confirmed phishing URLs on the Pixel 6a | Model alone: 172 flagged, 30 uncertain; with local threat list: 218 / 218 |
 | Network – CIC-IDS2017 (TSANet reconstruction → + connection context) | 97.03 % → **99.98 %** accuracy (development benchmark) |
-| Network – held-out real-phone sessions | **62 / 64** attack segments flagged; 10 / 120 normal segments falsely flagged |
-| Network – live lab tests on the phone | SSH brute force 32 / 32, FTP brute force 29 / 32, DoS 18 / 96; DDoS and bot beacons missed |
+| Network – held-out phone sessions (cleartext web attacks from our own lab, same setup as the training data) | 62 / 64 attack segments flagged (0 / 64 before phone training); 10 / 120 normal segments falsely flagged |
+| Network – live lab tests on the phone | Port scan (129 ports) flagged, mostly labelled *Port Scan*. SSH/FTP brute force **not distinguished** from normal logins (7 / 8 normal logins also flagged). Low-rate DoS, 3-source DDoS and bot-beacon emulations **missed** |
 
 **Hardware (Pixel 6a, CPU via ExecuTorch XNNPACK):** network inference 1.18 ms, URL check 3.9 ms, app ≈ 52 MiB RAM while monitoring. The optional Llama worker uses ≈ 1.2 GiB in a separate process and is called only after a warning.
 
 **Optimisations:** post-training INT8 quantization, two-tier cascades (heavy models run only when needed), LSTM graph hoisting (−25.3 % latency, no decision changes), facts-first notifications, and an LLM prompt redesign (21 s → 3.9 s, 5.4× faster). Full details are in [section 7 of the report](docs/Rakshak_Final_Report.pdf).
 
-**Known limitations** (we report these openly): normal SSH/FTP logins can be falsely flagged; distributed DDoS and bot beacons were missed in live tests; SMS evaluation is mainly English; and a warning is a risk signal, not proof of compromise. See section 9 of the report.
+**Known limitations** (we report these openly): the network model flags normal SSH/FTP logins as often as brute-force attempts; web-attack detection works only on plain HTTP and was tested on the same lab setup it was trained on; DoS, DDoS and bot emulations were missed in live tests ([attack test audit](docs/ATTACK_TEST_AUDIT.md)); SMS evaluation is mainly English; and a warning is a risk signal, not proof of compromise. See section 9 of the report.
 
 ## Privacy
 
@@ -153,6 +153,7 @@ python -m unittest validation.test_url_benchmark_metrics
 | Android setup (root, Llama, feeds) | [docs/ANDROID_SETUP.md](docs/ANDROID_SETUP.md) |
 | Datasets and how to obtain them | [docs/DATASETS.md](docs/DATASETS.md) |
 | Inference performance measurements | [docs/INFERENCE_PERFORMANCE.md](docs/INFERENCE_PERFORMANCE.md) |
+| What each phone attack test really proves | [docs/ATTACK_TEST_AUDIT.md](docs/ATTACK_TEST_AUDIT.md) |
 | Evidence index | [results/README.md](results/README.md) |
 | Change history | [CHANGELOG.md](CHANGELOG.md) |
 
