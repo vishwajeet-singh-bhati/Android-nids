@@ -1,6 +1,8 @@
 # Rakshak: clone-to-phone reproduction guide
 
-Current source: **0.18.0 (version code 53)**, 25 November 2026.
+For setup followed by **each of the thirteen live commands run individually**, use the [step-by-step network testing guide](docs/NETWORK_TEST_PROCEDURE.md). The historical `tests/NIDS_tests.sh` is a PowerShell command sheet; `tests/NIDS_tests.ps1 -Preview` checks its plan without accessing devices.
+
+Submission preparation, 25 November 2026. Current source: **0.18.0-passive-notices / code53**.
 Use this guide from a fresh clone. No author's drive layout, phone identity,
 SSH key or running service is required. Commands below use **Windows PowerShell
 5.1** unless a block explicitly says Linux/WSL. Run commands from the repository
@@ -253,6 +255,11 @@ personal database or malware is used. Keep the unlocked phone charging, Wi-Fi
 addresses stable and controller awake. Prevent automatic screen locking during
 the session, then restore your screen settings. Other VPNs/client isolation or
 unreachable subnets can invalidate the path even if the Wi-Fi name is identical.
+
+For ordinary use, keep **Alert on on-device connections (experimental)** off.
+Localhost exchanges stay inside the phone and are outside the default external
+intrusion assessment; this does not declare every local exchange safe. Read the
+[ordinary-use scope correction](results/signin_scope_review_20261125/README.md).
 
 Record detector switches, authentication-episode/local-traffic settings and any
 Expected feedback before comparing runs. The opt-in Expected rule can mute
@@ -684,8 +691,9 @@ Restoring the phone or resetting root is not a routine installation step.
 
 For review, supply the public commit SHA, app version, model/contract hashes,
 environment versions, dataset manifests and permissions, aggregate reports,
-case validity/effect evidence, known failures, [report PDF/source](docs/project_report/README.md)
+case validity/effect evidence, known failures, [final report PDF/source](docs/final_submission_report/README.md)
 and [two-minute demo guide](docs/DEMO_VIDEO_SCRIPT.md). Preserve full logs/captures
-privately with consent; do not upload personal packets/messages/keys. The
-[final report](docs/Rakshak_Final_Report.pdf) summarises methodology, results,
-hardware utilization and limitations.
+privately with consent; do not upload personal packets/messages/keys. Read
+[submission checkpoints](SUBMISSION_CHECKPOINTS.md) before freezing claims.
+No demo upload, mentor approval or final form submission is performed by these
+commands.

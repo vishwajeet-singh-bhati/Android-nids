@@ -18,10 +18,11 @@
 
 | | |
 |---|---|
-| 📄 **Final project report** | [docs/Rakshak_Final_Report.pdf](docs/Rakshak_Final_Report.pdf) |
+| 📄 **Final project report** | [19-page PDF and editable LaTeX](docs/final_submission_report/README.md) |
 | 🎬 **2-minute demo video** | <!-- DEMO_VIDEO_LINK --> _Link added after upload_ |
 | 📱 **Download the app** | [Latest release APK](https://github.com/vishwajeet-singh-bhati/rakshak/releases/latest) |
-| 🧪 **Reproduce everything** | [REPRODUCE.md](REPRODUCE.md) |
+| 🧪 **Reproduction setup and limits** | [REPRODUCE.md](REPRODUCE.md) |
+| **Manual network tests: setup, then commands one by one** | [Complete guide](docs/NETWORK_TEST_PROCEDURE.md) |
 
 ---
 
@@ -36,13 +37,13 @@ Rakshak runs **three independent AI detectors on the phone** and explains every 
 | Detector | How it works | Key result |
 |---|---|---|
 | 💬 **SMS scam detection** | Text normalisation + scam-evidence rules + TF-IDF logistic regression; deeper check with an **INT8 MobileBERT (22 layers)** only when needed | **97.12 %** accuracy, **89.8 %** scam recall on an 869-message test set |
-| 🔗 **Phishing link detection** | Character-CNN with 27 URL features + character n-gram model, calibrated into PHISHING / UNCERTAIN / LIKELY SAFE, plus local rules | **0.976** ROC-AUC; **3.9 ms** per URL on a Pixel 6a |
-| 🌐 **Network intrusion detection** | Rooted packet capture → 147 connection and history features → small gate model → attack-family diagnosis (CNN + attention + LSTM) | Flagged a controlled 129-port scan and labelled it *Port Scan*; **1.18 ms** inference |
+| 🔗 **Phishing link detection** | Character-CNN with 27 URL features + character n-gram model, calibrated into PHISHING / UNCERTAIN / LIKELY SAFE, plus local rules | **172/218 (78.90%)** known-positive model detection; **3.940 ms** median detector time. No verified benign cohort. |
+| 🌐 **Network intrusion detection** | Rooted packet capture → 147 connection and history features → small gate model → attack-family diagnosis (CNN + attention + LSTM) | Flagged a controlled 129-port scan and labelled it *Port Scan*; **1.583 ms** current-graph timing in the paired component test (1.182 ms was an unshipped candidate) |
 
 - Links inside incoming SMS are extracted and checked **automatically**.
 - Each warning appears immediately as **"What happened / What you can do"**.
 - An optional local **Llama 3.2 1B** (INT4) model rephrases the advice. It never decides the risk and never sees the raw SMS, the OTP or the full URL.
-- Each detector has its own on/off switch. SMS and link checks work on **any phone**; network monitoring needs a **rooted** test phone.
+- Each detector has its own on/off switch. SMS and link checks work on a compatible **ARM64 Android phone**; network monitoring needs a **rooted** test phone.
 
 <p align="center"><img src="docs/branding/android-icon-preview.png" alt="Rakshak launcher icons" width="420"></p>
 
@@ -71,7 +72,7 @@ More detail: [model architecture](docs/rakshak/architecture/README.md) · [netwo
 
 ### Option A: download the APK (easiest)
 
-1. On an Android 8.0+ phone, download **`Rakshak.apk`** from [Releases](https://github.com/vishwajeet-singh-bhati/rakshak/releases/latest). Every CI run also uploads it as the `rakshak-apk` artifact under [Actions](https://github.com/vishwajeet-singh-bhati/rakshak/actions).
+1. On an Android 8.0+ phone, download **`Rakshak.apk`** from [Releases](https://github.com/vishwajeet-singh-bhati/rakshak/releases/latest). Successful CI runs on this branch upload it as the `rakshak-apk` artifact under [Actions](https://github.com/vishwajeet-singh-bhati/rakshak/actions).
 2. Open the file and allow **Install unknown apps** when Android asks.
 3. Open **Rakshak** → **Detection controls** → turn on **Automatically check incoming SMS and links** → allow the SMS and notification permissions.
 4. To check something manually, use **Check a message or link** and paste the text or URL. You can also *Share* text to Rakshak from any app.
@@ -101,15 +102,15 @@ adb install -r android/app/build/outputs/apk/debug/app-debug.apk
 |---|---|
 | SMS – MobileBERT INT8, 869-message held-out test | Accuracy **97.12 %**, macro-F1 0.909, smishing precision 78.6 % / recall 89.8 % |
 | SMS – INT8 vs FP32 | 87.5 MiB → **35.5 MiB** (−59 %) for −0.12 pp accuracy |
-| URL – calibrated ensemble (validation) | ROC-AUC **0.976**, PR-AUC 0.938; catches 83.6 % of phishing at a 0.5 % false-alarm rate |
+| URL - recorded phone benchmark | Learned ensemble detected **172/218 (78.90%)** independently supported positives. **No confirmed benign cohort**: overall accuracy, precision and false-alarm rate are not established. |
 | URL – 218 confirmed phishing URLs on the Pixel 6a | Model alone: 172 flagged, 30 uncertain; with local threat list: 218 / 218 |
 | Network – CIC-IDS2017 (TSANet reconstruction → + connection context) | 97.03 % → **99.98 %** accuracy (development benchmark) |
 | Network – held-out phone sessions (cleartext web attacks from our own lab, same setup as the training data) | 62 / 64 attack segments flagged (0 / 64 before phone training); 10 / 120 normal segments falsely flagged |
 | Network – live lab tests on the phone | Port scan (129 ports) flagged, mostly labelled *Port Scan*. SSH/FTP brute force **not distinguished** from normal logins (7 / 8 normal logins also flagged). Low-rate DoS, 3-source DDoS and bot-beacon emulations **missed** |
 
-**Hardware (Pixel 6a, CPU via ExecuTorch XNNPACK):** network inference 1.18 ms, URL check 3.9 ms, app ≈ 52 MiB RAM while monitoring. The optional Llama worker uses ≈ 1.2 GiB in a separate process and is called only after a warning.
+**Hardware (Pixel 6a, CPU via ExecuTorch XNNPACK):** current detector graph 1.583 ms in a paired component timing; 1.182 ms was an unshipped candidate. URL median 3.940 ms. Earlier monitoring-only PSS was 51.9 MiB in four samples; the optional 1B worker had sampled peak PSS 1.338 GiB. These different scopes are not a universal footprint or event-to-alert latency.
 
-**Optimisations:** post-training INT8 quantization, two-tier cascades (heavy models run only when needed), LSTM graph hoisting (−25.3 % latency, no decision changes), facts-first notifications, and an LLM prompt redesign (21 s → 3.9 s, 5.4× faster). Full details are in [section 7 of the report](docs/Rakshak_Final_Report.pdf).
+**Optimisations:** post-training INT8 quantization, two-tier cascades (heavy models run only when needed), LSTM graph hoisting (−25.3 % latency, no decision changes), facts-first notifications, and an LLM prompt redesign (21 s → 3.9 s, 5.4× faster). Full details are in [section 7 of the report](docs/final_submission_report/README.md).
 
 **Known limitations** (we report these openly): the network model flags normal SSH/FTP logins as often as brute-force attempts; web-attack detection works only on plain HTTP and was tested on the same lab setup it was trained on; DoS, DDoS and bot emulations were missed in live tests ([attack test audit](docs/ATTACK_TEST_AUDIT.md)); SMS evaluation is mainly English; and a warning is a risk signal, not proof of compromise. See section 9 of the report.
 
@@ -147,7 +148,7 @@ python -m unittest validation.test_url_benchmark_metrics
 
 | Topic | Link |
 |---|---|
-| Final report (methodology, results, hardware, optimisation) | [docs/Rakshak_Final_Report.pdf](docs/Rakshak_Final_Report.pdf) |
+| Final report (methodology, results, hardware, optimisation) | [19-page PDF and editable LaTeX](docs/final_submission_report/README.md) |
 | Full 91-page technical record (LaTeX source included) | [docs/project_report/](docs/project_report/README.md) |
 | Clone-to-phone reproduction, training and lab tests | [REPRODUCE.md](REPRODUCE.md) |
 | Android setup (root, Llama, feeds) | [docs/ANDROID_SETUP.md](docs/ANDROID_SETUP.md) |
@@ -168,3 +169,7 @@ python -m unittest validation.test_url_benchmark_metrics
 ## Acknowledgements and licences
 
 This project builds on the TSANet paper (Malode et al., ISED 2025), the CIC-IDS2017, UCI SMS Spam and LSDST-2022 datasets, PhishTank, Tranco and Common Crawl, Google's MobileBERT, Meta's Llama 3.2, and PyTorch ExecuTorch. Datasets and Llama weights are not redistributed. Third-party licences and attribution are listed in [NOTICE.md](NOTICE.md).
+
+## Current evidence and retained PR drafts
+
+The current final report is the 19-page document linked above, with the requested cover, index and team/mentor details. The alternate PDF/HTML added earlier in this PR are retained as [historical PR drafts](docs/report/README.md); their unqualified upstream URL AUC and optimized-candidate timings must not replace the current report. The latest controlled campaign completed 7/13 cases; incomplete protocol startup is inconclusive. Dataset, authored fixtures and live-phone results are separate evidence. The installation/release links above require an actually published compatible build; merging this PR does not itself prove a release exists.

@@ -290,7 +290,51 @@
     "native_checks": "passed;21 self-check rows;0 decision flips",
     "bundled_assets_unchanged": 38,
     "ui_cancellation_verification": "pending unlocked phone",
-    "hosted_ci": "pending current source push",
+    "hosted_ci": "Passed on unchanged code53 application plus isolated helper repair: main run45792163090.",
     "complete_live_attack_campaign": false
+  },
+  "final_report_preparation_20261125": {
+    "report": "docs/final_submission_report/Rakshak_Final_Project_Report.pdf",
+    "source": "docs/final_submission_report/Rakshak_Final_Project_Report.tex",
+    "pages": 19,
+    "source_sha256": "69baa7c30968d377909c97b5edc9afd896377b25d622853ee1165a5383b408b7",
+    "pdf_sha256": "02aeae4d07a0669df4f4f8c8c6e580df9a2241d4e995d18180ffa81ff730733c",
+    "application_code": 53,
+    "source_baseline_commit": "5afa0e88330576035ef6f91aa1074c6f2cfbe9d4",
+    "numerical_pagination_visual_checks": "passed",
+    "mentor_approval": false,
+    "final_form_submitted": false,
+    "phone_or_model_changes": false,
+    "scope": "Report preparation and documentation only; no new hosted-code validation claim."
+  },
+  "ci_repair_20261126": {
+    "date_ist": "26 November 2026",
+    "issue": "Android isolated contract helper failed to compile ObservationNotifications referenced by HybridNoteContract.",
+    "affected_main_run": 45598504914,
+    "affected_pr_run": 45647926863,
+    "fix": "Include the unchanged production notification source and a compile-only navigation target in the isolated helper; preserve the no-repost regression.",
+    "main_verified": {
+      "commit": "0d10f96b2407673a962c928b536f1af9312c3e05",
+      "run": 45792163090,
+      "conclusion": "success"
+    },
+    "pr2_verified": {
+      "commit": "59de1b8d0aadc767d679be41ce330131ce53f2c3",
+      "run": 45792188598,
+      "conclusion": "success"
+    },
+    "local_checks": {
+      "android_full_build": "passed;208 tasks; isolated helper cleaned first",
+      "pytest": 21,
+      "url_metric_tests": 4,
+      "powershell_preview_suites": [
+        "All:13",
+        "Controlled:7",
+        "Protocol:6"
+      ]
+    },
+    "phone_or_live_test_actions": false,
+    "models_or_thresholds_changed": false,
+    "scope": "Build/reproduction infrastructure and test instructions; no new detection-accuracy claims."
   }
 }

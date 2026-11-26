@@ -1,0 +1,19 @@
+{
+  "script": "docs/DEMO_VIDEO_SCRIPT.md",
+  "revision": "requested-order-v2",
+  "target_seconds": 120,
+  "timed_sections": 8,
+  "narration_words": 217,
+  "result_snapshot_ist": "25 November 2026,21:20",
+  "completed_profiles_at_snapshot": 6,
+  "total_profiles": 13,
+  "numeric_unit": "matched model segments/flows; not independent attacks",
+  "final_results_refresh_required": true,
+  "four_message_examples_authored": true,
+  "example_predictions_not_guaranteed": true,
+  "manual_demo_must_wait_for_campaign": true,
+  "waiting_omissions_labelled": true,
+  "new_phone_actions_or_tests": 0,
+  "video_uploaded": false,
+  "scope": "Supersedes the237-word original video script, while retaining its historical validation record."
+}

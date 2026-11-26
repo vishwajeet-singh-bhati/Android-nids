@@ -1,10 +1,16 @@
 # Attack test audit: what each phone test really proves
 
-Reviewed 25 November 2026 against the harness code (`validation/controlled_phone_test.py`,
+Historical review begun 25 November 2026 against the harness code (`validation/controlled_phone_test.py`,
 `validation/protocol_phone_test.py`, `android/trafficlab`, `android/protocolcore`,
 `validation/protocol_lab/*.ps1`), the feature contract, the alert policy and the saved
 results in `results/`. Purpose: make sure no project claim says the model detected an attack
 when the evidence does not support it.
+
+## Status after repository synchronization - 26 November 2026
+
+Use the [current final report](final_submission_report/README.md) and [manual setup/test guide](NETWORK_TEST_PROCEDURE.md) for current evidence and commands. The additional ClosedPortControl, NormalBurst and NmapScan cases below are proposed verification work; they have not acquired new on-device results in this repair. The newest controlled campaign missed its single XSS effect, and completed 7/13 cases. Timing/notification counts are not general detection accuracy.
+
+The optional `summarize_attack_claims.py` is an exploratory saved-case review. It can pool old app/settings/cohorts and choose an early label for a connection. Its pooled verdicts must not replace a cohort-separated evaluation or establish causality from a small control. Preserve per-run model versions/scope and consult the primary reports.
 
 ## 1. Short answer
 
@@ -14,7 +20,7 @@ when the evidence does not support it.
 | **Slow scan** (32 ports, 1 port/s) | Yes, but only "slow" relative to the fast scan (real stealth scans wait 10s or more) | Flagged, mostly *Port Scan* | Yes, as "a 1-port-per-second scan" |
 | **FTP brute force** (32 wrong passwords) | Yes: real FTP protocol, 1 connection per attempt (like FTP-Patator, much smaller) | **No.** Normal FTP logins were flagged at the same rate (3/4). | **No.** |
 | **SSH brute force** (32 wrong passwords) | Yes: real encrypted SSH (Apache MINA), 1 connection per attempt | **No.** 4/4 normal SSH logins (including correct-password logins) were flagged. | **No.** |
-| **HTTP password guessing / SQLi / XSS** | Yes, against a deliberately vulnerable lab app, over **plain HTTP** | Flagged, but the model was **trained on traffic from the same lab and phone** (before that training it detected 0/64). The detection uses regex-style HTTP header cues. | Only as "detects the lab's cleartext web attacks it was trained on". Not as general web-attack detection. |
+| **HTTP password guessing / SQLi / XSS** | Yes, against a deliberately vulnerable lab app, over **plain HTTP** | Some HTTP password/SQL cases were flagged; the latest XSS case was missed. The model was **trained on traffic from the same lab and phone** (before that training it detected 0/64). The detection uses regex-style HTTP header cues. | Only as "detects the lab's cleartext web attacks it was trained on". Not as general web-attack detection. |
 | **DoS** (96 requests, 6 workers, 1 PC) | Weak: about 5 requests/s against a dummy service with **2 slots**, so denial is guaranteed by design. Not like Hulk/GoldenEye/Slowloris. | **No.** Only the 18 requests that waited 1 s were flagged; none of the 78 refused requests were. | **No.** Report as missed. |
 | **DDoS** (3 PCs × 32 requests) | Weak: same toy service; real multi-source overlap is verified, but the volume is tiny | Missed (0/96) | Report as **missed** |
 | **Bot / beacon** (12 PING/PONG every 3 s) | Emulator of C2 timing only, not malware | Missed (0/12) | Report as **missed** |
@@ -34,7 +40,7 @@ Consequences:
 - **Web attacks are only visible over plain HTTP.** Almost all real phone traffic is HTTPS, where these cues are always zero.
 - **SQLi/XSS "detection" relies largely on regex-like header cues**, i.e. close to a signature rule, not learned behaviour.
 - **The model knows a connection is SSH/FTP.** In CIC-IDS2017 almost every SSH/FTP connection to the victim was a
-  Patator brute-force attack. The model learned the shortcut "SSH/FTP ⇒ attack", which explains why it flags
+  Patator brute-force attack. A protocol shortcut "SSH/FTP implies attack" is a plausible hypothesis, not an ablation-proven cause; the test showed that it flags
   every normal login (offline Brute Force precision 0.9996, yet 7/8 normal logins flagged on the phone).
 
 ## 3. Problems found in the tests and reports
@@ -51,8 +57,8 @@ Consequences:
    Wi-Fi, with cleartext HTTP password guessing, spraying, SQLi and XSS. The 62/64 held-out result and any later
    SQLi/XSS/PasswordGuessing detections from `controlled_phone_test.py` are **in-distribution**.
 5. **Unanswered inbound connections are flagged on their own.** On 25 Nov a single 2-packet incoming
-   connection from a LAN PC to port 7680 (Windows Delivery Optimization, normally benign) scored 0.89 (`results/passive_notice_review_20261125`).
-   So the gate fires on unsolicited connection attempts, not only on scans. The *Port Scan* **label**
+   connection from a LAN PC to port 7680 (a port also used by Windows Delivery Optimization; actual service ownership was not established) scored 0.89 (`results/passive_notice_review_20261125`).
+   This shows that at least one isolated incoming attempt can trigger the gate; it does not prove every such attempt is flagged. The *Port Scan* **label**
    (not the alert) is the scan-specific part.
 6. **DoS/DDoS effect is guaranteed by the target.** `LabServer` allows 2 concurrent `/resource` requests, each held 1 s.
    Any 3 overlapping requests cause "denial". The test proves the harness works, not that a DoS happened in any
@@ -110,11 +116,11 @@ How to read the results:
 
 | Result | Meaning |
 |---|---|
-| ClosedPortControl **not** flagged, PortScan + NmapScan flagged | Scan detection is genuine. Claim it confidently. |
+| ClosedPortControl **not** flagged, PortScan + NmapScan flagged | Evidence supports separation in these small cases; report the counts and tested scan variants. |
 | ClosedPortControl flagged but labelled Unclassified, scans labelled Port Scan | The alert is not scan-specific, but the Port Scan label is. Claim "labels scans as Port Scan". |
-| ClosedPortControl flagged as Port Scan | The model flags any unanswered connection. Weaken the claim to "flags unsolicited inbound connections". |
-| NmapScan missed | Detection does not transfer beyond our script. Do not claim general scan detection. |
-| NormalBurst flagged | The Web Attack decision is rate-based. Do not claim password-guessing detection. |
+| ClosedPortControl flagged as Port Scan | This control exposes a scan-family false positive. Weaken the claim to "flags unsolicited inbound connections". |
+| NmapScan missed | The tested nmap variant was missed; transfer to other scan tools is not established. Do not claim general scan detection. |
+| NormalBurst flagged | The normal burst is a false positive; a rate shortcut is a hypothesis, not a proven cause. Do not claim password-guessing detection. |
 
 Send back `results/attack_claims_review/SUMMARY.md` and `summary.json`, either by committing them on a branch or by pasting them.
 They contain counts and run IDs only, with no IP addresses or payloads. The claims in the README and report will then be updated to match.

@@ -1,5 +1,25 @@
 # Changelog
 
+## Reproducibility repair and manual test guide - 26 November 2026
+
+Fixed the isolated notification-contract compilation failure without changing the production app or detector models. Hosted Android/Python checks passed on main `0d10f96` and PR2 `59de1b8`; details: [CI repair record](reproducibility/CI_REPAIR_20261126.json). Added the complete [manual network testing procedure](docs/NETWORK_TEST_PROCEDURE.md), the historical PowerShell command sheet and an optional strict sequential runner. Local checks: full Android build, 21 pytest checks, 4 metric tests and all three preview plans. No phone attack, installation, model change or historical-result replacement was performed.
+
+## Final project report prepared - 25 November 2026
+
+- Add a 19-page academic report covering network/SMS/URL models, data/splits, classwise results, actual phone tests, Llama, resource use and remaining failures.
+- Include requested team, institute and mentor; verify cover/index/content pages 1/2/3, numerical anchors and all page layouts. Preserve historical report separately.
+- Pin seven valid current phone cases; distinguish incomplete protocol testing, historical protocol evidence, archived SMS results and the URL positive-only subset. No model/app changes or final submission.
+
+## Two-minute demo script rewrite ?25 November2026
+
+- Reorder narration to tech stack/pipeline, app functions, real PC PortScan then benign control, measured successes/misses, four carrier-SMS/link examples and limitations.
+- Add exact commands, timed screen actions, omitted-wait labels, six-case provisional results and no-debugging/historical-cohort limits. Record217 spoken words; no test/model/phone changes or video upload.
+
+## Normal-use configuration correction ?25 November2026
+
+- Restore the work phone's default external-only intrusion-alert scope after two loopback warnings during ordinary use. APK/models/thresholds unchanged; preserve original evidence and separate11 local records from external assessments.
+- Document native external-feature parity checks and live evaluation phase boundaries. No Google whitelist, fabricated benign labels or blanket suppression of external connections.
+
 ## 0.18.0-passive-notices / code53 ?25 November2026
 
 - Do not repost nonvisible historical notifications on app launch. Use factual incoming-reset wording that explicitly identifies Rakshak as an observer. Invalidate only obsolete reset guidance.

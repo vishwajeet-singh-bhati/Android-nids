@@ -1,5 +1,7 @@
 # Controlled phone testing
 
+For setup followed by **each of the thirteen live commands run individually**, use the [step-by-step network testing guide](NETWORK_TEST_PROCEDURE.md). The historical `tests/NIDS_tests.sh` is a PowerShell command sheet; `tests/NIDS_tests.ps1 -Preview` checks its plan without accessing devices.
+
 Use only an owned, explicitly selected test phone on the same private LAN as the PC. The harness derives the target from authorized ADB and checks its private route; it has no arbitrary external target argument. TrafficLab uses dummy accounts, a disposable in-memory database, isolated script execution and a bounded test resource. It exposes no shell or phone files.
 
 Build/install first, enable monitoring and wait 340 seconds. Set `NIDS_DEVICE_SERIAL` (PowerShell `$env:...` or Linux `export ...`) and install Python dependencies. Run one command at a time:
@@ -41,4 +43,4 @@ The new DatasetLab also records password spraying across dummy accounts, varied 
 
 ## Current release clarification
 
-Current source is code53 with the augmented-v1 detector and opt-in Expected feedback. Network model weights/thresholds are unchanged from the augmented baseline; historical code36 is a reference. Read [current pipeline](CURRENT_PIPELINE.md), [final report](Rakshak_Final_Report.pdf), [completed training](../results/phone_capture_training_v1/RESULTS.md) and [protocol testing](PROTOCOL_TESTING.md). All six training jobs completed; readiness remains false. The old v2 reference is kept only for comparison. New cases must be kept separate from already examined development cohorts.
+Current source is code53 with the augmented-v1 detector and opt-in Expected feedback. Network model weights/thresholds are unchanged from the augmented baseline; historical code36 is a reference. Read [current pipeline](CURRENT_PIPELINE.md), [final report](final_submission_report/README.md), [completed training](../results/phone_capture_training_v1/RESULTS.md) and [protocol testing](PROTOCOL_TESTING.md). All six training jobs completed; readiness remains false. The old v2 reference is kept only for comparison. New cases must be kept separate from already examined development cohorts.

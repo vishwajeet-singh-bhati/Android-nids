@@ -1,6 +1,6 @@
 # Rakshak current app guide
 
-Current source: **0.18.0-passive-notices / code53**. See the [final report](../Rakshak_Final_Report.pdf) for results and limitations.
+Current source: **0.18.0-passive-notices / code53**. See the [final report](../final_submission_report/README.md) for results and limitations.
 
 ## Use the app
 
