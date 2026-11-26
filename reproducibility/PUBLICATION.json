@@ -336,5 +336,53 @@
     "phone_or_live_test_actions": false,
     "models_or_thresholds_changed": false,
     "scope": "Build/reproduction infrastructure and test instructions; no new detection-accuracy claims."
+  },
+  "final_repository_verification_20261126": {
+    "hosted_runs": [
+      {
+        "id": 45793561695,
+        "head_sha": "ba4b871ebec0425cf381c990a2eb9c908eea9b32",
+        "head_branch": "main",
+        "run_attempt": 1,
+        "html_url": "https://github.com/vishwajeet-singh-bhati/rakshak/actions/runs/45793561695",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 45794414277,
+        "head_sha": "dad56a6930d4713c3c3b2bb02f5ace70542f55df",
+        "head_branch": "submission-final",
+        "run_attempt": 1,
+        "html_url": "https://github.com/vishwajeet-singh-bhati/rakshak/actions/runs/45794414277",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 45794405127,
+        "head_sha": "dad56a6930d4713c3c3b2bb02f5ace70542f55df",
+        "head_branch": "submission-final",
+        "run_attempt": 2,
+        "html_url": "https://github.com/vishwajeet-singh-bhati/rakshak/actions/runs/45794405127",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ],
+    "pr2_state": "open",
+    "pr2_mergeable": true,
+    "manual_guide": "docs/NETWORK_TEST_PROCEDURE.md",
+    "command_sheet": "tests/NIDS_tests.sh",
+    "command_language": "PowerShell; historical .sh filename",
+    "cases": 13,
+    "controlled_isolation_waits": 8,
+    "guide_syntax_checked_blocks": 24,
+    "local_pytest": 21,
+    "local_metric_tests": 4,
+    "fresh_directory_paper_context_smokes": "passed; toy fixtures only",
+    "dependency_download_retry": "PR pull-request Android run attempt1 could not resolve Kotlin plugin; attempt2 succeeded on unchanged source. Concurrent push run also passed.",
+    "public_main_audit_files": 768,
+    "public_pr_audit_files": 771,
+    "production_models_or_thresholds_changed": false,
+    "new_phone_tests_run": false,
+    "pr_merged": false
   }
 }
