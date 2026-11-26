@@ -1,5 +1,7 @@
 # Manual protocol and multi-source tests
 
+For setup followed by **each of the thirteen live commands run individually**, use the [step-by-step network testing guide](NETWORK_TEST_PROCEDURE.md). The historical `tests/NIDS_tests.sh` is a PowerShell command sheet; `tests/NIDS_tests.ps1 -Preview` checks its plan without accessing devices.
+
 Use an owned rooted test phone and three owned Windows PCs (controller plus two SSH sources) with a reachable private LAN path. The protocol target is disposable and separate from NIDS. Do not expose it publicly. Build using the Android guide; no test launches during a build or preview.
 
 OpenSSH on the two source PCs must already accept your public key; pin their host keys in your own known-hosts file and verify fingerprints through a trusted channel. No credentials/private keys/actual host identities are published. Put this configuration into ignored`runs/protocol_phone_tests/ssh_config.json`, replacing all examples:

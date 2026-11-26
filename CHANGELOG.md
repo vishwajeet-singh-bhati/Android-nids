@@ -1,5 +1,9 @@
 # Changelog
 
+## Reproducibility repair and manual test guide - 26 November 2026
+
+Fixed the isolated notification-contract compilation failure without changing the production app or detector models. Hosted Android/Python checks passed on main `0d10f96` and PR2 `59de1b8`; details: [CI repair record](reproducibility/CI_REPAIR_20261126.json). Added the complete [manual network testing procedure](docs/NETWORK_TEST_PROCEDURE.md), the historical PowerShell command sheet and an optional strict sequential runner. Local checks: full Android build, 21 pytest checks, 4 metric tests and all three preview plans. No phone attack, installation, model change or historical-result replacement was performed.
+
 ## Final project report prepared - 25 November 2026
 
 - Add a 19-page academic report covering network/SMS/URL models, data/splits, classwise results, actual phone tests, Llama, resource use and remaining failures.

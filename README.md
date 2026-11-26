@@ -8,6 +8,7 @@ An Android research app for **network intrusion, SMS scams and phishing links**,
 
 | Goal | Documentation |
 |---|---|
+| Manual network testing: setup and commands one by one | [Network testing procedure](docs/NETWORK_TEST_PROCEDURE.md) |
 | Clone-to-phone setup, training and full live lab commands | [A-to-Z reproduction guide](REPRODUCE.md) |
 | Two-minute narration, screen plan and recording checklist | [Demo video guide](docs/DEMO_VIDEO_SCRIPT.md) |
 | Submission requirements, deadline and remaining gates | [Submission checkpoints](SUBMISSION_CHECKPOINTS.md) |

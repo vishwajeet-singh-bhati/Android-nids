@@ -1,0 +1,32 @@
+{
+  "date_ist": "26 November 2026",
+  "issue": "Android isolated contract helper failed to compile ObservationNotifications referenced by HybridNoteContract.",
+  "affected_main_run": 45598504914,
+  "affected_pr_run": 45647926863,
+  "fix": "Include the unchanged production notification source and a compile-only navigation target in the isolated helper; preserve the no-repost regression.",
+  "main_verified": {
+    "commit": "0d10f96b2407673a962c928b536f1af9312c3e05",
+    "run": 45792163090,
+    "conclusion": "success"
+  },
+  "pr2_verified": {
+    "commit": "59de1b8d0aadc767d679be41ce330131ce53f2c3",
+    "run": 45792188598,
+    "conclusion": "success"
+  },
+  "local_checks": {
+    "android_full_build": "passed;208 tasks; isolated helper cleaned first",
+    "pytest": 21,
+    "url_metric_tests": 4,
+    "powershell_preview_suites": [
+      "All:13",
+      "Controlled:7",
+      "Protocol:6"
+    ],
+    "guide_powershell_blocks_syntax_checked": 24,
+    "manual_guide_matches_command_sheet": true
+  },
+  "phone_or_live_test_actions": false,
+  "models_or_thresholds_changed": false,
+  "scope": "Build/reproduction infrastructure and test instructions; no new detection-accuracy claims."
+}

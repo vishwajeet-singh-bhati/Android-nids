@@ -1,5 +1,9 @@
 # Current Rakshak status -24 November2026
 
+## Reproducibility repair and manual test guide - 26 November 2026
+
+Fixed the isolated notification-contract compilation failure without changing the production app or detector models. Hosted Android/Python checks passed on main `0d10f96` and PR2 `59de1b8`; details: [CI repair record](reproducibility/CI_REPAIR_20261126.json). Added the complete [manual network testing procedure](docs/NETWORK_TEST_PROCEDURE.md), the historical PowerShell command sheet and an optional strict sequential runner. Local checks: full Android build, 21 pytest checks, 4 metric tests and all three preview plans. No phone attack, installation, model change or historical-result replacement was performed.
+
 ## Concise final report prepared - 25 November 2026
 
 The [19-page final project report](docs/final_submission_report/README.md) now includes the three team members, IIITDM Kurnool and Dr. Rohit Kumar Das. Cover page 1, index page 2, content page 3; numerical/pagination checks and visual review passed. It separates code-53 seven-case phone results, older protocol failures, archived SMS test scores and the URL known-positive subset. Current campaign ended at 21:38:49 IST with 7/13 completed; locked-phone target startup failed before case 8. It is not running, and that interruption is inconclusive. Models/app/phone unchanged by report work. Mentor approval, video publication and final form submission remain pending.

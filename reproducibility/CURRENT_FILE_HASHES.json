@@ -22,9 +22,9 @@
       "bytes": 939
     },
     "CHANGELOG.md": {
-      "git_blob": "23f29eafad388e917f4f63a8ebb65d740132f48d",
-      "sha256": "5d84f766827e3f2ca1ff87c3df5af5d47b5c9552d48dcdad712076e91c78c1dd",
-      "bytes": 63269
+      "git_blob": "75206b5b133c323e2f054259e90e0e94a30879dd",
+      "sha256": "2e5bbadf63faa735b0ce45d65a922380302981ae5c0bb1efe860ae18566c6144",
+      "bytes": 63955
     },
     "NOTICE.md": {
       "git_blob": "bf18b7228a1410bf9e6bf98a2cd9f155587e5d94",
@@ -32,19 +32,19 @@
       "bytes": 1926
     },
     "README.md": {
-      "git_blob": "885805b63ff32c8b575d4be6278a6594d9a0f4ea",
-      "sha256": "c4124f80355f438d7d26381663ffe4aa5ed089a664f18ed6f83f43379ea652d5",
-      "bytes": 8563
+      "git_blob": "f1faf6196c03abd9e8589cc3c44deb0364d3a4af",
+      "sha256": "8e79a1f6ceaf1014a5810c726f42b1c9067d931be4296cf88005342c704e3942",
+      "bytes": 8683
     },
     "REPRODUCE.md": {
-      "git_blob": "3efbdd3b8296f300019dda983f04fe8e3d677347",
-      "sha256": "2ada7227b426fe2f6e50d2858cc796f2f0b8dacb7269a5b8e5b6f9ca5443440a",
-      "bytes": 35250
+      "git_blob": "ed574dad2c35992cbc1003c067c0bf1b4c85b286",
+      "sha256": "4571703935ab302ec99830d27b804c08dca9931a35fc3d288ccfbb6d48f83221",
+      "bytes": 35551
     },
     "STATUS.md": {
-      "git_blob": "c3e4bb74dbd0cba799303e7be6ddaf249aa85520",
-      "sha256": "cc4a47c36e797306a81f805257cc1ffadeaabac83f41d3306a376d65564960ea",
-      "bytes": 4261
+      "git_blob": "1f37996ce41c32993a1843c5dac599ff63b4ac8c",
+      "sha256": "95dbbdd86685a3602ee200f11e93e794e6be4050ed788ebde060b8188b752cf8",
+      "bytes": 4947
     },
     "SUBMISSION_CHECKPOINTS.md": {
       "git_blob": "331b3a135aab905b70b25c82d79dab8d10817382",
@@ -612,14 +612,19 @@
       "bytes": 206
     },
     "android/contractcheck/build.gradle.kts": {
-      "git_blob": "f5a1d7a50007f9d182d6b111c68b6a196a32fa3f",
-      "sha256": "69d308d2429e741b210e5b33cc5ff9d765b91cffd51cc55157d33b91ed138229",
-      "bytes": 2997
+      "git_blob": "b88cab897ed92e31d8c8948c8c13910cc849f803",
+      "sha256": "b369aa90c24ff5e0bfe165e8738102cfa43b0d34abfe679a80a47fa548d94df1",
+      "bytes": 3027
     },
     "android/contractcheck/src/main/AndroidManifest.xml": {
       "git_blob": "4ad927472fdf29509c6ba434cb5d2fde95db58da",
       "sha256": "1c34cf15d17673e1964b7171aa2c917f0698c1263c29148d1e754b76159d2d53",
       "bytes": 311
+    },
+    "android/contractcheck/src/main/kotlin/nids/app/LearnedNetworkActivity.kt": {
+      "git_blob": "c69935c746790ba92e721d035822933512d69745",
+      "sha256": "5c25df4f57315c72a94b0b0fa2bfaf1612d3f954b4c1851d27e7ca1b3a5acbea",
+      "bytes": 469
     },
     "android/contractcheck/src/main/kotlin/nids/contractcheck/ContractInstrumentation.kt": {
       "git_blob": "25df347583da4177d89c67387e9eaef3b073e254",
@@ -2106,20 +2111,25 @@
       "sha256": "83620fe1452a2583fbd318ca1d25cc9408a0bb2b58b22c4a72cec5585be713ac",
       "bytes": 6523
     },
+    "docs/NETWORK_TEST_PROCEDURE.md": {
+      "git_blob": "0172488dc1a5eeb39aa966ea61b630e6673bc11c",
+      "sha256": "526da754c1a4dd3da5b5905678fb654c23620d2de5a51ba6d6ba917752448932",
+      "bytes": 19731
+    },
     "docs/PAPER_AND_CONTEXT.md": {
       "git_blob": "5995ca2f91d1890cdba286f71f48a0dd8135b6a2",
       "sha256": "aa28a25e88c6d6406f2a543e8da4fd7e800712a36f694e759674b20ccfba3127",
       "bytes": 10899
     },
     "docs/PHONE_TESTING.md": {
-      "git_blob": "4e8aef9a7422f99588cb46c2f91d536a07130bc6",
-      "sha256": "29c6bbe1d8c70d60f313edcd9f3db82f3de1a351ed8f0356aa11987979758656",
-      "bytes": 4370
+      "git_blob": "7ba4831c1d633f9219c32abcc19fc9b43f8b2d46",
+      "sha256": "38c5c32139534228425d29cef81dd7fc9dd1ecf971735783b95d7308266636e7",
+      "bytes": 4666
     },
     "docs/PROTOCOL_TESTING.md": {
-      "git_blob": "b007ead884f1e58795650850ecb88cf5637cc0bd",
-      "sha256": "e96fd2206a38fb2ae6304583046f78fc39abe835c369ee73759fcc19e5fe1de0",
-      "bytes": 4774
+      "git_blob": "c06d1ee3fe8b6de1d97fa826558f65f6d87c235f",
+      "sha256": "57d83a105b68fe2e3b25eef5a9ee384b7e72383cf551b0df6c9dc9b459463681",
+      "bytes": 5070
     },
     "docs/REPRODUCING_RESULTS.md": {
       "git_blob": "2e6dca4cf074a9174aa2eb93aeb6fc50d821a6ab",
@@ -2580,6 +2590,11 @@
       "git_blob": "cdccbfbe2cc1e8234b9c088cb9b9922b0f0c7801",
       "sha256": "765562e3b5ce9c31a1c748e4676b6098d74712eccc5d2a6a2f774435b6a2a2ad",
       "bytes": 8857
+    },
+    "reproducibility/CI_REPAIR_20261126.json": {
+      "git_blob": "20fa829a88aa464ae381d70e1e51a56bee1eff0e",
+      "sha256": "414e0f0e7456a0581344ec0974ddf590c96042956fa70a55c2393dd62f30148e",
+      "bytes": 1191
     },
     "reproducibility/DEMO_SCRIPT_REVIEW_20261125.json": {
       "git_blob": "b7e69844f141cb33f3acc1822aa33ea10a7fe4a6",
@@ -3581,10 +3596,25 @@
       "sha256": "2e09d2533d7b2ae46e2ab7fe336805057b9e7c165024f1690cfe6d02fb3ac3bf",
       "bytes": 8973
     },
+    "tests/NIDS_tests.ps1": {
+      "git_blob": "ca19e52b99f2d1e34908a3fcc241b5912acdf0bf",
+      "sha256": "a5f1c3fac1996359060a3ad032f2d5e161abe2ce793ca240d612df6c67681c3e",
+      "bytes": 2269
+    },
+    "tests/NIDS_tests.sh": {
+      "git_blob": "46a2f83f343be96b69981f5769e946ba7fc3edc5",
+      "sha256": "5bd4c504788cf4721ebf7fd8287aed3e43b7468acb32556d85d7b26491c53eab",
+      "bytes": 1816
+    },
     "tests/test_alert_only_boundary.py": {
       "git_blob": "aec8861fa5eb7a4976562311afba37353f234f40",
       "sha256": "b9c796860680d52175830c2bc3f60819b102f0ed2642015dcf74773fddc0fdc4",
       "bytes": 2632
+    },
+    "tests/test_network_test_procedure.py": {
+      "git_blob": "3b2903c44a70798271ae15d6dee6ef5fde64ec29",
+      "sha256": "5f7b3399c1603ab58bd18ea59cb2df4a77aa5254c4b8219b6f7636d9c1cc857a",
+      "bytes": 2947
     },
     "tests/test_safety_components.py": {
       "git_blob": "b1b82bf368d556c2b77df2b5a23be09e93c62e98",
@@ -3710,6 +3740,16 @@
       "git_blob": "e727368981ad324b13f61a3605adbe5a4a7c0f6c",
       "sha256": "19a04d485a06237fa721b0fd37730bf7829a5c1c24470f8ee8f97b20a572d0ab",
       "bytes": 6957
+    },
+    "validation/network_test_plan.py": {
+      "git_blob": "9edf8e2cc1256874ee19f9040ed04f231f677b88",
+      "sha256": "a23aa300e3de28d6a6626bb8cb847f2bf6fb0ff4a4e5f87149835600165e709b",
+      "bytes": 2257
+    },
+    "validation/network_test_preflight.py": {
+      "git_blob": "c21e81dc1b25f3f78bb1d520d5e6b59e3271257c",
+      "sha256": "428074c7043ad7d8975673f5ad4bb27456e2744aa5cdd9cc7050b0f497c40015",
+      "bytes": 5629
     },
     "validation/prepare_inference_candidates.py": {
       "git_blob": "c3ebe4fd8228f52205a742caeda2e81f77c797a6",

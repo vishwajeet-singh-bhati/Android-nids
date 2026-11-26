@@ -1,5 +1,7 @@
 # Rakshak: clone-to-phone reproduction guide
 
+For setup followed by **each of the thirteen live commands run individually**, use the [step-by-step network testing guide](docs/NETWORK_TEST_PROCEDURE.md). The historical `tests/NIDS_tests.sh` is a PowerShell command sheet; `tests/NIDS_tests.ps1 -Preview` checks its plan without accessing devices.
+
 Submission preparation, 25 November 2026. Current source: **0.18.0-passive-notices / code53**.
 Use this guide from a fresh clone. No author's drive layout, phone identity,
 SSH key or running service is required. Commands below use **Windows PowerShell
