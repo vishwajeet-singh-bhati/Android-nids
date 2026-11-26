@@ -11,14 +11,14 @@ Current91-page **submission draft** through24 November2026 / code49 (historical 
 
 Part I preserves the network paper-to-phone history. Part II separately explains current Rakshak, SMS data/training/FP32/PTQ/QAT, URL architecture, automatic message links, shared Llama/privacy, real fixes, the2,048-URL benchmark and its missing-label/reference-reuse limits. Hardware/runtime/optimization evidence and remaining model-improvement/submission gates are explicit. Archived scores are distinguished from newly executed phone checks.
 
-Upload only Rakshak_Project_Report.tex to Overleaf and select pdfLaTeX. No external figures/bibliography/data are needed. The historical Android_NIDS_Project_Report.tex filename remains as a generated compatibility copy. Regenerate both using python tools/report/build_report.py. Local validation used Tectonic; Overleaf itself was not accessed.
+Upload only Rakshak_Project_Report.tex to Overleaf and select pdfLaTeX. No external figures/bibliography/data are needed. Regenerate both using python tools/report/build_report.py. Local validation used Tectonic; Overleaf itself was not accessed.
 
 The PDF is a development draft pending candidate selection and faculty review; no final submission is implied. See the root submission checkpoints. The source/evidence are retained for audit, and no raw datasets/messages/captures or project ZIP are included.
 
 ## Historical report coverage
 
 
-The self-contained source is [Android_NIDS_Project_Report.tex](Android_NIDS_Project_Report.tex).
+The self-contained source is [Rakshak_Project_Report.tex](Rakshak_Project_Report.tex).
 
 Upload that one file to a blank Overleaf project, set it as the main document, select **pdfLaTeX**, and compile. Recompile if the contents page needs updating. No image uploads, bibliography file, dataset, shell escape or ZIP is required.
 

@@ -1,6 +1,6 @@
 # Model improvement phase: preserve the submission baseline
 
-Status:24 November2026. Current deployed baseline is Rakshak0.17.3/code46. No new candidate is accepted by this plan. Publishing this development snapshot does not freeze the final submission. Track decisions in [submission checkpoints](../SUBMISSION_CHECKPOINTS.md).
+Status:24 November2026. Current deployed baseline is Rakshak0.17.3/code46. No new candidate is accepted by this plan. 
 
 ## Evidence that determines the priorities
 

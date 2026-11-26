@@ -35,6 +35,10 @@ RUN=ROOT/'runs/manual_phone_tests'
 ADB=Path(adb_path())
 IST=timezone(timedelta(hours=5,minutes=30))
 ATTACKS=('PortScan','SlowScan','PasswordGuessing','SQLInjection','XSS','HTTPFlood','ConnectionExhaustion','Beacon')
+# Claim-verification cases (docs/ATTACK_TEST_AUDIT.md). Controls are normal behaviour that
+# shares one surface feature with an attack; NmapScan repeats PortScan with an external tool.
+CONTROLS=('ClosedPortControl','NormalBurst')
+TOOLS=('NmapScan',)
 SERIAL=None
 
 
@@ -385,7 +389,20 @@ def collect(directory,meta):
     return report
 
 
-def run_case(name,observe,login_interval=.2,*,suite_id=None):
+def nmap_scan(phone,ports,scan_type='connect'):
+    """Real-tool scan of the same lab + verified-closed ports (inside the capture filter)."""
+    binary=os.environ.get('NIDS_NMAP') or shutil.which('nmap')
+    if not binary:raise RuntimeError('nmap not found. Install it from https://nmap.org/download (Windows installer includes Npcap) or set NIDS_NMAP.')
+    if len(ports)>129 or not all(p==43190 or 43200<=p<43500 for p in ports):raise ValueError('Scan exceeds its fixed lab budget.')
+    flag={'connect':'-sT','syn':'-sS'}[scan_type]
+    command=[binary,flag,'-Pn','-n','-T4','--max-retries','1','-p',','.join(map(str,ports)),phone]
+    started=time.time();done=subprocess.run(command,capture_output=True,text=True,timeout=300)
+    if done.returncode:raise RuntimeError('nmap failed: '+(done.stderr or done.stdout)[-800:])
+    return {'command':' '.join([Path(binary).name]+command[1:-1]+['<phone>']),'scan_type':scan_type,'ports':len(ports),
+            'start_unix':started,'end_unix':time.time(),'stdout_tail':done.stdout[-1500:].replace(phone,'<phone>')}
+
+
+def run_case(name,observe,login_interval=.2,*,suite_id=None,nmap_type='connect'):
     select_phone();phone,controller=endpoints();state=monitor_state()
     if not state['enabled'] or not state['foreground']:raise RuntimeError('Tap Start monitoring in NIDS first. This command does not override Pause.')
     age=state['history_age_seconds']
@@ -427,12 +444,23 @@ def run_case(name,observe,login_interval=.2,*,suite_id=None):
         elif name=='ConnectionExhaustion':results=jobs(phone,[(43190,'/hold')]*16,8,.1)
         elif name=='Beacon':results,beacons=beacon_case(phone,controller)
         elif name=='Benign':results=jobs(phone,[(43190,'/normal')]*8,1,1)
+        elif name=='ClosedPortControl':
+            # Normal: one app retrying ONE closed port three times. Not a scan.
+            closed=scan_ports(1)[1]
+            results=jobs(phone,[(closed,None)]*3,1,20)
+        elif name=='NormalBurst':
+            # Same pacing/workers as PasswordGuessing, ordinary pages, no login fields.
+            results=jobs(phone,[(43190,'/normal?page='+str(i)) for i in range(32)],2,.2)
+        elif name=='NmapScan':
+            ports=scan_ports(128)
+            meta['nmap']=nmap_scan(phone,ports,nmap_type)
+            results=[]
         meta.update({'traffic_end_unix':time.time(),'attempts':results,'beacon_responses':beacons,'traffic_completed':True})
         save(directory/'run.json',meta)
         print('Traffic complete. Connections:',sum(r['connected'] for r in results),'/',len(results),flush=True)
-        if name in ('PortScan','SlowScan'):print('Open ports found:',[r['port'] for r in results if r['connected']],flush=True)
+        if name in ('PortScan','SlowScan','ClosedPortControl'):print('Open ports found:',[r['port'] for r in results if r['connected']],flush=True)
         print('HTTP statuses:',{s:sum(r.get('http_status')==s for r in results) for s in sorted({r.get('http_status') for r in results if r.get('http_status') is not None})},flush=True)
-        wait=max(observe,130) if name in ('PortScan','SlowScan') else observe
+        wait=max(observe,130) if name in ('PortScan','SlowScan','ClosedPortControl','NmapScan') else observe
         meta['observation_seconds']=wait;save(directory/'run.json',meta)
         print('Observing this test for',wait,'seconds;',
               'suite will enforce context isolation before the next case.' if suite_id else 'check the phone. No next test will start.',flush=True)
@@ -554,7 +582,8 @@ def smoke():
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--profile',required=True,choices=ATTACKS+('Benign','Status','Check','Smoke','Clean'))
+    parser.add_argument('--profile',required=True,choices=ATTACKS+CONTROLS+TOOLS+('Benign','Status','Check','Smoke','Clean'))
+    parser.add_argument('--nmap-type',choices=('connect','syn'),default='connect',help='NmapScan only: -sT (default) or -sS (needs Administrator + Npcap).')
     parser.add_argument('--observe-seconds',type=int,default=130)
     parser.add_argument('--login-interval-seconds',type=float,default=.2)
     parser.add_argument('--preview',action='store_true',help='Print the plan only; no ADB or traffic.')
@@ -563,7 +592,7 @@ def main():
     if not .2<=args.login_interval_seconds<=10:parser.error('Login interval must be between 0.2 and 10 seconds.')
     if args.profile!='PasswordGuessing' and args.login_interval_seconds!=.2:parser.error('Login interval applies only to PasswordGuessing.')
     if args.preview:
-        if args.profile not in ATTACKS+('Benign',):parser.error('Preview supports traffic cases only.')
+        if args.profile not in ATTACKS+CONTROLS+TOOLS+('Benign',):parser.error('Preview supports traffic cases only.')
         print(json.dumps({'preview_only':True,'profile':args.profile,'observe_seconds':args.observe_seconds,
             'login_guesses':32 if args.profile=='PasswordGuessing' else None,
             'login_interval_seconds':args.login_interval_seconds if args.profile=='PasswordGuessing' else None,
@@ -578,7 +607,7 @@ def main():
             select_phone();latest=json.loads((RUN/'latest.json').read_text());directory=Path(latest['directory']).resolve()
             if not directory.is_relative_to(RUN.resolve()):raise RuntimeError('Invalid saved run directory.')
             collect(directory,json.loads((directory/'run.json').read_text()))
-        else:run_case(args.profile,args.observe_seconds,args.login_interval_seconds)
+        else:run_case(args.profile,args.observe_seconds,args.login_interval_seconds,nmap_type=args.nmap_type)
 
 
 if __name__=='__main__':

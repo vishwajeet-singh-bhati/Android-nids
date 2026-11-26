@@ -228,7 +228,7 @@
         "Port Scan"
       ],
       "capture_healthy": true,
-      "interpretation": "Inconclusive: beacon exchanges did not complete; inspect receiver connectivity",
+      "interpretation": "Controlled scan detected (label corrected 25 Nov 2026: the original text came from a report-generator bug)",
       "gate_model_sha256": "733187848e41b5d28c58af4df0a779646c9388d8c010d0e217d9fd9ad47a2b2e",
       "diagnosis_model_sha256": "e91e6fe319f459b54c657ac1964c66f2c848bbd2e0b202f07aef03377bce752e",
       "trace_rows_at_pull": 557,

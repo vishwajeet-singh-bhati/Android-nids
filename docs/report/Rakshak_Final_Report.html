@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rakshak – Final Project Report</title>
+<style>
+  @page { size: A4; margin: 20mm 18mm 20mm 18mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; font-size: 10.5pt; line-height: 1.5; color: #1d2430; margin: 0; }
+  h1 { font-size: 20pt; margin: 0 0 6pt; color: #0f2a4a; }
+  h2 { font-size: 15pt; color: #0f2a4a; border-bottom: 2px solid #c9d6e6; padding-bottom: 3pt; margin: 22pt 0 8pt; page-break-after: avoid; }
+  h3 { font-size: 12pt; color: #1b4a7a; margin: 14pt 0 5pt; page-break-after: avoid; }
+  p { margin: 0 0 7pt; text-align: justify; }
+  ul, ol { margin: 0 0 8pt 18pt; padding: 0; }
+  li { margin-bottom: 3pt; }
+  table { border-collapse: collapse; width: 100%; margin: 6pt 0 10pt; font-size: 9.5pt; page-break-inside: avoid; }
+  th, td { border: 1px solid #c9d2de; padding: 4pt 6pt; text-align: left; vertical-align: top; }
+  th { background: #eaf0f7; color: #0f2a4a; font-weight: 600; }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+  caption { caption-side: bottom; font-size: 8.5pt; color: #5a6577; text-align: left; padding-top: 3pt; }
+  code { font-family: Consolas, "Courier New", monospace; font-size: 9pt; background: #f2f4f7; padding: 0 2pt; border-radius: 2px; }
+  pre { font-family: Consolas, monospace; font-size: 8.8pt; background: #f4f6f9; border: 1px solid #dde3ea; padding: 6pt 8pt; white-space: pre-wrap; page-break-inside: avoid; }
+  .note { background: #f3f7fc; border-left: 4px solid #3b74b5; padding: 6pt 10pt; margin: 8pt 0 10pt; font-size: 9.8pt; page-break-inside: avoid; }
+  .warn { background: #fff8ec; border-left: 4px solid #d68a1a; padding: 6pt 10pt; margin: 8pt 0 10pt; font-size: 9.8pt; page-break-inside: avoid; }
+  .pb { page-break-before: always; }
+  .cover { height: 255mm; display: flex; flex-direction: column; justify-content: space-between; text-align: center; }
+  .cover .title { font-size: 40pt; font-weight: 700; color: #0f2a4a; letter-spacing: 1pt; margin-top: 30mm; }
+  .cover .sub { font-size: 15pt; color: #2b4f7a; margin-top: 6pt; }
+  .cover .kind { font-size: 12pt; margin-top: 18mm; color: #444; text-transform: uppercase; letter-spacing: 2pt; }
+  .cover table { width: 72%; margin: 10mm auto 0; font-size: 11pt; }
+  .cover td { border: none; padding: 3pt 6pt; }
+  .cover td:first-child { text-align: right; color: #5a6577; width: 38%; }
+  .cover td:last-child { text-align: left; font-weight: 600; }
+  .cover .foot { font-size: 10pt; color: #555; }
+  .toc ol { list-style: none; margin-left: 0; }
+  .toc li { border-bottom: 1px dotted #c9d2de; padding: 2pt 0; }
+  .grid2 { display: flex; gap: 10pt; }
+  .grid2 > div { flex: 1; }
+  .kpi { display: flex; gap: 8pt; margin: 8pt 0 12pt; page-break-inside: avoid; }
+  .kpi div { flex: 1; border: 1px solid #c9d6e6; border-radius: 4pt; padding: 6pt; text-align: center; background: #f8fbff; }
+  .kpi b { display: block; font-size: 15pt; color: #0f2a4a; }
+  .kpi span { font-size: 8.5pt; color: #5a6577; }
+  svg { page-break-inside: avoid; }
+  svg text { font-family: "Segoe UI", Arial, sans-serif; }
+  .small { font-size: 9pt; color: #5a6577; }
+</style>
+</head>
+<body>
+<p class="warn">Historical PR draft. Use the <a href="../final_submission_report/README.md">current validated report</a>; see the adjacent README for corrected timing and benchmark scope.</p>
+
+<!-- ============ COVER ============ -->
+<section class="cover">
+  <div>
+    <div class="title">RAKSHAK</div>
+    <div class="sub">On-device AI protection against network intrusions,<br>SMS scams and phishing links for Android</div>
+    <div class="kind">Final Project Report</div>
+    <table>
+      <tr><td>Team members</td><td>Vishwajeet Singh Bhati<br>Sumit Kumar<br>Lakshya Patidar</td></tr>
+      <tr><td>Institute</td><td>Indian Institute of Information Technology Design and Manufacturing (IIITDM) Kurnool</td></tr>
+      <tr><td>Faculty mentor</td><td>Dr. Rohit Kumar Das</td></tr>
+      <tr><td>Source code</td><td>github.com/vishwajeet-singh-bhati/rakshak</td></tr>
+      <tr><td>Date</td><td>25 November 2026</td></tr>
+    </table>
+  </div>
+  <div class="foot">Test hardware: Google Pixel 6a (Google Tensor, 8-core ARM64, 6 GB RAM) · Runtime: PyTorch ExecuTorch with XNNPACK (CPU)</div>
+</section>
+
+<!-- ============ TOC ============ -->
+<section class="pb toc">
+  <h1>Contents</h1>
+  <ol>
+    <li>1. Abstract</li>
+    <li>2. Problem statement and objectives</li>
+    <li>3. System overview</li>
+    <li>4. Methodology
+      <ol style="margin-left:14pt">
+        <li>4.1 Network intrusion detection</li>
+        <li>4.2 SMS scam detection</li>
+        <li>4.3 Phishing URL detection</li>
+        <li>4.4 Combining results and explaining warnings</li>
+        <li>4.5 Android implementation</li>
+      </ol></li>
+    <li>5. Results</li>
+    <li>6. Hardware utilization</li>
+    <li>7. Optimization techniques</li>
+    <li>8. Privacy and safety design</li>
+    <li>9. Limitations</li>
+    <li>10. Future work</li>
+    <li>11. Conclusion</li>
+    <li>12. References</li>
+    <li>Appendix A. Repository layout and how to reproduce</li>
+  </ol>
+  <div class="note"><b>Companion documents.</b> This report summarises the project for evaluation. The complete technical record (91 pages, LaTeX source included) documents every experiment, rejected candidate and dry run: <code>docs/project_report/Rakshak_Project_Report.pdf</code> in the repository. All numbers below come from saved evidence files in the repository's <code>results/</code> and <code>components/</code> folders.</div>
+</section>
+
+<!-- ============ 1 ============ -->
+<section class="pb">
+<h2>1. Abstract</h2>
+<p>Mobile phones are now the main target for three everyday threats: malicious network activity (port scans, brute-force logins, denial of service), scam SMS that ask for OTPs or payments, and phishing links that imitate banks, couriers and login pages. Most protection tools send this data to a cloud service, which raises privacy concerns and needs a network connection.</p>
+<p><b>Rakshak</b> (Hindi: "protector") is an Android application that runs three independent AI detectors <b>entirely on the phone</b>:</p>
+<ul>
+  <li><b>Network intrusion detection.</b> Rooted packet capture is turned into 147 connection and history features. An 18,913-parameter binary gate decides whether traffic looks suspicious, and a 173,721-parameter CNN–attention–LSTM model then estimates which of seven attack families it belongs to.</li>
+  <li><b>SMS scam detection.</b> A two-tier cascade: a fast TF-IDF logistic-regression model with scam-evidence rules, then, only when needed, an INT8-quantized MobileBERT (22 layers). Archived test accuracy is <b>97.12%</b> with smishing recall of <b>89.8%</b>.</li>
+  <li><b>Phishing URL detection.</b> A character-level CNN with 27 structural features and a character n-gram classifier, combined by a calibrated stacker into PHISHING / UNCERTAIN / LIKELY SAFE. Validation ROC-AUC is <b>0.976</b>; the median on-device check takes <b>3.9 ms</b>.</li>
+</ul>
+<p>Links found inside incoming SMS are checked automatically. Every warning is shown immediately in plain language ("What happened / What you can do"). A local <b>Llama 3.2 1B</b> model (INT4) can then rephrase the advice, but it never decides the risk. The APK has <b>no INTERNET permission</b>, so messages and URLs never leave the device.</p>
+<p>All models are exported with PyTorch <b>ExecuTorch</b> and run on the CPU through XNNPACK. Optimisations include post-training INT8 quantization (MobileBERT reduced from 87.5 MiB to 35.5 MiB with a 0.1 percentage-point accuracy change), cascade routing, a graph optimisation that cut network-detector latency by 25.3%, and a redesigned explanation prompt that made Llama guidance 5.4× faster. The report gives measured results with their test sets and states the remaining limitations openly.</p>
+
+<div class="kpi">
+  <div><b>3</b><span>on-device AI detectors</span></div>
+  <div><b>97.1%</b><span>SMS test accuracy (INT8)</span></div>
+  <div><b>0.976</b><span>URL ROC-AUC (validation)</span></div>
+  <div><b>1.18 ms</b><span>network model inference</span></div>
+  <div><b>0</b><span>internet permission / cloud calls</span></div>
+</div>
+
+<!-- ============ 2 ============ -->
+<h2>2. Problem statement and objectives</h2>
+<h3>2.1 Problem</h3>
+<p>Smartphone users in India receive a steady stream of fraudulent SMS: fake KYC updates, parcel re-delivery fees, prize and loan offers, and requests to "share the OTP with our agent". These messages usually carry a link to a look-alike website. Phones also join public and home Wi-Fi networks, where scans and login-guessing attacks can reach exposed services. Existing tools tend to:</p>
+<ul>
+  <li>cover only one threat (only SMS spam, or only web links);</li>
+  <li>send message text or browsing data to a server for classification;</li>
+  <li>show technical alerts that ordinary users cannot act on.</li>
+</ul>
+<h3>2.2 Objectives</h3>
+<ol>
+  <li>Detect suspicious network activity, scam SMS and phishing URLs <b>on the device</b>, without cloud inference.</li>
+  <li>Keep models small and fast enough for a mid-range phone using quantization, cascading and graph-level optimisation.</li>
+  <li>Give every warning in simple language, with a concrete next step, and make the optional LLM explanation safe (it may not change the decision).</li>
+  <li>Measure honestly: separate offline benchmark, on-phone and synthetic test results, and report false positives and misses.</li>
+  <li>Publish source code, training/export pipelines and evidence so that others can reproduce the work.</li>
+</ol>
+</section>
+
+<!-- ============ 3 ============ -->
+<section>
+<h2>3. System overview</h2>
+<p>Rakshak has three detector pipelines that share one notification, history and explanation layer. Each detector has its own on/off switch. The network detector needs a rooted device to capture packets; the SMS and URL detectors work on a normal (non-rooted) phone.</p>
+
+<svg viewBox="0 0 760 400" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rakshak architecture">
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#4a5b70"/></marker></defs>
+  <style>.b{fill:#f3f7fc;stroke:#3b74b5;stroke-width:1.3}.g{fill:#eef8f1;stroke:#2f8a4e;stroke-width:1.3}.o{fill:#fff6e8;stroke:#c9821b;stroke-width:1.3}.t{font-size:11px;fill:#1d2430}.h{font-size:12px;font-weight:600;fill:#0f2a4a}.l{stroke:#4a5b70;stroke-width:1.3;fill:none;marker-end:url(#a)}</style>
+  <!-- inputs -->
+  <rect class="b" x="10" y="20" width="150" height="54" rx="6"/><text class="h" x="85" y="42" text-anchor="middle">Network packets</text><text class="t" x="85" y="60" text-anchor="middle">rooted capture (TCP/UDP)</text>
+  <rect class="b" x="10" y="160" width="150" height="54" rx="6"/><text class="h" x="85" y="182" text-anchor="middle">Incoming SMS</text><text class="t" x="85" y="200" text-anchor="middle">or pasted / shared text</text>
+  <rect class="b" x="10" y="300" width="150" height="54" rx="6"/><text class="h" x="85" y="322" text-anchor="middle">URL</text><text class="t" x="85" y="340" text-anchor="middle">extracted or pasted</text>
+  <!-- network -->
+  <rect class="g" x="200" y="10" width="160" height="74" rx="6"/><text class="h" x="280" y="30" text-anchor="middle">Flow + history features</text><text class="t" x="280" y="48" text-anchor="middle">32 flow + 115 context</text><text class="t" x="280" y="64" text-anchor="middle">= 147 inputs</text>
+  <rect class="g" x="400" y="10" width="160" height="74" rx="6"/><text class="h" x="480" y="30" text-anchor="middle">Binary gate (MLP)</text><text class="t" x="480" y="48" text-anchor="middle">→ if suspicious:</text><text class="t" x="480" y="64" text-anchor="middle">diagnosis, 7 families</text>
+  <!-- sms -->
+  <rect class="g" x="200" y="150" width="160" height="74" rx="6"/><text class="h" x="280" y="170" text-anchor="middle">Tier 1</text><text class="t" x="280" y="188" text-anchor="middle">normalise + TF-IDF LR</text><text class="t" x="280" y="204" text-anchor="middle">+ scam-evidence rules</text>
+  <rect class="g" x="400" y="150" width="160" height="74" rx="6"/><text class="h" x="480" y="170" text-anchor="middle">Tier 2 (only if needed)</text><text class="t" x="480" y="188" text-anchor="middle">MobileBERT-22, INT8</text><text class="t" x="480" y="204" text-anchor="middle">ham / spam / smishing</text>
+  <!-- url -->
+  <rect class="g" x="200" y="290" width="160" height="74" rx="6"/><text class="h" x="280" y="310" text-anchor="middle">Char-CNN + 27 features</text><text class="t" x="280" y="328" text-anchor="middle">Char 2–5-gram LR</text><text class="t" x="280" y="344" text-anchor="middle">calibrated stacker</text>
+  <rect class="g" x="400" y="290" width="160" height="74" rx="6"/><text class="h" x="480" y="310" text-anchor="middle">Local rules</text><text class="t" x="480" y="328" text-anchor="middle">threat list, shorteners,</text><text class="t" x="480" y="344" text-anchor="middle">popular-site guard</text>
+  <!-- output -->
+  <rect class="o" x="600" y="110" width="150" height="80" rx="6"/><text class="h" x="675" y="132" text-anchor="middle">Risk policy</text><text class="t" x="675" y="150" text-anchor="middle">SMS + link combination</text><text class="t" x="675" y="166" text-anchor="middle">low / suspicious / high</text><text class="t" x="675" y="182" text-anchor="middle">(no extra model)</text>
+  <rect class="o" x="600" y="230" width="150" height="90" rx="6"/><text class="h" x="675" y="250" text-anchor="middle">Warning + history</text><text class="t" x="675" y="268" text-anchor="middle">"What happened /</text><text class="t" x="675" y="283" text-anchor="middle">What you can do"</text><text class="t" x="675" y="300" text-anchor="middle">+ Llama 3.2 1B advice</text><text class="t" x="675" y="314" text-anchor="middle">(checked, optional)</text>
+  <!-- arrows -->
+  <path class="l" d="M160,47 H198"/><path class="l" d="M360,47 H398"/>
+  <path class="l" d="M160,187 H198"/><path class="l" d="M360,187 H398"/>
+  <path class="l" d="M160,327 H198"/><path class="l" d="M360,327 H398"/>
+  <path class="l" d="M280,224 V288"/><text class="t" x="286" y="262">links in SMS</text>
+  <path class="l" d="M560,47 C590,47 590,250 598,250"/>
+  <path class="l" d="M560,187 H598"/><path class="l" d="M560,327 C585,327 585,170 598,170"/>
+  <path class="l" d="M675,190 V228"/>
+</svg>
+<p class="small">Figure 1. Rakshak architecture. Green boxes are learned models or rules; orange boxes are the shared decision and notification layer. The LLM only rephrases advice that has already been approved; it does not classify anything.</p>
+
+<table>
+  <tr><th>Detector</th><th>Input</th><th>Learned models</th><th>Output</th></tr>
+  <tr><td>Network</td><td>Packets of each TCP/UDP connection plus 300 s of host history</td><td>MLP gate (18,913 params) + CNN/attention/LSTM diagnosis (173,721 params)</td><td>Suspicious? and estimated family: Bot, Brute Force, DDoS, DoS, Port Scan, Web Attack (or Unclassified)</td></tr>
+  <tr><td>SMS</td><td>Message body (sender used only by rules)</td><td>TF-IDF logistic regression (40,638 weights) → MobileBERT-22 INT8 (≈22.9 M params)</td><td>ham / spam / smishing + low / suspicious / high risk + evidence</td></tr>
+  <tr><td>URL</td><td>URL text only; the page is never opened</td><td>Char-CNN + features (92,577 params), char n-gram LR (300,000 terms), stacker</td><td>PHISHING / UNCERTAIN / LIKELY SAFE</td></tr>
+  <tr><td>Explanation</td><td>Approved facts and guidance (no raw SMS, OTP or full URL)</td><td>Llama 3.2 1B Instruct, SpinQuant INT4</td><td>One short guidance sentence, validated before display</td></tr>
+</table>
+</section>
+
+
+<section>
+<h2>4. Methodology</h2>
+
+<h3>4.1 Network intrusion detection</h3>
+<p><b>Stage 1: reproduce a published baseline.</b> We reconstructed the TSANet architecture [7] (CNN + self-attention + LSTM) on the CIC-IDS2017 dataset [1] with seven classes (Benign, Bot, Brute Force, DDoS, DoS, Port Scan, Web Attack), using a stratified 70/30 split (seed 42). Our reconstruction reached 97.03% accuracy, against the paper's 97.35%. We also reproduced the paper's 30% pruning variant.</p>
+<p><b>Stage 2: add connection context.</b> A single flow's statistics miss scan and brute-force patterns that only appear across many connections. We added 78 context features (counts and rates of recent connections per host, port and service). On the same split, accuracy rose to 99.98%, and benign false positives fell from 10,454 to 33.</p>
+<p><b>Stage 3: align features with what a phone can measure.</b> When we ran the model on a real phone, the offline features did not match what an Android device can observe. We therefore built a <b>147-input phone-aligned contract</b>: 32 per-flow features plus 115 history features, computed identically by a Kotlin extractor on the phone and by a Python replay of the raw packet captures. The same packets now produce the same numbers on both sides; this is verified by hash-checked "golden" test rows.</p>
+<p><b>Stage 4: cascade model.</b></p>
+<ul>
+  <li><b>Gate:</b> MLP 147 → 96 → 48 → 1 that answers "is this connection suspicious?" (threshold 0.5408).</li>
+  <li><b>Diagnosis:</b> CNN/attention/LSTM with context branch, 7 output classes. It runs only when the gate fires. If no class scores above 0.8, the alert is shown as "Unclassified" rather than forcing a guess.</li>
+  <li>Normalisation is embedded inside the exported model, so the app passes raw features.</li>
+</ul>
+<p><b>Stage 5: real-phone data.</b> We captured 20 verified sessions on our own Pixel 6a (normal browsing and controlled web attacks against our own lab server) and added them to training: 848 training, 184 validation and 184 test rows. Six training jobs of 40 epochs each were run, and the checkpoint was selected on validation data before the test set was touched.</p>
+<p><b>Controlled phone testing.</b> We tested the detector against live traffic from lab PCs that we own: port scans, FTP/SSH password guessing, application-level DoS/DDoS, bot-like beacons, and matched normal controls. An independent target-side log confirmed each attack, so an unrelated background alert is never counted as a detection.</p>
+
+<h3>4.2 SMS scam detection</h3>
+<p><b>Data.</b> Two public corpora, the UCI SMS Spam Collection [2] and the LSDST-2022 smishing dataset [3], were merged and labelled into three classes: <i>ham</i> (normal), <i>spam</i> (promotional), and <i>smishing</i> (scam/phishing). 16,763 exact duplicates and 19 rows that leaked into the external set were removed. The data was then split by group into 4,055 train / 869 validation / 869 test rows, with a separate 27,885-row external set. Class weights (0.41 / 2.51 / 6.53) counter the imbalance.</p>
+<p><b>Normalisation.</b> Unicode NFKC, removal of zero-width characters, handling of look-alike characters and leetspeak, and lower-casing. Real URLs, e-mail addresses and phone numbers are extracted and replaced by placeholder tokens. The extracted URLs go to the URL detector.</p>
+<p><b>Tier 1 (always runs).</b> Word unigram + bigram TF-IDF (13,545 features) feeds a 3-class logistic regression. Evidence rules detect patterns such as OTP-sharing requests, payment-plus-threat, impersonation, prize, loan and parcel-fee lures, and obfuscation. Rules can raise risk (for example, "share your OTP with our agent" becomes <i>smishing / high</i> even when the linear model's top class is spam). Guarded routine messages such as genuine bank OTPs exit early as low risk.</p>
+<p><b>Tier 2 (selective).</b> MobileBERT [4] (22 bottleneck Transformer blocks, hidden size 512, 4 heads, 30,522-token WordPiece vocabulary, max 128 tokens) fine-tuned for 4 epochs (batch 16, learning rate 5e-5). The best checkpoint was chosen at epoch 3 on validation macro-F1 = 0.877. It runs only for messages that are not clearly ham, that triggered a rule, or that contain a link. A rule-governed fusion keeps strong Tier 1 evidence and never downgrades a high-risk finding.</p>
+
+<h3>4.3 Phishing URL detection</h3>
+<p><b>Data.</b> Phishing URLs come from PhishTank and OpenPhish feeds. Benign full URLs were sampled from the Common Crawl index on Tranco top domains, together with Tranco homepages. The split prevents leakage, so the same site never appears in both train and test.</p>
+<p><b>Preprocessing.</b> IDNA and public-suffix aware normalisation. The scheme and credentials are removed from the model string (<code>host[:port]/path?query</code>), so "https" alone cannot make a URL look safe. Long URLs keep the first 191 and last 64 characters.</p>
+<p><b>Models.</b></p>
+<ul>
+  <li><b>Hybrid char-CNN:</b> 97-symbol embedding (32-d), parallel convolutions with kernel widths 3/5/7 (128 channels each), masked max-pooling, and a 27-feature structural branch (lengths, entropy, digits, IP host, punycode, user-info…), giving 416 → 64 → 1. 92,577 parameters.</li>
+  <li><b>Character 2–5-gram TF-IDF logistic regression</b> with 300,000 terms.</li>
+  <li><b>Stacked calibrator</b> fitted on 12,338 validation rows, with budgets of ≤0.5% false alarms and ≤5% missed phishing. It gives three outcomes: PHISHING (p &gt; 0.683), LIKELY SAFE (p &lt; 0.095), or UNCERTAIN.</li>
+</ul>
+<p><b>Rules after the model:</b> an exact match in the local threat list gives PHISHING; a known URL shortener gives UNCERTAIN (the app never expands it); a model-only PHISHING verdict on one of the top 1,000 popular sites is lowered to UNCERTAIN.</p>
+
+<h3>4.4 Combining results and explaining warnings</h3>
+<p>No extra "joint" model is trained. A transparent policy combines the results. If an SMS is low risk but contains a link classified as PHISHING, the message becomes <b>high</b> risk. A LIKELY SAFE link never clears SMS evidence. Every suspicious or high result immediately produces a factual note (<i>What happened</i> / <i>What you can do</i>) and a history entry.</p>
+<p>A local <b>Llama 3.2 1B Instruct</b> model (SpinQuant INT4, ExecuTorch) then rewrites only the guidance into one sentence of 8–20 words (48-token cap). The output is checked for unsupported claims, prompt leakage and length. If generation fails, the default guidance remains. The LLM never sees raw SMS text, sender, OTP or full URL, and it cannot change the risk.</p>
+
+<h3>4.5 Android implementation</h3>
+<ul>
+  <li>Kotlin app (Android SDK 34, Java 21 toolchain), Gradle multi-module: <code>app</code>, <code>core</code> (feature extraction shared with tests), test/lab modules.</li>
+  <li>Models are exported to ExecuTorch <code>.pte</code> files and run with the XNNPACK CPU backend. The linear models (TF-IDF LR, n-gram LR) are re-implemented in Kotlin from exported weights.</li>
+  <li>Foreground capture service (root) for the network detector; a broadcast receiver for new carrier SMS (multipart messages are re-assembled); share/paste screen for any other text or link.</li>
+  <li>The app verifies SHA-256 hashes of model files at load time. Native self-check fixtures confirm the phone gives the same output as the PyTorch reference.</li>
+  <li>Llama runs in an isolated worker process, so a crash or out-of-memory event cannot stop detection.</li>
+  <li>Seven-day, user-clearable history; "Expected repeat" feedback with Undo for known benign repeats.</li>
+</ul>
+</section>
+
+<!-- ============ 5 ============ -->
+<section>
+<h2>5. Results</h2>
+<div class="note">Each number below names its test set. Offline benchmark, phone and synthetic results are reported separately and are <b>not</b> combined into one overall "app accuracy".</div>
+
+<h3>5.1 Network intrusion detection</h3>
+<table>
+  <caption>Table 1. CIC-IDS2017 offline benchmark, same stratified 70/30 split (test rows ≈ 850,000).</caption>
+  <tr><th>Model</th><th class="n">Accuracy</th><th class="n">Macro F1</th><th class="n">Attack recall</th><th class="n">Benign FPR</th></tr>
+  <tr><td>TSANet paper (reported)</td><td class="n">97.35%</td><td class="n">–</td><td class="n">–</td><td class="n">–</td></tr>
+  <tr><td>Our TSANet reconstruction</td><td class="n">97.03%</td><td class="n">0.766</td><td class="n">91.80%</td><td class="n">1.689%</td></tr>
+  <tr><td>Reconstruction, 30% pruned</td><td class="n">97.32%</td><td class="n">0.772</td><td class="n">95.25%</td><td class="n">2.164%</td></tr>
+  <tr><td><b>+ connection context (ours)</b></td><td class="n"><b>99.98%</b></td><td class="n"><b>0.981</b></td><td class="n"><b>99.93%</b></td><td class="n"><b>0.005%</b></td></tr>
+</table>
+<p>The context model is a development benchmark on a split that had already been used. It shows that context matters, but it does not measure performance on a phone. On the phone-aligned cascade trained with real Pixel data, the <b>held-out phone sessions</b> gave:</p>
+<table>
+  <caption>Table 2. Held-out real-phone test sessions (frozen model, augmented v1). The attacks are cleartext HTTP password guessing, SQL injection and XSS from our own lab, i.e. the same phone, PC and tooling as the phone training data; before that training the model detected 0 / 64. This shows adaptation to the phone, not detection of unseen attacks.</caption>
+  <tr><th>Metric</th><th class="n">Result</th></tr>
+  <tr><td>Web-attack segments flagged</td><td class="n">62 / 64 (96.9%)</td></tr>
+  <tr><td>Normal segments falsely flagged</td><td class="n">10 / 120 (8.3%)</td></tr>
+</table>
+<table>
+  <caption>Table 3. Live tests against the phone (21 Nov 2026), counted per connection. Each attack was confirmed by an independent target-side log. Full analysis: docs/ATTACK_TEST_AUDIT.md.</caption>
+  <tr><th>Case</th><th class="n">Connections flagged</th><th>Observation</th></tr>
+  <tr><td>TCP connect port scan (129 ports)</td><td class="n">510 / 512 segments</td><td>Detected; 437 segments labelled Port Scan</td></tr>
+  <tr><td>SSH brute force</td><td class="n">32 / 32</td><td><b>Not a valid detection:</b> normal SSH logins were also flagged (4 / 4)</td></tr>
+  <tr><td>FTP brute force</td><td class="n">29 / 32</td><td><b>Not a valid detection:</b> normal FTP logins also flagged (3 / 4)</td></tr>
+  <tr><td>Low-rate application DoS</td><td class="n">18 / 96</td><td>Missed in effect: only the 18 slow served requests were flagged, none of the 78 refused ones</td></tr>
+  <tr><td>Application DDoS (3 sources)</td><td class="n">0 / 96</td><td>Missed – known gap</td></tr>
+  <tr><td>Bot-like beacon</td><td class="n">0 / 12</td><td>Missed – known gap</td></tr>
+  <tr><td>Normal controls (2 runs)</td><td class="n">7 / 18</td><td>Successful SSH/FTP logins falsely flagged; all 10 normal HTTP probes quiet</td></tr>
+</table>
+<p>In a separate controlled port-scan run, the app grouped 504 flagged segments into 6 user-visible notifications, while 8 normal HTTP requests produced none. These tests show that scan detection works on a real phone. They also show what does not work yet. The model learned from CIC-IDS2017 that SSH/FTP traffic is almost always an attack, so it flags normal logins too. It missed low-rate DoS, DDoS and bot behaviour. We therefore claim only port-scan detection and lab web-attack detection on cleartext HTTP.</p>
+
+<h3>5.2 SMS scam detection</h3>
+<table>
+  <caption>Table 4. MobileBERT-22 on the 869-row held-out test set (archived evaluation; FP32 = full precision, PTQ = post-training INT8, QAT = quantization-aware training).</caption>
+  <tr><th>Model</th><th class="n">Accuracy</th><th class="n">Macro F1</th><th class="n">Smishing precision</th><th class="n">Smishing recall</th><th class="n">Size</th></tr>
+  <tr><td>FP32 checkpoint</td><td class="n">97.24%</td><td class="n">0.914</td><td class="n">77.97%</td><td class="n">93.88%</td><td class="n">87.5 MiB</td></tr>
+  <tr><td><b>PTQ INT8 .pte (deployed)</b></td><td class="n"><b>97.12%</b></td><td class="n"><b>0.909</b></td><td class="n"><b>78.57%</b></td><td class="n"><b>89.80%</b></td><td class="n"><b>35.5 MiB</b></td></tr>
+  <tr><td>QAT INT8 .pte</td><td class="n">96.78%</td><td class="n">0.891</td><td class="n">86.05%</td><td class="n">75.51%</td><td class="n">–</td></tr>
+</table>
+<div class="grid2">
+<div>
+<table>
+  <caption>Table 5. Deployed PTQ confusion matrix (rows = true, columns = predicted).</caption>
+  <tr><th></th><th class="n">ham</th><th class="n">spam</th><th class="n">smishing</th></tr>
+  <tr><th>ham (709)</th><td class="n">706</td><td class="n">0</td><td class="n">3</td></tr>
+  <tr><th>spam (111)</th><td class="n">8</td><td class="n">94</td><td class="n">9</td></tr>
+  <tr><th>smishing (49)</th><td class="n">0</td><td class="n">5</td><td class="n">44</td></tr>
+</table>
+</div>
+<div>
+<p style="margin-top:6pt">PTQ was chosen over QAT because it catches more scams (89.8% vs 75.5% smishing recall). For a safety app, a missed scam costs more than an extra review prompt. No smishing message was ever predicted as ham. On the phone, all 14 neural class checks matched the reference, and 230 authored scenario tests of the full SMS policy passed.</p>
+</div>
+</div>
+
+<h3>5.3 Phishing URL detection</h3>
+<table>
+  <caption>Table 6. URL models on the validation split (PR-AUC = area under precision–recall curve).</caption>
+  <tr><th>Model</th><th class="n">PR-AUC</th><th class="n">ROC-AUC</th><th class="n">Recall @ 1% FPR</th></tr>
+  <tr><td>Length-only shortcut probe</td><td class="n">0.611</td><td class="n">0.756</td><td class="n">35.9%</td></tr>
+  <tr><td>Structural features + boosted trees</td><td class="n">0.845</td><td class="n">0.949</td><td class="n">53.9%</td></tr>
+  <tr><td>Char n-gram LR</td><td class="n">0.914</td><td class="n">0.967</td><td class="n">72.7%</td></tr>
+  <tr><td>Hybrid char-CNN (3 seeds)</td><td class="n">0.929–0.935</td><td class="n">–</td><td class="n">74.9–78.8%</td></tr>
+  <tr><td><b>Calibrated ensemble (deployed, cross-fit)</b></td><td class="n"><b>0.938</b></td><td class="n"><b>0.976</b></td><td class="n">–</td></tr>
+</table>
+<p>At its chosen thresholds, the deployed ensemble catches <b>83.6%</b> of phishing URLs outright with a <b>0.50%</b> false-alarm rate. Only 5.4% of phishing URLs are wrongly called LIKELY SAFE; the rest are marked UNCERTAIN. The calibration error (ECE) is 0.0056.</p>
+<p><b>On-phone benchmark (Pixel 6a).</b> 2,048 URLs ran with 0 failures. On 218 URLs independently confirmed as phishing by PhishTank, the raw model flagged 172 (78.9%), marked 30 uncertain and called 16 likely safe. With the local threat list populated, all 218 were flagged. The public build ships an empty list, because feed redistribution is restricted. Kotlin and Python outputs matched to within 3×10<sup>-7</sup> in probability.</p>
+</section>
+
+<!-- ============ 6 ============ -->
+<section class="pb">
+<h2>6. Hardware utilization</h2>
+<h3>6.1 Hardware used</h3>
+<table>
+  <tr><th>Role</th><th>Hardware</th><th>Use</th></tr>
+  <tr><td>Target device</td><td>Google Pixel 6a – Google Tensor SoC, 8 CPU cores (ARM64), 5.46 GiB usable RAM, Mali GPU; rooted (Magisk) for packet capture</td><td>All inference, capture, notifications, measurements</td></tr>
+  <tr><td>Training workstation</td><td>NVIDIA RTX 2000 Ada (16 GB) GPU</td><td>CNN, MobileBERT and network model training (≈9 s per URL-CNN epoch)</td></tr>
+  <tr><td>Lab PCs</td><td>Two Windows PCs on the same Wi-Fi network</td><td>Controlled attack sources and target servers with independent logs</td></tr>
+</table>
+<p>All on-device inference runs on the <b>CPU through ExecuTorch's XNNPACK backend</b>. GPU counters were recorded, but no model ran on the GPU or NPU, so we claim no GPU/NPU speed-up.</p>
+
+<h3>6.2 Model footprint</h3>
+<table>
+  <tr><th>Model file</th><th class="n">Size</th><th class="n">Parameters</th><th>Loaded when</th></tr>
+  <tr><td>Network gate <code>aligned_v2_gate.pte</code></td><td class="n">82.8 KB</td><td class="n">18,913</td><td>Monitoring on</td></tr>
+  <tr><td>Network diagnosis <code>aligned_v2_diagnosis.pte</code></td><td class="n">949.8 KB</td><td class="n">173,721</td><td>Monitoring on</td></tr>
+  <tr><td>SMS Tier 1 (portable linear model)</td><td class="n">1.39 MB</td><td class="n">40,638</td><td>Every SMS</td></tr>
+  <tr><td>SMS Tier 2 <code>ptq_int8_b1.pte</code></td><td class="n">37.25 MB</td><td class="n">≈22.9 M</td><td>Only routed SMS (memory-mapped)</td></tr>
+  <tr><td>URL char-CNN <code>url_cnn.pte</code></td><td class="n">381 KB</td><td class="n">92,577</td><td>Link present</td></tr>
+  <tr><td>URL n-gram LR <code>ngram_lr.bin</code></td><td class="n">6.39 MB</td><td class="n">300,001</td><td>Link present</td></tr>
+  <tr><td>Llama 3.2 1B SpinQuant INT4 (optional download)</td><td class="n">1.136 GB</td><td class="n">≈1.2 B</td><td>Isolated worker, after a warning</td></tr>
+</table>
+
+<h3>6.3 Measured latency, CPU, memory and thermal (Pixel 6a)</h3>
+<table>
+  <tr><th>Measurement</th><th class="n">Result</th><th>Conditions</th></tr>
+  <tr><td>Network cascade inference (gate + diagnosis)</td><td class="n">1.18 ms median</td><td>5,040 paired calls, 1 thread, after optimisation (was 1.58 ms)</td></tr>
+  <tr><td>URL check (both models + rules)</td><td class="n">3.94 ms median, 5.31 ms p95</td><td>2,048 URLs; first cold call 704 ms (model load)</td></tr>
+  <tr><td>Plain factual warning text</td><td class="n">0.011 ms median</td><td>No language model involved</td></tr>
+  <tr><td>Llama guidance sentence (redesigned prompt)</td><td class="n">3.9 s warm / 14.6 s cold</td><td>Direct component test, 4 threads</td></tr>
+  <tr><td>App memory while monitoring</td><td class="n">≈52 MiB PSS</td><td>Plus 4.6 MiB for root capture process</td></tr>
+  <tr><td>Llama worker memory</td><td class="n">≈1.2–1.34 GiB PSS</td><td>Only while generating; isolated process</td></tr>
+  <tr><td>Llama worker CPU</td><td class="n">≈3 busy cores (~38% of 8)</td><td>During warm generation</td></tr>
+  <tr><td>Battery temperature during Llama</td><td class="n">39.4–41.9 °C</td><td>Whole device, production session</td></tr>
+  <tr><td>Monitor queue drops during tests</td><td class="n">0</td><td>Six production Llama trials</td></tr>
+</table>
+<p><b>Interpretation.</b> The three detectors use very little hardware: a few milliseconds of one CPU core per event, under 100 MiB of resident memory, and no network access. Nearly all the heavy cost comes from the optional LLM. That is why the warning is shown <i>before</i> the LLM runs, the LLM runs in a separate process, and it is only invoked after a suspicious result.</p>
+</section>
+
+<!-- ============ 7 ============ -->
+<section>
+<h2>7. Optimization techniques</h2>
+<table>
+  <tr><th>Technique</th><th>Where</th><th>Measured effect</th></tr>
+  <tr><td><b>Post-training INT8 quantization (PTQ)</b> with ExecuTorch/XNNPACK; FP32 kept for embeddings and attention</td><td>MobileBERT-22</td><td>87.5 MiB → 35.5 MiB (−59%); accuracy 97.24% → 97.12% (−0.12 pp)</td></tr>
+  <tr><td><b>QAT compared and rejected</b></td><td>MobileBERT-22</td><td>Higher smishing precision but recall fell to 75.5%; PTQ kept</td></tr>
+  <tr><td><b>Two-tier cascade routing</b>: cheap linear model + rules first, transformer only when needed; guarded routine OTP and bank messages exit early</td><td>SMS</td><td>Most normal SMS never load MobileBERT; evidence-backed warnings are posted before neural loading</td></tr>
+  <tr><td><b>Gate-then-diagnose cascade</b></td><td>Network</td><td>The 173k-parameter diagnosis model runs only on gate-positive connections</td></tr>
+  <tr><td><b>LSTM input-projection hoisting</b> (compute once over all 32 positions; keep only the used output)</td><td>Network diagnosis</td><td>1.583 → 1.182 ms median (−25.3%); CPU time −20%; file 950 → 921 KB; 0 decision changes over 2,351 saved phone inputs</td></tr>
+  <tr><td><b>Thread-count study</b></td><td>Network</td><td>1/2/4 threads gave no consistent gain for this small graph; 1 thread kept</td></tr>
+  <tr><td><b>Normalisation embedded in the exported model</b></td><td>Network</td><td>Removes a separate scaling step and train/serve mismatch</td></tr>
+  <tr><td><b>Memory-mapped loading, single thread, batch-1 export</b></td><td>SMS Tier 2</td><td>Low resident memory when idle; model pages loaded on demand</td></tr>
+  <tr><td><b>Lightweight linear models ported to Kotlin</b></td><td>SMS Tier 1, URL n-gram</td><td>No Python/scikit-learn on the phone; parity within 3×10<sup>-7</sup></td></tr>
+  <tr><td><b>Local list and shortener short-circuit</b></td><td>URL</td><td>A threat-list hit returns before loading the models</td></tr>
+  <tr><td><b>Facts-first notifications</b></td><td>All</td><td>User sees a useful warning in ≈0.01 ms of text assembly instead of waiting for the LLM</td></tr>
+  <tr><td><b>Prompt redesign</b>: the LLM rephrases only the guidance (72 instead of 172 prompt tokens, 16 instead of 115 output tokens)</td><td>Llama</td><td>21.05 s → 3.89 s warm (5.4× faster); CPU 93.4 → 18.4 CPU-seconds; accepted outputs 0/6 → 11/11</td></tr>
+  <tr><td><b>SpinQuant INT4 Llama 3.2 1B</b> in an isolated, warm-cached worker</td><td>Llama</td><td>Reuse removes 5.4 s checksum + 8.8 s load on warm calls; crashes cannot affect detection</td></tr>
+  <tr><td><b>Smaller LLM (SmolLM2-135M) and E8 lattice quantization tested and rejected</b></td><td>Llama / network</td><td>Faster, but advice quality failed (0/11) or decisions changed (278 binary flips); not deployed</td></tr>
+  <tr><td><b>Model pruning (30%)</b></td><td>TSANet baseline</td><td>Accuracy 97.03% → 97.32%, attack recall +3.4 pp</td></tr>
+</table>
+<p>The guiding rule was that an optimisation is accepted only if decisions are unchanged or improved on the frozen comparison set. Faster candidates that changed outputs were rejected even when they looked attractive.</p>
+</section>
+
+<!-- ============ 8 ============ -->
+<section>
+<h2>8. Privacy and safety design</h2>
+<ul>
+  <li><b>No INTERNET permission</b> in the APK: no cloud inference, no telemetry, and submitted URLs are never visited.</li>
+  <li>The SMS inbox is never read; only new carrier SMS (with user consent) or text the user shares or pastes.</li>
+  <li>History stores no raw SMS bodies, senders or OTPs. Saved links keep only the host, without path, query or credentials.</li>
+  <li>The LLM sees only approved facts and guidance, and its output is validated before display.</li>
+  <li>Every detector can be switched off independently. Network monitoring needs explicit root permission.</li>
+  <li>The public repository contains no datasets, private captures, messages, credentials or restricted feed snapshots.</li>
+</ul>
+
+<h2>9. Limitations</h2>
+<ul>
+  <li><b>Network:</b> normal SSH/FTP logins are flagged as often as brute-force attempts, so brute-force detection is not established. Web-attack cues only exist in plain HTTP (not HTTPS), and that class was tested on the same lab setup it was trained on. Low-rate DoS, DDoS and bot emulations were missed. The family label is often "Unclassified", and the network detector needs a rooted phone.</li>
+  <li><b>SMS:</b> the test set was used earlier in development, so it is a reused rather than a fresh hold-out. Coverage is mainly English; Hindi and code-mixed (Hinglish) messages were not separately evaluated. RCS, WhatsApp and other chat apps are only covered through share/paste.</li>
+  <li><b>URL:</b> on the 2,048-URL phone file, only 218 URLs have independent labels, so full-file precision cannot be computed. The model judges the URL text only, not page content. The public build ships an empty threat database.</li>
+  <li><b>LLM:</b> needs about 1.2 GiB RAM and a separate 1.06 GiB download. Cold start is slow (≈15 s), so it is optional.</li>
+  <li>A warning is a risk signal, not proof that the device is compromised. Rakshak does not block traffic automatically.</li>
+</ul>
+
+<h2>10. Future work</h2>
+<ul>
+  <li>Collect more labelled phone traffic for authentication, DDoS and bot classes, and add session-level (episode) features to reduce login false positives.</li>
+  <li>Add Hindi and code-mixed (Hinglish) SMS data, and evaluate on a fresh, never-seen test set of real reported scams.</li>
+  <li>Build an independently labelled benign + phishing URL test set, and add optional user-approved feed updates.</li>
+  <li>Try NPU/GPU delegates (e.g., Android NNAPI/Tensor) for MobileBERT and Llama, and measure energy per request.</li>
+  <li>Support a VPN-based capture mode so that network detection works without root.</li>
+</ul>
+
+<h2>11. Conclusion</h2>
+<p>Rakshak shows that three different security detectors (network, SMS and URL) can run together on an ordinary Android phone without sending any data to the cloud. Careful feature alignment let a research network model work on real phone traffic. INT8 quantization and cascading made a transformer SMS classifier practical on-device with almost no accuracy loss. A combined CNN/n-gram URL detector checks links in about 4 ms. Showing facts first and letting a small local LLM only rephrase the guidance makes warnings understandable without letting the LLM decide anything. We have documented both successes and failures, and the open-source repository contains the code, models, evidence and instructions needed to reproduce and extend the work.</p>
+
+<h2>12. References</h2>
+<ol class="small">
+  <li>I. Sharafaldin, A. H. Lashkari, A. A. Ghorbani, "Toward Generating a New Intrusion Detection Dataset and Intrusion Traffic Characterization," ICISSP 2018 (CIC-IDS2017, Canadian Institute for Cybersecurity).</li>
+  <li>T. A. Almeida, J. M. G. Hidalgo, A. Yamakami, "Contributions to the Study of SMS Spam Filtering," ACM DocEng 2011 (UCI SMS Spam Collection).</li>
+  <li>S. Mishra, D. Soni, LSDST-2022 SMS phishing dataset (ham / spam / smishing), 2022.</li>
+  <li>Z. Sun et al., "MobileBERT: a Compact Task-Agnostic BERT for Resource-Limited Devices," ACL 2020.</li>
+  <li>Meta AI, "Llama 3.2 1B Instruct (SpinQuant INT4 EO8)" model card and license, 2024.</li>
+  <li>PyTorch ExecuTorch documentation and XNNPACK backend, pytorch.org/executorch.</li>
+  <li>Malode et al., "A Lightweight Embedded Intelligent Threat Detection System Using TSANet on Android Platforms," ISED 2025, DOI 10.1109/ISED67359.2025.11404952.</li>
+  <li>PhishTank, OpenPhish, Tranco top-sites list, and Common Crawl URL index (data sources for URL training).</li>
+</ol>
+</section>
+
+<!-- ============ APPENDIX ============ -->
+<section class="pb">
+<h2>Appendix A. Repository layout and how to reproduce</h2>
+<pre>android/                 Kotlin Android app, shared feature extractor, lab modules
+components/sms/          SMS training, PTQ/QAT export, checkpoint, provenance
+components/phishing_url/ URL data pipeline, CNN/n-gram training, export, tests
+components/integration/  SMS + URL combination and shared explanations
+experiments/             Network: TSANet reconstruction, context, phone alignment
+models/                  Network reference models and Llama download manifest
+results/                 Saved evidence (aggregate JSON/Markdown, no raw data)
+docs/                    Setup, architecture, demo script, this report
+validation/, tests/      Phone validation tools and dataset-free unit tests</pre>
+<h3>Install the app</h3>
+<ol>
+  <li>Download <code>app-debug.apk</code> from the repository's GitHub Releases / Actions artifacts, or build it: <code>android/gradlew -p android :app:assembleDebug</code> (Java 21, Android SDK 34).</li>
+  <li>Install: <code>adb install -r app-debug.apk</code>, or open the APK on the phone.</li>
+  <li>Open Rakshak, enable <i>Automatically check incoming SMS and links</i>, and grant SMS and notification permissions. Network monitoring additionally needs a rooted phone.</li>
+  <li>Optional: download the Llama model as described in <code>docs/ANDROID_SETUP.md</code>.</li>
+</ol>
+<h3>Run the checks</h3>
+<pre>pip install -r requirements.txt
+python -m pytest tests -q
+python -m unittest validation.test_url_benchmark_metrics
+python reproduce.py paper --smoke</pre>
+<p>Continuous integration (GitHub Actions) runs the Python tests and a full Android build on every push. Full training needs the public datasets listed above; step-by-step commands are in <code>REPRODUCE.md</code>.</p>
+</section>
+
+</body>
+</html>
