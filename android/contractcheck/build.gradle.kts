@@ -30,7 +30,7 @@ val hybridSources=layout.buildDirectory.dir("generated/hybridSources")
 val hybridAssets=layout.buildDirectory.dir("generated/hybridAssets")
 android.sourceSets["main"].java.srcDir(hybridSources)
 android.sourceSets["main"].assets.srcDir(hybridAssets)
-val hybridInputs=listOf("TsanetExplanationFacts.kt","HybridActivityNote.kt","ObservationStore.kt","UidResolver.kt","NetworkObservationPolicy.kt","SafetyNote.kt","SafetyResults.kt")
+val hybridInputs=listOf("TsanetExplanationFacts.kt","HybridActivityNote.kt","ObservationStore.kt","UidResolver.kt","NetworkObservationPolicy.kt","SafetyNote.kt","SafetyResults.kt","ObservationNotifications.kt")
 val generateHybridSources=tasks.register("generateHybridSources"){
     val production=hybridInputs.map{file("../app/src/main/kotlin/nids/app/$it")}
     val contract=file("../app/src/androidTest/kotlin/nids/app/HybridNoteContract.kt")
